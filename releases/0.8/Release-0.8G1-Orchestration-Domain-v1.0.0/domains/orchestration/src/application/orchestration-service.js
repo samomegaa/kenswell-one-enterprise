@@ -1,6 +1,7 @@
 import {
   createOrchestrationExecution,
   createOrchestrationCheckpoint,
+  createOrchestrationOutcome,
   OrchestrationPlanStatus,
   OrchestrationExecutionStatus
 } from '../index.js';
@@ -186,6 +187,24 @@ export function createOrchestrationService(options = {}) {
       publish('orchestration.step.started', {
         executionId,
         stepKey: nextStep.key
+      });
+    } else {
+      execution.status = OrchestrationExecutionStatus.COMPLETED;
+      execution.completedAt = nowIso();
+      execution.updatedAt = execution.completedAt;
+
+      const outcome = createOrchestrationOutcome({
+        executionId,
+        status: 'SUCCESS',
+        summary: `Orchestration ${plan.name} completed`,
+        results: checkpoints.filter(item => item.executionId === executionId)
+      });
+
+      outcomes.push(outcome);
+
+      publish('orchestration.execution.completed', {
+        executionId,
+        outcomeId: outcome.id
       });
     }
 
