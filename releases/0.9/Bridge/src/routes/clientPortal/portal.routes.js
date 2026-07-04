@@ -2,6 +2,7 @@ const express = require('express');
 
 const {
   clientPortalController,
+  clientPortalDashboardController,
 } = require('../../controllers/clientPortal');
 
 const {
@@ -20,6 +21,7 @@ const router = express.Router();
 
 router.use(requireClientPortalAuth);
 
+router.get('/dashboard', clientPortalDashboardController.dashboard);
 router.get('/overview', clientPortalController.overview);
 router.get('/matters', clientPortalController.matters);
 router.get('/documents', clientPortalController.documents);
