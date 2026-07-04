@@ -9,13 +9,15 @@
     "bridge:check-repos": "cd releases/0.9/Bridge && DATABASE_URL=postgres://user:pass@localhost:5432/kenswell_one node -e \"const repos = require('./src/repositories/clientPortal'); console.log(Object.keys(repos));\"",
     "bridge:check-services": "cd releases/0.9/Bridge && DATABASE_URL=postgres://user:pass@localhost:5432/kenswell_one node -e \"const services = require('./src/services/clientPortal'); console.log(Object.keys(services));\"",
     "bridge:check-auth": "cd releases/0.9/Bridge && DATABASE_URL=postgres://user:pass@localhost:5432/kenswell_one CLIENT_PORTAL_JWT_SECRET=dev-secret node -e \"const auth = require('./src/auth/clientPortal'); console.log(Object.keys(auth));\"",
-    "bridge:check-workflows": "cd releases/0.9/Bridge && DATABASE_URL=postgres://user:pass@localhost:5432/kenswell_one CLIENT_PORTAL_JWT_SECRET=dev-secret node -e \"const workflows = require('./src/workflows/clientPortal'); console.log(Object.keys(workflows));\""
+    "bridge:check-workflows": "cd releases/0.9/Bridge && DATABASE_URL=postgres://user:pass@localhost:5432/kenswell_one CLIENT_PORTAL_JWT_SECRET=dev-secret node -e \"const workflows = require('./src/workflows/clientPortal'); console.log(Object.keys(workflows));\"",
+    "bridge:check-routes": "cd releases/0.9/Bridge && DATABASE_URL=postgres://user:pass@localhost:5432/kenswell_one CLIENT_PORTAL_JWT_SECRET=dev-secret node -e \"const routes = require('./src/routes/clientPortal'); console.log(typeof routes); console.log(routes.stack.length);\""
   },
   "engines": {
     "node": ">=20"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
+    "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.16.3",
     "pg-hstore": "^2.3.4",
