@@ -2,6 +2,7 @@ import {
   createOrchestrationExecution,
   createOrchestrationCheckpoint,
   createOrchestrationOutcome,
+  createWaitState,
   OrchestrationPlanStatus,
   OrchestrationExecutionStatus
 } from '../index.js';
@@ -22,6 +23,7 @@ export function createOrchestrationService(options = {}) {
   const executions = [];
   const checkpoints = [];
   const outcomes = [];
+  const waitStates = [];
 
   function publish(type, payload = {}) {
     const event = { type, payload, createdAt: nowIso() };
@@ -219,6 +221,44 @@ export function createOrchestrationService(options = {}) {
     return checkpoints.map(clone);
   }
 
+  function startWait(executionId, input = {}, actorId = 'system') {
+    const execution = executions.find(item => item.id === executionId);
+
+    if (!execution) {
+      throw new Error(`Orchestration execution not found: ${executionId}`);
+    }
+
+    const wait = createWaitState({
+      executionId,
+      type: input.type || 'APPROVAL',
+      reason: input.reason || 'Waiting',
+      metadata: {
+        ...(input.metadata || {}),
+        actorId
+      }
+    });
+
+    waitStates.push(wait);
+
+    execution.status = OrchestrationExecutionStatus.WAITING;
+    execution.updatedAt = nowIso();
+
+    publish('orchestration.wait.started', {
+      executionId,
+      waitStateId: wait.id,
+      type: wait.type,
+      reason: wait.reason
+    });
+
+    return clone(wait);
+  }
+
+  function listWaitStates(executionId = null) {
+    return waitStates
+      .filter(item => !executionId || item.executionId === executionId)
+      .map(clone);
+  }
+
   function listOutcomes() {
     return outcomes.map(clone);
   }
@@ -237,6 +277,8 @@ export function createOrchestrationService(options = {}) {
     completeStep,
     listCheckpoints,
     listOutcomes,
+    startWait,
+    listWaitStates,
     registerStepHandler
   };
 }

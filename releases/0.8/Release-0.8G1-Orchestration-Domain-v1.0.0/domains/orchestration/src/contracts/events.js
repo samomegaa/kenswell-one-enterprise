@@ -7,5 +7,7 @@ export const OrchestrationEvents = Object.freeze({
   STEP_FAILED: 'orchestration.step.failed',
   CHECKPOINT_RECORDED: 'orchestration.checkpoint.recorded',
   EXECUTION_COMPLETED: 'orchestration.execution.completed',
-  EXECUTION_FAILED: 'orchestration.execution.failed'
+  EXECUTION_FAILED: 'orchestration.execution.failed',
+  WAIT_STARTED: 'orchestration.wait.started',
+  WAIT_RESUMED: 'orchestration.wait.resumed'
 });
