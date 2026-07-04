@@ -1,0 +1,11 @@
+const CLIENT_PORTAL_AUTH = Object.freeze({
+  TOKEN_TYPE: 'client_portal',
+  DEFAULT_SESSION_EXPIRY: '8h',
+  INVITATION_EXPIRY_HOURS: 72,
+  MAX_FAILED_LOGIN_ATTEMPTS: 5,
+  LOCK_MINUTES: 15,
+});
+
+module.exports = {
+  CLIENT_PORTAL_AUTH,
+};

@@ -7,15 +7,17 @@
   "scripts": {
     "test": "node --test",
     "bridge:check-repos": "cd releases/0.9/Bridge && DATABASE_URL=postgres://user:pass@localhost:5432/kenswell_one node -e \"const repos = require('./src/repositories/clientPortal'); console.log(Object.keys(repos));\"",
-    "bridge:check-services": "cd releases/0.9/Bridge && DATABASE_URL=postgres://user:pass@localhost:5432/kenswell_one node -e \"const services = require('./src/services/clientPortal'); console.log(Object.keys(services));\""
+    "bridge:check-services": "cd releases/0.9/Bridge && DATABASE_URL=postgres://user:pass@localhost:5432/kenswell_one node -e \"const services = require('./src/services/clientPortal'); console.log(Object.keys(services));\"",
+    "bridge:check-auth": "cd releases/0.9/Bridge && DATABASE_URL=postgres://user:pass@localhost:5432/kenswell_one CLIENT_PORTAL_JWT_SECRET=dev-secret node -e \"const auth = require('./src/auth/clientPortal'); console.log(Object.keys(auth));\""
   },
   "engines": {
     "node": ">=20"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "jsonwebtoken": "^9.0.3",
     "pg": "^8.16.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.7"
-  },
-  "devDependencies": {}
+  }
 }
