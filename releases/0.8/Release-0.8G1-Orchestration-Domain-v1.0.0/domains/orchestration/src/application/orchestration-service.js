@@ -3,6 +3,8 @@ import {
   createOrchestrationCheckpoint,
   createOrchestrationOutcome,
   createWaitState,
+  createApprovalRequest,
+  ApprovalStatus,
   OrchestrationPlanStatus,
   OrchestrationExecutionStatus
 } from '../index.js';
@@ -24,6 +26,7 @@ export function createOrchestrationService(options = {}) {
   const checkpoints = [];
   const outcomes = [];
   const waitStates = [];
+  const approvalRequests = [];
 
   function publish(type, payload = {}) {
     const event = { type, payload, createdAt: nowIso() };
@@ -292,6 +295,83 @@ export function createOrchestrationService(options = {}) {
       .map(clone);
   }
 
+  function requestApproval(executionId, input = {}, actorId = 'system') {
+    const execution = executions.find(item => item.id === executionId);
+
+    if (!execution) {
+      throw new Error(`Orchestration execution not found: ${executionId}`);
+    }
+
+    const approval = createApprovalRequest({
+      executionId,
+      stepKey: input.stepKey || execution.currentStepKey,
+      requestedFrom: input.requestedFrom || null,
+      requestedBy: actorId,
+      dueAt: input.dueAt || null,
+      notes: input.notes || null,
+      metadata: input.metadata || {}
+    });
+
+    approvalRequests.push(approval);
+
+    startWait(executionId, {
+      type: 'APPROVAL',
+      reason: input.reason || `Awaiting approval for ${approval.stepKey}`,
+      metadata: {
+        approvalRequestId: approval.id
+      }
+    }, actorId);
+
+    publish('orchestration.approval.requested', {
+      executionId,
+      approvalRequestId: approval.id,
+      stepKey: approval.stepKey,
+      requestedFrom: approval.requestedFrom
+    });
+
+    return clone(approval);
+  }
+
+  function decideApproval(approvalRequestId, decision = {}, actorId = 'system') {
+    const approval = approvalRequests.find(item => item.id === approvalRequestId);
+
+    if (!approval) {
+      throw new Error(`Approval request not found: ${approvalRequestId}`);
+    }
+
+    const approved = decision.type === 'APPROVE';
+
+    approval.status = approved ? ApprovalStatus.APPROVED : ApprovalStatus.REJECTED;
+    approval.updatedAt = nowIso();
+    approval.metadata = {
+      ...(approval.metadata || {}),
+      decidedBy: actorId,
+      decision
+    };
+
+    const execution = resumeExecution(approval.executionId, actorId, {
+      approvalRequestId,
+      decision
+    });
+
+    publish(approved ? 'orchestration.approval.approved' : 'orchestration.approval.rejected', {
+      executionId: approval.executionId,
+      approvalRequestId,
+      actorId
+    });
+
+    return {
+      approval: clone(approval),
+      execution
+    };
+  }
+
+  function listApprovalRequests(executionId = null) {
+    return approvalRequests
+      .filter(item => !executionId || item.executionId === executionId)
+      .map(clone);
+  }
+
   function listOutcomes() {
     return outcomes.map(clone);
   }
@@ -312,6 +392,9 @@ export function createOrchestrationService(options = {}) {
     listOutcomes,
     startWait,
     resumeExecution,
+    requestApproval,
+    decideApproval,
+    listApprovalRequests,
     listWaitStates,
     registerStepHandler
   };
