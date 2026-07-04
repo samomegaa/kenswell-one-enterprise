@@ -24,3 +24,4 @@ export * from './domain/deadline.js';
 export * from './domain/sla-breach.js';
 export * from './application/sla-engine.js';
 export * from './application/escalation-engine.js';
+export * from './application/deadline-monitor.js';
