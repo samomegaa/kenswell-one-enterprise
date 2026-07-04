@@ -253,6 +253,39 @@ export function createOrchestrationService(options = {}) {
     return clone(wait);
   }
 
+  function resumeExecution(executionId, actorId = 'system', metadata = {}) {
+    const execution = executions.find(item => item.id === executionId);
+
+    if (!execution) {
+      throw new Error(`Orchestration execution not found: ${executionId}`);
+    }
+
+    const activeWait = [...waitStates]
+      .reverse()
+      .find(item => item.executionId === executionId && !item.resumedAt);
+
+    if (activeWait) {
+      activeWait.resumedAt = nowIso();
+      activeWait.updatedAt = activeWait.resumedAt;
+      activeWait.metadata = {
+        ...(activeWait.metadata || {}),
+        resumedBy: actorId,
+        resumeMetadata: metadata
+      };
+    }
+
+    execution.status = OrchestrationExecutionStatus.RUNNING;
+    execution.updatedAt = nowIso();
+
+    publish('orchestration.wait.resumed', {
+      executionId,
+      waitStateId: activeWait?.id || null,
+      actorId
+    });
+
+    return clone(execution);
+  }
+
   function listWaitStates(executionId = null) {
     return waitStates
       .filter(item => !executionId || item.executionId === executionId)
@@ -278,6 +311,7 @@ export function createOrchestrationService(options = {}) {
     listCheckpoints,
     listOutcomes,
     startWait,
+    resumeExecution,
     listWaitStates,
     registerStepHandler
   };
