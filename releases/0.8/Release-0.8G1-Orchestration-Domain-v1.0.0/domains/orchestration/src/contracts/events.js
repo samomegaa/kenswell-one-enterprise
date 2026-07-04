@@ -1,0 +1,11 @@
+export const OrchestrationEvents = Object.freeze({
+  PLAN_CREATED: 'orchestration.plan.created',
+  PLAN_ACTIVATED: 'orchestration.plan.activated',
+  EXECUTION_STARTED: 'orchestration.execution.started',
+  STEP_STARTED: 'orchestration.step.started',
+  STEP_COMPLETED: 'orchestration.step.completed',
+  STEP_FAILED: 'orchestration.step.failed',
+  CHECKPOINT_RECORDED: 'orchestration.checkpoint.recorded',
+  EXECUTION_COMPLETED: 'orchestration.execution.completed',
+  EXECUTION_FAILED: 'orchestration.execution.failed'
+});
