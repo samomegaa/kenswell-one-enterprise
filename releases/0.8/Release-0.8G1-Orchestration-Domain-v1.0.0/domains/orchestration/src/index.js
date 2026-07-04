@@ -9,3 +9,4 @@ export * from './domain/orchestration-checkpoint.js';
 export * from './domain/orchestration-execution.js';
 export * from './domain/orchestration-outcome.js';
 export * from './contracts/events.js';
+export * from './application/orchestration-service.js';
