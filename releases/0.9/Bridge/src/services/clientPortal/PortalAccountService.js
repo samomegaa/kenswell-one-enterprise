@@ -25,12 +25,27 @@ class PortalAccountService {
     });
   }
 
+  async findById(accountId) {
+    return portalAccountRepository.findById(accountId);
+  }
+
   async findByEmail(email) {
     return portalAccountRepository.findByEmail(email);
   }
 
   async findByInvitationToken(token) {
     return portalAccountRepository.findByInvitationToken(token);
+  }
+
+  async refreshInvitation(accountId, expiresInHours = 72) {
+    const invitationToken = crypto.randomBytes(32).toString('hex');
+    const invitationExpiresAt = new Date(Date.now() + expiresInHours * 60 * 60 * 1000);
+
+    return portalAccountRepository.update(accountId, {
+      invitationToken,
+      invitationExpiresAt,
+      status: 'invited',
+    });
   }
 
   async activateAccount(accountId, passwordHash) {
