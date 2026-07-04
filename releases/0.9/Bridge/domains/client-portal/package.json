@@ -1,0 +1,9 @@
+{
+  "name": "@kenswell/domain-client-portal",
+  "version": "9.0.0",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  }
+}
