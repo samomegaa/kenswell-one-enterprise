@@ -17,3 +17,4 @@ export * from './domain/wait-state.js';
 export * from './domain/approval-types.js';
 export * from './domain/approval-request.js';
 export * from './domain/wait-state.js';
+export * from './domain/parallel-group.js';
