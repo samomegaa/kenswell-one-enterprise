@@ -1,5 +1,6 @@
 import {
   createOrchestrationExecution,
+  createOrchestrationCheckpoint,
   OrchestrationPlanStatus,
   OrchestrationExecutionStatus
 } from '../index.js';
@@ -117,6 +118,80 @@ export function createOrchestrationService(options = {}) {
     return clone(execution);
   }
 
+  async function runStep(step, context) {
+    const handler = stepHandlers.get(step.type) || stepHandlers.get(step.key);
+
+    if (!handler) {
+      return {
+        status: 'SKIPPED',
+        reason: `No handler registered for step ${step.key}`
+      };
+    }
+
+    return handler(step, context);
+  }
+
+  async function completeStep(executionId, stepKey, actorId = 'system', payload = {}) {
+    const execution = executions.find(item => item.id === executionId);
+
+    if (!execution) {
+      throw new Error(`Orchestration execution not found: ${executionId}`);
+    }
+
+    const plan = getPlan(execution.planId);
+
+    if (!plan) {
+      throw new Error(`Orchestration plan not found: ${execution.planId}`);
+    }
+
+    const step = plan.steps.find(item => item.key === stepKey);
+
+    if (!step) {
+      throw new Error(`Orchestration step not found: ${stepKey}`);
+    }
+
+    const result = await runStep(step, { execution, plan, payload, actorId });
+
+    execution.completedSteps = [...new Set([...(execution.completedSteps || []), stepKey])];
+    execution.currentStepKey = null;
+    execution.updatedAt = nowIso();
+
+    const checkpoint = createOrchestrationCheckpoint({
+      executionId,
+      stepKey,
+      status: result.status || 'COMPLETED',
+      payload: result,
+      metadata: { actorId }
+    });
+
+    checkpoints.push(checkpoint);
+
+    publish('orchestration.step.completed', {
+      executionId,
+      stepKey,
+      result
+    });
+
+    publish('orchestration.checkpoint.recorded', {
+      executionId,
+      checkpointId: checkpoint.id,
+      stepKey
+    });
+
+    const nextStep = getNextStep(plan, execution);
+
+    if (nextStep) {
+      execution.currentStepKey = nextStep.key;
+
+      publish('orchestration.step.started', {
+        executionId,
+        stepKey: nextStep.key
+      });
+    }
+
+    return clone(execution);
+  }
+
   function listExecutions() {
     return executions.map(clone);
   }
@@ -140,6 +215,7 @@ export function createOrchestrationService(options = {}) {
     listExecutions,
     getExecution,
     startExecution,
+    completeStep,
     listCheckpoints,
     listOutcomes,
     registerStepHandler
