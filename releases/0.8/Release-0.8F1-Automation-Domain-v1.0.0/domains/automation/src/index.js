@@ -8,3 +8,4 @@ export * from './domain/automation-action.js';
 export * from './domain/automation-rule.js';
 export * from './domain/automation-execution.js';
 export * from './contracts/events.js';
+export * from './application/automation-service.js';
