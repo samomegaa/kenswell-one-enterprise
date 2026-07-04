@@ -1,6 +1,6 @@
-const {
-  auditService,
-} = require('./index');
+const AuditService = require('./AuditService');
+
+const auditService = new AuditService();
 
 function auditEvent(event, buildData = null) {
   return async function auditEventMiddleware(req, res, next) {
@@ -11,7 +11,6 @@ function auditEvent(event, buildData = null) {
           await auditService.logFromRequest(req, event, data);
         }
       } catch (error) {
-        // Audit logging must never break the main request lifecycle.
         if (process.env.NODE_ENV !== 'production') {
           console.error('Audit logging failed:', error.message);
         }
