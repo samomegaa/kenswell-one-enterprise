@@ -77,6 +77,19 @@ export function createOrchestrationService(options = {}) {
       }) || null;
   }
 
+  function getReadySteps(plan, execution) {
+    const completed = new Set(execution.completedSteps || []);
+    const active = new Set(execution.activeStepKeys || []);
+
+    return [...(plan.steps || [])]
+      .sort((a, b) => a.order - b.order)
+      .filter(step => {
+        if (completed.has(step.key)) return false;
+        if (active.has(step.key)) return false;
+        return (step.dependsOn || []).every(key => completed.has(key));
+      });
+  }
+
   async function startExecution(input = {}, actorId = 'system') {
     const plan = getPlan(input.planId || input.planKey);
 
@@ -104,6 +117,7 @@ export function createOrchestrationService(options = {}) {
 
     if (nextStep) {
       execution.currentStepKey = nextStep.key;
+      execution.activeStepKeys = [nextStep.key];
     }
 
     executions.push(execution);
@@ -184,16 +198,27 @@ export function createOrchestrationService(options = {}) {
       stepKey
     });
 
-    const nextStep = getNextStep(plan, execution);
+    execution.activeStepKeys = (execution.activeStepKeys || []).filter(key => key !== stepKey);
 
-    if (nextStep) {
-      execution.currentStepKey = nextStep.key;
+    const readySteps = getReadySteps(plan, execution);
 
-      publish('orchestration.step.started', {
-        executionId,
-        stepKey: nextStep.key
-      });
-    } else {
+    if (readySteps.length > 0) {
+      execution.activeStepKeys = [
+        ...new Set([
+          ...(execution.activeStepKeys || []),
+          ...readySteps.map(step => step.key)
+        ])
+      ];
+
+      execution.currentStepKey = execution.activeStepKeys[0] || null;
+
+      for (const readyStep of readySteps) {
+        publish('orchestration.step.started', {
+          executionId,
+          stepKey: readyStep.key
+        });
+      }
+    } else if ((execution.activeStepKeys || []).length === 0) {
       execution.status = OrchestrationExecutionStatus.COMPLETED;
       execution.completedAt = nowIso();
       execution.updatedAt = execution.completedAt;
@@ -386,6 +411,7 @@ export function createOrchestrationService(options = {}) {
     getPlan,
     listExecutions,
     getExecution,
+    getReadySteps,
     startExecution,
     completeStep,
     listCheckpoints,
