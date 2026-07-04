@@ -18,3 +18,7 @@ export * from './domain/approval-types.js';
 export * from './domain/approval-request.js';
 export * from './domain/wait-state.js';
 export * from './domain/parallel-group.js';
+export * from './domain/sla-types.js';
+export * from './domain/sla-policy.js';
+export * from './domain/deadline.js';
+export * from './domain/sla-breach.js';
