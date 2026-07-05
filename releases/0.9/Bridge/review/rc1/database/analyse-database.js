@@ -29,7 +29,7 @@ const modelIndex = fs.existsSync(path.join(modelsDir, 'index.js'))
 for (const model of models) {
   const modelName = model.replace('.js', '');
 
-  if (!modelIndex.includes(`./${modelName}`) && !modelIndex.includes(`'${modelName}'`) && !modelIndex.includes(`"${modelName}"`)) {
+  if (!modelIndex.includes(`require('./${modelName}')`) && !modelIndex.includes(`${modelName},`)) {
     report.warnings.push({
       type: 'model_registration',
       message: `${modelName} may not be registered in src/database/models/index.js`,
