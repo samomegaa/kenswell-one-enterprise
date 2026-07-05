@@ -37,7 +37,9 @@
     "bridge:rc1:package-hygiene": "node releases/0.9/Bridge/scripts/check-package-hygiene.js",
     "bridge:rc1:smoke-full": "node releases/0.9/Bridge/scripts/rc1-smoke-test.js",
     "bridge:rc1:docs": "node releases/0.9/Bridge/review/rc1/testing/verify-documentation.js",
-    "bridge:rc2:config": "node releases/0.9/Bridge/review/rc2/config/verify-config-layer.js"
+    "bridge:rc2:config": "node releases/0.9/Bridge/review/rc2/config/verify-config-layer.js",
+    "bridge:rc2:bootstrap": "cd releases/0.9/Bridge && DATABASE_URL=postgres://user:pass@localhost:5432/kenswell_one CLIENT_PORTAL_JWT_SECRET=development-secret-long-enough node review/rc2/bootstrap/verify-bootstrap.js",
+    "bridge:start": "cd releases/0.9/Bridge && node src/server.js"
   },
   "engines": {
     "node": ">=20"
