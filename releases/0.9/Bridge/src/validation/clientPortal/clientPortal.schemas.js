@@ -63,6 +63,36 @@ const sendMessageBodySchema = z.object({
   body: z.string().min(1),
 });
 
+const documentIdParamSchema = z.object({
+  documentId: uuid,
+});
+
+const requestDocumentBodySchema = z.object({
+  firmId: uuid,
+  clientId: uuid,
+  matterId: uuid,
+  title: z.string().min(2),
+  description: z.string().optional().nullable(),
+  visibility: z.enum(['internal_only', 'client_visible', 'client_uploaded']).optional(),
+  requestedByUserId: uuid.optional().nullable(),
+});
+
+const uploadDocumentMetadataBodySchema = z.object({
+  fileKey: z.string().min(1),
+  fileName: z.string().min(1),
+  mimeType: z.string().min(1),
+  sizeBytes: z.number().int().positive().optional().nullable(),
+});
+
+const reviewDocumentBodySchema = z.object({
+  reviewedByUserId: uuid,
+});
+
+const rejectDocumentBodySchema = z.object({
+  reviewedByUserId: uuid,
+  reason: z.string().optional().nullable(),
+});
+
 module.exports = {
   tokenParamSchema,
   accountIdParamSchema,
@@ -74,4 +104,9 @@ module.exports = {
   inviteNewClientBodySchema,
   resendInvitationBodySchema,
   sendMessageBodySchema,
+  documentIdParamSchema,
+  requestDocumentBodySchema,
+  uploadDocumentMetadataBodySchema,
+  reviewDocumentBodySchema,
+  rejectDocumentBodySchema,
 };
