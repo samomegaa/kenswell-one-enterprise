@@ -2,8 +2,6 @@
 
 ## Success Response
 
-All successful API responses should use:
-
 ```json
 {
   "success": true,
