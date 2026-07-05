@@ -4,6 +4,7 @@ const clientPortalRoutes = require('../routes/clientPortal');
 
 const {
   errorHandler,
+  notFoundHandler,
   requestId,
   requestLogger,
   rateLimit,
@@ -51,6 +52,7 @@ function createApp({ config, logger = null }) {
     clientPortalRoutes
   );
 
+  app.use(notFoundHandler);
   app.use(errorHandler);
 
   app.locals.healthService = healthService;
