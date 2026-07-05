@@ -63,15 +63,64 @@ export const clientPortalApi = {
     return request('/messages');
   },
 
+  sendMessage(payload) {
+    return request('/messages', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    });
+  },
+
+  markMessageRead(messageId) {
+    return request(`/messages/${messageId}/read`, {
+      method: 'PATCH',
+      body: JSON.stringify({}),
+    });
+  },
+
   tasks() {
     return request('/tasks');
+  },
+
+  completeTask(taskId) {
+    return request(`/tasks/${taskId}/complete`, {
+      method: 'PATCH',
+      body: JSON.stringify({}),
+    });
   },
 
   approvals() {
     return request('/approvals');
   },
 
+  approveRequest(approvalId, payload = {}) {
+    return request(`/approvals/${approvalId}/approve`, {
+      method: 'PATCH',
+      body: JSON.stringify(payload),
+    });
+  },
+
+  rejectRequest(approvalId, payload = {}) {
+    return request(`/approvals/${approvalId}/reject`, {
+      method: 'PATCH',
+      body: JSON.stringify(payload),
+    });
+  },
+
   activity() {
     return request('/activity');
+  },
+
+  prepareUpload(payload) {
+    return request('/files/prepare-upload', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    });
+  },
+
+  confirmUpload(fileAssetId, payload = {}) {
+    return request(`/files/${fileAssetId}/confirm`, {
+      method: 'PATCH',
+      body: JSON.stringify(payload),
+    });
   },
 };

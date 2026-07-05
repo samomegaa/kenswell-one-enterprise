@@ -339,3 +339,53 @@ button {
     flex-direction: column;
   }
 }
+
+.form-panel {
+  margin-bottom: 24px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 120px;
+  border: 1px solid #d9e0ec;
+  border-radius: 12px;
+  padding: 13px 14px;
+  font: inherit;
+  resize: vertical;
+}
+
+.row-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.small-button {
+  padding: 8px 11px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.small-button.danger {
+  background: #9f1239;
+}
+
+.prepared-upload {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .row-actions,
+  .prepared-upload {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
