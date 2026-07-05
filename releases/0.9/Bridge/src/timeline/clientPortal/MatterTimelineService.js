@@ -14,13 +14,18 @@ const {
   auditLogRepository,
 } = require('../../repositories/audit');
 
+const {
+  clientApprovalRepository,
+} = require('../../repositories/approvals');
+
 class MatterTimelineService {
   async getMatterTimeline({ clientId, matterId, limit = 50 }) {
-    const [documents, messages, notifications, auditLogs] = await Promise.all([
+    const [documents, messages, notifications, auditLogs, approvals] = await Promise.all([
       portalDocumentRepository.findByMatterId(matterId),
       portalMessageRepository.findByMatterId(matterId),
       notificationRepository.findByClient(clientId),
       auditLogRepository.findByResource('portal_matter', matterId),
+      clientApprovalRepository.findByMatter(matterId),
     ]);
 
     const documentEvents = documents.map((document) => ({
@@ -68,6 +73,21 @@ class MatterTimelineService {
         },
       }));
 
+    const approvalEvents = approvals.map((approval) => ({
+      id: `approval:${approval.id}`,
+      type: 'approval',
+      event: `approval_${approval.status}`,
+      title: approval.title,
+      resourceType: 'client_approval',
+      resourceId: approval.id,
+      createdAt: approval.updatedAt || approval.createdAt,
+      metadata: {
+        status: approval.status,
+        approvalType: approval.type,
+        documentId: approval.documentId,
+      },
+    }));
+
     const auditEvents = auditLogs.map((log) => ({
       id: `audit:${log.id}`,
       type: 'audit',
@@ -79,7 +99,7 @@ class MatterTimelineService {
       metadata: log.metadata || {},
     }));
 
-    return [...documentEvents, ...messageEvents, ...notificationEvents, ...auditEvents]
+    return [...documentEvents, ...messageEvents, ...notificationEvents, ...approvalEvents, ...auditEvents]
       .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
       .slice(0, limit);
   }

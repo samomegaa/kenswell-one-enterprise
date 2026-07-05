@@ -8,4 +8,5 @@ module.exports = {
   clientPortalTimelineController: require('./ClientPortalTimelineController'),
   clientPortalFileController: require('./ClientPortalFileController'),
   clientPortalTaskController: require('./ClientPortalTaskController'),
+  clientPortalApprovalController: require('./ClientPortalApprovalController'),
 };

@@ -148,6 +148,27 @@ const createClientTaskBodySchema = z.object({
   metadata: z.record(z.any()).optional(),
 });
 
+const approvalIdParamSchema = z.object({
+  approvalId: uuid,
+});
+
+const createClientApprovalBodySchema = z.object({
+  firmId: uuid,
+  clientId: uuid,
+  matterId: uuid.optional().nullable(),
+  documentId: uuid.optional().nullable(),
+  title: z.string().min(2),
+  description: z.string().optional().nullable(),
+  type: z.enum(['general', 'document_approval', 'terms_acceptance', 'instruction_confirmation', 'fee_approval']).optional(),
+  requestedByUserId: uuid.optional().nullable(),
+  expiresAt: z.string().datetime().optional().nullable(),
+  metadata: z.record(z.any()).optional(),
+});
+
+const decideClientApprovalBodySchema = z.object({
+  decisionNote: z.string().optional().nullable(),
+});
+
 module.exports = {
   tokenParamSchema,
   accountIdParamSchema,
@@ -172,4 +193,7 @@ module.exports = {
   confirmFileUploadBodySchema,
   taskIdParamSchema,
   createClientTaskBodySchema,
+  approvalIdParamSchema,
+  createClientApprovalBodySchema,
+  decideClientApprovalBodySchema,
 };
