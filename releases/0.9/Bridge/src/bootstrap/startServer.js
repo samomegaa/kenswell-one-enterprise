@@ -12,7 +12,7 @@ const {
 
 function startServer({ config = getConfig(), logger = null } = {}) {
   const runtimeLogger = logger || createLogger(config.logging);
-  const app = createApp({ config });
+  const app = createApp({ config, logger: runtimeLogger });
 
   const server = app.listen(config.app.port, () => {
     app.locals.healthService.markReady();
