@@ -50,7 +50,9 @@
     "bridge:rc2:docker": "node releases/0.9/Bridge/review/rc2/deployment/verify-docker-packaging.js",
     "bridge:rc2:deployment": "node releases/0.9/Bridge/review/rc2/deployment/verify-deployment-automation.js",
     "bridge:rc2:proxy": "node releases/0.9/Bridge/review/rc2/proxy/verify-proxy-config.js",
-    "bridge:rc2:ci": "node releases/0.9/Bridge/review/rc2/cicd/verify-ci-pipeline.js"
+    "bridge:rc2:ci": "node releases/0.9/Bridge/review/rc2/cicd/verify-ci-pipeline.js",
+    "bridge:release:version": "node releases/0.9/Bridge/release/print-release-version.js",
+    "bridge:rc2:release": "node releases/0.9/Bridge/review/rc2/release/verify-release-metadata.js"
   },
   "engines": {
     "node": ">=20"
