@@ -1,3 +1,5 @@
+import { clearSession } from '../api/authStore';
+
 import {
   Activity,
   CheckSquare,
@@ -42,7 +44,7 @@ export default function ClientPortalLayout({ children }) {
           })}
         </nav>
 
-        <button className="logout-button">
+        <button className="logout-button" onClick={() => { clearSession(); window.location.hash = '/login'; window.location.reload(); }}>
           <LogOut size={18} />
           Sign out
         </button>

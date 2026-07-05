@@ -25,7 +25,12 @@ async function request(path, options = {}) {
   const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    throw new Error(data.error || data?.error?.message || 'Request failed');
+    const message =
+      typeof data.error === 'string'
+        ? data.error
+        : data?.error?.message || 'Request failed';
+
+    throw new Error(message);
   }
 
   return data;

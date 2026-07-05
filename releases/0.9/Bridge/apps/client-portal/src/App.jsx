@@ -7,6 +7,7 @@ import MessagesPage from './pages/MessagesPage';
 import TasksPage from './pages/TasksPage';
 import ApprovalsPage from './pages/ApprovalsPage';
 import ActivityPage from './pages/ActivityPage';
+import { isAuthenticated } from './api/authStore';
 
 function getRoute() {
   return window.location.hash.replace('#', '') || '/dashboard';
@@ -29,6 +30,11 @@ export default function App() {
 
   if (route === '/login' || route === '/activate') {
     return renderPage(route);
+  }
+
+  if (!isAuthenticated()) {
+    window.location.hash = '/login';
+    return <LoginPage />;
   }
 
   return (
