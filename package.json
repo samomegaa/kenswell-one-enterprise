@@ -67,7 +67,8 @@
     "bridge:rc3:ga": "npm run bridge:rc3:readiness && npm run bridge:rc2:ci && npm run bridge:rc1:smoke-full",
     "enterprise:1.0:a1": "node review/1.0/A1/verify-enterprise-structure.js",
     "enterprise:1.0:a2": "node review/1.0/A2/verify-module-registry.js",
-    "enterprise:1.0:a3": "node review/1.0/A3/verify-feature-flags.js"
+    "enterprise:1.0:a3": "node review/1.0/A3/verify-feature-flags.js",
+    "enterprise:1.0:a4": "node review/1.0/A4/verify-event-bus.js"
   },
   "engines": {
     "node": ">=20"
