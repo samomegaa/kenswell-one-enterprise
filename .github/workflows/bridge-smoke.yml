@@ -1,0 +1,53 @@
+name: Bridge Smoke Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  bridge-smoke:
+    name: Bridge Smoke Checks
+    runs-on: ubuntu-latest
+
+    env:
+      NODE_ENV: test
+      DATABASE_URL: postgres://user:pass@localhost:5432/kenswell_one
+      CLIENT_PORTAL_JWT_SECRET: development-secret-long-enough
+      CLIENT_PORTAL_ALLOWED_ORIGINS: http://localhost:5174
+      CLIENT_PORTAL_PUBLIC_URL: http://localhost:5174
+      CLIENT_PORTAL_API_BASE_PATH: /api/client-portal
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install client portal dependencies
+        run: npm run bridge:client-portal:install
+
+      - name: RC2 checks
+        run: |
+          npm run bridge:rc2:config
+          npm run bridge:rc2:bootstrap
+          npm run bridge:rc2:logging
+          npm run bridge:rc2:http
+          npm run bridge:rc2:http-security
+          npm run bridge:rc2:errors
+          npm run bridge:rc2:api-contract
+          npm run bridge:rc2:docker
+          npm run bridge:rc2:deployment
+          npm run bridge:rc2:proxy
+          npm run bridge:rc1:smoke-full
