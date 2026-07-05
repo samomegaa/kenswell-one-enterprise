@@ -7,4 +7,5 @@ module.exports = {
   clientPortalMessageController: require('./ClientPortalMessageController'),
   clientPortalTimelineController: require('./ClientPortalTimelineController'),
   clientPortalFileController: require('./ClientPortalFileController'),
+  clientPortalTaskController: require('./ClientPortalTaskController'),
 };

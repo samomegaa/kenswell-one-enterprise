@@ -131,6 +131,23 @@ const confirmFileUploadBodySchema = z.object({
   checksum: z.string().optional().nullable(),
 });
 
+const taskIdParamSchema = z.object({
+  taskId: uuid,
+});
+
+const createClientTaskBodySchema = z.object({
+  firmId: uuid,
+  clientId: uuid,
+  matterId: uuid.optional().nullable(),
+  title: z.string().min(2),
+  description: z.string().optional().nullable(),
+  type: z.enum(['general', 'document_upload', 'form_completion', 'review_and_confirm', 'payment']).optional(),
+  priority: z.enum(['low', 'normal', 'high', 'urgent']).optional(),
+  dueAt: z.string().datetime().optional().nullable(),
+  assignedByUserId: uuid.optional().nullable(),
+  metadata: z.record(z.any()).optional(),
+});
+
 module.exports = {
   tokenParamSchema,
   accountIdParamSchema,
@@ -153,4 +170,6 @@ module.exports = {
   fileAssetIdParamSchema,
   prepareFileUploadBodySchema,
   confirmFileUploadBodySchema,
+  taskIdParamSchema,
+  createClientTaskBodySchema,
 };
