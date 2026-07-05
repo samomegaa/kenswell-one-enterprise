@@ -24,7 +24,10 @@
     "bridge:check-activity": "cd releases/0.9/Bridge && DATABASE_URL=postgres://user:pass@localhost:5432/kenswell_one CLIENT_PORTAL_JWT_SECRET=dev-secret node -e \"const activity = require('./src/activity/clientPortal'); const controllers = require('./src/controllers/clientPortal'); const routes = require('./src/routes/clientPortal/activity.routes'); const schemas = require('./src/validation/clientPortal'); console.log(Object.keys(activity)); console.log(Object.keys(controllers)); console.log(routes.stack.length); console.log(Boolean(schemas.activityQuerySchema));\"",
     "bridge:client-portal:install": "cd releases/0.9/Bridge/apps/client-portal && npm install",
     "bridge:client-portal:build": "cd releases/0.9/Bridge/apps/client-portal && npm run build",
-    "bridge:check-client-portal": "node -e \"const fs = require('fs'); const required = ['releases/0.9/Bridge/apps/client-portal/src/App.jsx','releases/0.9/Bridge/apps/client-portal/src/layouts/ClientPortalLayout.jsx','releases/0.9/Bridge/apps/client-portal/src/pages/DashboardPage.jsx']; required.forEach((file) => { if (!fs.existsSync(file)) throw new Error(file + ' missing'); }); console.log('client portal shell ready');\""
+    "bridge:check-client-portal": "node -e \"const fs = require('fs'); const required = ['releases/0.9/Bridge/apps/client-portal/src/App.jsx','releases/0.9/Bridge/apps/client-portal/src/layouts/ClientPortalLayout.jsx','releases/0.9/Bridge/apps/client-portal/src/pages/DashboardPage.jsx']; required.forEach((file) => { if (!fs.existsSync(file)) throw new Error(file + ' missing'); }); console.log('client portal shell ready');\"",
+    "bridge:client-portal:verify-deploy": "cd releases/0.9/Bridge/apps/client-portal && npm run build && node deploy/verify-build.js",
+    "bridge:rc1:baseline": "node releases/0.9/Bridge/review/rc1/verify-rc1-baseline.js",
+    "bridge:rc1:smoke": "npm run bridge:check-routes && npm run bridge:check-dashboard && npm run bridge:check-documents && npm run bridge:check-messages && npm run bridge:check-tasks && npm run bridge:check-approvals && npm run bridge:check-activity && npm run bridge:check-files && npm run bridge:client-portal:build"
   },
   "engines": {
     "node": ">=20"
