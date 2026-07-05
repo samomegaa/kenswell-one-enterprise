@@ -1,0 +1,236 @@
+{
+  "generatedAt": "2026-07-05T16:10:29.616Z",
+  "total": 46,
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/client-portal/activity",
+      "file": "activity.routes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/api/client-portal/approvals",
+      "file": "approval.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/approvals",
+      "file": "approval.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/approvals/pending",
+      "file": "approval.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/approvals/matters/:matterId",
+      "file": "approval.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/client-portal/approvals/:approvalId/approve",
+      "file": "approval.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/client-portal/approvals/:approvalId/reject",
+      "file": "approval.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/client-portal/approvals/:approvalId/cancel",
+      "file": "approval.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/auth/invitations/:token/validate",
+      "file": "auth.routes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/api/client-portal/auth/activate",
+      "file": "auth.routes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/api/client-portal/auth/login",
+      "file": "auth.routes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/api/client-portal/documents/request",
+      "file": "document.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/documents",
+      "file": "document.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/documents/matters/:matterId",
+      "file": "document.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/client-portal/documents/:documentId/upload-metadata",
+      "file": "document.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/client-portal/documents/:documentId/review",
+      "file": "document.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/client-portal/documents/:documentId/approve",
+      "file": "document.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/client-portal/documents/:documentId/reject",
+      "file": "document.routes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/api/client-portal/files/prepare-upload",
+      "file": "file.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/client-portal/files/:fileAssetId/confirm",
+      "file": "file.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/files/:fileAssetId/download-url",
+      "file": "file.routes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/api/client-portal/invitations/existing-client",
+      "file": "invitation.routes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/api/client-portal/invitations/new-client",
+      "file": "invitation.routes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/api/client-portal/invitations/:accountId/resend",
+      "file": "invitation.routes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/api/client-portal/messages/staff",
+      "file": "message.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/messages",
+      "file": "message.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/messages/unread",
+      "file": "message.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/messages/matters/:matterId",
+      "file": "message.routes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/api/client-portal/messages",
+      "file": "message.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/client-portal/messages/:messageId/read",
+      "file": "message.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/client-portal/messages/:messageId/archive",
+      "file": "message.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/portal/dashboard",
+      "file": "portal.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/portal/overview",
+      "file": "portal.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/portal/matters",
+      "file": "portal.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/portal/documents",
+      "file": "portal.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/portal/messages",
+      "file": "portal.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/portal/matters/:matterId/messages",
+      "file": "portal.routes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/api/client-portal/portal/messages",
+      "file": "portal.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/client-portal/portal/messages/:messageId/read",
+      "file": "portal.routes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/api/client-portal/tasks",
+      "file": "task.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/tasks",
+      "file": "task.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/tasks/open",
+      "file": "task.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/tasks/matters/:matterId",
+      "file": "task.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/client-portal/tasks/:taskId/complete",
+      "file": "task.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/client-portal/tasks/:taskId/cancel",
+      "file": "task.routes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api/client-portal/timeline/matters/:matterId",
+      "file": "timeline.routes.js"
+    }
+  ]
+}
