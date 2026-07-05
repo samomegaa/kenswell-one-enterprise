@@ -62,7 +62,9 @@
     "bridge:rc3:secret-scan": "node releases/0.9/Bridge/security/secret-scan.js",
     "bridge:rc3:route-review": "node releases/0.9/Bridge/security/route-exposure-review.js",
     "bridge:rc3:audit": "node releases/0.9/Bridge/security/dependency-audit.js",
-    "bridge:rc3:security-report": "node releases/0.9/Bridge/security/generate-security-report.js"
+    "bridge:rc3:security-report": "node releases/0.9/Bridge/security/generate-security-report.js",
+    "bridge:rc3:readiness": "node releases/0.9/Bridge/review/rc3/readiness/verify-ga-readiness.js",
+    "bridge:rc3:ga": "npm run bridge:rc3:readiness && npm run bridge:rc2:ci && npm run bridge:rc1:smoke-full"
   },
   "engines": {
     "node": ">=20"

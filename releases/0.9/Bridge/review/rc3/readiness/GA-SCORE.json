@@ -1,0 +1,9 @@
+{
+  "architecture": 100,
+  "security": 100,
+  "deployment": 100,
+  "testing": 100,
+  "documentation": 100,
+  "operations": 100,
+  "overall": 100
+}
