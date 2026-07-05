@@ -1,0 +1,32 @@
+services:
+  bridge-api:
+    build:
+      context: ../../../..
+      dockerfile: releases/0.9/Bridge/deploy/docker/Dockerfile.api
+    environment:
+      NODE_ENV: production
+      APP_NAME: Kenswell One Bridge
+      PORT: 3000
+      DATABASE_URL: ${DATABASE_URL}
+      CLIENT_PORTAL_JWT_SECRET: ${CLIENT_PORTAL_JWT_SECRET}
+      CLIENT_PORTAL_ALLOWED_ORIGINS: ${CLIENT_PORTAL_ALLOWED_ORIGINS}
+      CLIENT_PORTAL_PUBLIC_URL: ${CLIENT_PORTAL_PUBLIC_URL}
+      CLIENT_PORTAL_API_BASE_PATH: /api/client-portal
+      LOG_LEVEL: info
+      MAX_JSON_BODY_SIZE: 1mb
+      RATE_LIMIT_WINDOW_MS: 900000
+      RATE_LIMIT_MAX: 100
+      AUTH_RATE_LIMIT_MAX: 10
+      STORAGE_PROVIDER: null_storage
+      NOTIFICATION_PROVIDER: null
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  bridge-client-portal:
+    build:
+      context: ../../../..
+      dockerfile: releases/0.9/Bridge/deploy/docker/Dockerfile.client-portal
+    ports:
+      - "8080:80"
+    restart: unless-stopped
