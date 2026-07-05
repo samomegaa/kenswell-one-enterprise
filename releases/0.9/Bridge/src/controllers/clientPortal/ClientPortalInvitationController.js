@@ -2,37 +2,41 @@ const {
   clientPortalInvitationWorkflow,
 } = require('../../workflows/clientPortal');
 
+const {
+  respond,
+} = require('../../http');
+
 class ClientPortalInvitationController {
   async inviteExistingClient(req, res) {
     try {
-      const payload = await clientPortalInvitationWorkflow.inviteExistingClient(req.body);
+      const invitation = await clientPortalInvitationWorkflow.inviteExistingClient(req.body);
 
-      return res.status(201).json(payload);
+      return respond.created(res, { invitation });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
   async inviteNewClient(req, res) {
     try {
-      const payload = await clientPortalInvitationWorkflow.inviteNewClient(req.body);
+      const invitation = await clientPortalInvitationWorkflow.inviteNewClient(req.body);
 
-      return res.status(201).json(payload);
+      return respond.created(res, { invitation });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
   async resendInvitation(req, res) {
     try {
-      const payload = await clientPortalInvitationWorkflow.resendInvitation({
+      const invitation = await clientPortalInvitationWorkflow.resendInvitation({
         accountId: req.params.accountId,
         ...req.body,
       });
 
-      return res.json(payload);
+      return respond.success(res, { invitation });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 }

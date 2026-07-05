@@ -13,6 +13,10 @@ const {
   NOTIFICATION_TYPES,
 } = require('../../notifications');
 
+const {
+  respond,
+} = require('../../http');
+
 class ClientPortalMessageController {
   async sendClientMessage(req, res) {
     try {
@@ -47,9 +51,9 @@ class ClientPortalMessageController {
         },
       });
 
-      return res.status(201).json({ message });
+      return respond.created(res, { message });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -93,9 +97,9 @@ class ClientPortalMessageController {
         },
       });
 
-      return res.status(201).json({ message });
+      return respond.created(res, { message });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -105,9 +109,9 @@ class ClientPortalMessageController {
         req.clientPortal.clientId
       );
 
-      return res.json({ messages });
+      return respond.success(res, { messages });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -117,9 +121,9 @@ class ClientPortalMessageController {
         req.params.matterId
       );
 
-      return res.json({ messages });
+      return respond.success(res, { messages });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -129,12 +133,12 @@ class ClientPortalMessageController {
         req.clientPortal.clientId
       );
 
-      return res.json({
+      return respond.success(res, {
         count: messages.length,
         messages,
       });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -144,9 +148,9 @@ class ClientPortalMessageController {
         req.params.messageId
       );
 
-      return res.json({ message });
+      return respond.success(res, { message });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -156,12 +160,12 @@ class ClientPortalMessageController {
         req.params.messageId
       );
 
-      return res.json({
+      return respond.success(res, {
         message,
         reason: req.body.reason || null,
       });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 }

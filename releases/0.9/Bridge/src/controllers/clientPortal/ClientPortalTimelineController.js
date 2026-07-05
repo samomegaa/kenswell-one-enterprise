@@ -8,6 +8,10 @@ const {
   AUDIT_ACTOR_TYPES,
 } = require('../../audit');
 
+const {
+  respond,
+} = require('../../http');
+
 class ClientPortalTimelineController {
   async matterTimeline(req, res) {
     try {
@@ -24,12 +28,12 @@ class ClientPortalTimelineController {
         resourceId: req.params.matterId,
       });
 
-      return res.json({
+      return respond.success(res, {
         matterId: req.params.matterId,
         timeline,
       });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 }

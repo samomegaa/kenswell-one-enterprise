@@ -5,6 +5,10 @@ const {
   portalMessageService,
 } = require('../../services/clientPortal');
 
+const {
+  respond,
+} = require('../../http');
+
 class ClientPortalController {
   async overview(req, res) {
     try {
@@ -12,9 +16,9 @@ class ClientPortalController {
         req.clientPortal.clientId
       );
 
-      return res.json(overview);
+      return respond.success(res, { overview });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -24,9 +28,9 @@ class ClientPortalController {
         req.clientPortal.clientId
       );
 
-      return res.json({ matters });
+      return respond.success(res, { matters });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -36,9 +40,9 @@ class ClientPortalController {
         req.clientPortal.clientId
       );
 
-      return res.json({ documents });
+      return respond.success(res, { documents });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -48,9 +52,9 @@ class ClientPortalController {
         req.clientPortal.clientId
       );
 
-      return res.json({ messages });
+      return respond.success(res, { messages });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -60,9 +64,9 @@ class ClientPortalController {
         req.params.matterId
       );
 
-      return res.json({ messages });
+      return respond.success(res, { messages });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -78,9 +82,9 @@ class ClientPortalController {
         body: req.body.body,
       });
 
-      return res.status(201).json({ message });
+      return respond.created(res, { message });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -88,9 +92,9 @@ class ClientPortalController {
     try {
       const message = await portalMessageService.markMessageRead(req.params.messageId);
 
-      return res.json({ message });
+      return respond.success(res, { message });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 }

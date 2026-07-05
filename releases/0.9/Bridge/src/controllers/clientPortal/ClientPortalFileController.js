@@ -12,6 +12,10 @@ const {
   AUDIT_ACTOR_TYPES,
 } = require('../../audit');
 
+const {
+  respond,
+} = require('../../http');
+
 class ClientPortalFileController {
   async prepareUpload(req, res) {
     try {
@@ -21,9 +25,9 @@ class ClientPortalFileController {
         uploadedById: req.body.uploadedById || req.clientPortal?.accountId || null,
       });
 
-      return res.status(201).json(result);
+      return respond.created(res, result);
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -50,9 +54,9 @@ class ClientPortalFileController {
         resourceId: result.id,
       });
 
-      return res.json(result);
+      return respond.success(res, result);
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -60,9 +64,9 @@ class ClientPortalFileController {
     try {
       const result = await fileUploadService.getDownloadUrl(req.params.fileAssetId);
 
-      return res.json(result);
+      return respond.success(res, result);
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 }

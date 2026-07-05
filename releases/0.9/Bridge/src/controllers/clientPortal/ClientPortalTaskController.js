@@ -2,14 +2,18 @@ const {
   clientTaskService,
 } = require('../../tasks/clientPortal');
 
+const {
+  respond,
+} = require('../../http');
+
 class ClientPortalTaskController {
   async createTask(req, res) {
     try {
       const task = await clientTaskService.createTask(req.body);
 
-      return res.status(201).json({ task });
+      return respond.created(res, { task });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -19,9 +23,9 @@ class ClientPortalTaskController {
         req.clientPortal.clientId
       );
 
-      return res.json({ tasks });
+      return respond.success(res, { tasks });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -31,12 +35,12 @@ class ClientPortalTaskController {
         req.clientPortal.clientId
       );
 
-      return res.json({
+      return respond.success(res, {
         count: tasks.length,
         tasks,
       });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -44,9 +48,9 @@ class ClientPortalTaskController {
     try {
       const tasks = await clientTaskService.listMatterTasks(req.params.matterId);
 
-      return res.json({ tasks });
+      return respond.success(res, { tasks });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -57,9 +61,9 @@ class ClientPortalTaskController {
         req.clientPortal.accountId
       );
 
-      return res.json({ task });
+      return respond.success(res, { task });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -67,9 +71,9 @@ class ClientPortalTaskController {
     try {
       const task = await clientTaskService.cancelTask(req.params.taskId);
 
-      return res.json({ task });
+      return respond.success(res, { task });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 }

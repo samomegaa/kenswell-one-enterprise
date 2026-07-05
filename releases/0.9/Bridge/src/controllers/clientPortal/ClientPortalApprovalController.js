@@ -2,14 +2,18 @@ const {
   clientApprovalService,
 } = require('../../approvals/clientPortal');
 
+const {
+  respond,
+} = require('../../http');
+
 class ClientPortalApprovalController {
   async createApproval(req, res) {
     try {
       const approval = await clientApprovalService.createApproval(req.body);
 
-      return res.status(201).json({ approval });
+      return respond.created(res, { approval });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -19,9 +23,9 @@ class ClientPortalApprovalController {
         req.clientPortal.clientId
       );
 
-      return res.json({ approvals });
+      return respond.success(res, { approvals });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -31,12 +35,12 @@ class ClientPortalApprovalController {
         req.clientPortal.clientId
       );
 
-      return res.json({
+      return respond.success(res, {
         count: approvals.length,
         approvals,
       });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -46,9 +50,9 @@ class ClientPortalApprovalController {
         req.params.matterId
       );
 
-      return res.json({ approvals });
+      return respond.success(res, { approvals });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -60,9 +64,9 @@ class ClientPortalApprovalController {
         req.body.decisionNote || null
       );
 
-      return res.json({ approval });
+      return respond.success(res, { approval });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -74,9 +78,9 @@ class ClientPortalApprovalController {
         req.body.decisionNote || null
       );
 
-      return res.json({ approval });
+      return respond.success(res, { approval });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -84,9 +88,9 @@ class ClientPortalApprovalController {
     try {
       const approval = await clientApprovalService.cancel(req.params.approvalId);
 
-      return res.json({ approval });
+      return respond.success(res, { approval });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 }

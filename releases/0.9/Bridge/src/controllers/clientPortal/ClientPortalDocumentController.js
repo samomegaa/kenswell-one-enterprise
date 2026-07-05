@@ -13,6 +13,10 @@ const {
   NOTIFICATION_TYPES,
 } = require('../../notifications');
 
+const {
+  respond,
+} = require('../../http');
+
 class ClientPortalDocumentController {
   async requestDocument(req, res) {
     try {
@@ -41,9 +45,9 @@ class ClientPortalDocumentController {
         },
       });
 
-      return res.status(201).json({ document });
+      return respond.created(res, { document });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -53,9 +57,9 @@ class ClientPortalDocumentController {
         req.clientPortal.clientId
       );
 
-      return res.json({ documents });
+      return respond.success(res, { documents });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -65,9 +69,9 @@ class ClientPortalDocumentController {
         req.params.matterId
       );
 
-      return res.json({ documents });
+      return respond.success(res, { documents });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -99,9 +103,9 @@ class ClientPortalDocumentController {
         },
       });
 
-      return res.json({ document });
+      return respond.success(res, { document });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -120,9 +124,9 @@ class ClientPortalDocumentController {
         resourceId: document.id,
       });
 
-      return res.json({ document });
+      return respond.success(res, { document });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -133,9 +137,9 @@ class ClientPortalDocumentController {
         req.body.reviewedByUserId
       );
 
-      return res.json({ document });
+      return respond.success(res, { document });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
@@ -146,12 +150,12 @@ class ClientPortalDocumentController {
         req.body.reviewedByUserId
       );
 
-      return res.json({
+      return respond.success(res, {
         document,
         reason: req.body.reason || null,
       });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 }
