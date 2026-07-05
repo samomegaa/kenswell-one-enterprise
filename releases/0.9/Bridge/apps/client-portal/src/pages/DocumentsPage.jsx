@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import PageHeader from '../components/PageHeader';
 import LoadingState from '../components/LoadingState';
 import ErrorState from '../components/ErrorState';
+import DataList from '../components/DataList';
 import { clientPortalApi } from '../api/clientPortalApi';
 
 export default function DocumentsPage() {
@@ -21,13 +22,14 @@ export default function DocumentsPage() {
     <>
       <PageHeader title="Documents" subtitle="View requests, uploads and approved documents." />
       <section className="panel">
-        {documents.length === 0 ? <p>No documents yet.</p> : (
-          <ul className="simple-list">
-            {documents.map((doc) => (
-              <li key={doc.id}><strong>{doc.title}</strong><span>{doc.status}</span></li>
-            ))}
-          </ul>
-        )}
+        <DataList
+          items={documents}
+          emptyTitle="No documents yet"
+          emptyMessage="Document requests and uploaded files will appear here."
+          getTitle={(doc) => doc.title}
+          getStatus={(doc) => doc.status}
+          getMeta={(doc) => doc.fileName || doc.description || 'Document record'}
+        />
       </section>
     </>
   );

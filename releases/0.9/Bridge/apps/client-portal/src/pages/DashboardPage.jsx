@@ -3,6 +3,7 @@ import PageHeader from '../components/PageHeader';
 import LoadingState from '../components/LoadingState';
 import ErrorState from '../components/ErrorState';
 import { clientPortalApi } from '../api/clientPortalApi';
+import DataList from '../components/DataList';
 
 export default function DashboardPage() {
   const [dashboard, setDashboard] = useState(null);
@@ -36,18 +37,14 @@ export default function DashboardPage() {
 
       <section className="panel">
         <h2>Recent Activity</h2>
-        {(dashboard.recentActivity || []).length === 0 ? (
-          <p>No recent activity yet.</p>
-        ) : (
-          <ul className="simple-list">
-            {dashboard.recentActivity.map((item) => (
-              <li key={item.id}>
-                <strong>{item.title}</strong>
-                <span>{item.event}</span>
-              </li>
-            ))}
-          </ul>
-        )}
+        <DataList
+          items={dashboard.recentActivity || []}
+          emptyTitle="No recent activity yet"
+          emptyMessage="Your recent portal activity will appear here."
+          getTitle={(item) => item.title}
+          getStatus={(item) => item.event}
+          getMeta={(item) => item.type}
+        />
       </section>
     </>
   );

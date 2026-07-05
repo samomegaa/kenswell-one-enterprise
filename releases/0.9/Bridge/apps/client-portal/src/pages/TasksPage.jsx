@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import PageHeader from '../components/PageHeader';
 import LoadingState from '../components/LoadingState';
 import ErrorState from '../components/ErrorState';
+import DataList from '../components/DataList';
 import { clientPortalApi } from '../api/clientPortalApi';
 
 export default function TasksPage() {
@@ -21,13 +22,14 @@ export default function TasksPage() {
     <>
       <PageHeader title="Tasks" subtitle="Actions requested by your legal team." />
       <section className="panel">
-        {tasks.length === 0 ? <p>No tasks yet.</p> : (
-          <ul className="simple-list">
-            {tasks.map((task) => (
-              <li key={task.id}><strong>{task.title}</strong><span>{task.status}</span></li>
-            ))}
-          </ul>
-        )}
+        <DataList
+          items={tasks}
+          emptyTitle="No open tasks"
+          emptyMessage="Tasks assigned by your legal team will appear here."
+          getTitle={(task) => task.title}
+          getStatus={(task) => task.status}
+          getMeta={(task) => task.dueAt ? `Due ${new Date(task.dueAt).toLocaleDateString()}` : task.priority}
+        />
       </section>
     </>
   );

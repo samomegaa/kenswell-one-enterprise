@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import PageHeader from '../components/PageHeader';
 import LoadingState from '../components/LoadingState';
 import ErrorState from '../components/ErrorState';
+import DataList from '../components/DataList';
 import { clientPortalApi } from '../api/clientPortalApi';
 
 export default function ApprovalsPage() {
@@ -21,13 +22,14 @@ export default function ApprovalsPage() {
     <>
       <PageHeader title="Approvals" subtitle="Review and respond to approval requests." />
       <section className="panel">
-        {approvals.length === 0 ? <p>No approvals yet.</p> : (
-          <ul className="simple-list">
-            {approvals.map((approval) => (
-              <li key={approval.id}><strong>{approval.title}</strong><span>{approval.status}</span></li>
-            ))}
-          </ul>
-        )}
+        <DataList
+          items={approvals}
+          emptyTitle="No pending approvals"
+          emptyMessage="Approval requests will appear here when action is needed."
+          getTitle={(approval) => approval.title}
+          getStatus={(approval) => approval.status}
+          getMeta={(approval) => approval.type}
+        />
       </section>
     </>
   );

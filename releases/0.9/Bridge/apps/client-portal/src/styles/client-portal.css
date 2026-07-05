@@ -235,3 +235,107 @@ button {
   color: #6c7a90;
   font-size: 14px;
 }
+
+.portal-sidebar a.active {
+  background: rgba(212, 175, 55, 0.16);
+  color: #ffffff;
+}
+
+.empty-state {
+  border: 1px dashed #cbd5e1;
+  border-radius: 18px;
+  padding: 28px;
+  text-align: center;
+  background: #f8fafc;
+}
+
+.empty-state strong {
+  display: block;
+  font-size: 18px;
+  color: #172033;
+}
+
+.empty-state p {
+  margin-bottom: 0;
+  color: #6c7a90;
+}
+
+.data-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.data-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #edf1f7;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.data-list strong {
+  display: block;
+}
+
+.data-list small {
+  display: block;
+  margin-top: 5px;
+  color: #6c7a90;
+}
+
+.status-badge {
+  white-space: nowrap;
+  border-radius: 999px;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: capitalize;
+  background: #eef2ff;
+  color: #3730a3;
+}
+
+.status-open,
+.status-pending,
+.status-requested,
+.status-sent {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.status-completed,
+.status-approved,
+.status-uploaded,
+.status-read {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.status-rejected,
+.status-failed,
+.status-cancelled,
+.status-archived {
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+@media (max-width: 640px) {
+  .portal-main {
+    padding: 24px;
+  }
+
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .data-list li,
+  .simple-list li {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

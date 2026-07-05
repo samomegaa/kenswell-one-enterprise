@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import PageHeader from '../components/PageHeader';
 import LoadingState from '../components/LoadingState';
 import ErrorState from '../components/ErrorState';
+import DataList from '../components/DataList';
 import { clientPortalApi } from '../api/clientPortalApi';
 
 export default function ActivityPage() {
@@ -21,13 +22,14 @@ export default function ActivityPage() {
     <>
       <PageHeader title="Activity" subtitle="A full activity stream across your portal." />
       <section className="panel">
-        {activity.length === 0 ? <p>No activity yet.</p> : (
-          <ul className="simple-list">
-            {activity.map((item) => (
-              <li key={item.id}><strong>{item.title}</strong><span>{item.event}</span></li>
-            ))}
-          </ul>
-        )}
+        <DataList
+          items={activity}
+          emptyTitle="No activity yet"
+          emptyMessage="Your portal activity will appear here."
+          getTitle={(item) => item.title}
+          getStatus={(item) => item.event}
+          getMeta={(item) => item.type}
+        />
       </section>
     </>
   );

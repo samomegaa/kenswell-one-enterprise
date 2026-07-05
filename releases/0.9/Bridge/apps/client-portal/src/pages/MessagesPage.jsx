@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import PageHeader from '../components/PageHeader';
 import LoadingState from '../components/LoadingState';
 import ErrorState from '../components/ErrorState';
+import DataList from '../components/DataList';
 import { clientPortalApi } from '../api/clientPortalApi';
 
 export default function MessagesPage() {
@@ -21,13 +22,14 @@ export default function MessagesPage() {
     <>
       <PageHeader title="Secure Messages" subtitle="Matter-based secure communication." />
       <section className="panel">
-        {messages.length === 0 ? <p>No messages yet.</p> : (
-          <ul className="simple-list">
-            {messages.map((message) => (
-              <li key={message.id}><strong>{message.subject || 'Secure message'}</strong><span>{message.status}</span></li>
-            ))}
-          </ul>
-        )}
+        <DataList
+          items={messages}
+          emptyTitle="No messages yet"
+          emptyMessage="Secure messages from your legal team will appear here."
+          getTitle={(message) => message.subject || 'Secure message'}
+          getStatus={(message) => message.status}
+          getMeta={(message) => message.senderType ? `From ${message.senderType}` : 'Message'}
+        />
       </section>
     </>
   );

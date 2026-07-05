@@ -11,15 +11,17 @@ import {
 } from 'lucide-react';
 
 const navItems = [
-  { label: 'Dashboard', href: '#/dashboard', icon: Home },
-  { label: 'Documents', href: '#/documents', icon: FileText },
-  { label: 'Messages', href: '#/messages', icon: MessageSquare },
-  { label: 'Tasks', href: '#/tasks', icon: CheckSquare },
-  { label: 'Approvals', href: '#/approvals', icon: ShieldCheck },
-  { label: 'Activity', href: '#/activity', icon: Activity },
+  { label: 'Dashboard', href: '#/dashboard', route: '/dashboard', icon: Home },
+  { label: 'Documents', href: '#/documents', route: '/documents', icon: FileText },
+  { label: 'Messages', href: '#/messages', route: '/messages', icon: MessageSquare },
+  { label: 'Tasks', href: '#/tasks', route: '/tasks', icon: CheckSquare },
+  { label: 'Approvals', href: '#/approvals', route: '/approvals', icon: ShieldCheck },
+  { label: 'Activity', href: '#/activity', route: '/activity', icon: Activity },
 ];
 
 export default function ClientPortalLayout({ children }) {
+  const currentRoute = window.location.hash.replace('#', '') || '/dashboard';
+
   return (
     <div className="portal-shell">
       <aside className="portal-sidebar">
@@ -34,9 +36,10 @@ export default function ClientPortalLayout({ children }) {
         <nav>
           {navItems.map((item) => {
             const Icon = item.icon;
+            const active = currentRoute === item.route;
 
             return (
-              <a key={item.href} href={item.href}>
+              <a key={item.href} href={item.href} className={active ? 'active' : ''}>
                 <Icon size={18} />
                 {item.label}
               </a>
@@ -44,7 +47,14 @@ export default function ClientPortalLayout({ children }) {
           })}
         </nav>
 
-        <button className="logout-button" onClick={() => { clearSession(); window.location.hash = '/login'; window.location.reload(); }}>
+        <button
+          className="logout-button"
+          onClick={() => {
+            clearSession();
+            window.location.hash = '/login';
+            window.location.reload();
+          }}
+        >
           <LogOut size={18} />
           Sign out
         </button>
