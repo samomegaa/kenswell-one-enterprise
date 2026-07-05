@@ -110,6 +110,27 @@ const timelineQuerySchema = z.object({
   limit: z.coerce.number().int().positive().max(100).optional(),
 });
 
+const fileAssetIdParamSchema = z.object({
+  fileAssetId: uuid,
+});
+
+const prepareFileUploadBodySchema = z.object({
+  firmId: uuid,
+  clientId: uuid.optional().nullable(),
+  matterId: uuid.optional().nullable(),
+  documentId: uuid.optional().nullable(),
+  originalName: z.string().min(1),
+  mimeType: z.string().min(1),
+  sizeBytes: z.number().int().positive(),
+  visibility: z.enum(['private', 'client_visible', 'internal_only']).optional(),
+  uploadedByType: z.enum(['staff', 'client', 'system']).optional().nullable(),
+  uploadedById: uuid.optional().nullable(),
+});
+
+const confirmFileUploadBodySchema = z.object({
+  checksum: z.string().optional().nullable(),
+});
+
 module.exports = {
   tokenParamSchema,
   accountIdParamSchema,
@@ -129,4 +150,7 @@ module.exports = {
   staffSendMessageBodySchema,
   archiveMessageBodySchema,
   timelineQuerySchema,
+  fileAssetIdParamSchema,
+  prepareFileUploadBodySchema,
+  confirmFileUploadBodySchema,
 };
