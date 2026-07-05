@@ -42,13 +42,15 @@
     "bridge:start": "cd releases/0.9/Bridge && node src/server.js",
     "bridge:rc2:logging": "node releases/0.9/Bridge/review/rc2/logging/verify-logging.js",
     "bridge:rc2:operations": "node releases/0.9/Bridge/review/rc2/operations/verify-operations-docs.js",
-    "bridge:rc2:http": "cd releases/0.9/Bridge && DATABASE_URL=postgres://user:pass@localhost:5432/kenswell_one CLIENT_PORTAL_JWT_SECRET=development-secret-long-enough node review/rc2/http/verify-http-hardening.js"
+    "bridge:rc2:http": "cd releases/0.9/Bridge && DATABASE_URL=postgres://user:pass@localhost:5432/kenswell_one CLIENT_PORTAL_JWT_SECRET=development-secret-long-enough node review/rc2/http/verify-http-hardening.js",
+    "bridge:rc2:http-security": "node releases/0.9/Bridge/review/rc2/http/verify-http-security.js"
   },
   "engines": {
     "node": ">=20"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
+    "compression": "^1.8.1",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.16.3",

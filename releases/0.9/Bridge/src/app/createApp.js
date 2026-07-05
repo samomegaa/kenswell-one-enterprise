@@ -7,6 +7,7 @@ const {
   requestId,
   requestLogger,
   rateLimit,
+  compressionMiddleware,
 } = require('../http');
 
 const {
@@ -35,6 +36,7 @@ function createApp({ config, logger = null }) {
   app.use(requestLogger(runtimeLogger));
   app.use(securityHeaders);
   app.use(corsGuard({ allowedOrigins: config.security.allowedOrigins }));
+  app.use(compressionMiddleware());
 
   app.use(express.json({ limit: config.security.maxJsonBodySize }));
 

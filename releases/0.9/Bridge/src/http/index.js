@@ -5,4 +5,5 @@ module.exports = {
   requestId: require('./requestId'),
   requestLogger: require('./requestLogger'),
   rateLimit: require('./rateLimit'),
+  compressionMiddleware: require('./compression'),
 };

@@ -7,6 +7,7 @@ function parseOrigins(value = '') {
 
 function corsGuard(options = {}) {
   const allowedOrigins = options.allowedOrigins || parseOrigins(process.env.CLIENT_PORTAL_ALLOWED_ORIGINS || '');
+  const allowOpenCors = options.allowOpenCors === true || process.env.NODE_ENV !== 'production';
 
   return function corsGuardMiddleware(req, res, next) {
     const origin = req.headers.origin;
@@ -15,11 +16,17 @@ function corsGuard(options = {}) {
       return next();
     }
 
-    if (!allowedOrigins.length || allowedOrigins.includes(origin)) {
-      res.setHeader('Access-Control-Allow-Origin', origin);
-      res.setHeader('Vary', 'Origin');
-      res.setHeader('Access-Control-Allow-Credentials', 'true');
-      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    const allowed = allowedOrigins.includes(origin) || (allowOpenCors && allowedOrigins.length === 0);
+
+    if (allowed) {
+      res.setHeader('Access-Control-Allow-Origin', allowedOrigins.length ? origin : '*');
+
+      if (allowedOrigins.length) {
+        res.setHeader('Vary', 'Origin');
+        res.setHeader('Access-Control-Allow-Credentials', 'true');
+      }
+
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Request-Id');
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
 
       if (req.method === 'OPTIONS') {
