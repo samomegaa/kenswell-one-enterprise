@@ -106,6 +106,10 @@ const archiveMessageBodySchema = z.object({
   reason: z.string().optional().nullable(),
 });
 
+const timelineQuerySchema = z.object({
+  limit: z.coerce.number().int().positive().max(100).optional(),
+});
+
 module.exports = {
   tokenParamSchema,
   accountIdParamSchema,
@@ -124,4 +128,5 @@ module.exports = {
   rejectDocumentBodySchema,
   staffSendMessageBodySchema,
   archiveMessageBodySchema,
+  timelineQuerySchema,
 };
