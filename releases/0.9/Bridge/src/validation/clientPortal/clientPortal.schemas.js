@@ -93,6 +93,19 @@ const rejectDocumentBodySchema = z.object({
   reason: z.string().optional().nullable(),
 });
 
+const staffSendMessageBodySchema = z.object({
+  firmId: uuid,
+  clientId: uuid,
+  matterId: uuid,
+  senderId: uuid,
+  subject: z.string().max(255).optional().nullable(),
+  body: z.string().min(1),
+});
+
+const archiveMessageBodySchema = z.object({
+  reason: z.string().optional().nullable(),
+});
+
 module.exports = {
   tokenParamSchema,
   accountIdParamSchema,
@@ -109,4 +122,6 @@ module.exports = {
   uploadDocumentMetadataBodySchema,
   reviewDocumentBodySchema,
   rejectDocumentBodySchema,
+  staffSendMessageBodySchema,
+  archiveMessageBodySchema,
 };

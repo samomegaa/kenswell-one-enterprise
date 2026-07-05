@@ -4,4 +4,5 @@ module.exports = {
   clientPortalController: require('./ClientPortalController'),
   clientPortalDashboardController: require('./ClientPortalDashboardController'),
   clientPortalDocumentController: require('./ClientPortalDocumentController'),
+  clientPortalMessageController: require('./ClientPortalMessageController'),
 };
