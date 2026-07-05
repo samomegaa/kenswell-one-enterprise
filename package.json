@@ -52,7 +52,12 @@
     "bridge:rc2:proxy": "node releases/0.9/Bridge/review/rc2/proxy/verify-proxy-config.js",
     "bridge:rc2:ci": "node releases/0.9/Bridge/review/rc2/cicd/verify-ci-pipeline.js",
     "bridge:release:version": "node releases/0.9/Bridge/release/print-release-version.js",
-    "bridge:rc2:release": "node releases/0.9/Bridge/review/rc2/release/verify-release-metadata.js"
+    "bridge:rc2:release": "node releases/0.9/Bridge/review/rc2/release/verify-release-metadata.js",
+    "bridge:rc3:performance": "node releases/0.9/Bridge/review/rc3/performance/verify-performance-suite.js",
+    "bridge:rc3:benchmark": "node releases/0.9/Bridge/performance/api-benchmark.js",
+    "bridge:rc3:load": "node releases/0.9/Bridge/performance/load-simulator.js",
+    "bridge:rc3:memory": "node releases/0.9/Bridge/performance/memory-profiler.js",
+    "bridge:rc3:performance-report": "node releases/0.9/Bridge/performance/generate-performance-report.js"
   },
   "engines": {
     "node": ">=20"
