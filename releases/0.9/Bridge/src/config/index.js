@@ -5,6 +5,7 @@ const securityConfig = require('./security.config');
 const notificationConfig = require('./notification.config');
 const storageConfig = require('./storage.config');
 const clientPortalConfig = require('./clientPortal.config');
+const loggingConfig = require('./logging.config');
 
 function createConfig(env = process.env) {
   return Object.freeze({
@@ -15,6 +16,7 @@ function createConfig(env = process.env) {
     notifications: notificationConfig(env),
     storage: storageConfig(env),
     clientPortal: clientPortalConfig(env),
+    logging: loggingConfig(env),
   });
 }
 
@@ -35,4 +37,5 @@ module.exports = {
   notificationConfig,
   storageConfig,
   clientPortalConfig,
+  loggingConfig,
 };

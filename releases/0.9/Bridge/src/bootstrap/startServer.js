@@ -6,49 +6,42 @@ const {
   createApp,
 } = require('../app');
 
-function startServer({ config = getConfig(), logger = console } = {}) {
+const {
+  createLogger,
+} = require('../logging');
+
+function startServer({ config = getConfig(), logger = null } = {}) {
+  const runtimeLogger = logger || createLogger(config.logging);
   const app = createApp({ config });
 
   const server = app.listen(config.app.port, () => {
     app.locals.healthService.markReady();
 
-    logger.log(JSON.stringify({
-      level: 'info',
-      event: 'server_started',
+    runtimeLogger.info('server_started', {
       port: config.app.port,
       environment: config.app.environment,
-      timestamp: new Date().toISOString(),
-    }));
+    });
   });
 
   function shutdown(signal = 'unknown') {
     app.locals.healthService.markNotReady();
 
-    logger.log(JSON.stringify({
-      level: 'info',
-      event: 'server_shutdown_started',
+    runtimeLogger.info('server_shutdown_started', {
       signal,
-      timestamp: new Date().toISOString(),
-    }));
+    });
 
     server.close(() => {
-      logger.log(JSON.stringify({
-        level: 'info',
-        event: 'server_shutdown_complete',
+      runtimeLogger.info('server_shutdown_complete', {
         signal,
-        timestamp: new Date().toISOString(),
-      }));
+      });
 
       process.exit(0);
     });
 
     setTimeout(() => {
-      logger.error(JSON.stringify({
-        level: 'error',
-        event: 'server_shutdown_forced',
+      runtimeLogger.error('server_shutdown_forced', {
         signal,
-        timestamp: new Date().toISOString(),
-      }));
+      });
 
       process.exit(1);
     }, 10000).unref();
@@ -61,6 +54,7 @@ function startServer({ config = getConfig(), logger = console } = {}) {
     app,
     server,
     shutdown,
+    logger: runtimeLogger,
   };
 }
 
