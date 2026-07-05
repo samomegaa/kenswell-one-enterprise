@@ -68,7 +68,8 @@
     "enterprise:1.0:a1": "node review/1.0/A1/verify-enterprise-structure.js",
     "enterprise:1.0:a2": "node review/1.0/A2/verify-module-registry.js",
     "enterprise:1.0:a3": "node review/1.0/A3/verify-feature-flags.js",
-    "enterprise:1.0:a4": "node review/1.0/A4/verify-event-bus.js"
+    "enterprise:1.0:a4": "node review/1.0/A4/verify-event-bus.js",
+    "enterprise:1.0:a5": "node review/1.0/A5/verify-enterprise-runtime.js"
   },
   "engines": {
     "node": ">=20"
