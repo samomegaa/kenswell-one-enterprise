@@ -35,7 +35,8 @@
     "bridge:rc1:database": "node releases/0.9/Bridge/review/rc1/database/analyse-database.js",
     "bridge:rc1:constraints": "node releases/0.9/Bridge/review/rc1/database/analyse-constraints.js",
     "bridge:rc1:package-hygiene": "node releases/0.9/Bridge/scripts/check-package-hygiene.js",
-    "bridge:rc1:smoke-full": "node releases/0.9/Bridge/scripts/rc1-smoke-test.js"
+    "bridge:rc1:smoke-full": "node releases/0.9/Bridge/scripts/rc1-smoke-test.js",
+    "bridge:rc1:docs": "node releases/0.9/Bridge/review/rc1/testing/verify-documentation.js"
   },
   "engines": {
     "node": ">=20"

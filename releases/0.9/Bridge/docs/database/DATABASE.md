@@ -1,0 +1,17 @@
+Summarise
+
+tables
+clients
+portal_accounts
+portal_matters
+portal_documents
+portal_messages
+audit_logs
+notifications
+file_assets
+client_tasks
+client_approvals
+
+relationship strategy
+
+constraints
