@@ -64,7 +64,8 @@
     "bridge:rc3:audit": "node releases/0.9/Bridge/security/dependency-audit.js",
     "bridge:rc3:security-report": "node releases/0.9/Bridge/security/generate-security-report.js",
     "bridge:rc3:readiness": "node releases/0.9/Bridge/review/rc3/readiness/verify-ga-readiness.js",
-    "bridge:rc3:ga": "npm run bridge:rc3:readiness && npm run bridge:rc2:ci && npm run bridge:rc1:smoke-full"
+    "bridge:rc3:ga": "npm run bridge:rc3:readiness && npm run bridge:rc2:ci && npm run bridge:rc1:smoke-full",
+    "enterprise:1.0:a1": "node review/1.0/A1/verify-enterprise-structure.js"
   },
   "engines": {
     "node": ">=20"
