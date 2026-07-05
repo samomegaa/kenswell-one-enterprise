@@ -48,7 +48,8 @@
     "bridge:rc2:endpoints": "node releases/0.9/Bridge/review/rc2/api/generate-endpoint-inventory.js",
     "bridge:rc2:api-contract": "npm run bridge:rc2:endpoints && node releases/0.9/Bridge/review/rc2/api/verify-api-contract.js",
     "bridge:rc2:docker": "node releases/0.9/Bridge/review/rc2/deployment/verify-docker-packaging.js",
-    "bridge:rc2:deployment": "node releases/0.9/Bridge/review/rc2/deployment/verify-deployment-automation.js"
+    "bridge:rc2:deployment": "node releases/0.9/Bridge/review/rc2/deployment/verify-deployment-automation.js",
+    "bridge:rc2:proxy": "node releases/0.9/Bridge/review/rc2/proxy/verify-proxy-config.js"
   },
   "engines": {
     "node": ">=20"
