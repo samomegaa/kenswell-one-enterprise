@@ -6,4 +6,5 @@ module.exports = {
   tenant: require('./tenant'),
   organisation: require('./organisation'),
   identity: require('./identity'),
+  auth: require('./auth'),
 };

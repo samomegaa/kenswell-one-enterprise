@@ -7,6 +7,7 @@ class EnterpriseRuntime {
     tenantRegistry,
     organisationRegistry,
     identityService,
+    authenticationService,
   }) {
     this.config = config;
     this.registry = registry;
@@ -15,6 +16,7 @@ class EnterpriseRuntime {
     this.tenantRegistry = tenantRegistry;
     this.organisationRegistry = organisationRegistry;
     this.identityService = identityService;
+    this.authenticationService = authenticationService;
   }
 
   summary() {
@@ -26,6 +28,8 @@ class EnterpriseRuntime {
       tenants: this.tenantRegistry.list().length,
       organisations: this.organisationRegistry.list().length,
       users: this.identityService.listUsers().length,
+      authenticationProviders: this.authenticationService.providers().length,
+      enabledAuthenticationProviders: this.authenticationService.enabledProviders().length,
     };
   }
 
@@ -51,6 +55,10 @@ class EnterpriseRuntime {
 
   getUser(id) {
     return this.identityService.getUser(id);
+  }
+
+  authenticate(credentials, providerId) {
+    return this.authenticationService.authenticate(credentials, providerId);
   }
 }
 

@@ -25,6 +25,10 @@ const {
   ENTERPRISE_ROLES,
 } = require('../identity');
 
+const {
+  createAuthenticationService,
+} = require('../auth');
+
 function createEnterpriseRuntime({
   config = {},
   logger = null,
@@ -79,6 +83,8 @@ function createEnterpriseRuntime({
     identityService: createIdentityService({
       users,
     }),
+
+    authenticationService: createAuthenticationService(),
   });
 }
 
