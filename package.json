@@ -32,7 +32,8 @@
     "bridge:rc1:api-standard": "node releases/0.9/Bridge/review/rc1/api/verify-api-standard.js",
     "bridge:rc1:api-standard-all": "node releases/0.9/Bridge/review/rc1/api/verify-all-controllers-standard.js",
     "bridge:rc1:security": "node releases/0.9/Bridge/review/rc1/security/verify-security-baseline.js",
-    "bridge:rc1:database": "node releases/0.9/Bridge/review/rc1/database/analyse-database.js"
+    "bridge:rc1:database": "node releases/0.9/Bridge/review/rc1/database/analyse-database.js",
+    "bridge:rc1:constraints": "node releases/0.9/Bridge/review/rc1/database/analyse-constraints.js"
   },
   "engines": {
     "node": ">=20"

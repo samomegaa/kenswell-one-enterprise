@@ -1,0 +1,112 @@
+{
+  "generatedAt": "2026-07-05T13:53:07.001Z",
+  "plannedRelationships": 15,
+  "warnings": [],
+  "relationships": [
+    {
+      "table": "portal_accounts",
+      "column": "client_id",
+      "targetTable": "clients",
+      "targetColumn": "id",
+      "hasReference": true
+    },
+    {
+      "table": "portal_matters",
+      "column": "client_id",
+      "targetTable": "clients",
+      "targetColumn": "id",
+      "hasReference": true
+    },
+    {
+      "table": "portal_documents",
+      "column": "client_id",
+      "targetTable": "clients",
+      "targetColumn": "id",
+      "hasReference": true
+    },
+    {
+      "table": "portal_documents",
+      "column": "matter_id",
+      "targetTable": "portal_matters",
+      "targetColumn": "id",
+      "hasReference": true
+    },
+    {
+      "table": "portal_messages",
+      "column": "client_id",
+      "targetTable": "clients",
+      "targetColumn": "id",
+      "hasReference": true
+    },
+    {
+      "table": "portal_messages",
+      "column": "matter_id",
+      "targetTable": "portal_matters",
+      "targetColumn": "id",
+      "hasReference": true
+    },
+    {
+      "table": "notifications",
+      "column": "client_id",
+      "targetTable": "clients",
+      "targetColumn": "id",
+      "hasReference": true
+    },
+    {
+      "table": "file_assets",
+      "column": "client_id",
+      "targetTable": "clients",
+      "targetColumn": "id",
+      "hasReference": true
+    },
+    {
+      "table": "file_assets",
+      "column": "matter_id",
+      "targetTable": "portal_matters",
+      "targetColumn": "id",
+      "hasReference": true
+    },
+    {
+      "table": "file_assets",
+      "column": "document_id",
+      "targetTable": "portal_documents",
+      "targetColumn": "id",
+      "hasReference": true
+    },
+    {
+      "table": "client_tasks",
+      "column": "client_id",
+      "targetTable": "clients",
+      "targetColumn": "id",
+      "hasReference": true
+    },
+    {
+      "table": "client_tasks",
+      "column": "matter_id",
+      "targetTable": "portal_matters",
+      "targetColumn": "id",
+      "hasReference": true
+    },
+    {
+      "table": "client_approvals",
+      "column": "client_id",
+      "targetTable": "clients",
+      "targetColumn": "id",
+      "hasReference": true
+    },
+    {
+      "table": "client_approvals",
+      "column": "matter_id",
+      "targetTable": "portal_matters",
+      "targetColumn": "id",
+      "hasReference": true
+    },
+    {
+      "table": "client_approvals",
+      "column": "document_id",
+      "targetTable": "portal_documents",
+      "targetColumn": "id",
+      "hasReference": true
+    }
+  ]
+}
