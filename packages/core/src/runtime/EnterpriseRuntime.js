@@ -8,6 +8,7 @@ class EnterpriseRuntime {
     organisationRegistry,
     identityService,
     authenticationService,
+    rbacService,
   }) {
     this.config = config;
     this.registry = registry;
@@ -17,6 +18,7 @@ class EnterpriseRuntime {
     this.organisationRegistry = organisationRegistry;
     this.identityService = identityService;
     this.authenticationService = authenticationService;
+    this.rbac = rbacService;
   }
 
   summary() {
@@ -30,6 +32,7 @@ class EnterpriseRuntime {
       users: this.identityService.listUsers().length,
       authenticationProviders: this.authenticationService.providers().length,
       enabledAuthenticationProviders: this.authenticationService.enabledProviders().length,
+      roles: this.rbac.roles().length,
     };
   }
 
@@ -59,6 +62,10 @@ class EnterpriseRuntime {
 
   authenticate(credentials, providerId) {
     return this.authenticationService.authenticate(credentials, providerId);
+  }
+
+  can(userOrUserId, permission) {
+    return this.rbac.can(userOrUserId, permission);
   }
 }
 

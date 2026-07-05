@@ -7,4 +7,5 @@ module.exports = {
   organisation: require('./organisation'),
   identity: require('./identity'),
   auth: require('./auth'),
+  rbac: require('./rbac'),
 };

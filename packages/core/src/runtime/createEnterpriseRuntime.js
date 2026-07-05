@@ -29,6 +29,10 @@ const {
   createAuthenticationService,
 } = require('../auth');
 
+const {
+  createRBACService,
+} = require('../rbac');
+
 function createEnterpriseRuntime({
   config = {},
   logger = null,
@@ -61,6 +65,10 @@ function createEnterpriseRuntime({
     },
   ];
 
+  const identityService = createIdentityService({
+    users,
+  });
+
   return new EnterpriseRuntime({
     config,
 
@@ -80,11 +88,13 @@ function createEnterpriseRuntime({
       organisations,
     }),
 
-    identityService: createIdentityService({
-      users,
-    }),
+    identityService,
 
     authenticationService: createAuthenticationService(),
+
+    rbacService: createRBACService({
+      identityService,
+    }),
   });
 }
 

@@ -1,0 +1,25 @@
+{
+  "permissions": [
+    "tenant.manage",
+    "organisation.manage",
+
+    "documents.read",
+    "documents.upload",
+    "documents.delete",
+    "documents.approve",
+
+    "messages.read",
+    "messages.send",
+
+    "tasks.create",
+    "tasks.assign",
+    "tasks.complete",
+
+    "approvals.create",
+    "approvals.review",
+
+    "activity.view",
+
+    "admin.system"
+  ]
+}
