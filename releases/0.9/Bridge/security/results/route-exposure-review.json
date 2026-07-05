@@ -1,0 +1,66 @@
+{
+  "generatedAt": "2026-07-05T18:29:37.013Z",
+  "files": [
+    {
+      "file": "activity.routes.js",
+      "hasRouter": true,
+      "hasValidation": true,
+      "hasController": true
+    },
+    {
+      "file": "approval.routes.js",
+      "hasRouter": true,
+      "hasValidation": true,
+      "hasController": true
+    },
+    {
+      "file": "auth.routes.js",
+      "hasRouter": true,
+      "hasValidation": true,
+      "hasController": true
+    },
+    {
+      "file": "document.routes.js",
+      "hasRouter": true,
+      "hasValidation": true,
+      "hasController": true
+    },
+    {
+      "file": "file.routes.js",
+      "hasRouter": true,
+      "hasValidation": true,
+      "hasController": true
+    },
+    {
+      "file": "invitation.routes.js",
+      "hasRouter": true,
+      "hasValidation": true,
+      "hasController": true
+    },
+    {
+      "file": "message.routes.js",
+      "hasRouter": true,
+      "hasValidation": true,
+      "hasController": true
+    },
+    {
+      "file": "portal.routes.js",
+      "hasRouter": true,
+      "hasValidation": true,
+      "hasController": true
+    },
+    {
+      "file": "task.routes.js",
+      "hasRouter": true,
+      "hasValidation": true,
+      "hasController": true
+    },
+    {
+      "file": "timeline.routes.js",
+      "hasRouter": true,
+      "hasValidation": true,
+      "hasController": true
+    }
+  ],
+  "warnings": []
+}
