@@ -1,0 +1,1423 @@
+{
+  "generatedAt": "2026-07-05T12:20:07.933Z",
+  "totalFiles": 134,
+  "layers": {
+    "activity": 2,
+    "approvals": 3,
+    "audit": 4,
+    "auth": 5,
+    "controllers": 12,
+    "dashboard": 2,
+    "migrations": 10,
+    "models": 11,
+    "other": 13,
+    "files": 4,
+    "middleware": 2,
+    "notifications": 4,
+    "repositories": 17,
+    "routes": 11,
+    "services": 6,
+    "tasks": 3,
+    "timeline": 2,
+    "validation": 3,
+    "frontend": 20
+  },
+  "imports": [
+    {
+      "file": "src/activity/clientPortal/ClientPortalActivityService.js",
+      "layer": "activity",
+      "source": "../../repositories/clientPortal"
+    },
+    {
+      "file": "src/activity/clientPortal/ClientPortalActivityService.js",
+      "layer": "activity",
+      "source": "../../repositories/notifications"
+    },
+    {
+      "file": "src/activity/clientPortal/ClientPortalActivityService.js",
+      "layer": "activity",
+      "source": "../../repositories/audit"
+    },
+    {
+      "file": "src/activity/clientPortal/ClientPortalActivityService.js",
+      "layer": "activity",
+      "source": "../../repositories/tasks"
+    },
+    {
+      "file": "src/activity/clientPortal/ClientPortalActivityService.js",
+      "layer": "activity",
+      "source": "../../repositories/approvals"
+    },
+    {
+      "file": "src/activity/clientPortal/index.js",
+      "layer": "activity",
+      "source": "./ClientPortalActivityService"
+    },
+    {
+      "file": "src/approvals/clientPortal/ClientApprovalService.js",
+      "layer": "approvals",
+      "source": "../../repositories/approvals"
+    },
+    {
+      "file": "src/approvals/clientPortal/ClientApprovalService.js",
+      "layer": "approvals",
+      "source": "../../notifications"
+    },
+    {
+      "file": "src/approvals/clientPortal/ClientApprovalService.js",
+      "layer": "approvals",
+      "source": "../../audit"
+    },
+    {
+      "file": "src/approvals/clientPortal/ClientApprovalService.js",
+      "layer": "approvals",
+      "source": "./approval.constants"
+    },
+    {
+      "file": "src/approvals/clientPortal/index.js",
+      "layer": "approvals",
+      "source": "./ClientApprovalService"
+    },
+    {
+      "file": "src/approvals/clientPortal/index.js",
+      "layer": "approvals",
+      "source": "./approval.constants"
+    },
+    {
+      "file": "src/audit/AuditService.js",
+      "layer": "audit",
+      "source": "../repositories/audit"
+    },
+    {
+      "file": "src/audit/AuditService.js",
+      "layer": "audit",
+      "source": "./audit.constants"
+    },
+    {
+      "file": "src/audit/audit.middleware.js",
+      "layer": "audit",
+      "source": "./AuditService"
+    },
+    {
+      "file": "src/audit/index.js",
+      "layer": "audit",
+      "source": "./AuditService"
+    },
+    {
+      "file": "src/audit/index.js",
+      "layer": "audit",
+      "source": "./audit.middleware"
+    },
+    {
+      "file": "src/audit/index.js",
+      "layer": "audit",
+      "source": "./audit.constants"
+    },
+    {
+      "file": "src/auth/clientPortal/ClientPortalAuthService.js",
+      "layer": "auth",
+      "source": "../../services/clientPortal"
+    },
+    {
+      "file": "src/auth/clientPortal/ClientPortalAuthService.js",
+      "layer": "auth",
+      "source": "./password.util"
+    },
+    {
+      "file": "src/auth/clientPortal/ClientPortalAuthService.js",
+      "layer": "auth",
+      "source": "./token.util"
+    },
+    {
+      "file": "src/auth/clientPortal/ClientPortalAuthService.js",
+      "layer": "auth",
+      "source": "./auth.constants"
+    },
+    {
+      "file": "src/auth/clientPortal/index.js",
+      "layer": "auth",
+      "source": "./ClientPortalAuthService"
+    },
+    {
+      "file": "src/auth/clientPortal/index.js",
+      "layer": "auth",
+      "source": "./auth.constants"
+    },
+    {
+      "file": "src/auth/clientPortal/index.js",
+      "layer": "auth",
+      "source": "./password.util"
+    },
+    {
+      "file": "src/auth/clientPortal/index.js",
+      "layer": "auth",
+      "source": "./token.util"
+    },
+    {
+      "file": "src/auth/clientPortal/password.util.js",
+      "layer": "auth",
+      "source": "bcryptjs"
+    },
+    {
+      "file": "src/auth/clientPortal/token.util.js",
+      "layer": "auth",
+      "source": "crypto"
+    },
+    {
+      "file": "src/auth/clientPortal/token.util.js",
+      "layer": "auth",
+      "source": "jsonwebtoken"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalActivityController.js",
+      "layer": "controllers",
+      "source": "../../activity/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalActivityController.js",
+      "layer": "controllers",
+      "source": "../../audit"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalApprovalController.js",
+      "layer": "controllers",
+      "source": "../../approvals/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalAuthController.js",
+      "layer": "controllers",
+      "source": "../../auth/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalAuthController.js",
+      "layer": "controllers",
+      "source": "../../workflows/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalController.js",
+      "layer": "controllers",
+      "source": "../../services/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalDashboardController.js",
+      "layer": "controllers",
+      "source": "../../dashboard/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalDashboardController.js",
+      "layer": "controllers",
+      "source": "../../audit"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalDocumentController.js",
+      "layer": "controllers",
+      "source": "../../services/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalDocumentController.js",
+      "layer": "controllers",
+      "source": "../../audit"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalDocumentController.js",
+      "layer": "controllers",
+      "source": "../../notifications"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalFileController.js",
+      "layer": "controllers",
+      "source": "../../files"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalFileController.js",
+      "layer": "controllers",
+      "source": "../../services/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalFileController.js",
+      "layer": "controllers",
+      "source": "../../audit"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalInvitationController.js",
+      "layer": "controllers",
+      "source": "../../workflows/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalMessageController.js",
+      "layer": "controllers",
+      "source": "../../services/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalMessageController.js",
+      "layer": "controllers",
+      "source": "../../audit"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalMessageController.js",
+      "layer": "controllers",
+      "source": "../../notifications"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalTaskController.js",
+      "layer": "controllers",
+      "source": "../../tasks/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalTimelineController.js",
+      "layer": "controllers",
+      "source": "../../timeline/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalTimelineController.js",
+      "layer": "controllers",
+      "source": "../../audit"
+    },
+    {
+      "file": "src/controllers/clientPortal/index.js",
+      "layer": "controllers",
+      "source": "./ClientPortalAuthController"
+    },
+    {
+      "file": "src/controllers/clientPortal/index.js",
+      "layer": "controllers",
+      "source": "./ClientPortalInvitationController"
+    },
+    {
+      "file": "src/controllers/clientPortal/index.js",
+      "layer": "controllers",
+      "source": "./ClientPortalController"
+    },
+    {
+      "file": "src/controllers/clientPortal/index.js",
+      "layer": "controllers",
+      "source": "./ClientPortalDashboardController"
+    },
+    {
+      "file": "src/controllers/clientPortal/index.js",
+      "layer": "controllers",
+      "source": "./ClientPortalDocumentController"
+    },
+    {
+      "file": "src/controllers/clientPortal/index.js",
+      "layer": "controllers",
+      "source": "./ClientPortalMessageController"
+    },
+    {
+      "file": "src/controllers/clientPortal/index.js",
+      "layer": "controllers",
+      "source": "./ClientPortalTimelineController"
+    },
+    {
+      "file": "src/controllers/clientPortal/index.js",
+      "layer": "controllers",
+      "source": "./ClientPortalFileController"
+    },
+    {
+      "file": "src/controllers/clientPortal/index.js",
+      "layer": "controllers",
+      "source": "./ClientPortalTaskController"
+    },
+    {
+      "file": "src/controllers/clientPortal/index.js",
+      "layer": "controllers",
+      "source": "./ClientPortalApprovalController"
+    },
+    {
+      "file": "src/controllers/clientPortal/index.js",
+      "layer": "controllers",
+      "source": "./ClientPortalActivityController"
+    },
+    {
+      "file": "src/dashboard/clientPortal/ClientPortalDashboardService.js",
+      "layer": "dashboard",
+      "source": "../../services/clientPortal"
+    },
+    {
+      "file": "src/dashboard/clientPortal/ClientPortalDashboardService.js",
+      "layer": "dashboard",
+      "source": "../../repositories/notifications"
+    },
+    {
+      "file": "src/dashboard/clientPortal/ClientPortalDashboardService.js",
+      "layer": "dashboard",
+      "source": "../../repositories/tasks"
+    },
+    {
+      "file": "src/dashboard/clientPortal/ClientPortalDashboardService.js",
+      "layer": "dashboard",
+      "source": "../../repositories/approvals"
+    },
+    {
+      "file": "src/dashboard/clientPortal/ClientPortalDashboardService.js",
+      "layer": "dashboard",
+      "source": "../../activity/clientPortal"
+    },
+    {
+      "file": "src/dashboard/clientPortal/index.js",
+      "layer": "dashboard",
+      "source": "./ClientPortalDashboardService"
+    },
+    {
+      "file": "src/database/models/index.js",
+      "layer": "models",
+      "source": "fs"
+    },
+    {
+      "file": "src/database/models/index.js",
+      "layer": "models",
+      "source": "path"
+    },
+    {
+      "file": "src/database/models/index.js",
+      "layer": "models",
+      "source": "sequelize"
+    },
+    {
+      "file": "src/domain/clientPortal/factories/client.factory.js",
+      "layer": "other",
+      "source": "../constants/clientPortal.constants"
+    },
+    {
+      "file": "src/domain/clientPortal/factories/portalAccount.factory.js",
+      "layer": "other",
+      "source": "../constants/clientPortal.constants"
+    },
+    {
+      "file": "src/domain/clientPortal/factories/portalDocument.factory.js",
+      "layer": "other",
+      "source": "../constants/clientPortal.constants"
+    },
+    {
+      "file": "src/domain/clientPortal/factories/portalMatter.factory.js",
+      "layer": "other",
+      "source": "../constants/clientPortal.constants"
+    },
+    {
+      "file": "src/domain/clientPortal/index.js",
+      "layer": "other",
+      "source": "./constants/clientPortal.constants"
+    },
+    {
+      "file": "src/domain/clientPortal/index.js",
+      "layer": "other",
+      "source": "./factories/client.factory"
+    },
+    {
+      "file": "src/domain/clientPortal/index.js",
+      "layer": "other",
+      "source": "./factories/portalAccount.factory"
+    },
+    {
+      "file": "src/domain/clientPortal/index.js",
+      "layer": "other",
+      "source": "./factories/portalMatter.factory"
+    },
+    {
+      "file": "src/domain/clientPortal/index.js",
+      "layer": "other",
+      "source": "./factories/portalDocument.factory"
+    },
+    {
+      "file": "src/domain/clientPortal/index.js",
+      "layer": "other",
+      "source": "./factories/portalMessage.factory"
+    },
+    {
+      "file": "src/files/FileUploadService.js",
+      "layer": "files",
+      "source": "crypto"
+    },
+    {
+      "file": "src/files/FileUploadService.js",
+      "layer": "files",
+      "source": "../repositories/files"
+    },
+    {
+      "file": "src/files/FileUploadService.js",
+      "layer": "files",
+      "source": "./providers/NullStorageProvider"
+    },
+    {
+      "file": "src/files/FileUploadService.js",
+      "layer": "files",
+      "source": "./file.constants"
+    },
+    {
+      "file": "src/files/index.js",
+      "layer": "files",
+      "source": "./FileUploadService"
+    },
+    {
+      "file": "src/files/index.js",
+      "layer": "files",
+      "source": "./providers/NullStorageProvider"
+    },
+    {
+      "file": "src/files/index.js",
+      "layer": "files",
+      "source": "./file.constants"
+    },
+    {
+      "file": "src/http/errorHandler.js",
+      "layer": "other",
+      "source": "../errors/ApiError"
+    },
+    {
+      "file": "src/http/index.js",
+      "layer": "other",
+      "source": "./asyncHandler"
+    },
+    {
+      "file": "src/http/index.js",
+      "layer": "other",
+      "source": "./errorHandler"
+    },
+    {
+      "file": "src/middleware/clientPortal/index.js",
+      "layer": "middleware",
+      "source": "./requireClientPortalAuth"
+    },
+    {
+      "file": "src/middleware/clientPortal/requireClientPortalAuth.js",
+      "layer": "middleware",
+      "source": "../../auth/clientPortal/token.util"
+    },
+    {
+      "file": "src/notifications/NotificationService.js",
+      "layer": "notifications",
+      "source": "../repositories/notifications"
+    },
+    {
+      "file": "src/notifications/NotificationService.js",
+      "layer": "notifications",
+      "source": "./providers/NullEmailProvider"
+    },
+    {
+      "file": "src/notifications/NotificationService.js",
+      "layer": "notifications",
+      "source": "./notification.constants"
+    },
+    {
+      "file": "src/notifications/index.js",
+      "layer": "notifications",
+      "source": "./NotificationService"
+    },
+    {
+      "file": "src/notifications/index.js",
+      "layer": "notifications",
+      "source": "./providers/NullEmailProvider"
+    },
+    {
+      "file": "src/notifications/index.js",
+      "layer": "notifications",
+      "source": "./notification.constants"
+    },
+    {
+      "file": "src/repositories/approvals/ClientApprovalRepository.js",
+      "layer": "repositories",
+      "source": "../BaseRepository"
+    },
+    {
+      "file": "src/repositories/approvals/index.js",
+      "layer": "repositories",
+      "source": "../../database/models"
+    },
+    {
+      "file": "src/repositories/approvals/index.js",
+      "layer": "repositories",
+      "source": "./ClientApprovalRepository"
+    },
+    {
+      "file": "src/repositories/audit/AuditLogRepository.js",
+      "layer": "repositories",
+      "source": "../BaseRepository"
+    },
+    {
+      "file": "src/repositories/audit/index.js",
+      "layer": "repositories",
+      "source": "../../database/models"
+    },
+    {
+      "file": "src/repositories/audit/index.js",
+      "layer": "repositories",
+      "source": "./AuditLogRepository"
+    },
+    {
+      "file": "src/repositories/clientPortal/ClientRepository.js",
+      "layer": "repositories",
+      "source": "../BaseRepository"
+    },
+    {
+      "file": "src/repositories/clientPortal/ClientRepository.js",
+      "layer": "repositories",
+      "source": "sequelize"
+    },
+    {
+      "file": "src/repositories/clientPortal/PortalAccountRepository.js",
+      "layer": "repositories",
+      "source": "../BaseRepository"
+    },
+    {
+      "file": "src/repositories/clientPortal/PortalDocumentRepository.js",
+      "layer": "repositories",
+      "source": "../BaseRepository"
+    },
+    {
+      "file": "src/repositories/clientPortal/PortalMatterRepository.js",
+      "layer": "repositories",
+      "source": "../BaseRepository"
+    },
+    {
+      "file": "src/repositories/clientPortal/PortalMessageRepository.js",
+      "layer": "repositories",
+      "source": "../BaseRepository"
+    },
+    {
+      "file": "src/repositories/clientPortal/index.js",
+      "layer": "repositories",
+      "source": "../../database/models"
+    },
+    {
+      "file": "src/repositories/clientPortal/index.js",
+      "layer": "repositories",
+      "source": "./ClientRepository"
+    },
+    {
+      "file": "src/repositories/clientPortal/index.js",
+      "layer": "repositories",
+      "source": "./PortalAccountRepository"
+    },
+    {
+      "file": "src/repositories/clientPortal/index.js",
+      "layer": "repositories",
+      "source": "./PortalMatterRepository"
+    },
+    {
+      "file": "src/repositories/clientPortal/index.js",
+      "layer": "repositories",
+      "source": "./PortalDocumentRepository"
+    },
+    {
+      "file": "src/repositories/clientPortal/index.js",
+      "layer": "repositories",
+      "source": "./PortalMessageRepository"
+    },
+    {
+      "file": "src/repositories/files/FileAssetRepository.js",
+      "layer": "repositories",
+      "source": "../BaseRepository"
+    },
+    {
+      "file": "src/repositories/files/index.js",
+      "layer": "repositories",
+      "source": "../../database/models"
+    },
+    {
+      "file": "src/repositories/files/index.js",
+      "layer": "repositories",
+      "source": "./FileAssetRepository"
+    },
+    {
+      "file": "src/repositories/notifications/NotificationRepository.js",
+      "layer": "repositories",
+      "source": "../BaseRepository"
+    },
+    {
+      "file": "src/repositories/notifications/index.js",
+      "layer": "repositories",
+      "source": "../../database/models"
+    },
+    {
+      "file": "src/repositories/notifications/index.js",
+      "layer": "repositories",
+      "source": "./NotificationRepository"
+    },
+    {
+      "file": "src/repositories/tasks/ClientTaskRepository.js",
+      "layer": "repositories",
+      "source": "../BaseRepository"
+    },
+    {
+      "file": "src/repositories/tasks/ClientTaskRepository.js",
+      "layer": "repositories",
+      "source": "sequelize"
+    },
+    {
+      "file": "src/repositories/tasks/index.js",
+      "layer": "repositories",
+      "source": "../../database/models"
+    },
+    {
+      "file": "src/repositories/tasks/index.js",
+      "layer": "repositories",
+      "source": "./ClientTaskRepository"
+    },
+    {
+      "file": "src/routes/clientPortal/activity.routes.js",
+      "layer": "routes",
+      "source": "express"
+    },
+    {
+      "file": "src/routes/clientPortal/activity.routes.js",
+      "layer": "routes",
+      "source": "../../controllers/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/activity.routes.js",
+      "layer": "routes",
+      "source": "../../middleware/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/activity.routes.js",
+      "layer": "routes",
+      "source": "../../validation/validateRequest"
+    },
+    {
+      "file": "src/routes/clientPortal/activity.routes.js",
+      "layer": "routes",
+      "source": "../../validation/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/approval.routes.js",
+      "layer": "routes",
+      "source": "express"
+    },
+    {
+      "file": "src/routes/clientPortal/approval.routes.js",
+      "layer": "routes",
+      "source": "../../controllers/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/approval.routes.js",
+      "layer": "routes",
+      "source": "../../middleware/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/approval.routes.js",
+      "layer": "routes",
+      "source": "../../validation/validateRequest"
+    },
+    {
+      "file": "src/routes/clientPortal/approval.routes.js",
+      "layer": "routes",
+      "source": "../../validation/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/auth.routes.js",
+      "layer": "routes",
+      "source": "express"
+    },
+    {
+      "file": "src/routes/clientPortal/auth.routes.js",
+      "layer": "routes",
+      "source": "../../controllers/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/auth.routes.js",
+      "layer": "routes",
+      "source": "../../validation/validateRequest"
+    },
+    {
+      "file": "src/routes/clientPortal/auth.routes.js",
+      "layer": "routes",
+      "source": "../../validation/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/document.routes.js",
+      "layer": "routes",
+      "source": "express"
+    },
+    {
+      "file": "src/routes/clientPortal/document.routes.js",
+      "layer": "routes",
+      "source": "../../controllers/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/document.routes.js",
+      "layer": "routes",
+      "source": "../../middleware/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/document.routes.js",
+      "layer": "routes",
+      "source": "../../validation/validateRequest"
+    },
+    {
+      "file": "src/routes/clientPortal/document.routes.js",
+      "layer": "routes",
+      "source": "../../validation/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/file.routes.js",
+      "layer": "routes",
+      "source": "express"
+    },
+    {
+      "file": "src/routes/clientPortal/file.routes.js",
+      "layer": "routes",
+      "source": "../../controllers/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/file.routes.js",
+      "layer": "routes",
+      "source": "../../middleware/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/file.routes.js",
+      "layer": "routes",
+      "source": "../../validation/validateRequest"
+    },
+    {
+      "file": "src/routes/clientPortal/file.routes.js",
+      "layer": "routes",
+      "source": "../../validation/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/index.js",
+      "layer": "routes",
+      "source": "express"
+    },
+    {
+      "file": "src/routes/clientPortal/index.js",
+      "layer": "routes",
+      "source": "./auth.routes"
+    },
+    {
+      "file": "src/routes/clientPortal/index.js",
+      "layer": "routes",
+      "source": "./invitation.routes"
+    },
+    {
+      "file": "src/routes/clientPortal/index.js",
+      "layer": "routes",
+      "source": "./portal.routes"
+    },
+    {
+      "file": "src/routes/clientPortal/index.js",
+      "layer": "routes",
+      "source": "./document.routes"
+    },
+    {
+      "file": "src/routes/clientPortal/index.js",
+      "layer": "routes",
+      "source": "./message.routes"
+    },
+    {
+      "file": "src/routes/clientPortal/index.js",
+      "layer": "routes",
+      "source": "./timeline.routes"
+    },
+    {
+      "file": "src/routes/clientPortal/index.js",
+      "layer": "routes",
+      "source": "./file.routes"
+    },
+    {
+      "file": "src/routes/clientPortal/index.js",
+      "layer": "routes",
+      "source": "./task.routes"
+    },
+    {
+      "file": "src/routes/clientPortal/index.js",
+      "layer": "routes",
+      "source": "./approval.routes"
+    },
+    {
+      "file": "src/routes/clientPortal/index.js",
+      "layer": "routes",
+      "source": "./activity.routes"
+    },
+    {
+      "file": "src/routes/clientPortal/invitation.routes.js",
+      "layer": "routes",
+      "source": "express"
+    },
+    {
+      "file": "src/routes/clientPortal/invitation.routes.js",
+      "layer": "routes",
+      "source": "../../controllers/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/invitation.routes.js",
+      "layer": "routes",
+      "source": "../../validation/validateRequest"
+    },
+    {
+      "file": "src/routes/clientPortal/invitation.routes.js",
+      "layer": "routes",
+      "source": "../../validation/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/message.routes.js",
+      "layer": "routes",
+      "source": "express"
+    },
+    {
+      "file": "src/routes/clientPortal/message.routes.js",
+      "layer": "routes",
+      "source": "../../controllers/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/message.routes.js",
+      "layer": "routes",
+      "source": "../../middleware/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/message.routes.js",
+      "layer": "routes",
+      "source": "../../validation/validateRequest"
+    },
+    {
+      "file": "src/routes/clientPortal/message.routes.js",
+      "layer": "routes",
+      "source": "../../validation/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/portal.routes.js",
+      "layer": "routes",
+      "source": "express"
+    },
+    {
+      "file": "src/routes/clientPortal/portal.routes.js",
+      "layer": "routes",
+      "source": "../../controllers/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/portal.routes.js",
+      "layer": "routes",
+      "source": "../../middleware/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/portal.routes.js",
+      "layer": "routes",
+      "source": "../../validation/validateRequest"
+    },
+    {
+      "file": "src/routes/clientPortal/portal.routes.js",
+      "layer": "routes",
+      "source": "../../validation/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/task.routes.js",
+      "layer": "routes",
+      "source": "express"
+    },
+    {
+      "file": "src/routes/clientPortal/task.routes.js",
+      "layer": "routes",
+      "source": "../../controllers/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/task.routes.js",
+      "layer": "routes",
+      "source": "../../middleware/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/task.routes.js",
+      "layer": "routes",
+      "source": "../../validation/validateRequest"
+    },
+    {
+      "file": "src/routes/clientPortal/task.routes.js",
+      "layer": "routes",
+      "source": "../../validation/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/timeline.routes.js",
+      "layer": "routes",
+      "source": "express"
+    },
+    {
+      "file": "src/routes/clientPortal/timeline.routes.js",
+      "layer": "routes",
+      "source": "../../controllers/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/timeline.routes.js",
+      "layer": "routes",
+      "source": "../../middleware/clientPortal"
+    },
+    {
+      "file": "src/routes/clientPortal/timeline.routes.js",
+      "layer": "routes",
+      "source": "../../validation/validateRequest"
+    },
+    {
+      "file": "src/routes/clientPortal/timeline.routes.js",
+      "layer": "routes",
+      "source": "../../validation/clientPortal"
+    },
+    {
+      "file": "src/services/clientPortal/ClientPortalService.js",
+      "layer": "services",
+      "source": "../../repositories/clientPortal"
+    },
+    {
+      "file": "src/services/clientPortal/PortalAccountService.js",
+      "layer": "services",
+      "source": "crypto"
+    },
+    {
+      "file": "src/services/clientPortal/PortalAccountService.js",
+      "layer": "services",
+      "source": "../../repositories/clientPortal"
+    },
+    {
+      "file": "src/services/clientPortal/PortalDocumentService.js",
+      "layer": "services",
+      "source": "../../repositories/clientPortal"
+    },
+    {
+      "file": "src/services/clientPortal/PortalMatterService.js",
+      "layer": "services",
+      "source": "../../repositories/clientPortal"
+    },
+    {
+      "file": "src/services/clientPortal/PortalMessageService.js",
+      "layer": "services",
+      "source": "../../repositories/clientPortal"
+    },
+    {
+      "file": "src/services/clientPortal/index.js",
+      "layer": "services",
+      "source": "./ClientPortalService"
+    },
+    {
+      "file": "src/services/clientPortal/index.js",
+      "layer": "services",
+      "source": "./PortalAccountService"
+    },
+    {
+      "file": "src/services/clientPortal/index.js",
+      "layer": "services",
+      "source": "./PortalMatterService"
+    },
+    {
+      "file": "src/services/clientPortal/index.js",
+      "layer": "services",
+      "source": "./PortalDocumentService"
+    },
+    {
+      "file": "src/services/clientPortal/index.js",
+      "layer": "services",
+      "source": "./PortalMessageService"
+    },
+    {
+      "file": "src/tasks/clientPortal/ClientTaskService.js",
+      "layer": "tasks",
+      "source": "../../repositories/tasks"
+    },
+    {
+      "file": "src/tasks/clientPortal/ClientTaskService.js",
+      "layer": "tasks",
+      "source": "../../notifications"
+    },
+    {
+      "file": "src/tasks/clientPortal/ClientTaskService.js",
+      "layer": "tasks",
+      "source": "../../audit"
+    },
+    {
+      "file": "src/tasks/clientPortal/ClientTaskService.js",
+      "layer": "tasks",
+      "source": "./task.constants"
+    },
+    {
+      "file": "src/tasks/clientPortal/index.js",
+      "layer": "tasks",
+      "source": "./ClientTaskService"
+    },
+    {
+      "file": "src/tasks/clientPortal/index.js",
+      "layer": "tasks",
+      "source": "./task.constants"
+    },
+    {
+      "file": "src/timeline/clientPortal/MatterTimelineService.js",
+      "layer": "timeline",
+      "source": "../../repositories/clientPortal"
+    },
+    {
+      "file": "src/timeline/clientPortal/MatterTimelineService.js",
+      "layer": "timeline",
+      "source": "../../repositories/clientPortal"
+    },
+    {
+      "file": "src/timeline/clientPortal/MatterTimelineService.js",
+      "layer": "timeline",
+      "source": "../../repositories/notifications"
+    },
+    {
+      "file": "src/timeline/clientPortal/MatterTimelineService.js",
+      "layer": "timeline",
+      "source": "../../repositories/audit"
+    },
+    {
+      "file": "src/timeline/clientPortal/MatterTimelineService.js",
+      "layer": "timeline",
+      "source": "../../repositories/approvals"
+    },
+    {
+      "file": "src/timeline/clientPortal/index.js",
+      "layer": "timeline",
+      "source": "./MatterTimelineService"
+    },
+    {
+      "file": "src/validation/clientPortal/clientPortal.schemas.js",
+      "layer": "validation",
+      "source": "zod"
+    },
+    {
+      "file": "src/validation/clientPortal/index.js",
+      "layer": "validation",
+      "source": "./clientPortal.schemas"
+    },
+    {
+      "file": "src/validation/validateRequest.js",
+      "layer": "validation",
+      "source": "../errors/ApiError"
+    },
+    {
+      "file": "src/workflows/clientPortal/ClientPortalInvitationWorkflow.js",
+      "layer": "other",
+      "source": "../../services/clientPortal"
+    },
+    {
+      "file": "src/workflows/clientPortal/ClientPortalInvitationWorkflow.js",
+      "layer": "other",
+      "source": "../../auth/clientPortal"
+    },
+    {
+      "file": "src/workflows/clientPortal/index.js",
+      "layer": "other",
+      "source": "./ClientPortalInvitationWorkflow"
+    },
+    {
+      "file": "apps/client-portal/src/App.jsx",
+      "layer": "frontend",
+      "source": "./layouts/ClientPortalLayout"
+    },
+    {
+      "file": "apps/client-portal/src/App.jsx",
+      "layer": "frontend",
+      "source": "./pages/LoginPage"
+    },
+    {
+      "file": "apps/client-portal/src/App.jsx",
+      "layer": "frontend",
+      "source": "./pages/ActivatePage"
+    },
+    {
+      "file": "apps/client-portal/src/App.jsx",
+      "layer": "frontend",
+      "source": "./pages/DashboardPage"
+    },
+    {
+      "file": "apps/client-portal/src/App.jsx",
+      "layer": "frontend",
+      "source": "./pages/DocumentsPage"
+    },
+    {
+      "file": "apps/client-portal/src/App.jsx",
+      "layer": "frontend",
+      "source": "./pages/MessagesPage"
+    },
+    {
+      "file": "apps/client-portal/src/App.jsx",
+      "layer": "frontend",
+      "source": "./pages/TasksPage"
+    },
+    {
+      "file": "apps/client-portal/src/App.jsx",
+      "layer": "frontend",
+      "source": "./pages/ApprovalsPage"
+    },
+    {
+      "file": "apps/client-portal/src/App.jsx",
+      "layer": "frontend",
+      "source": "./pages/ActivityPage"
+    },
+    {
+      "file": "apps/client-portal/src/App.jsx",
+      "layer": "frontend",
+      "source": "./api/authStore"
+    },
+    {
+      "file": "apps/client-portal/src/components/DataList.jsx",
+      "layer": "frontend",
+      "source": "./EmptyState"
+    },
+    {
+      "file": "apps/client-portal/src/components/DataList.jsx",
+      "layer": "frontend",
+      "source": "./StatusBadge"
+    },
+    {
+      "file": "apps/client-portal/src/layouts/ClientPortalLayout.jsx",
+      "layer": "frontend",
+      "source": "../api/authStore"
+    },
+    {
+      "file": "apps/client-portal/src/main.jsx",
+      "layer": "frontend",
+      "source": "react"
+    },
+    {
+      "file": "apps/client-portal/src/main.jsx",
+      "layer": "frontend",
+      "source": "react-dom/client"
+    },
+    {
+      "file": "apps/client-portal/src/main.jsx",
+      "layer": "frontend",
+      "source": "./App"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ActivatePage.jsx",
+      "layer": "frontend",
+      "source": "react"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ActivatePage.jsx",
+      "layer": "frontend",
+      "source": "../components/PageHeader"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ActivatePage.jsx",
+      "layer": "frontend",
+      "source": "../api/clientPortalApi"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ActivityPage.jsx",
+      "layer": "frontend",
+      "source": "react"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ActivityPage.jsx",
+      "layer": "frontend",
+      "source": "../components/PageHeader"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ActivityPage.jsx",
+      "layer": "frontend",
+      "source": "../components/LoadingState"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ActivityPage.jsx",
+      "layer": "frontend",
+      "source": "../components/ErrorState"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ActivityPage.jsx",
+      "layer": "frontend",
+      "source": "../components/DataList"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ActivityPage.jsx",
+      "layer": "frontend",
+      "source": "../api/clientPortalApi"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ApprovalsPage.jsx",
+      "layer": "frontend",
+      "source": "react"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ApprovalsPage.jsx",
+      "layer": "frontend",
+      "source": "../components/PageHeader"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ApprovalsPage.jsx",
+      "layer": "frontend",
+      "source": "../components/LoadingState"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ApprovalsPage.jsx",
+      "layer": "frontend",
+      "source": "../components/ErrorState"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ApprovalsPage.jsx",
+      "layer": "frontend",
+      "source": "../components/StatusBadge"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ApprovalsPage.jsx",
+      "layer": "frontend",
+      "source": "../components/EmptyState"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ApprovalsPage.jsx",
+      "layer": "frontend",
+      "source": "../components/ActionNotice"
+    },
+    {
+      "file": "apps/client-portal/src/pages/ApprovalsPage.jsx",
+      "layer": "frontend",
+      "source": "../api/clientPortalApi"
+    },
+    {
+      "file": "apps/client-portal/src/pages/DashboardPage.jsx",
+      "layer": "frontend",
+      "source": "react"
+    },
+    {
+      "file": "apps/client-portal/src/pages/DashboardPage.jsx",
+      "layer": "frontend",
+      "source": "../components/PageHeader"
+    },
+    {
+      "file": "apps/client-portal/src/pages/DashboardPage.jsx",
+      "layer": "frontend",
+      "source": "../components/LoadingState"
+    },
+    {
+      "file": "apps/client-portal/src/pages/DashboardPage.jsx",
+      "layer": "frontend",
+      "source": "../components/ErrorState"
+    },
+    {
+      "file": "apps/client-portal/src/pages/DashboardPage.jsx",
+      "layer": "frontend",
+      "source": "../api/clientPortalApi"
+    },
+    {
+      "file": "apps/client-portal/src/pages/DashboardPage.jsx",
+      "layer": "frontend",
+      "source": "../components/DataList"
+    },
+    {
+      "file": "apps/client-portal/src/pages/DocumentsPage.jsx",
+      "layer": "frontend",
+      "source": "react"
+    },
+    {
+      "file": "apps/client-portal/src/pages/DocumentsPage.jsx",
+      "layer": "frontend",
+      "source": "../components/PageHeader"
+    },
+    {
+      "file": "apps/client-portal/src/pages/DocumentsPage.jsx",
+      "layer": "frontend",
+      "source": "../components/LoadingState"
+    },
+    {
+      "file": "apps/client-portal/src/pages/DocumentsPage.jsx",
+      "layer": "frontend",
+      "source": "../components/ErrorState"
+    },
+    {
+      "file": "apps/client-portal/src/pages/DocumentsPage.jsx",
+      "layer": "frontend",
+      "source": "../components/DataList"
+    },
+    {
+      "file": "apps/client-portal/src/pages/DocumentsPage.jsx",
+      "layer": "frontend",
+      "source": "../components/ActionNotice"
+    },
+    {
+      "file": "apps/client-portal/src/pages/DocumentsPage.jsx",
+      "layer": "frontend",
+      "source": "../api/clientPortalApi"
+    },
+    {
+      "file": "apps/client-portal/src/pages/LoginPage.jsx",
+      "layer": "frontend",
+      "source": "react"
+    },
+    {
+      "file": "apps/client-portal/src/pages/LoginPage.jsx",
+      "layer": "frontend",
+      "source": "../components/PageHeader"
+    },
+    {
+      "file": "apps/client-portal/src/pages/LoginPage.jsx",
+      "layer": "frontend",
+      "source": "../api/clientPortalApi"
+    },
+    {
+      "file": "apps/client-portal/src/pages/LoginPage.jsx",
+      "layer": "frontend",
+      "source": "../api/authStore"
+    },
+    {
+      "file": "apps/client-portal/src/pages/MessagesPage.jsx",
+      "layer": "frontend",
+      "source": "react"
+    },
+    {
+      "file": "apps/client-portal/src/pages/MessagesPage.jsx",
+      "layer": "frontend",
+      "source": "../components/PageHeader"
+    },
+    {
+      "file": "apps/client-portal/src/pages/MessagesPage.jsx",
+      "layer": "frontend",
+      "source": "../components/LoadingState"
+    },
+    {
+      "file": "apps/client-portal/src/pages/MessagesPage.jsx",
+      "layer": "frontend",
+      "source": "../components/ErrorState"
+    },
+    {
+      "file": "apps/client-portal/src/pages/MessagesPage.jsx",
+      "layer": "frontend",
+      "source": "../components/DataList"
+    },
+    {
+      "file": "apps/client-portal/src/pages/MessagesPage.jsx",
+      "layer": "frontend",
+      "source": "../components/ActionNotice"
+    },
+    {
+      "file": "apps/client-portal/src/pages/MessagesPage.jsx",
+      "layer": "frontend",
+      "source": "../api/clientPortalApi"
+    },
+    {
+      "file": "apps/client-portal/src/pages/TasksPage.jsx",
+      "layer": "frontend",
+      "source": "react"
+    },
+    {
+      "file": "apps/client-portal/src/pages/TasksPage.jsx",
+      "layer": "frontend",
+      "source": "../components/PageHeader"
+    },
+    {
+      "file": "apps/client-portal/src/pages/TasksPage.jsx",
+      "layer": "frontend",
+      "source": "../components/LoadingState"
+    },
+    {
+      "file": "apps/client-portal/src/pages/TasksPage.jsx",
+      "layer": "frontend",
+      "source": "../components/ErrorState"
+    },
+    {
+      "file": "apps/client-portal/src/pages/TasksPage.jsx",
+      "layer": "frontend",
+      "source": "../components/StatusBadge"
+    },
+    {
+      "file": "apps/client-portal/src/pages/TasksPage.jsx",
+      "layer": "frontend",
+      "source": "../components/EmptyState"
+    },
+    {
+      "file": "apps/client-portal/src/pages/TasksPage.jsx",
+      "layer": "frontend",
+      "source": "../components/ActionNotice"
+    },
+    {
+      "file": "apps/client-portal/src/pages/TasksPage.jsx",
+      "layer": "frontend",
+      "source": "../api/clientPortalApi"
+    }
+  ],
+  "warnings": []
+}
