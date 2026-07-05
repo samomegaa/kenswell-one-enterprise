@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-07-05T13:17:33.530Z",
+  "migrationCount": 10,
+  "modelCount": 10,
+  "migrations": [
+    "20260704_001_create_clients.js",
+    "20260704_002_create_portal_accounts.js",
+    "20260704_003_create_portal_matters.js",
+    "20260704_004_create_portal_documents.js",
+    "20260704_005_create_portal_messages.js",
+    "20260704_006_create_audit_logs.js",
+    "20260704_007_create_notifications.js",
+    "20260704_008_create_file_assets.js",
+    "20260704_009_create_client_tasks.js",
+    "20260704_010_create_client_approvals.js"
+  ],
+  "models": [
+    "AuditLog.js",
+    "Client.js",
+    "ClientApproval.js",
+    "ClientTask.js",
+    "FileAsset.js",
+    "Notification.js",
+    "PortalAccount.js",
+    "PortalDocument.js",
+    "PortalMatter.js",
+    "PortalMessage.js"
+  ],
+  "warnings": [
+    {
+      "type": "model_registration",
+      "message": "AuditLog may not be registered in src/database/models/index.js"
+    },
+    {
+      "type": "model_registration",
+      "message": "Client may not be registered in src/database/models/index.js"
+    },
+    {
+      "type": "model_registration",
+      "message": "ClientApproval may not be registered in src/database/models/index.js"
+    },
+    {
+      "type": "model_registration",
+      "message": "ClientTask may not be registered in src/database/models/index.js"
+    },
+    {
+      "type": "model_registration",
+      "message": "FileAsset may not be registered in src/database/models/index.js"
+    },
+    {
+      "type": "model_registration",
+      "message": "Notification may not be registered in src/database/models/index.js"
+    },
+    {
+      "type": "model_registration",
+      "message": "PortalAccount may not be registered in src/database/models/index.js"
+    },
+    {
+      "type": "model_registration",
+      "message": "PortalDocument may not be registered in src/database/models/index.js"
+    },
+    {
+      "type": "model_registration",
+      "message": "PortalMatter may not be registered in src/database/models/index.js"
+    },
+    {
+      "type": "model_registration",
+      "message": "PortalMessage may not be registered in src/database/models/index.js"
+    }
+  ]
+}

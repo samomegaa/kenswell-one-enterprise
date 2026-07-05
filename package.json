@@ -31,7 +31,8 @@
     "bridge:rc1:architecture": "node releases/0.9/Bridge/review/rc1/architecture/analyse-architecture.js && node releases/0.9/Bridge/review/rc1/architecture/snapshot-tree.js",
     "bridge:rc1:api-standard": "node releases/0.9/Bridge/review/rc1/api/verify-api-standard.js",
     "bridge:rc1:api-standard-all": "node releases/0.9/Bridge/review/rc1/api/verify-all-controllers-standard.js",
-    "bridge:rc1:security": "node releases/0.9/Bridge/review/rc1/security/verify-security-baseline.js"
+    "bridge:rc1:security": "node releases/0.9/Bridge/review/rc1/security/verify-security-baseline.js",
+    "bridge:rc1:database": "node releases/0.9/Bridge/review/rc1/database/analyse-database.js"
   },
   "engines": {
     "node": ">=20"
