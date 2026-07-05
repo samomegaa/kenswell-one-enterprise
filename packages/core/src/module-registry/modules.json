@@ -1,0 +1,63 @@
+{
+  "modules": [
+    {
+      "id": "bridge",
+      "name": "Kenswell One Bridge",
+      "type": "app",
+      "status": "stable",
+      "version": "0.9.0",
+      "path": "apps/bridge",
+      "source": "releases/0.9/Bridge",
+      "enabled": true,
+      "capabilities": [
+        "client_portal",
+        "documents",
+        "messages",
+        "tasks",
+        "approvals",
+        "timeline",
+        "activity"
+      ]
+    },
+    {
+      "id": "practice",
+      "name": "Practice Core",
+      "type": "app",
+      "status": "planned",
+      "version": "1.0.0-alpha",
+      "path": "apps/practice",
+      "enabled": false,
+      "capabilities": []
+    },
+    {
+      "id": "finance",
+      "name": "Finance",
+      "type": "app",
+      "status": "planned",
+      "version": "1.0.0-alpha",
+      "path": "apps/finance",
+      "enabled": false,
+      "capabilities": []
+    },
+    {
+      "id": "identity",
+      "name": "Identity",
+      "type": "app",
+      "status": "planned",
+      "version": "1.0.0-alpha",
+      "path": "apps/identity",
+      "enabled": false,
+      "capabilities": []
+    },
+    {
+      "id": "admin",
+      "name": "Enterprise Admin",
+      "type": "app",
+      "status": "planned",
+      "version": "1.0.0-alpha",
+      "path": "apps/admin",
+      "enabled": false,
+      "capabilities": []
+    }
+  ]
+}
