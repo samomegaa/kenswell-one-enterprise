@@ -9,4 +9,5 @@ module.exports = {
   clientPortalFileController: require('./ClientPortalFileController'),
   clientPortalTaskController: require('./ClientPortalTaskController'),
   clientPortalApprovalController: require('./ClientPortalApprovalController'),
+  clientPortalActivityController: require('./ClientPortalActivityController'),
 };

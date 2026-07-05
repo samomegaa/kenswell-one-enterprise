@@ -17,9 +17,13 @@ const {
   clientApprovalRepository,
 } = require('../../repositories/approvals');
 
+const {
+  clientPortalActivityService,
+} = require('../../activity/clientPortal');
+
 class ClientPortalDashboardService {
   async getDashboard(clientId) {
-    const [overview, matters, documents, messages, notifications, tasks, approvals] = await Promise.all([
+    const [overview, matters, documents, messages, notifications, tasks, approvals, activity] = await Promise.all([
       clientPortalService.getClientPortalOverview(clientId),
       portalMatterService.listClientMatters(clientId),
       portalDocumentService.listClientDocuments(clientId),
@@ -35,6 +39,10 @@ class ClientPortalDashboardService {
       clientApprovalRepository.findPendingByClient(clientId, {
         limit: 10,
         order: [['createdAt', 'DESC']],
+      }),
+      clientPortalActivityService.getClientActivity({
+        clientId,
+        limit: 10,
       }),
     ]);
 
@@ -53,6 +61,7 @@ class ClientPortalDashboardService {
         openTasks: tasks.length,
         pendingApprovals: approvals.length,
         recentNotifications: notifications.length,
+        recentActivity: activity.length,
       },
       openMatters,
       requestedDocuments,
@@ -60,6 +69,7 @@ class ClientPortalDashboardService {
       openTasks: tasks,
       pendingApprovals: approvals,
       recentNotifications: notifications,
+      recentActivity: activity,
     };
   }
 }

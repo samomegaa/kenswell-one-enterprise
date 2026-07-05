@@ -110,6 +110,10 @@ const timelineQuerySchema = z.object({
   limit: z.coerce.number().int().positive().max(100).optional(),
 });
 
+const activityQuerySchema = z.object({
+  limit: z.coerce.number().int().positive().max(100).optional(),
+});
+
 const fileAssetIdParamSchema = z.object({
   fileAssetId: uuid,
 });
@@ -188,6 +192,7 @@ module.exports = {
   staffSendMessageBodySchema,
   archiveMessageBodySchema,
   timelineQuerySchema,
+  activityQuerySchema,
   fileAssetIdParamSchema,
   prepareFileUploadBodySchema,
   confirmFileUploadBodySchema,

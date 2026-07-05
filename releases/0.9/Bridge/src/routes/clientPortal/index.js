@@ -9,6 +9,7 @@ const timelineRoutes = require('./timeline.routes');
 const fileRoutes = require('./file.routes');
 const taskRoutes = require('./task.routes');
 const approvalRoutes = require('./approval.routes');
+const activityRoutes = require('./activity.routes');
 
 const router = express.Router();
 
@@ -21,5 +22,6 @@ router.use('/timeline', timelineRoutes);
 router.use('/files', fileRoutes);
 router.use('/tasks', taskRoutes);
 router.use('/approvals', approvalRoutes);
+router.use('/activity', activityRoutes);
 
 module.exports = router;
