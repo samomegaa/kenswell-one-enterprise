@@ -9,4 +9,5 @@ module.exports = {
   auth: require('./auth'),
   rbac: require('./rbac'),
   context: require('../../../src/enterprise/context'),
+  audit: require('../../../src/enterprise/audit'),
 };
