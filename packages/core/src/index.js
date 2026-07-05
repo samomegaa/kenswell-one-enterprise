@@ -8,4 +8,5 @@ module.exports = {
   identity: require('./identity'),
   auth: require('./auth'),
   rbac: require('./rbac'),
+  context: require('../../../src/enterprise/context'),
 };

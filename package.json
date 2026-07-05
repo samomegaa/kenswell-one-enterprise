@@ -66,13 +66,14 @@
     "bridge:rc3:readiness": "node releases/0.9/Bridge/review/rc3/readiness/verify-ga-readiness.js",
     "bridge:rc3:ga": "npm run bridge:rc3:readiness && npm run bridge:rc2:ci && npm run bridge:rc1:smoke-full",
     "enterprise:1.0:a1": "node review/1.0/A1/verify-enterprise-structure.js",
-    "enterprise:1.0:a2": "node review/1.0/A2/verify-module-registry.js",
-    "enterprise:1.0:a3": "node review/1.0/A3/verify-feature-flags.js",
-    "enterprise:1.0:a4": "node review/1.0/A4/verify-event-bus.js",
-    "enterprise:1.0:a5": "node review/1.0/A5/verify-enterprise-runtime.js",
-    "enterprise:1.0:b1": "node review/1.0/B1/verify-identity-foundation.js",
-    "enterprise:1.0:b2": "node review/1.0/B2/verify-auth-provider-framework.js",
-    "enterprise:1.0:b3": "node review/1.0/B3/verify-rbac-engine.js"
+"enterprise:1.0:a2": "node review/1.0/A2/verify-module-registry.js",
+"enterprise:1.0:a3": "node review/1.0/A3/verify-feature-flags.js",
+"enterprise:1.0:a4": "node review/1.0/A4/verify-event-bus.js",
+"enterprise:1.0:a5": "node review/1.0/A5/verify-enterprise-runtime.js",
+"enterprise:1.0:b1": "node review/1.0/B1/verify-identity-foundation.js",
+"enterprise:1.0:b2": "node review/1.0/B2/verify-auth-provider-framework.js",
+"enterprise:1.0:b3": "node review/1.0/B3/verify-rbac-engine.js",
+"enterprise:1.0:b4": "node review/1.0/B4/verify-enterprise-context.js"
   },
   "engines": {
     "node": ">=20"
