@@ -6,49 +6,51 @@ const {
   clientPortalInvitationWorkflow,
 } = require('../../workflows/clientPortal');
 
+const {
+  respond,
+} = require('../../http');
+
 class ClientPortalAuthController {
   async validateInvitation(req, res) {
     try {
-      const { token } = req.params;
+      const result = await clientPortalInvitationWorkflow.validateInvitation(req.params.token);
 
-      const result = await clientPortalInvitationWorkflow.validateInvitation(token);
-
-      return res.json(result);
+      return respond.success(res, {
+        invitation: result,
+      });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
   async activateInvitation(req, res) {
     try {
-      const { token, password } = req.body;
-
       const account = await clientPortalInvitationWorkflow.activateInvitation({
-        token,
-        password,
+        token: req.body.token,
+        password: req.body.password,
       });
 
-      return res.status(200).json({
+      return respond.success(res, {
         message: 'Client portal account activated',
         account,
       });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 
   async login(req, res) {
     try {
-      const { email, password } = req.body;
-
       const session = await clientPortalAuthService.login({
-        email,
-        password,
+        email: req.body.email,
+        password: req.body.password,
       });
 
-      return res.json(session);
+      return respond.success(res, {
+        session,
+      });
     } catch (error) {
-      return res.status(401).json({ error: error.message });
+      return respond.failure(res, error, 401, 'unauthorized');
     }
   }
 }

@@ -7,6 +7,10 @@ const {
   AUDIT_ACTOR_TYPES,
 } = require('../../audit');
 
+const {
+  respond,
+} = require('../../http');
+
 class ClientPortalActivityController {
   async activity(req, res) {
     try {
@@ -22,12 +26,12 @@ class ClientPortalActivityController {
         resourceId: req.clientPortal.clientId,
       });
 
-      return res.json({
+      return respond.success(res, {
         clientId: req.clientPortal.clientId,
         activity,
       });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 }

@@ -8,6 +8,10 @@ const {
   AUDIT_ACTOR_TYPES,
 } = require('../../audit');
 
+const {
+  respond,
+} = require('../../http');
+
 class ClientPortalDashboardController {
   async dashboard(req, res) {
     try {
@@ -21,9 +25,11 @@ class ClientPortalDashboardController {
         resourceId: req.clientPortal.clientId,
       });
 
-      return res.json(dashboard);
+      return respond.success(res, {
+        dashboard,
+      });
     } catch (error) {
-      return res.status(400).json({ error: error.message });
+      return respond.failure(res, error);
     }
   }
 }

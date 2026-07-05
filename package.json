@@ -28,7 +28,8 @@
     "bridge:client-portal:verify-deploy": "cd releases/0.9/Bridge/apps/client-portal && npm run build && node deploy/verify-build.js",
     "bridge:rc1:baseline": "node releases/0.9/Bridge/review/rc1/verify-rc1-baseline.js",
     "bridge:rc1:smoke": "npm run bridge:check-routes && npm run bridge:check-dashboard && npm run bridge:check-documents && npm run bridge:check-messages && npm run bridge:check-tasks && npm run bridge:check-approvals && npm run bridge:check-activity && npm run bridge:check-files && npm run bridge:client-portal:build",
-    "bridge:rc1:architecture": "node releases/0.9/Bridge/review/rc1/architecture/analyse-architecture.js && node releases/0.9/Bridge/review/rc1/architecture/snapshot-tree.js"
+    "bridge:rc1:architecture": "node releases/0.9/Bridge/review/rc1/architecture/analyse-architecture.js && node releases/0.9/Bridge/review/rc1/architecture/snapshot-tree.js",
+    "bridge:rc1:api-standard": "node releases/0.9/Bridge/review/rc1/api/verify-api-standard.js"
   },
   "engines": {
     "node": ">=20"
