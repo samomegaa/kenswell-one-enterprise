@@ -20,4 +20,5 @@ module.exports = {
   resilience: require('../../../src/enterprise/resilience'),
   observability: require('../../../src/enterprise/observability'),
   logging: require('../../../src/enterprise/logging'),
+  security: require('../../../src/enterprise/security'),
 };
