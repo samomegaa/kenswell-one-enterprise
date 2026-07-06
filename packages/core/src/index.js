@@ -19,4 +19,5 @@ module.exports = {
   cqrs: require('../../../src/enterprise/cqrs'),
   resilience: require('../../../src/enterprise/resilience'),
   observability: require('../../../src/enterprise/observability'),
+  logging: require('../../../src/enterprise/logging'),
 };
