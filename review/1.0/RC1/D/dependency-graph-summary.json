@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-07-06T20:17:55.912Z",
+  "filesScanned": 95,
+  "layerCount": 13,
+  "crossLayerDependencies": 2,
+  "edges": [
+    {
+      "from": "api",
+      "to": "application",
+      "count": 1
+    },
+    {
+      "from": "api",
+      "to": "domain",
+      "count": 1
+    }
+  ],
+  "notes": [
+    "RC1-D reviews Enterprise dependency graph health.",
+    "Forbidden dependencies are checked in Part 3.",
+    "Circular dependencies are checked in Part 4."
+  ]
+}
