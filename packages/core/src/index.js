@@ -17,4 +17,5 @@ module.exports = {
   api: require('../../../src/enterprise/api'),
   policy: require('../../../src/enterprise/policy'),
   cqrs: require('../../../src/enterprise/cqrs'),
+  resilience: require('../../../src/enterprise/resilience'),
 };
