@@ -13,4 +13,5 @@ module.exports = {
   workflow: require('../../../src/enterprise/workflow'),
   transactions: require('../../../src/enterprise/transactions'),
   domain: require('../../../src/enterprise/domain'),
+  application: require('../../../src/enterprise/application'),
 };
