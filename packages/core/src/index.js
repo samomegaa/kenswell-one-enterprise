@@ -14,4 +14,5 @@ module.exports = {
   transactions: require('../../../src/enterprise/transactions'),
   domain: require('../../../src/enterprise/domain'),
   application: require('../../../src/enterprise/application'),
+  api: require('../../../src/enterprise/api'),
 };
