@@ -15,4 +15,5 @@ module.exports = {
   domain: require('../../../src/enterprise/domain'),
   application: require('../../../src/enterprise/application'),
   api: require('../../../src/enterprise/api'),
+  policy: require('../../../src/enterprise/policy'),
 };
