@@ -135,13 +135,13 @@ async function run() {
   assert(manager.listActive().length === 0, 'manager did not clear committed transaction');
 
   assert(typeof enterpriseTransactionMiddleware === 'function', 'transaction middleware not exported');
-  assert(core.transactions, 'transactions not exported from c
-  asser
+  assert(core.transactions, 'transactions not exported from core');
+  assert(typeof core.transactions.TransactionBoundary === 'function', 'core transaction export invalid');
 
-  console.log('✅ Enterp
+  console.log('✅ Enterprise Transaction Boundary and Outbox verification passed');
 }
 
 run().catch((error) => {
-  console.error(err
-
+  console.error(error);
+  process.exit(1);
 });
