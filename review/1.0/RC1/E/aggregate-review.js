@@ -36,9 +36,9 @@ for (const script of scripts) {
 }
 
 const requiredReports = [
-  'standards-report.md',
-  'standards-summary.json',
-  'standards-score.json',
+  'enterprise-standards-report.md',
+  'enterprise-standards-summary.json',
+  'enterprise-standards-score.json',
 ];
 
 for (const report of requiredReports) {
@@ -50,7 +50,7 @@ for (const report of requiredReports) {
 
 const score = JSON.parse(
   fs.readFileSync(
-    path.join(REVIEW, 'standards-score.json'),
+    path.join(REVIEW, 'enterprise-standards-score.json'),
     'utf8'
   )
 );
@@ -59,10 +59,10 @@ console.log('');
 console.log('----------------------------------------');
 console.log('Enterprise 1.0 RC1-E Summary');
 console.log('----------------------------------------');
-console.log(`Standards Score : ${score.overall}`);
-console.log(`Generated At    : ${score.generatedAt}`);
-console.log('Status          : PASSED');
+console.log(`Enterprise Standards Score : ${score.overall}`);
+console.log(`Generated At               : ${score.generatedAt}`);
+console.log('Status                     : PASSED');
 console.log('----------------------------------------');
 console.log('');
 
-console.log('✅ Enterprise RC1-E Standards Review passed');
+console.log('✅ Enterprise RC1-E Enterprise Standards Review passed');
