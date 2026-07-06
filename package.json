@@ -87,7 +87,8 @@
     "enterprise:1.0:b14": "node review/1.0/B14/verify-enterprise-observability-boundary.js",
     "enterprise:1.0:b15": "node review/1.0/B15/verify-enterprise-logging-boundary.js",
     "enterprise:1.0:b16": "node review/1.0/B16/verify-enterprise-security-boundary.js",
-    "enterprise:rc1:a": "node review/1.0/RC1/A/aggregate-review.js"
+    "enterprise:rc1:a": "node review/1.0/RC1/A/aggregate-review.js",
+    "enterprise:rc1:b": "node review/1.0/RC1/B/aggregate-review.js"
   },
   "engines": {
     "node": ">=20"
