@@ -16,4 +16,5 @@ module.exports = {
   application: require('../../../src/enterprise/application'),
   api: require('../../../src/enterprise/api'),
   policy: require('../../../src/enterprise/policy'),
+  cqrs: require('../../../src/enterprise/cqrs'),
 };
