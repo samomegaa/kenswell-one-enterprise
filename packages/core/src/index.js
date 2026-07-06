@@ -18,4 +18,5 @@ module.exports = {
   policy: require('../../../src/enterprise/policy'),
   cqrs: require('../../../src/enterprise/cqrs'),
   resilience: require('../../../src/enterprise/resilience'),
+  observability: require('../../../src/enterprise/observability'),
 };
