@@ -90,7 +90,8 @@
     "enterprise:rc1:a": "node review/1.0/RC1/A/aggregate-review.js",
     "enterprise:rc1:b": "node review/1.0/RC1/B/aggregate-review.js",
     "enterprise:rc1:c": "node review/1.0/RC1/C/aggregate-review.js",
-    "enterprise:rc1:d": "node review/1.0/RC1/D/aggregate-review.js"
+    "enterprise:rc1:d": "node review/1.0/RC1/D/aggregate-review.js",
+    "enterprise:rc1:e": "node review/1.0/RC1/E/aggregate-review.js"
   },
   "engines": {
     "node": ">=20"
