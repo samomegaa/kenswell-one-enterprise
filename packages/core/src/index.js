@@ -10,4 +10,5 @@ module.exports = {
   rbac: require('./rbac'),
   context: require('../../../src/enterprise/context'),
   audit: require('../../../src/enterprise/audit'),
+  workflow: require('../../../src/enterprise/workflow'),
 };

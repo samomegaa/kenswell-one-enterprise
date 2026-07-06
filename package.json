@@ -74,7 +74,8 @@
 "enterprise:1.0:b2": "node review/1.0/B2/verify-auth-provider-framework.js",
 "enterprise:1.0:b3": "node review/1.0/B3/verify-rbac-engine.js",
 "enterprise:1.0:b4": "node review/1.0/B4/verify-enterprise-context.js",
-"enterprise:1.0:b5": "node review/1.0/B5/verify-enterprise-audit.js"
+"enterprise:1.0:b5": "node review/1.0/B5/verify-enterprise-audit.js",
+"enterprise:1.0:b6": "node review/1.0/B6/verify-enterprise-workflow.js"
 
   },
   "engines": {

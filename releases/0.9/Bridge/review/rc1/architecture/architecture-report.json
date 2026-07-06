@@ -1,8 +1,9 @@
 {
-  "generatedAt": "2026-07-05T12:20:07.933Z",
-  "totalFiles": 134,
+  "generatedAt": "2026-07-05T22:34:19.110Z",
+  "totalFiles": 166,
   "layers": {
     "activity": 2,
+    "other": 45,
     "approvals": 3,
     "audit": 4,
     "auth": 5,
@@ -10,7 +11,6 @@
     "dashboard": 2,
     "migrations": 10,
     "models": 11,
-    "other": 13,
     "files": 4,
     "middleware": 2,
     "notifications": 4,
@@ -52,6 +52,41 @@
       "file": "src/activity/clientPortal/index.js",
       "layer": "activity",
       "source": "./ClientPortalActivityService"
+    },
+    {
+      "file": "src/app/createApp.js",
+      "layer": "other",
+      "source": "express"
+    },
+    {
+      "file": "src/app/createApp.js",
+      "layer": "other",
+      "source": "../routes/clientPortal"
+    },
+    {
+      "file": "src/app/createApp.js",
+      "layer": "other",
+      "source": "../http"
+    },
+    {
+      "file": "src/app/createApp.js",
+      "layer": "other",
+      "source": "../security"
+    },
+    {
+      "file": "src/app/createApp.js",
+      "layer": "other",
+      "source": "../health"
+    },
+    {
+      "file": "src/app/createApp.js",
+      "layer": "other",
+      "source": "../logging"
+    },
+    {
+      "file": "src/app/index.js",
+      "layer": "other",
+      "source": "./createApp"
     },
     {
       "file": "src/approvals/clientPortal/ClientApprovalService.js",
@@ -169,6 +204,106 @@
       "source": "jsonwebtoken"
     },
     {
+      "file": "src/bootstrap/index.js",
+      "layer": "other",
+      "source": "./startServer"
+    },
+    {
+      "file": "src/bootstrap/startServer.js",
+      "layer": "other",
+      "source": "../config"
+    },
+    {
+      "file": "src/bootstrap/startServer.js",
+      "layer": "other",
+      "source": "../app"
+    },
+    {
+      "file": "src/bootstrap/startServer.js",
+      "layer": "other",
+      "source": "../logging"
+    },
+    {
+      "file": "src/config/app.config.js",
+      "layer": "other",
+      "source": "./validation"
+    },
+    {
+      "file": "src/config/auth.config.js",
+      "layer": "other",
+      "source": "./validation"
+    },
+    {
+      "file": "src/config/clientPortal.config.js",
+      "layer": "other",
+      "source": "./validation"
+    },
+    {
+      "file": "src/config/database.config.js",
+      "layer": "other",
+      "source": "./validation"
+    },
+    {
+      "file": "src/config/index.js",
+      "layer": "other",
+      "source": "./app.config"
+    },
+    {
+      "file": "src/config/index.js",
+      "layer": "other",
+      "source": "./auth.config"
+    },
+    {
+      "file": "src/config/index.js",
+      "layer": "other",
+      "source": "./database.config"
+    },
+    {
+      "file": "src/config/index.js",
+      "layer": "other",
+      "source": "./security.config"
+    },
+    {
+      "file": "src/config/index.js",
+      "layer": "other",
+      "source": "./notification.config"
+    },
+    {
+      "file": "src/config/index.js",
+      "layer": "other",
+      "source": "./storage.config"
+    },
+    {
+      "file": "src/config/index.js",
+      "layer": "other",
+      "source": "./clientPortal.config"
+    },
+    {
+      "file": "src/config/index.js",
+      "layer": "other",
+      "source": "./logging.config"
+    },
+    {
+      "file": "src/config/logging.config.js",
+      "layer": "other",
+      "source": "./validation"
+    },
+    {
+      "file": "src/config/notification.config.js",
+      "layer": "other",
+      "source": "./validation"
+    },
+    {
+      "file": "src/config/security.config.js",
+      "layer": "other",
+      "source": "./validation"
+    },
+    {
+      "file": "src/config/storage.config.js",
+      "layer": "other",
+      "source": "./validation"
+    },
+    {
       "file": "src/controllers/clientPortal/ClientPortalActivityController.js",
       "layer": "controllers",
       "source": "../../activity/clientPortal"
@@ -179,9 +314,19 @@
       "source": "../../audit"
     },
     {
+      "file": "src/controllers/clientPortal/ClientPortalActivityController.js",
+      "layer": "controllers",
+      "source": "../../http"
+    },
+    {
       "file": "src/controllers/clientPortal/ClientPortalApprovalController.js",
       "layer": "controllers",
       "source": "../../approvals/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalApprovalController.js",
+      "layer": "controllers",
+      "source": "../../http"
     },
     {
       "file": "src/controllers/clientPortal/ClientPortalAuthController.js",
@@ -194,9 +339,19 @@
       "source": "../../workflows/clientPortal"
     },
     {
+      "file": "src/controllers/clientPortal/ClientPortalAuthController.js",
+      "layer": "controllers",
+      "source": "../../http"
+    },
+    {
       "file": "src/controllers/clientPortal/ClientPortalController.js",
       "layer": "controllers",
       "source": "../../services/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalController.js",
+      "layer": "controllers",
+      "source": "../../http"
     },
     {
       "file": "src/controllers/clientPortal/ClientPortalDashboardController.js",
@@ -207,6 +362,11 @@
       "file": "src/controllers/clientPortal/ClientPortalDashboardController.js",
       "layer": "controllers",
       "source": "../../audit"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalDashboardController.js",
+      "layer": "controllers",
+      "source": "../../http"
     },
     {
       "file": "src/controllers/clientPortal/ClientPortalDocumentController.js",
@@ -222,6 +382,11 @@
       "file": "src/controllers/clientPortal/ClientPortalDocumentController.js",
       "layer": "controllers",
       "source": "../../notifications"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalDocumentController.js",
+      "layer": "controllers",
+      "source": "../../http"
     },
     {
       "file": "src/controllers/clientPortal/ClientPortalFileController.js",
@@ -239,9 +404,19 @@
       "source": "../../audit"
     },
     {
+      "file": "src/controllers/clientPortal/ClientPortalFileController.js",
+      "layer": "controllers",
+      "source": "../../http"
+    },
+    {
       "file": "src/controllers/clientPortal/ClientPortalInvitationController.js",
       "layer": "controllers",
       "source": "../../workflows/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalInvitationController.js",
+      "layer": "controllers",
+      "source": "../../http"
     },
     {
       "file": "src/controllers/clientPortal/ClientPortalMessageController.js",
@@ -259,9 +434,19 @@
       "source": "../../notifications"
     },
     {
+      "file": "src/controllers/clientPortal/ClientPortalMessageController.js",
+      "layer": "controllers",
+      "source": "../../http"
+    },
+    {
       "file": "src/controllers/clientPortal/ClientPortalTaskController.js",
       "layer": "controllers",
       "source": "../../tasks/clientPortal"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalTaskController.js",
+      "layer": "controllers",
+      "source": "../../http"
     },
     {
       "file": "src/controllers/clientPortal/ClientPortalTimelineController.js",
@@ -272,6 +457,11 @@
       "file": "src/controllers/clientPortal/ClientPortalTimelineController.js",
       "layer": "controllers",
       "source": "../../audit"
+    },
+    {
+      "file": "src/controllers/clientPortal/ClientPortalTimelineController.js",
+      "layer": "controllers",
+      "source": "../../http"
     },
     {
       "file": "src/controllers/clientPortal/index.js",
@@ -361,17 +551,57 @@
     {
       "file": "src/database/models/index.js",
       "layer": "models",
-      "source": "fs"
-    },
-    {
-      "file": "src/database/models/index.js",
-      "layer": "models",
-      "source": "path"
-    },
-    {
-      "file": "src/database/models/index.js",
-      "layer": "models",
       "source": "sequelize"
+    },
+    {
+      "file": "src/database/models/index.js",
+      "layer": "models",
+      "source": "./Client"
+    },
+    {
+      "file": "src/database/models/index.js",
+      "layer": "models",
+      "source": "./PortalAccount"
+    },
+    {
+      "file": "src/database/models/index.js",
+      "layer": "models",
+      "source": "./PortalMatter"
+    },
+    {
+      "file": "src/database/models/index.js",
+      "layer": "models",
+      "source": "./PortalDocument"
+    },
+    {
+      "file": "src/database/models/index.js",
+      "layer": "models",
+      "source": "./PortalMessage"
+    },
+    {
+      "file": "src/database/models/index.js",
+      "layer": "models",
+      "source": "./AuditLog"
+    },
+    {
+      "file": "src/database/models/index.js",
+      "layer": "models",
+      "source": "./Notification"
+    },
+    {
+      "file": "src/database/models/index.js",
+      "layer": "models",
+      "source": "./FileAsset"
+    },
+    {
+      "file": "src/database/models/index.js",
+      "layer": "models",
+      "source": "./ClientTask"
+    },
+    {
+      "file": "src/database/models/index.js",
+      "layer": "models",
+      "source": "./ClientApproval"
     },
     {
       "file": "src/domain/clientPortal/factories/client.factory.js",
@@ -459,9 +689,24 @@
       "source": "./file.constants"
     },
     {
-      "file": "src/http/errorHandler.js",
+      "file": "src/health/health.routes.js",
       "layer": "other",
-      "source": "../errors/ApiError"
+      "source": "express"
+    },
+    {
+      "file": "src/health/index.js",
+      "layer": "other",
+      "source": "./HealthService"
+    },
+    {
+      "file": "src/health/index.js",
+      "layer": "other",
+      "source": "./health.routes"
+    },
+    {
+      "file": "src/http/compression.js",
+      "layer": "other",
+      "source": "compression"
     },
     {
       "file": "src/http/index.js",
@@ -472,6 +717,56 @@
       "file": "src/http/index.js",
       "layer": "other",
       "source": "./errorHandler"
+    },
+    {
+      "file": "src/http/index.js",
+      "layer": "other",
+      "source": "./notFoundHandler"
+    },
+    {
+      "file": "src/http/index.js",
+      "layer": "other",
+      "source": "./respond"
+    },
+    {
+      "file": "src/http/index.js",
+      "layer": "other",
+      "source": "./requestId"
+    },
+    {
+      "file": "src/http/index.js",
+      "layer": "other",
+      "source": "./requestLogger"
+    },
+    {
+      "file": "src/http/index.js",
+      "layer": "other",
+      "source": "./rateLimit"
+    },
+    {
+      "file": "src/http/index.js",
+      "layer": "other",
+      "source": "./compression"
+    },
+    {
+      "file": "src/http/requestId.js",
+      "layer": "other",
+      "source": "crypto"
+    },
+    {
+      "file": "src/logging/Logger.js",
+      "layer": "other",
+      "source": "./logging.constants"
+    },
+    {
+      "file": "src/logging/index.js",
+      "layer": "other",
+      "source": "./Logger"
+    },
+    {
+      "file": "src/logging/index.js",
+      "layer": "other",
+      "source": "./logging.constants"
     },
     {
       "file": "src/middleware/clientPortal/index.js",
@@ -947,6 +1242,36 @@
       "file": "src/routes/clientPortal/timeline.routes.js",
       "layer": "routes",
       "source": "../../validation/clientPortal"
+    },
+    {
+      "file": "src/security/index.js",
+      "layer": "other",
+      "source": "./validateEnvironment"
+    },
+    {
+      "file": "src/security/index.js",
+      "layer": "other",
+      "source": "./securityHeaders"
+    },
+    {
+      "file": "src/security/index.js",
+      "layer": "other",
+      "source": "./corsGuard"
+    },
+    {
+      "file": "src/security/index.js",
+      "layer": "other",
+      "source": "./security.constants"
+    },
+    {
+      "file": "src/security/validateEnvironment.js",
+      "layer": "other",
+      "source": "./security.constants"
+    },
+    {
+      "file": "src/server.js",
+      "layer": "other",
+      "source": "./bootstrap"
     },
     {
       "file": "src/services/clientPortal/ClientPortalService.js",
