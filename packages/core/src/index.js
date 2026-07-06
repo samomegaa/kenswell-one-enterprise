@@ -12,4 +12,5 @@ module.exports = {
   audit: require('../../../src/enterprise/audit'),
   workflow: require('../../../src/enterprise/workflow'),
   transactions: require('../../../src/enterprise/transactions'),
+  domain: require('../../../src/enterprise/domain'),
 };
