@@ -1,0 +1,9 @@
+{
+  "enterpriseKernel": "Certified",
+  "bridge": "Complete",
+  "phaseA": "Complete",
+  "phaseB": "Complete",
+  "rc1": "Complete",
+  "readyForRC2": true,
+  "readyForPlatformServices": true
+}
