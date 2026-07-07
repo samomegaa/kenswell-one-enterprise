@@ -114,7 +114,10 @@
     "enterprise:rc2:c:4": "node integration/1.0/RC2/C/verify-app-domain-workflow-flow.js",
     "enterprise:rc2:c:5": "node integration/1.0/RC2/C/generate-report.js",
     "enterprise:rc2:c:6": "node integration/1.0/RC2/C/aggregate-integration.js",
-    "enterprise:rc2:c": "node integration/1.0/RC2/C/aggregate-integration.js"
+    "enterprise:rc2:c": "node integration/1.0/RC2/C/aggregate-integration.js",
+    "enterprise:rc2:d:1": "node integration/1.0/RC2/D/verify-transaction-boundary-flow.js",
+    "enterprise:rc2:d:2": "node integration/1.0/RC2/D/verify-outbox-event-flow.js",
+    "enterprise:rc2:d:3": "node integration/1.0/RC2/D/verify-audit-activity-flow.js"
   },
   "engines": {
     "node": ">=20"

@@ -9,13 +9,17 @@ function assert(condition, message) {
   }
 }
 
-function readPackageJson() {
-  return JSON.parse(
-    fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')
-  );
+function exists(relativePath) {
+  return fs.existsSync(path.join(ROOT, relativePath));
 }
 
-const REQUIRED_RELEASE_SCRIPTS = [
+const packageJson = JSON.parse(
+  fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')
+);
+
+const scripts = packageJson.scripts || {};
+
+const REQUIRED_SCRIPTS = [
   'enterprise:1.0:verify',
 
   'enterprise:1.0:a1',
@@ -48,18 +52,29 @@ const REQUIRED_RELEASE_SCRIPTS = [
   'enterprise:rc1:e',
 ];
 
-const packageJson = readPackageJson();
-const scripts = packageJson.scripts || {};
+const REQUIRED_RC_REPORTS = [
+  'review/1.0/RC1/A/repository-score.json',
+  'review/1.0/RC1/B/layer-score.json',
+  'review/1.0/RC1/C/api-surface-score.json',
+  'review/1.0/RC1/D/dependency-graph-score.json',
+  'review/1.0/RC1/E/enterprise-standards-score.json',
+];
 
-const missing = REQUIRED_RELEASE_SCRIPTS.filter((scriptName) => {
-  return !scripts[scriptName];
-});
+const missingScripts = REQUIRED_SCRIPTS.filter((script) => !scripts[script]);
+const missingReports = REQUIRED_RC_REPORTS.filter((file) => !exists(file));
 
 assert(
-  missing.length === 0,
-  `Missing release readiness scripts: ${missing.join(', ')}`
+  missingScripts.length === 0,
+  `Missing release scripts: ${missingScripts.join(', ')}`
 );
 
-console.log('Release scripts checked :', REQUIRED_RELEASE_SCRIPTS.length);
-console.log('Missing scripts         :', missing.length);
+assert(
+  missingReports.length === 0,
+  `Missing RC reports: ${missingReports.join(', ')}`
+);
+
+console.log('Release scripts checked :', REQUIRED_SCRIPTS.length);
+console.log('RC reports checked      :', REQUIRED_RC_REPORTS.length);
+console.log('Missing release items   :', missingScripts.length + missingReports.length);
+
 console.log('✅ RC1-F Part 4 — Release readiness verified');

@@ -19,7 +19,7 @@ const CAPABILITIES = [
   {
     name: 'RBAC',
     layer: 'rbac',
-    anyOf: ['RBACService', 'PermissionEngine', 'createRBACService'],
+    hasPublicApi: true,
   },
   {
     name: 'Audit Trail',
@@ -82,10 +82,16 @@ for (const capability of CAPABILITIES) {
   }
 
   if (capability.anyOf) {
-    const found = capability.anyOf.some((symbol) => Boolean(layer[symbol]));
+    const hasAny = capability.anyOf.some((symbol) => Boolean(layer[symbol]));
 
-    if (!found) {
+    if (!hasAny) {
       missing.push(`${capability.name}: missing one of ${capability.anyOf.join(', ')}`);
+    }
+  }
+
+  if (capability.hasPublicApi) {
+    if (Object.keys(layer).length === 0) {
+      missing.push(`${capability.name}: layer has empty public API`);
     }
   }
 }

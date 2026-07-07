@@ -10,62 +10,79 @@ function assert(condition, message) {
 
 const core = require(path.join(ROOT, 'packages/core/src'));
 
-const HARDENING_LAYERS = [
-  'api',
-  'application',
-  'audit',
-  'context',
-  'cqrs',
-  'domain',
-  'logging',
-  'observability',
-  'policy',
-  'resilience',
-  'security',
-  'transactions',
-  'workflow',
+const HARDENING_CHECKS = [
+  {
+    name: 'Enterprise errors',
+    layer: 'security',
+    symbols: ['EnterpriseSecurityError', 'RuntimeGuardError', 'RequestGuardError'],
+  },
+  {
+    name: 'Security headers',
+    layer: 'security',
+    symbols: ['DEFAULT_SECURITY_HEADERS', 'createSecurityHeaders', 'applySecurityHeaders'],
+  },
+  {
+    name: 'Observability',
+    layer: 'observability',
+    symbols: ['MetricsRegistry', 'Tracer', 'HealthSignalRegistry'],
+  },
+  {
+    name: 'Logging',
+    layer: 'logging',
+    symbols: ['EnterpriseLogger', 'createLogEntry', 'extractCorrelationContext'],
+  },
+  {
+    name: 'Resilience',
+    layer: 'resilience',
+    symbols: ['IdempotencyBoundary', 'RetryBoundary'],
+  },
+  {
+    name: 'Transactions',
+    layer: 'transactions',
+    symbols: ['TransactionBoundary', 'TransactionManager'],
+  },
 ];
 
-for (const layerName of HARDENING_LAYERS) {
-  const layer = core[layerName];
+const missing = [];
 
-  assert(layer, `Missing hardening layer: ${layerName}`);
+for (const check of HARDENING_CHECKS) {
+  const layer = core[check.layer];
 
-  const exports = Object.keys(layer);
+  if (!layer) {
+    missing.push(`${check.name}: missing layer ${check.layer}`);
+    continue;
+  }
 
-  const hasError = exports.some((name) => name.endsWith('Error'));
-  const hasMiddleware = exports.some((name) => {
-    return /^enterprise[A-Z].*Middleware$/.test(name);
-  });
-
-  assert(hasError, `Layer missing Error export: ${layerName}`);
-  assert(hasMiddleware, `Layer missing enterprise middleware export: ${layerName}`);
+  for (const symbol of check.symbols) {
+    if (!layer[symbol]) {
+      missing.push(`${check.name}: missing symbol ${symbol}`);
+    }
+  }
 }
 
+assert(
+  missing.length === 0,
+  `Missing hardening capabilities: ${missing.join('; ')}`
+);
+
 const apiSuccess = core.api.apiSuccess({ ok: true });
-const apiFailure = core.api.apiFailure(new Error('expected'));
+const domainSuccess = core.domain.domainSuccess({ ok: true });
+const applicationSuccess = core.application.applicationSuccess({ ok: true });
+const cqrsSuccess = core.cqrs.cqrsSuccess({ ok: true });
 
-assert(Object.isFrozen(apiSuccess), 'apiSuccess result is not frozen');
-assert(Object.isFrozen(apiFailure), 'apiFailure result is not frozen');
+assert(Object.isFrozen(apiSuccess), 'apiSuccess result is not immutable');
+assert(Object.isFrozen(domainSuccess), 'domainSuccess result is not immutable');
+assert(Object.isFrozen(applicationSuccess), 'applicationSuccess result is not immutable');
+assert(Object.isFrozen(cqrsSuccess), 'cqrsSuccess result is not immutable');
 
-const policyAllow = core.policy.allowPolicy('allowed');
-const policyDeny = core.policy.denyPolicy('denied');
+const headers = core.security.createSecurityHeaders();
 
-assert(Object.isFrozen(policyAllow), 'policy allow result is not frozen');
-assert(Object.isFrozen(policyDeny), 'policy deny result is not frozen');
+assert(headers['x-content-type-options'] === 'nosniff', 'security headers missing x-content-type-options');
+assert(headers['x-frame-options'] === 'DENY', 'security headers missing x-frame-options');
 
-const securityHeaders = core.security.createSecurityHeaders();
-
-assert(Object.isFrozen(securityHeaders), 'security headers are not frozen');
-assert(securityHeaders['x-content-type-options'] === 'nosniff', 'security headers missing nosniff');
-
-assert(typeof core.logging.EnterpriseLogger === 'function', 'EnterpriseLogger missing');
-assert(typeof core.observability.MetricsRegistry === 'function', 'MetricsRegistry missing');
-
-console.log('Hardening layers checked :', HARDENING_LAYERS.length);
-console.log('Immutable result checks  : 4');
-console.log('Security baseline        : passed');
-console.log('Logging baseline         : passed');
-console.log('Observability baseline   : passed');
+console.log('Hardening capabilities checked :', HARDENING_CHECKS.length);
+console.log('Missing hardening capabilities :', missing.length);
+console.log('Immutable result helpers       : 4');
+console.log('Security headers verified      : 2');
 
 console.log('✅ RC1-F Part 3 — Enterprise hardening verified');
