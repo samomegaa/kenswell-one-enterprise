@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-07-07T16:31:59.282Z",
+  "integration": "Application Domain Workflow Integration",
+  "version": "1.0-RC2-C",
+  "scenarios": {
+    "applicationServiceFlow": "Passed",
+    "domainOperationFlow": "Passed",
+    "workflowExecutionFlow": "Passed",
+    "applicationDomainWorkflowIntegration": "Passed"
+  },
+  "recommendation": "Application, Domain and Workflow integration is ready for aggregate integration review."
+}
