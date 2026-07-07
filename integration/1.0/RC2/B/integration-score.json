@@ -1,0 +1,8 @@
+{
+  "generatedAt": "2026-07-07T14:33:44.910Z",
+  "authenticatedIdentityFlow": 100,
+  "rbacPermissionDecisionFlow": 100,
+  "authRbacPolicyIntegration": 100,
+  "deniedAccessFlow": 100,
+  "overall": 100
+}

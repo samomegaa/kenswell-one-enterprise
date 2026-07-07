@@ -100,7 +100,14 @@
     "enterprise:rc2:a:4": "node integration/1.0/RC2/A/verify-application-execution-flow.js",
     "enterprise:rc2:a:5": "node integration/1.0/RC2/A/generate-report.js",
     "enterprise:rc2:a:6": "node integration/1.0/RC2/A/aggregate-integration.js",
-    "enterprise:rc2:a": "node integration/1.0/RC2/A/aggregate-integration.js"
+    "enterprise:rc2:a": "node integration/1.0/RC2/A/aggregate-integration.js",
+    "enterprise:rc2:b:1": "node integration/1.0/RC2/B/verify-authenticated-identity-flow.js",
+    "enterprise:rc2:b:2": "node integration/1.0/RC2/B/verify-rbac-permission-flow.js",
+    "enterprise:rc2:b:3": "node integration/1.0/RC2/B/verify-auth-rbac-policy-flow.js",
+    "enterprise:rc2:b:4": "node integration/1.0/RC2/B/verify-denied-access-flow.js",
+    "enterprise:rc2:b:5": "node integration/1.0/RC2/B/generate-report.js",
+    "enterprise:rc2:b:6": "node integration/1.0/RC2/B/aggregate-integration.js",
+    "enterprise:rc2:b": "node integration/1.0/RC2/B/aggregate-integration.js"
   },
   "engines": {
     "node": ">=20"
