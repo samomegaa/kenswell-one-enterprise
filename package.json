@@ -93,7 +93,14 @@
     "enterprise:rc1:d": "node review/1.0/RC1/D/aggregate-review.js",
     "enterprise:rc1:e": "node review/1.0/RC1/E/aggregate-review.js",
     "enterprise:rc1:f": "node review/1.0/RC1/F/aggregate-review.js",
-    "enterprise:rc1:certify": "node review/1.0/RC1/certify-architecture.js"
+    "enterprise:rc1:certify": "node review/1.0/RC1/certify-architecture.js",
+    "enterprise:rc2:a:1": "node integration/1.0/RC2/A/verify-pipeline-builder.js",
+    "enterprise:rc2:a:2": "node integration/1.0/RC2/A/verify-request-context-flow.js",
+    "enterprise:rc2:a:3": "node integration/1.0/RC2/A/verify-security-policy-flow.js",
+    "enterprise:rc2:a:4": "node integration/1.0/RC2/A/verify-application-execution-flow.js",
+    "enterprise:rc2:a:5": "node integration/1.0/RC2/A/generate-report.js",
+    "enterprise:rc2:a:6": "node integration/1.0/RC2/A/aggregate-integration.js",
+    "enterprise:rc2:a": "node integration/1.0/RC2/A/aggregate-integration.js"
   },
   "engines": {
     "node": ">=20"
