@@ -21,4 +21,5 @@ module.exports = {
   observability: require('../../../src/enterprise/observability'),
   logging: require('../../../src/enterprise/logging'),
   security: require('../../../src/enterprise/security'),
+  composition: require('../../../src/enterprise/composition'),
 };
