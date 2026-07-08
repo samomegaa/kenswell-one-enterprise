@@ -22,4 +22,5 @@ module.exports = {
   logging: require('../../../src/enterprise/logging'),
   security: require('../../../src/enterprise/security'),
   composition: require('../../../src/enterprise/composition'),
+  di: require('../../../src/enterprise/di'),
 };
