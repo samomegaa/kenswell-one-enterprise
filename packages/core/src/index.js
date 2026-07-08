@@ -26,4 +26,5 @@ module.exports = {
   lifecycle: require('../../../src/enterprise/lifecycle'),
   configuration: require('../../../src/enterprise/configuration'),
   plugins: require('../../../src/enterprise/plugins'),
+  bootstrap: require('../../../src/enterprise/bootstrap'),
 };
