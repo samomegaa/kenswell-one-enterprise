@@ -25,4 +25,5 @@ module.exports = {
   di: require('../../../src/enterprise/di'),
   lifecycle: require('../../../src/enterprise/lifecycle'),
   configuration: require('../../../src/enterprise/configuration'),
+  plugins: require('../../../src/enterprise/plugins'),
 };
