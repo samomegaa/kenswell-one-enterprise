@@ -23,4 +23,5 @@ module.exports = {
   security: require('../../../src/enterprise/security'),
   composition: require('../../../src/enterprise/composition'),
   di: require('../../../src/enterprise/di'),
+  lifecycle: require('../../../src/enterprise/lifecycle'),
 };
