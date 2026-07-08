@@ -24,4 +24,5 @@ module.exports = {
   composition: require('../../../src/enterprise/composition'),
   di: require('../../../src/enterprise/di'),
   lifecycle: require('../../../src/enterprise/lifecycle'),
+  configuration: require('../../../src/enterprise/configuration'),
 };
