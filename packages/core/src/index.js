@@ -28,4 +28,5 @@ module.exports = {
   plugins: require('../../../src/enterprise/plugins'),
   bootstrap: require('../../../src/enterprise/bootstrap'),
   repository: require('../../../src/enterprise/repository'),
+  scheduler: require('../../../src/enterprise/scheduler'),
 };
