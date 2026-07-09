@@ -31,4 +31,5 @@ module.exports = {
   scheduler: require('../../../src/enterprise/scheduler'),
   notification: require('../../../src/enterprise/notification'),
   search: require('../../../src/enterprise/search'),
+  integration: require('../../../src/enterprise/integration'),
 };
