@@ -160,7 +160,7 @@
     "enterprise:1.0:ga:h:f2": "node review/1.0/GA/H/F/verify-certification-evidence.js",
     "enterprise:1.0:ga:h:f3": "node review/1.0/GA/H/F/verify-platform-readiness.js",
     "enterprise:1.0:ga:h:f4": "node review/1.0/GA/H/F/verify-ga-readiness.js",
-    "enterprise:1.0:ga:h:f5": "node review/1.0/GA/H/F/generate-platform-certification-report.js",
+    "enterprise:1.0:ga:h:f5": "node review/1.0/GA/H/F/verify-release-package.js",
     "enterprise:1.0:ga:h:f": "node review/1.0/GA/H/F/aggregate-platform-certification.js"
   },
   "engines": {
