@@ -1,0 +1,41 @@
+{
+  "roles": {
+    "owner": [
+      "*"
+    ],
+
+    "admin": [
+      "tenant.manage",
+      "organisation.manage",
+      "documents.*",
+      "messages.*",
+      "tasks.*",
+      "approvals.*",
+      "activity.view",
+      "admin.system"
+    ],
+
+    "manager": [
+      "documents.read",
+      "documents.upload",
+      "messages.*",
+      "tasks.*",
+      "approvals.review",
+      "activity.view"
+    ],
+
+    "staff": [
+      "documents.read",
+      "documents.upload",
+      "messages.send",
+      "tasks.complete",
+      "activity.view"
+    ],
+
+    "client": [
+      "documents.read",
+      "messages.send",
+      "activity.view"
+    ]
+  }
+}

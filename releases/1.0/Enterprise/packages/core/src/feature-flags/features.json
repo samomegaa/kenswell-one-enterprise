@@ -1,0 +1,18 @@
+{
+  "features": {
+    "bridge.client_portal": true,
+    "bridge.documents": true,
+    "bridge.messages": true,
+    "bridge.tasks": true,
+    "bridge.approvals": true,
+    "bridge.timeline": true,
+    "bridge.activity": true,
+
+    "practice.core": false,
+    "finance.core": false,
+    "identity.sso": false,
+    "analytics.reporting": false,
+    "analytics.ai": false,
+    "admin.console": false
+  }
+}

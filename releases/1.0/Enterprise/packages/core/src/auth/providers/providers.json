@@ -1,0 +1,11 @@
+{
+  "default": "local",
+  "providers": [
+    { "id": "local", "name": "Local Authentication", "enabled": true },
+    { "id": "oauth2", "name": "OAuth 2.0", "enabled": false },
+    { "id": "oidc", "name": "OpenID Connect", "enabled": false },
+    { "id": "saml", "name": "SAML", "enabled": false },
+    { "id": "entra", "name": "Microsoft Entra ID", "enabled": false },
+    { "id": "google", "name": "Google Workspace", "enabled": false }
+  ]
+}

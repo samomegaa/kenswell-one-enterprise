@@ -1,0 +1,8 @@
+{
+  "generatedAt": "2026-07-06T20:17:55.912Z",
+  "importScanner": 100,
+  "dependencyMatrix": 100,
+  "forbiddenDependencies": 100,
+  "circularDependencies": 100,
+  "overall": 100
+}

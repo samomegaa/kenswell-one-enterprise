@@ -1,0 +1,275 @@
+{
+  "generatedAt": "2026-07-06T19:12:20.047Z",
+  "coreExports": [
+    "api",
+    "application",
+    "audit",
+    "auth",
+    "context",
+    "cqrs",
+    "domain",
+    "events",
+    "featureFlags",
+    "identity",
+    "logging",
+    "moduleRegistry",
+    "observability",
+    "organisation",
+    "policy",
+    "rbac",
+    "resilience",
+    "runtime",
+    "security",
+    "tenant",
+    "transactions",
+    "workflow"
+  ],
+  "coreExportCount": 22,
+  "layers": [
+    {
+      "layer": "api",
+      "exports": [
+        "ApiBoundaryError",
+        "ApiController",
+        "ApiControllerError",
+        "ApiServiceBoundary",
+        "ApplicationServiceExecutionError",
+        "EnterpriseApiError",
+        "apiFailure",
+        "apiSuccess",
+        "createApiRequest",
+        "enterpriseApiBoundaryMiddleware",
+        "sendApiResponse"
+      ],
+      "exportCount": 11
+    },
+    {
+      "layer": "application",
+      "exports": [
+        "ApplicationService",
+        "ApplicationServiceError",
+        "ApplicationServiceNotFoundError",
+        "ApplicationServiceRegistry",
+        "ApplicationUseCase",
+        "ApplicationUseCaseError",
+        "EnterpriseApplicationError",
+        "applicationFailure",
+        "applicationSuccess",
+        "defaultApplicationServiceRegistry",
+        "enterpriseApplicationMiddleware"
+      ],
+      "exportCount": 11
+    },
+    {
+      "layer": "audit",
+      "exports": [
+        "AuditEvents",
+        "AuditProvider",
+        "AuditProviderError",
+        "EnterpriseAuditError",
+        "InvalidAuditContextError",
+        "MemoryAuditProvider",
+        "clearActivityTrail",
+        "createAuditContext",
+        "defaultAuditProvider",
+        "enterpriseAuditMiddleware",
+        "findByActor",
+        "findByCorrelation",
+        "findByEntity",
+        "findByRequest",
+        "queryActivity",
+        "recordActivity"
+      ],
+      "exportCount": 16
+    },
+    {
+      "layer": "context",
+      "exports": [
+        "EnterpriseContextError",
+        "InvalidEnterpriseContextError",
+        "MissingEnterpriseContextError",
+        "createEnterpriseContext",
+        "enterpriseContextMiddleware",
+        "getEnterpriseContext",
+        "requireEnterpriseContext",
+        "resolveEnterpriseContext"
+      ],
+      "exportCount": 8
+    },
+    {
+      "layer": "cqrs",
+      "exports": [
+        "Command",
+        "CommandBus",
+        "CommandExecutionError",
+        "CommandNotFoundError",
+        "EnterpriseCqrsError",
+        "Query",
+        "QueryBus",
+        "QueryExecutionError",
+        "QueryNotFoundError",
+        "cqrsFailure",
+        "cqrsSuccess",
+        "defaultCommandBus",
+        "defaultQueryBus",
+        "enterpriseCqrsMiddleware"
+      ],
+      "exportCount": 14
+    },
+    {
+      "layer": "domain",
+      "exports": [
+        "DomainOperation",
+        "DomainOperationError",
+        "DomainService",
+        "DomainServiceError",
+        "DomainServiceNotFoundError",
+        "DomainServiceRegistry",
+        "EnterpriseDomainError",
+        "defaultDomainServiceRegistry",
+        "domainFailure",
+        "domainSuccess",
+        "enterpriseDomainMiddleware"
+      ],
+      "exportCount": 11
+    },
+    {
+      "layer": "logging",
+      "exports": [
+        "EnterpriseLogger",
+        "EnterpriseLoggingError",
+        "LogEntryError",
+        "LogLevel",
+        "LogLevelPriority",
+        "LoggerProvider",
+        "LoggerProviderError",
+        "MemoryLoggerProvider",
+        "createCorrelationId",
+        "createLogEntry",
+        "defaultEnterpriseLogger",
+        "defaultLoggerProvider",
+        "enterpriseLoggingMiddleware",
+        "extractCorrelationContext"
+      ],
+      "exportCount": 14
+    },
+    {
+      "layer": "observability",
+      "exports": [
+        "EnterpriseObservabilityError",
+        "HealthSignalRegistry",
+        "HealthStatus",
+        "MetricError",
+        "MetricType",
+        "MetricsRegistry",
+        "TraceError",
+        "Tracer",
+        "createSpanId",
+        "createTraceId",
+        "defaultHealthSignals",
+        "defaultMetricsRegistry",
+        "defaultTracer",
+        "enterpriseObservabilityMiddleware",
+        "startTimer",
+        "timeAsync"
+      ],
+      "exportCount": 16
+    },
+    {
+      "layer": "policy",
+      "exports": [
+        "EnterprisePolicyError",
+        "PolicyBoundary",
+        "PolicyBoundaryError",
+        "PolicyRule",
+        "ValidationBoundary",
+        "ValidationBoundaryError",
+        "ValidationRule",
+        "allowPolicy",
+        "denyPolicy",
+        "enterpriseValidationPolicyMiddleware",
+        "validationFailure",
+        "validationSuccess"
+      ],
+      "exportCount": 12
+    },
+    {
+      "layer": "resilience",
+      "exports": [
+        "EnterpriseResilienceError",
+        "IdempotencyBoundary",
+        "IdempotencyError",
+        "MemoryIdempotencyStore",
+        "RetryBoundary",
+        "RetryBoundaryError",
+        "RetryPolicy",
+        "createIdempotencyRecord",
+        "createRequestHash",
+        "defaultIdempotencyStore",
+        "defaultRetryPolicy",
+        "enterpriseResilienceMiddleware"
+      ],
+      "exportCount": 12
+    },
+    {
+      "layer": "security",
+      "exports": [
+        "DEFAULT_SECURITY_HEADERS",
+        "EnterpriseSecurityError",
+        "RequestGuard",
+        "RequestGuardError",
+        "RuntimeGuard",
+        "RuntimeGuardError",
+        "SecurityHeaderError",
+        "allowSecurity",
+        "applySecurityHeaders",
+        "createSecurityHeaders",
+        "denySecurity",
+        "enterpriseSecurityMiddleware"
+      ],
+      "exportCount": 12
+    },
+    {
+      "layer": "transactions",
+      "exports": [
+        "EnterpriseTransactionError",
+        "OutboxError",
+        "OutboxEventStatus",
+        "OutboxEventType",
+        "TransactionBoundary",
+        "TransactionBoundaryError",
+        "TransactionManager",
+        "addOutboxEvent",
+        "clearOutboxEvents",
+        "createOutboxEvent",
+        "defaultTransactionManager",
+        "enterpriseTransactionMiddleware",
+        "listOutboxEvents",
+        "listPendingOutboxEvents",
+        "markOutboxEventDispatched",
+        "markOutboxEventFailed"
+      ],
+      "exportCount": 16
+    },
+    {
+      "layer": "workflow",
+      "exports": [
+        "EnterpriseWorkflow",
+        "EnterpriseWorkflowError",
+        "UnitOfWork",
+        "UnitOfWorkError",
+        "WorkflowExecutionError",
+        "WorkflowStep",
+        "createWorkflowContext",
+        "enterpriseWorkflowMiddleware"
+      ],
+      "exportCount": 8
+    }
+  ],
+  "totalLayerExports": 161,
+  "notes": [
+    "RC1-C reviews the public API surface.",
+    "Core exports represent top-level Enterprise Kernel access.",
+    "Layer exports represent per-layer public contracts."
+  ]
+}

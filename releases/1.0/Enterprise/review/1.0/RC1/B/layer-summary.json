@@ -1,0 +1,88 @@
+{
+  "generatedAt": "2026-07-06T18:29:39.267Z",
+  "layers": [
+    {
+      "layer": "api",
+      "files": 7,
+      "exports": 11,
+      "hasIndex": true
+    },
+    {
+      "layer": "application",
+      "files": 7,
+      "exports": 11,
+      "hasIndex": true
+    },
+    {
+      "layer": "audit",
+      "files": 7,
+      "exports": 16,
+      "hasIndex": true
+    },
+    {
+      "layer": "context",
+      "files": 6,
+      "exports": 8,
+      "hasIndex": true
+    },
+    {
+      "layer": "cqrs",
+      "files": 8,
+      "exports": 14,
+      "hasIndex": true
+    },
+    {
+      "layer": "domain",
+      "files": 7,
+      "exports": 11,
+      "hasIndex": true
+    },
+    {
+      "layer": "logging",
+      "files": 8,
+      "exports": 14,
+      "hasIndex": true
+    },
+    {
+      "layer": "observability",
+      "files": 8,
+      "exports": 16,
+      "hasIndex": true
+    },
+    {
+      "layer": "policy",
+      "files": 9,
+      "exports": 12,
+      "hasIndex": true
+    },
+    {
+      "layer": "resilience",
+      "files": 7,
+      "exports": 12,
+      "hasIndex": true
+    },
+    {
+      "layer": "security",
+      "files": 7,
+      "exports": 12,
+      "hasIndex": true
+    },
+    {
+      "layer": "transactions",
+      "files": 7,
+      "exports": 16,
+      "hasIndex": true
+    },
+    {
+      "layer": "workflow",
+      "files": 7,
+      "exports": 8,
+      "hasIndex": true
+    }
+  ],
+  "notes": [
+    "RC1-B reviews Enterprise layer structure and responsibility alignment.",
+    "Deep dependency direction review is deferred to RC1-D.",
+    "Public API surface review is handled in RC1-C."
+  ]
+}
