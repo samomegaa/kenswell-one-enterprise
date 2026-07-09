@@ -33,4 +33,5 @@ module.exports = {
   search: require('../../../src/enterprise/search'),
   integration: require('../../../src/enterprise/integration'),
   ai: require('../../../src/enterprise/ai'),
+  operations: require('../../../src/enterprise/operations'),
 };
