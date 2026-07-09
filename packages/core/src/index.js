@@ -29,4 +29,5 @@ module.exports = {
   bootstrap: require('../../../src/enterprise/bootstrap'),
   repository: require('../../../src/enterprise/repository'),
   scheduler: require('../../../src/enterprise/scheduler'),
+  notification: require('../../../src/enterprise/notification'),
 };
