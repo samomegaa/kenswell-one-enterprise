@@ -76,7 +76,7 @@
     "enterprise:1.0:b4": "node review/1.0/B4/verify-enterprise-context.js",
     "enterprise:1.0:b5": "node review/1.0/B5/verify-enterprise-audit.js",
     "enterprise:1.0:b6": "node review/1.0/B6/verify-enterprise-workflow.js",
-    "enterprise:1.0:verify": "npm run enterprise:1.0:a1 && npm run enterprise:1.0:a2 && npm run enterprise:1.0:a3 && npm run enterprise:1.0:a4 && npm run enterprise:1.0:a5 && npm run enterprise:1.0:b1 && npm run enterprise:1.0:b2 && npm run enterprise:1.0:b3 && npm run enterprise:1.0:b4 && npm run enterprise:1.0:b5 && npm run enterprise:1.0:b6 && npm run enterprise:1.0:b7 && npm run enterprise:1.0:b8 && npm run enterprise:1.0:b9 && npm run enterprise:1.0:b10 && npm run enterprise:1.0:b11 && npm run enterprise:1.0:b12 && npm run enterprise:1.0:b13 && npm run enterprise:1.0:b14 && npm run enterprise:1.0:b15 && npm run enterprise:1.0:b16 && npm run enterprise:1.0:rc2:a && npm run enterprise:1.0:rc2:b && npm run enterprise:1.0:rc2:c && npm run enterprise:1.0:rc2:d && npm run enterprise:1.0:rc2:e && npm run enterprise:1.0:rc2:f",
+    "enterprise:1.0:verify": "npm run enterprise:1.0:a1 && npm run enterprise:1.0:a2 && npm run enterprise:1.0:a3 && npm run enterprise:1.0:a4 && npm run enterprise:1.0:a5 && npm run enterprise:1.0:b1 && npm run enterprise:1.0:b2 && npm run enterprise:1.0:b3 && npm run enterprise:1.0:b4 && npm run enterprise:1.0:b5 && npm run enterprise:1.0:b6 && npm run enterprise:1.0:b7 && npm run enterprise:1.0:b8 && npm run enterprise:1.0:b9 && npm run enterprise:1.0:b10 && npm run enterprise:1.0:b11 && npm run enterprise:1.0:b12 && npm run enterprise:1.0:b13 && npm run enterprise:1.0:b14 && npm run enterprise:1.0:b15 && npm run enterprise:1.0:b16 && npm run enterprise:1.0:rc2:a && npm run enterprise:1.0:rc2:b && npm run enterprise:1.0:rc2:c && npm run enterprise:1.0:rc2:d && npm run enterprise:1.0:rc2:e && npm run enterprise:1.0:rc2:f && npm run enterprise:1.0:ga:a",
     "enterprise:1.0:b7": "node review/1.0/B7/verify-enterprise-transactions.js",
     "enterprise:1.0:b8": "node review/1.0/B8/verify-enterprise-domain-service.js",
     "enterprise:1.0:b9": "node review/1.0/B9/verify-enterprise-application-service.js",
@@ -123,7 +123,8 @@
     "enterprise:1.0:rc2:c": "node review/1.0/RC2/C/verify-enterprise-module-lifecycle.js",
     "enterprise:1.0:rc2:d": "node review/1.0/RC2/D/verify-enterprise-configuration-provider.js",
     "enterprise:1.0:rc2:e": "node review/1.0/RC2/E/verify-enterprise-plugin-framework.js",
-    "enterprise:1.0:rc2:f": "node review/1.0/RC2/F/verify-enterprise-platform-bootstrap.js"
+    "enterprise:1.0:rc2:f": "node review/1.0/RC2/F/verify-enterprise-platform-bootstrap.js",
+    "enterprise:1.0:ga:a": "node review/1.0/GA/A/verify-enterprise-repository-framework.js"
   },
   "engines": {
     "node": ">=20"

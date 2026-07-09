@@ -27,4 +27,5 @@ module.exports = {
   configuration: require('../../../src/enterprise/configuration'),
   plugins: require('../../../src/enterprise/plugins'),
   bootstrap: require('../../../src/enterprise/bootstrap'),
+  repository: require('../../../src/enterprise/repository'),
 };
