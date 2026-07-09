@@ -32,4 +32,5 @@ module.exports = {
   notification: require('../../../src/enterprise/notification'),
   search: require('../../../src/enterprise/search'),
   integration: require('../../../src/enterprise/integration'),
+  ai: require('../../../src/enterprise/ai'),
 };
