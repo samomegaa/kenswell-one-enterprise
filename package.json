@@ -136,7 +136,13 @@
     "enterprise:1.0:ga:h:a3": "node review/1.0/GA/H/A/verify-platform-public-api.js",
     "enterprise:1.0:ga:h:a4": "node review/1.0/GA/H/A/verify-platform-dependencies.js",
     "enterprise:1.0:ga:h:a5": "node review/1.0/GA/H/A/generate-platform-architecture-report.js",
-    "enterprise:1.0:ga:h:a": "node review/1.0/GA/H/A/aggregate-platform-architecture-review.js"
+    "enterprise:1.0:ga:h:a": "node review/1.0/GA/H/A/aggregate-platform-architecture-review.js",
+    "enterprise:1.0:ga:h:b1": "node review/1.0/GA/H/B/verify-platform-service-structure.js",
+    "enterprise:1.0:ga:h:b2": "node review/1.0/GA/H/B/verify-platform-service-exports.js",
+    "enterprise:1.0:ga:h:b3": "node review/1.0/GA/H/B/verify-platform-service-capabilities.js",
+    "enterprise:1.0:ga:h:b4": "node review/1.0/GA/H/B/verify-platform-service-consistency.js",
+    "enterprise:1.0:ga:h:b5": "node review/1.0/GA/H/B/generate-platform-service-report.js",
+    "enterprise:1.0:ga:h:b": "node review/1.0/GA/H/B/aggregate-platform-services-review.js"
   },
   "engines": {
     "node": ">=20"
