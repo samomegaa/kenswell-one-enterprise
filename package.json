@@ -142,7 +142,13 @@
     "enterprise:1.0:ga:h:b3": "node review/1.0/GA/H/B/verify-platform-service-capabilities.js",
     "enterprise:1.0:ga:h:b4": "node review/1.0/GA/H/B/verify-platform-service-consistency.js",
     "enterprise:1.0:ga:h:b5": "node review/1.0/GA/H/B/generate-platform-service-report.js",
-    "enterprise:1.0:ga:h:b": "node review/1.0/GA/H/B/aggregate-platform-services-review.js"
+    "enterprise:1.0:ga:h:b": "node review/1.0/GA/H/B/aggregate-platform-services-review.js",
+    "enterprise:1.0:ga:h:c1": "node review/1.0/GA/H/C/verify-runtime-structure.js",
+    "enterprise:1.0:ga:h:c2": "node review/1.0/GA/H/C/verify-runtime-exports.js",
+    "enterprise:1.0:ga:h:c3": "node review/1.0/GA/H/C/verify-runtime-capabilities.js",
+    "enterprise:1.0:ga:h:c4": "node review/1.0/GA/H/C/verify-runtime-consistency.js",
+    "enterprise:1.0:ga:h:c5": "node review/1.0/GA/H/C/generate-runtime-report.js",
+    "enterprise:1.0:ga:h:c": "node review/1.0/GA/H/C/aggregate-runtime-review.js"
   },
   "engines": {
     "node": ">=20"
