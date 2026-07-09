@@ -30,4 +30,5 @@ module.exports = {
   repository: require('../../../src/enterprise/repository'),
   scheduler: require('../../../src/enterprise/scheduler'),
   notification: require('../../../src/enterprise/notification'),
+  search: require('../../../src/enterprise/search'),
 };
