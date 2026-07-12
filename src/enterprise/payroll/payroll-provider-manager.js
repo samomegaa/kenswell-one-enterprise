@@ -17,6 +17,8 @@ const OPERATION_CAPABILITY = Object.freeze({
   getEmployer: PayrollCapability.EMPLOYERS,
   createEmployer: PayrollCapability.EMPLOYERS,
   createPaySchedule: PayrollCapability.PAY_SCHEDULES,
+  listEmployees: PayrollCapability.EMPLOYEES,
+  getEmployee: PayrollCapability.EMPLOYEES,
   createEmployee: PayrollCapability.EMPLOYEES,
   upsertPayInstruction: PayrollCapability.PAY_INSTRUCTIONS,
   runPayroll: PayrollCapability.PAYROLL_CALCULATION,
@@ -263,6 +265,22 @@ class EnterprisePayrollProviderManager {
   createPaySchedule(input, options = {}) {
     return this.execute(
       'createPaySchedule',
+      input,
+      options
+    );
+  }
+
+  listEmployees(input, options = {}) {
+    return this.execute(
+      'listEmployees',
+      input,
+      options
+    );
+  }
+
+  getEmployee(input, options = {}) {
+    return this.execute(
+      'getEmployee',
       input,
       options
     );

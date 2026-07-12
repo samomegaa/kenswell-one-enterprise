@@ -373,6 +373,295 @@ function mapEmployerDetail(input = {}) {
 }
 
 
+
+function mapEmployeeSummary(input = {}) {
+  const metadata =
+    input.metadata &&
+    typeof input.metadata === 'object'
+      ? input.metadata
+      : {};
+
+  return Object.freeze({
+    externalEmployeeId:
+      input.id ||
+      input.employeeId ||
+      input.externalId ||
+      null,
+
+    fullName:
+      input.name ||
+      input.displayName ||
+      [
+        input.personalDetails?.firstName,
+        input.personalDetails?.lastName,
+      ]
+        .filter(Boolean)
+        .join(' ') ||
+      'Unnamed employee',
+
+    provider: 'staffology',
+
+    payrollCode:
+      metadata.payrollCode ||
+      input.employmentDetails?.payrollCode ||
+      null,
+
+    status:
+      metadata.status ||
+      input.status ||
+      null,
+
+    taxCode:
+      metadata.taxCode ||
+      input.payOptions?.taxAndNi?.taxCode ||
+      null,
+
+    nationalInsuranceTable:
+      metadata.niTable ||
+      input.payOptions?.taxAndNi?.niTable ||
+      null,
+
+    payPeriod:
+      metadata.period ||
+      input.payOptions?.period ||
+      null,
+
+    payScheduleName:
+      metadata.payScheduleName ||
+      null,
+
+    basicPay:
+      Number(
+        metadata.basicPay ??
+        input.payOptions?.basicPay ??
+        input.payOptions?.payAmount ??
+        0
+      ),
+
+    email:
+      metadata.email ||
+      input.personalDetails?.email ||
+      null,
+
+    isDirector:
+      Boolean(
+        metadata.isDirector ??
+        input.employmentDetails?.isDirector ??
+        false
+      ),
+
+    providerUrl:
+      input.url ||
+      input.href ||
+      null,
+  });
+}
+
+function mapEmployeeDetail(input = {}) {
+  const personal =
+    input.personalDetails || {};
+
+  const employment =
+    input.employmentDetails || {};
+
+  const payOptions =
+    input.payOptions || {};
+
+  const taxAndNi =
+    payOptions.taxAndNi || {};
+
+  const fpsFields =
+    payOptions.fpsFields || {};
+
+  const starter =
+    employment.starterDetails || {};
+
+  return Object.freeze({
+    externalEmployeeId:
+      input.id || null,
+
+    provider: 'staffology',
+
+    fullName:
+      input.name ||
+      input.displayName ||
+      [
+        personal.title,
+        personal.firstName,
+        personal.lastName,
+      ]
+        .filter(Boolean)
+        .join(' ') ||
+      'Unnamed employee',
+
+    personal: Object.freeze({
+      title:
+        personal.title || null,
+
+      firstName:
+        personal.firstName || null,
+
+      lastName:
+        personal.lastName || null,
+
+      dateOfBirth:
+        personal.dateOfBirth || null,
+
+      email:
+        personal.email || null,
+
+      address: Object.freeze({
+        line1:
+          personal.address?.line1 || null,
+
+        line2:
+          personal.address?.line2 || null,
+
+        city:
+          personal.address?.line3 ||
+          personal.address?.town ||
+          null,
+
+        postcode:
+          personal.address?.postCode ||
+          personal.address?.postcode ||
+          null,
+
+        country:
+          personal.address?.country || null,
+      }),
+    }),
+
+    employment: Object.freeze({
+      payrollCode:
+        employment.payrollCode || null,
+
+      startDate:
+        starter.startDate || null,
+
+      starterDeclaration:
+        starter.starterDeclaration || null,
+
+      onHold:
+        Boolean(employment.onHold),
+
+      isApprentice:
+        Boolean(employment.isApprentice),
+
+      workingPattern:
+        employment.workingPattern || null,
+
+      isWorkingInFreePort:
+        Boolean(
+          employment.isWorkingInFreePort
+        ),
+
+      isWorkingInInvestmentZone:
+        Boolean(
+          employment.isWorkingInInvestmentZone
+        ),
+    }),
+
+    payroll: Object.freeze({
+      period:
+        payOptions.period || null,
+
+      basis:
+        payOptions.basis || null,
+
+      method:
+        payOptions.method || null,
+
+      basicPay:
+        Number(
+          payOptions.basicPay ??
+          payOptions.payAmount ??
+          0
+        ),
+
+      payAmount:
+        Number(
+          payOptions.payAmount ?? 0
+        ),
+
+      baseHourlyRate:
+        Number(
+          payOptions.baseHourlyRate ?? 0
+        ),
+
+      baseDailyRate:
+        Number(
+          payOptions.baseDailyRate ?? 0
+        ),
+
+      autoAdjustForLeave:
+        Boolean(
+          payOptions.autoAdjustForLeave
+        ),
+
+      regularPayLines: Object.freeze(
+        Array.isArray(
+          payOptions.regularPayLines
+        )
+          ? payOptions.regularPayLines.map(
+              (line) =>
+                Object.freeze({ ...line })
+            )
+          : []
+      ),
+    }),
+
+    tax: Object.freeze({
+      taxCode:
+        taxAndNi.taxCode || null,
+
+      nationalInsuranceTable:
+        taxAndNi.niTable || null,
+
+      week1Month1:
+        Boolean(taxAndNi.week1Month1),
+
+      studentLoan:
+        taxAndNi.studentLoan || null,
+
+      postgraduateLoan:
+        Boolean(taxAndNi.postgradLoan),
+
+      secondaryClass1NotPayable:
+        Boolean(
+          taxAndNi.secondaryClass1NotPayable
+        ),
+
+      foreignTaxCredit:
+        Boolean(
+          taxAndNi.foreignTaxCredit
+        ),
+    }),
+
+    rti: Object.freeze({
+      offPayrollWorker:
+        Boolean(fpsFields.offPayrollWorker),
+
+      irregularPaymentPattern:
+        Boolean(
+          fpsFields.irregularPaymentPattern
+        ),
+
+      nonIndividual:
+        Boolean(fpsFields.nonIndividual),
+
+      excludeFromRtiSubmissions:
+        Boolean(
+          fpsFields.excludeFromRtiSubmissions
+        ),
+
+      hoursNormallyWorked:
+        fpsFields.hoursNormallyWorked || null,
+    }),
+  });
+}
+
+
 module.exports = {
   splitPayeReference,
   extractItems,
@@ -381,6 +670,8 @@ module.exports = {
   mapEmployerDetail,
   mapPayOptions,
   mapEmployee,
+  mapEmployeeSummary,
+  mapEmployeeDetail,
   applyPayInstruction,
   normaliseJobStatus,
 };

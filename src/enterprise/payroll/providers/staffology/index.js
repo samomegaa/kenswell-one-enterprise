@@ -15,6 +15,8 @@ const {
   mapEmployerDetail,
   mapPayOptions,
   mapEmployee,
+  mapEmployeeSummary,
+  mapEmployeeDetail,
   applyPayInstruction,
   normaliseJobStatus,
 } = require('./staffology-mappers');
@@ -39,6 +41,8 @@ module.exports = {
   mapEmployerDetail,
   mapPayOptions,
   mapEmployee,
+  mapEmployeeSummary,
+  mapEmployeeDetail,
   applyPayInstruction,
   normaliseJobStatus,
 

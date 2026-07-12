@@ -17,6 +17,8 @@ const {
   mapEmployerSummary,
   mapEmployerDetail,
   mapEmployee,
+  mapEmployeeSummary,
+  mapEmployeeDetail,
   mapPayOptions,
   applyPayInstruction,
   normaliseJobStatus,
@@ -186,6 +188,85 @@ class StaffologyPayrollProvider
       frequency,
       configured: data.isConfigured ?? null,
       raw: data,
+    });
+  }
+
+  async listEmployees(input = {}) {
+    const employerRef =
+      typeof input === 'string'
+        ? input
+        : (
+          input.employerRef ||
+          input.externalEmployerId ||
+          input.employerId
+        );
+
+    if (
+      !employerRef ||
+      typeof employerRef !== 'string'
+    ) {
+      throw new StaffologyValidationError(
+        'Staffology employer reference is required'
+      );
+    }
+
+    const payload = await this.client.get(
+      `/employers/${employerRef}/employees`
+    );
+
+    const employees =
+      extractItems(payload)
+        .map(mapEmployeeSummary);
+
+    return Object.freeze({
+      provider: this.name,
+      employerRef,
+      count: employees.length,
+      employees: Object.freeze(employees),
+      retrievedAt: new Date().toISOString(),
+    });
+  }
+
+  async getEmployee(input = {}) {
+    const employerRef =
+      input.employerRef ||
+      input.externalEmployerId ||
+      input.employerId;
+
+    const employeeRef =
+      input.employeeRef ||
+      input.externalEmployeeId ||
+      input.employeeId ||
+      input.id;
+
+    if (
+      !employerRef ||
+      typeof employerRef !== 'string'
+    ) {
+      throw new StaffologyValidationError(
+        'Staffology employer reference is required'
+      );
+    }
+
+    if (
+      !employeeRef ||
+      typeof employeeRef !== 'string'
+    ) {
+      throw new StaffologyValidationError(
+        'Staffology employee reference is required'
+      );
+    }
+
+    const data = await this.client.get(
+      `/employers/${employerRef}` +
+      `/employees/${employeeRef}`
+    );
+
+    return Object.freeze({
+      provider: this.name,
+      employerRef,
+      employee: mapEmployeeDetail(data),
+      retrievedAt: new Date().toISOString(),
     });
   }
 
