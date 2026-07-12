@@ -111,6 +111,10 @@ class EnterprisePayrollProvider {
     return this.notImplemented('createEmployer');
   }
 
+  async listPaySchedules() {
+    return this.notImplemented('listPaySchedules');
+  }
+
   async createPaySchedule() {
     return this.notImplemented('createPaySchedule');
   }

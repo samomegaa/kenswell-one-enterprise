@@ -662,6 +662,83 @@ function mapEmployeeDetail(input = {}) {
 }
 
 
+
+function mapPayScheduleSummary(
+  input = {},
+  context = {}
+) {
+  const payPeriod =
+    input.payPeriod ||
+    input.period ||
+    input.frequency ||
+    null;
+
+  const ordinal =
+    Number(
+      input.ordinal ??
+      context.ordinal ??
+      1
+    );
+
+  const taxYear =
+    input.taxYear ||
+    input.year ||
+    context.taxYear ||
+    null;
+
+  return Object.freeze({
+    externalScheduleId:
+      input.id ||
+      (
+        taxYear && payPeriod
+          ? `${taxYear}:${payPeriod}:${ordinal}`
+          : null
+      ),
+
+    provider: 'staffology',
+
+    employerRef:
+      context.employerRef || null,
+
+    taxYear,
+
+    payPeriod,
+
+    frequency: payPeriod,
+
+    ordinal,
+
+    required:
+      Boolean(
+        input.isRequired ??
+        input.required ??
+        false
+      ),
+
+    configured:
+      Boolean(
+        input.isConfigured ??
+        input.configured ??
+        false
+      ),
+
+    hasOpenPayRunPeriod:
+      Boolean(
+        input.hasOpenPayRunPeriod ??
+        false
+      ),
+
+    firstPeriodEndDate:
+      input.firstPeriodEndDate ||
+      null,
+
+    firstPaymentDate:
+      input.firstPaymentDate ||
+      null,
+  });
+}
+
+
 module.exports = {
   splitPayeReference,
   extractItems,
@@ -672,6 +749,7 @@ module.exports = {
   mapEmployee,
   mapEmployeeSummary,
   mapEmployeeDetail,
+  mapPayScheduleSummary,
   applyPayInstruction,
   normaliseJobStatus,
 };

@@ -19,6 +19,7 @@ const {
   mapEmployee,
   mapEmployeeSummary,
   mapEmployeeDetail,
+  mapPayScheduleSummary,
   mapPayOptions,
   applyPayInstruction,
   normaliseJobStatus,
@@ -152,6 +153,83 @@ class StaffologyPayrollProvider
       externalEmployerId:
         data.id || data.metadata?.id,
       raw: data,
+    });
+  }
+
+  async listPaySchedules(input = {}) {
+    const employerRef =
+      typeof input === 'string'
+        ? input
+        : (
+          input.employerRef ||
+          input.externalEmployerId ||
+          input.employerId
+        );
+
+    if (
+      !employerRef ||
+      typeof employerRef !== 'string'
+    ) {
+      throw new StaffologyValidationError(
+        'Staffology employer reference is required'
+      );
+    }
+
+    let taxYear =
+      input.taxYear ||
+      input.currentTaxYear ||
+      null;
+
+    if (!taxYear) {
+      const employer = await this.client.get(
+        `/employers/${employerRef}`
+      );
+
+      taxYear =
+        employer.currentYear ||
+        employer.startYear ||
+        null;
+    }
+
+    if (
+      !taxYear ||
+      typeof taxYear !== 'string'
+    ) {
+      throw new StaffologyValidationError(
+        'Staffology payroll tax year is required'
+      );
+    }
+
+    const payload = await this.client.get(
+      `/employers/${employerRef}` +
+      `/schedules/${taxYear}`
+    );
+
+    const items = Array.isArray(payload)
+      ? payload
+      : (
+        payload.items ||
+        payload.schedules ||
+        payload.results ||
+        payload.data ||
+        []
+      );
+
+    const schedules = items.map(
+      (item) =>
+        mapPayScheduleSummary(item, {
+          employerRef,
+          taxYear,
+        })
+    );
+
+    return Object.freeze({
+      provider: this.name,
+      employerRef,
+      taxYear,
+      count: schedules.length,
+      schedules: Object.freeze(schedules),
+      retrievedAt: new Date().toISOString(),
     });
   }
 
