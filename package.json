@@ -161,7 +161,14 @@
     "enterprise:1.0:ga:h:f3": "node review/1.0/GA/H/F/verify-platform-readiness.js",
     "enterprise:1.0:ga:h:f4": "node review/1.0/GA/H/F/verify-ga-readiness.js",
     "enterprise:1.0:ga:h:f5": "node review/1.0/GA/H/F/verify-release-package.js",
-    "enterprise:1.0:ga:h:f": "node review/1.0/GA/H/F/aggregate-platform-certification.js"
+    "enterprise:1.0:ga:h:f": "node review/1.0/GA/H/F/aggregate-platform-certification.js",
+    "enterprise:1.1:payroll:a": "node review/1.1/PAYROLL/A/aggregate-enterprise-payroll-verification.js",
+    "enterprise:1.1:payroll:a:registry": "node review/1.1/PAYROLL/A/verify-provider-registry.js",
+    "enterprise:1.1:payroll:a:staffology": "node review/1.1/PAYROLL/A/verify-staffology-provider.js",
+    "enterprise:1.1:payroll:a:integration": "node review/1.1/PAYROLL/A/verify-platform-integration.js",
+    "tax-payroll:proof:api": "node products/tax-payroll/src/product-proof/api/server.js",
+    "enterprise:1.1:payroll:staffology:live": "node review/1.1/PAYROLL/LIVE/verify-staffology-employers.js",
+    "enterprise:1.1:payroll:verify": "node review/1.1/PAYROLL/ASSIMILATION/aggregate-provider-assimilation-verification.js"
   },
   "engines": {
     "node": ">=20"
@@ -169,6 +176,7 @@
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "compression": "^1.8.1",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.16.3",
