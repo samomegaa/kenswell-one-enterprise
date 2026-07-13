@@ -9,6 +9,7 @@ const {
 
 const {
   splitPayeReference,
+  normaliseStaffologyTaxYear,
   extractItems,
   mapEmployer,
   mapEmployerSummary,
@@ -36,6 +37,7 @@ module.exports = {
   createStaffologyPayrollProvider,
 
   splitPayeReference,
+  normaliseStaffologyTaxYear,
   extractItems,
   mapEmployer,
   mapEmployerSummary,

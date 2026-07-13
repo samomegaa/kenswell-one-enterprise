@@ -8,21 +8,148 @@ function splitPayeReference(value = '') {
   };
 }
 
+function normaliseStaffologyTaxYear(value) {
+  const raw = String(value || '').trim();
+
+  if (!raw) {
+    return undefined;
+  }
+
+  if (/^Year\d{4}$/.test(raw)) {
+    return raw;
+  }
+
+  const match = raw.match(/^(\d{4})(?:-\d{2,4})?$/);
+
+  if (!match) {
+    return raw;
+  }
+
+  return `Year${match[1]}`;
+}
+
+function normaliseStaffologyTaxYear(value) {
+  const raw = String(value || '').trim();
+
+  if (!raw) {
+    return undefined;
+  }
+
+  if (/^Year\d{4}$/.test(raw)) {
+    return raw;
+  }
+
+  const match = raw.match(/^(\d{4})(?:-\d{2,4})?$/);
+
+  if (!match) {
+    return raw;
+  }
+
+  return `Year${match[1]}`;
+}
+
 function mapEmployer(input = {}) {
-  const paye = splitPayeReference(input.payeReference);
+  const combinedPayeReference =
+    input.payeReference ||
+    input.hmrc?.combinedPayeReference ||
+    '';
+
+  const split =
+    splitPayeReference(combinedPayeReference);
+
+  const officeNumber =
+    input.payeOfficeNumber ||
+    input.hmrc?.payeOfficeNumber ||
+    input.hmrc?.officeNumber ||
+    split.officeNumber ||
+    '';
+
+  const payeReference =
+    input.hmrc?.payeReference ||
+    split.payeReference ||
+    (
+      combinedPayeReference.includes('/')
+        ? ''
+        : combinedPayeReference
+    );
+
+  const accountsOfficeReference =
+    input.accountsOfficeReference ||
+    input.accountsOfficeRef ||
+    input.hmrc?.accountsOfficeReference ||
+    '';
+
+  const address =
+    input.address &&
+    typeof input.address === 'object'
+      ? input.address
+      : {
+          line1: input.addressLine1,
+          line2: input.addressLine2,
+          line3:
+            input.city ||
+            input.town,
+          postCode:
+            input.postcode ||
+            input.postCode,
+          country:
+            input.country ||
+            'England',
+        };
 
   return {
-    name: input.legalName || input.name,
-    hmrcDetails: {
-      officeNumber: paye.officeNumber,
-      payeReference: paye.payeReference,
-      accountsOfficeReference:
-        input.accountsOfficeReference ||
-        input.accountsOfficeRef ||
+    name:
+      input.legalName ||
+      input.name,
+
+    startYear:
+      normaliseStaffologyTaxYear(
+        input.payrollStartYear ||
+        input.startYear ||
+        input.taxYear
+      ),
+
+    ...(input.companyNumber
+      ? { crn: input.companyNumber }
+      : {}),
+
+    address: {
+      line1:
+        address.line1 || '',
+
+      ...(address.line2
+        ? { line2: address.line2 }
+        : {}),
+
+      ...(address.line3 ||
+         address.city ||
+         address.town
+        ? {
+            line3:
+              address.line3 ||
+              address.city ||
+              address.town,
+          }
+        : {}),
+
+      postCode:
+        address.postCode ||
+        address.postcode ||
         '',
+
+      country:
+        address.country ||
+        'England',
+    },
+
+    hmrcDetails: {
+      officeNumber,
+      payeReference,
+      accountsOfficeReference,
     },
   };
 }
+
 
 function mapPayOptions(input = {}) {
   const period = input.period || input.frequency || 'Monthly';
@@ -741,6 +868,8 @@ function mapPayScheduleSummary(
 
 module.exports = {
   splitPayeReference,
+  normaliseStaffologyTaxYear,
+  normaliseStaffologyTaxYear,
   extractItems,
   mapEmployer,
   mapEmployerSummary,

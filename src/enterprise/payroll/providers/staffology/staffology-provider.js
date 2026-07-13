@@ -144,17 +144,67 @@ class StaffologyPayrollProvider
   }
 
   async createEmployer(input = {}) {
+    if (
+      !input.name &&
+      !input.legalName
+    ) {
+      throw new StaffologyValidationError(
+        'Employer name is required'
+      );
+    }
+
+    const payload = mapEmployer(input);
+
     const data = await this.client.post(
       '/employers',
-      mapEmployer(input)
+      payload
     );
 
+    const externalEmployerId =
+      data.id ||
+      data.metadata?.id ||
+      null;
+
+    if (!externalEmployerId) {
+      throw new StaffologyValidationError(
+        'Staffology did not return an employer identifier'
+      );
+    }
+
     return Object.freeze({
-      externalEmployerId:
-        data.id || data.metadata?.id,
-      raw: data,
+      provider: this.name,
+      externalEmployerId,
+
+      employer: Object.freeze({
+        externalEmployerId,
+        name:
+          data.name ||
+          payload.name,
+
+        startTaxYear:
+          data.startYear ||
+          payload.startYear ||
+          null,
+
+        currentTaxYear:
+          data.currentYear ||
+          data.startYear ||
+          payload.startYear ||
+          null,
+
+        companyNumber:
+          data.crn ||
+          payload.crn ||
+          null,
+
+        archived:
+          Boolean(data.archived),
+      }),
+
+      createdAt: new Date().toISOString(),
     });
   }
+
 
   async listPaySchedules(input = {}) {
     const employerRef =
