@@ -1,0 +1,32 @@
+.provider-state {
+  margin-top: 22px;
+  padding: 26px;
+  display: grid;
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid #dfe5ee;
+  border-radius: 16px;
+}
+
+.provider-state-error {
+  color: #8a1c1c;
+  background: #fff4f4;
+  border-color: #f0cece;
+}
+
+.provider-state button {
+  width: fit-content;
+  padding: 10px 14px;
+  color: #ffffff;
+  background: #173f7a;
+  border: 0;
+  border-radius: 9px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+}
+
+.provider-status-attention {
+  color: #8a5b08;
+  background: #fff1cc;
+}
