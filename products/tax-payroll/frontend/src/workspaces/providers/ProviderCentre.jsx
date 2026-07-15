@@ -1,50 +1,92 @@
-import { useEffect, useState } from 'react';
+import {
+  useEffect,
+  useState,
+} from 'react';
 
 import './provider-centre.css';
 import './provider-centre-responsive.css';
 import './provider-health.css';
+import './provider-employers.css';
 
 import {
   getProviderCentre,
+  getStaffologyEmployers,
 } from '../../services/provider-centre-api';
 
 import ProviderCard from './ProviderCard';
+import StaffologyProviderWorkspace from './StaffologyProviderWorkspace';
 
-const copy = {
-  staffology: ['Staffology', 'Live payroll execution provider'],
-  brightpay: ['BrightPay', 'Future payroll provider'],
-  moneysoft: ['Moneysoft', 'Future payroll provider'],
+const providerCopy = {
+  staffology: {
+    name: 'Staffology',
+    description: 'Live payroll execution provider',
+  },
+  brightpay: {
+    name: 'BrightPay',
+    description: 'Future payroll provider',
+  },
+  moneysoft: {
+    name: 'Moneysoft',
+    description: 'Future payroll provider',
+  },
 };
 
 export default function ProviderCentre({ onBack }) {
-  const [data, setData] = useState(null);
-  const [status, setStatus] = useState('loading');
+  const [health, setHealth] = useState(null);
+  const [healthStatus, setHealthStatus] =
+    useState('loading');
+  const [selectedProvider, setSelectedProvider] =
+    useState(null);
+  const [employers, setEmployers] =
+    useState(null);
+  const [employerStatus, setEmployerStatus] =
+    useState('idle');
   const [error, setError] = useState('');
 
-  async function load() {
-    setStatus('loading');
+  async function loadHealth() {
+    setHealthStatus('loading');
     setError('');
-
     try {
-      setData(await getProviderCentre());
-      setStatus('ready');
+      setHealth(await getProviderCentre());
+      setHealthStatus('ready');
     } catch (requestError) {
       setError(requestError.message);
-      setStatus('error');
+      setHealthStatus('error');
+    }
+  }
+
+  async function openStaffology() {
+    setSelectedProvider('staffology');
+    setEmployerStatus('loading');
+    setError('');
+    try {
+      setEmployers(await getStaffologyEmployers());
+      setEmployerStatus('ready');
+    } catch (requestError) {
+      setError(requestError.message);
+      setEmployerStatus('error');
     }
   }
 
   useEffect(() => {
-    load();
+    loadHealth();
   }, []);
+
+  if (selectedProvider === 'staffology') {
+    return (
+      <StaffologyProviderWorkspace
+        data={employers}
+        status={employerStatus}
+        error={error}
+        onRetry={openStaffology}
+        onBack={() => setSelectedProvider(null)}
+      />
+    );
+  }
 
   return (
     <main className="provider-centre-shell">
-      <button
-        className="provider-back-button"
-        type="button"
-        onClick={onBack}
-      >
+      <button className="provider-back-button" type="button" onClick={onBack}>
         ← Back to practice
       </button>
 
@@ -52,59 +94,49 @@ export default function ProviderCentre({ onBack }) {
         <div>
           <p className="eyebrow">Enterprise payroll</p>
           <h1>Provider Centre</h1>
-          <p>
-            Live health is retrieved through the
-            Enterprise Payroll Manager.
-          </p>
+          <p>Live health and employer discovery remain behind Kenswell.</p>
         </div>
-
         <div className="provider-summary">
           <span>Connected providers</span>
-          <strong>{data?.connectedProviders ?? '—'}</strong>
+          <strong>{health?.connectedProviders ?? '—'}</strong>
         </div>
       </header>
 
-      {status === 'loading' && (
-        <section className="provider-state">
-          Checking provider health…
-        </section>
+      {healthStatus === 'loading' && (
+        <section className="provider-state">Checking provider health…</section>
       )}
 
-      {status === 'error' && (
+      {healthStatus === 'error' && (
         <section className="provider-state provider-state-error">
           <strong>Provider health could not be loaded</strong>
           <span>{error}</span>
-          <button type="button" onClick={load}>Try again</button>
+          <button type="button" onClick={loadHealth}>Try again</button>
         </section>
       )}
 
-      {status === 'ready' && (
+      {healthStatus === 'ready' && (
         <section className="provider-centre-grid">
-          {data.providers.map((provider) => (
-            <ProviderCard
-              key={provider.name}
-              name={copy[provider.name][0]}
-              description={copy[provider.name][1]}
-              status={provider.status}
-              employerCount={null}
-              linkedCount={
-                provider.name === 'staffology' ? 0 : null
-              }
-              disabled={provider.status === 'coming_soon'}
-              onOpen={() => {
-                console.info('Open provider:', provider.name);
-              }}
-            />
-          ))}
+          {health.providers.map((provider) => {
+            const copy = providerCopy[provider.name];
+            return (
+              <ProviderCard
+                key={provider.name}
+                name={copy.name}
+                description={copy.description}
+                status={provider.status}
+                employerCount={provider.name === 'staffology' ? employers?.count ?? null : null}
+                linkedCount={provider.name === 'staffology' ? 0 : null}
+                disabled={provider.status === 'coming_soon'}
+                onOpen={provider.name === 'staffology' ? openStaffology : undefined}
+              />
+            );
+          })}
         </section>
       )}
 
       <section className="provider-boundary-note">
         <strong>Kenswell remains the gateway.</strong>
-        <p>
-          Health checks run through the Enterprise
-          Payroll Manager, not from the browser.
-        </p>
+        <p>Employer data is retrieved through the Enterprise Payroll Manager.</p>
       </section>
     </main>
   );

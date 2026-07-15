@@ -1,4 +1,10 @@
 const {
+  ProviderEmployerService,
+} = require(
+  '../application/provider-employer-service'
+);
+
+const {
   ProviderHealthService,
 } = require(
   '../application/provider-health-service'
@@ -20,6 +26,9 @@ const service = new ProductProofService();
 
 const providerHealthService =
   new ProviderHealthService();
+
+const providerEmployerService =
+  new ProviderEmployerService();
 
 
 function sendJson(
@@ -184,6 +193,24 @@ async function handleRequest(request, response) {
   ) {
     const result =
       workspaceService.getWorkspace();
+
+    sendJson(response, 200, {
+      ok: true,
+      result,
+    });
+
+    return;
+  }
+
+  if (
+    request.method === 'GET' &&
+    request.url ===
+      '/api/product-proof/providers/' +
+      'staffology/employers'
+  ) {
+    const result =
+      await providerEmployerService
+        .listStaffologyEmployers();
 
     sendJson(response, 200, {
       ok: true,

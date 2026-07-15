@@ -1,12 +1,15 @@
 const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || '';
+  import.meta.env.VITE_API_BASE_URL ||
+  '';
 
 async function request(path) {
   const response = await fetch(
     `${API_BASE_URL}${path}`,
     {
       method: 'GET',
-      headers: { Accept: 'application/json' },
+      headers: {
+        Accept: 'application/json',
+      },
     }
   );
 
@@ -23,5 +26,14 @@ async function request(path) {
 }
 
 export function getProviderCentre() {
-  return request('/api/product-proof/providers');
+  return request(
+    '/api/product-proof/providers'
+  );
+}
+
+export function getStaffologyEmployers() {
+  return request(
+    '/api/product-proof/providers/' +
+    'staffology/employers'
+  );
 }
