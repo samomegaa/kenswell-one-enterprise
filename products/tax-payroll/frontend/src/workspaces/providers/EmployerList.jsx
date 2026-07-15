@@ -1,6 +1,4 @@
-export default function EmployerList({
-  employers,
-}) {
+export default function EmployerList({ employers, onLink }) {
   if (!employers.length) {
     return (
       <section className="provider-empty-state">
@@ -17,9 +15,7 @@ export default function EmployerList({
           key={employer.externalEmployerId}
         >
           <div className="provider-employer-mark">
-            {employer.name
-              .slice(0, 1)
-              .toUpperCase()}
+            {employer.name.slice(0, 1).toUpperCase()}
           </div>
 
           <div className="provider-employer-copy">
@@ -39,9 +35,9 @@ export default function EmployerList({
           <button
             type="button"
             className="provider-employer-action"
-            disabled
+            onClick={() => onLink(employer)}
           >
-            Link in Commit 4
+            Link to client
           </button>
         </article>
       ))}

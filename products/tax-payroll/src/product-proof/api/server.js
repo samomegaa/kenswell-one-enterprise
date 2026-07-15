@@ -1,4 +1,10 @@
 const {
+  ProviderEmployerLinkService,
+} = require(
+  '../application/provider-employer-link-service'
+);
+
+const {
   ProviderEmployerService,
 } = require(
   '../application/provider-employer-service'
@@ -29,6 +35,9 @@ const providerHealthService =
 
 const providerEmployerService =
   new ProviderEmployerService();
+
+const providerEmployerLinkService =
+  new ProviderEmployerLinkService();
 
 
 function sendJson(
@@ -199,6 +208,21 @@ async function handleRequest(request, response) {
       result,
     });
 
+    return;
+  }
+
+  if (
+    request.method === 'POST' &&
+    request.url ===
+      '/api/product-proof/providers/' +
+      'staffology/employers/link'
+  ) {
+    const body = await readJson(request);
+    const result =
+      providerEmployerLinkService
+        .linkStaffologyEmployer(body);
+
+    sendJson(response, 200, { ok: true, result });
     return;
   }
 

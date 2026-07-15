@@ -1,3 +1,9 @@
+import { useEffect, useState } from 'react';
+import {
+  getWorkspaceClients,
+  linkStaffologyEmployer,
+} from '../../services/provider-centre-api';
+import EmployerLinkDialog from './EmployerLinkDialog';
 import EmployerList from './EmployerList';
 
 export default function StaffologyProviderWorkspace({
@@ -7,13 +13,37 @@ export default function StaffologyProviderWorkspace({
   onBack,
   onRetry,
 }) {
+  const [clients, setClients] = useState([]);
+  const [selected, setSelected] = useState(null);
+  const [linkError, setLinkError] = useState('');
+  const [busy, setBusy] = useState(false);
+
+  useEffect(() => {
+    getWorkspaceClients().then(setClients).catch(() => setClients([]));
+  }, []);
+
+  async function confirmLink(clientId) {
+    setBusy(true);
+    setLinkError('');
+
+    try {
+      await linkStaffologyEmployer({
+        clientId,
+        externalEmployerId: selected.externalEmployerId,
+        employerName: selected.name,
+      });
+      setSelected(null);
+      await onRetry();
+    } catch (requestError) {
+      setLinkError(requestError.message);
+    } finally {
+      setBusy(false);
+    }
+  }
+
   return (
     <main className="provider-centre-shell">
-      <button
-        className="provider-back-button"
-        type="button"
-        onClick={onBack}
-      >
+      <button className="provider-back-button" type="button" onClick={onBack}>
         ← Back to Provider Centre
       </button>
 
@@ -22,11 +52,10 @@ export default function StaffologyProviderWorkspace({
           <p className="eyebrow">Connected provider</p>
           <h1>Staffology</h1>
           <p>
-            Live employers retrieved through the
-            Enterprise Payroll Manager.
+            Select a live employer and link it to a Kenswell
+            client payroll engagement.
           </p>
         </div>
-
         <div className="provider-summary">
           <span>Employers</span>
           <strong>{data?.count ?? '—'}</strong>
@@ -43,24 +72,28 @@ export default function StaffologyProviderWorkspace({
         <section className="provider-state provider-state-error">
           <strong>Employer discovery failed</strong>
           <span>{error}</span>
-          <button type="button" onClick={onRetry}>
-            Try again
-          </button>
+          <button type="button" onClick={onRetry}>Try again</button>
         </section>
       )}
 
       {status === 'ready' && (
         <section className="provider-employer-panel">
-          <div className="provider-employer-heading">
-            <div>
-              <p className="eyebrow">Live provider data</p>
-              <h2>Available employers</h2>
-            </div>
-            <small>Retrieved {data.retrievedAt}</small>
-          </div>
-
-          <EmployerList employers={data.employers} />
+          <EmployerList
+            employers={data.employers}
+            onLink={setSelected}
+          />
         </section>
+      )}
+
+      {selected && (
+        <EmployerLinkDialog
+          employer={selected}
+          clients={clients}
+          busy={busy}
+          error={linkError}
+          onCancel={() => setSelected(null)}
+          onConfirm={confirmLink}
+        />
       )}
     </main>
   );

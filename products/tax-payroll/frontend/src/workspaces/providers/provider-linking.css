@@ -1,0 +1,73 @@
+.provider-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+  background: rgba(18, 31, 51, 0.58);
+}
+
+.provider-dialog {
+  width: min(520px, 100%);
+  padding: 28px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(18, 31, 51, 0.25);
+}
+
+.provider-dialog h2 {
+  margin: 5px 0 10px;
+  color: #17233c;
+}
+
+.provider-dialog p {
+  color: #6f7d91;
+  line-height: 1.6;
+}
+
+.provider-dialog label {
+  margin-top: 22px;
+  display: grid;
+  gap: 8px;
+  color: #344054;
+  font-weight: 800;
+}
+
+.provider-dialog select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccd5e2;
+  border-radius: 10px;
+  font: inherit;
+}
+
+.provider-dialog-error {
+  margin-top: 16px;
+  padding: 12px;
+  color: #8a1c1c;
+  background: #fff1f1;
+  border-radius: 10px;
+}
+
+.provider-dialog-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.provider-dialog-actions button {
+  padding: 11px 16px;
+  border: 1px solid #ccd5e2;
+  border-radius: 10px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+}
+
+.provider-dialog-actions button:last-child {
+  color: #fff;
+  background: #173f7a;
+  border-color: #173f7a;
+}
