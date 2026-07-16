@@ -7,6 +7,9 @@ import './provider-centre.css';
 import './provider-centre-responsive.css';
 import './provider-health.css';
 import './provider-employers.css';
+import './provider-linking.css';
+import './provider-linking-refinement.css';
+import './linked-employer-bridge.css';
 
 import {
   getProviderCentre,
@@ -31,7 +34,10 @@ const providerCopy = {
   },
 };
 
-export default function ProviderCentre({ onBack }) {
+export default function ProviderCentre({
+  onBack,
+  onOpenClientPayroll,
+}) {
   const [health, setHealth] = useState(null);
   const [healthStatus, setHealthStatus] =
     useState('loading');
@@ -73,17 +79,19 @@ export default function ProviderCentre({ onBack }) {
   }, []);
 
   if (selectedProvider === 'staffology') {
-    return (
-      <StaffologyProviderWorkspace
-        data={employers}
-        status={employerStatus}
-        error={error}
-        onRetry={openStaffology}
-        onBack={() => setSelectedProvider(null)}
-      />
-    );
-  }
-
+  return (
+    <StaffologyProviderWorkspace
+      data={employers}
+      status={employerStatus}
+      error={error}
+      onRetry={openStaffology}
+      onBack={() => {
+        setSelectedProvider(null);
+      }}
+      onOpenClientPayroll={onOpenClientPayroll}
+    />
+  );
+}
   return (
     <main className="provider-centre-shell">
       <button className="provider-back-button" type="button" onClick={onBack}>

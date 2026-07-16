@@ -1,0 +1,6 @@
+.linked-employer-bridge { grid-column: 1 / -1; margin-top: 4px; padding: 14px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(140px, auto) auto; align-items: center; gap: 14px; background: #fff; border: 1px solid #cfe4d7; border-radius: 11px; }
+.linked-employer-bridge > div { display: grid; gap: 3px; }
+.linked-employer-bridge span { color: #6d7c8f; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+.linked-employer-bridge strong { color: #17233c; }
+.linked-employer-bridge button { padding: 10px 14px; color: #fff; background: #173f7a; border: 0; border-radius: 9px; cursor: pointer; font: inherit; font-weight: 800; }
+@media (max-width: 760px) { .linked-employer-bridge { grid-template-columns: 1fr; } .linked-employer-bridge button { width: 100%; } }
