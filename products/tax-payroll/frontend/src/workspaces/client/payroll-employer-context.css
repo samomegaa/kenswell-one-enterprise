@@ -1,0 +1,60 @@
+.payroll-employer-context {
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  background: #f4f8fc;
+  border: 1px solid #d9e5f1;
+  border-radius: 14px;
+}
+
+.payroll-employer-context > div {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+  align-content: start;
+}
+
+.payroll-employer-context span {
+  color: #738198;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.payroll-employer-context strong {
+  color: #17233c;
+  line-height: 1.35;
+}
+
+.payroll-employer-primary { grid-column: span 2; }
+.payroll-employer-primary strong { font-size: 18px; }
+.payroll-employer-id-row { grid-column: span 3; }
+.payroll-employer-id-row strong {
+  overflow-wrap: anywhere;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+}
+
+.payroll-employees-notice {
+  padding: 13px 16px;
+  color: #17663d;
+  background: #edf9f2;
+  border: 1px solid #ccebd9;
+  border-radius: 11px;
+}
+
+@media (max-width: 850px) {
+  .payroll-employer-context {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .payroll-employer-primary,
+  .payroll-employer-id-row { grid-column: 1 / -1; }
+}
+
+@media (max-width: 620px) {
+  .payroll-employer-context { grid-template-columns: 1fr; }
+  .payroll-employer-primary,
+  .payroll-employer-id-row { grid-column: auto; }
+}
