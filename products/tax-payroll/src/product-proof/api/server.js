@@ -1,4 +1,10 @@
 const {
+  EmployeeSyncService,
+} = require(
+  '../application/employee-sync-service'
+);
+
+const {
   ProviderEmployerLinkService,
 } = require(
   '../application/provider-employer-link-service'
@@ -38,6 +44,9 @@ const providerEmployerService =
 
 const providerEmployerLinkService =
   new ProviderEmployerLinkService();
+
+const employeeSyncService =
+  new EmployeeSyncService();
 
 
 function sendJson(
@@ -211,6 +220,59 @@ async function handleRequest(request, response) {
     return;
   }
 
+  const clientEmployeesMatch =
+    request.url.match(
+      /^\/api\/product-proof\/clients\/([^/]+)\/employees$/
+    );
+
+  if (
+    request.method === 'GET' &&
+    clientEmployeesMatch
+  ) {
+    const clientId =
+      decodeURIComponent(
+        clientEmployeesMatch[1]
+      );
+
+    const result =
+      employeeSyncService.list(
+        clientId
+      );
+
+    sendJson(response, 200, {
+      ok: true,
+      result,
+    });
+
+    return;
+  }
+
+  const employeeSyncMatch =
+    request.url.match(
+      /^\/api\/product-proof\/clients\/([^/]+)\/employees\/synchronise$/
+    );
+
+  if (
+    request.method === 'POST' &&
+    employeeSyncMatch
+  ) {
+    const clientId =
+      decodeURIComponent(
+        employeeSyncMatch[1]
+      );
+
+    const result =
+      await employeeSyncService
+        .synchronise(clientId);
+
+    sendJson(response, 200, {
+      ok: true,
+      result,
+    });
+
+    return;
+  }
+
   if (
     request.method === 'POST' &&
     request.url ===
@@ -298,3 +360,7 @@ server.listen(port, '0.0.0.0', () => {
     `Kenswell Tax & Payroll Product Proof API listening on ${port}`
   );
 });
+
+module.exports = {
+  server,
+};

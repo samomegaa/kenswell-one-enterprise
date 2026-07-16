@@ -209,6 +209,66 @@ class EmployeeSyncService {
       synchronisedAt,
     });
   }
+
+  list(clientId) {
+    if (!clientId) {
+      const error = new Error(
+        'Client is required'
+      );
+
+      error.statusCode = 400;
+      throw error;
+    }
+
+    const store = readStore();
+
+    const employer =
+      (store.employers || []).find(
+        (item) =>
+          item.clientId === clientId &&
+          item.provider?.linked === true &&
+          item.provider
+            ?.externalEmployerId
+      );
+
+    if (!employer) {
+      return Object.freeze({
+        clientId,
+        linked: false,
+        count: 0,
+        employees: Object.freeze([]),
+        lastSynchronisedAt: null,
+      });
+    }
+
+    const employees =
+      (store.employees || []).filter(
+        (item) =>
+          item.employerId ===
+          employer.id
+      );
+
+    return Object.freeze({
+      clientId,
+      linked: true,
+      employerId: employer.id,
+
+      externalEmployerId:
+        employer.provider
+          .externalEmployerId,
+
+      count: employees.length,
+
+      employees: Object.freeze(
+        employees
+      ),
+
+      lastSynchronisedAt:
+        employer.provider
+          .lastSynchronisedAt ||
+        null,
+    });
+  }
 }
 
 module.exports = {
