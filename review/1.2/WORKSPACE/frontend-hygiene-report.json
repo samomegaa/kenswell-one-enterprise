@@ -1,0 +1,28 @@
+{
+  "release": "1.2-5E-5D-revision-1",
+  "mode": "check",
+  "generatedAt": "2026-07-17T17:56:54.542261+00:00",
+  "before": {
+    "nested_products_exists": false,
+    "obsolete_import_present": false,
+    "repair_artifacts": [],
+    "executable_owned_text_files": [],
+    "ignored_directories": [
+      ".git",
+      "dist",
+      "node_modules"
+    ]
+  },
+  "after": {
+    "nested_products_exists": false,
+    "obsolete_import_present": false,
+    "repair_artifacts": [],
+    "executable_owned_text_files": [],
+    "ignored_directories": [
+      ".git",
+      "dist",
+      "node_modules"
+    ]
+  },
+  "changes": {}
+}
