@@ -1,0 +1,20 @@
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.jsx';
+import './styles.css';
+import './workspaces/framework/workspace.css';
+import './workspaces/client/payroll-employees-navigation.css';
+import './workspaces/employees/employee-creation.css';
+import './workspaces/client/employee-creation-navigation.css';
+
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  throw new Error('Application root element was not found');
+}
+
+createRoot(rootElement).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
