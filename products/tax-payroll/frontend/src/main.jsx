@@ -6,6 +6,8 @@ import './workspaces/framework/workspace.css';
 import './workspaces/client/payroll-employees-navigation.css';
 import './workspaces/employees/employee-creation.css';
 import './workspaces/client/employee-creation-navigation.css';
+import './workspaces/employees/employee-editing.css';
+import './workspaces/employees/employee-workspace-actions.css';
 
 const rootElement = document.getElementById('root');
 

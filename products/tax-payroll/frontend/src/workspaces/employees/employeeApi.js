@@ -34,3 +34,10 @@ export function createEmployee(employee) {
     body: JSON.stringify(employee),
   });
 }
+
+export function updateEmployee(employeeId, employee) {
+  return request(`/api/employees/${encodeURIComponent(employeeId)}`, {
+    method: 'PUT',
+    body: JSON.stringify(employee),
+  });
+}
