@@ -170,7 +170,8 @@
     "enterprise:1.1:payroll:staffology:live": "node review/1.1/PAYROLL/LIVE/verify-staffology-employers.js",
     "enterprise:1.1:payroll:verify": "node review/1.1/PAYROLL/ASSIMILATION/aggregate-provider-assimilation-verification.js",
     "enterprise:1.2:employees": "node review/1.2/EMPLOYEES/verify-employee-domain.js",
-    "enterprise:1.2:employee-repository": "node review/1.2/EMPLOYEES/verify-employee-repository.js"
+    "enterprise:1.2:employee-repository": "node review/1.2/EMPLOYEES/verify-employee-repository.js",
+    "enterprise:1.2:persistence": "node review/1.2/PERSISTENCE/verify-enterprise-persistence.js"
   },
   "engines": {
     "node": ">=20"
