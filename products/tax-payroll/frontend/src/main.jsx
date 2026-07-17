@@ -8,6 +8,7 @@ import './workspaces/employees/employee-creation.css';
 import './workspaces/client/employee-creation-navigation.css';
 import './workspaces/employees/employee-editing.css';
 import './workspaces/employees/employee-workspace-actions.css';
+import './workspaces/payroll/payroll-processing.css';
 
 const rootElement = document.getElementById('root');
 

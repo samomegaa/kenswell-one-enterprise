@@ -10,6 +10,7 @@ import {
   EmployeeWorkspace,
 } from '../../employees';
 
+import { PayrollProcessingWorkspace } from '../../payroll';
 import PayrollEmployerContext from './PayrollEmployerContext';
 import PayrollEmployeeTable from './PayrollEmployeeTable';
 
@@ -33,6 +34,7 @@ export default function PayrollEmployeesPanel({
   const [notice, setNotice] = useState('');
   const [selectedEmployeeId, setSelectedEmployeeId] = useState(null);
   const [creating, setCreating] = useState(false);
+  const [processingPayroll, setProcessingPayroll] = useState(false);
 
   async function load() {
     setStatus('loading');
@@ -69,6 +71,7 @@ export default function PayrollEmployeesPanel({
   useEffect(() => {
     setSelectedEmployeeId(null);
     setCreating(false);
+    setProcessingPayroll(false);
     load();
   }, [client.id]);
 
@@ -77,10 +80,34 @@ export default function PayrollEmployeesPanel({
     [data?.lastSynchronisedAt]
   );
 
+  const employer =
+    client.payroll?.employer || {};
+
   const employerId =
-    client.payroll?.employer?.id ||
-    client.payroll?.employer?.employerId ||
+    employer.id ||
+    employer.employerId ||
     '';
+
+  const schedules =
+    employer.paySchedules ||
+    client.payroll?.paySchedules ||
+    [];
+
+  if (processingPayroll) {
+    return (
+      <PayrollProcessingWorkspace
+        employerId={employerId}
+        employerName={employer.name}
+        employees={data?.employees || []}
+        schedules={schedules}
+        onCancel={() => setProcessingPayroll(false)}
+        onCompleted={(run) => {
+          setNotice(`Payroll run ${run.id} completed`);
+          setProcessingPayroll(false);
+        }}
+      />
+    );
+  }
 
   if (creating) {
     return (
@@ -109,7 +136,7 @@ export default function PayrollEmployeesPanel({
   return (
     <section className="payroll-employees-panel">
       <PayrollEmployerContext
-        employer={client.payroll?.employer}
+        employer={employer}
         employeeCount={data?.count || 0}
         lastSynchronisedAt={lastSynchronised}
       />
@@ -118,10 +145,17 @@ export default function PayrollEmployeesPanel({
         <div>
           <p className="eyebrow">Canonical employees</p>
           <h2>Employees</h2>
-          <p>Create or synchronise employees in the payroll workspace.</p>
+          <p>Create, synchronise and process payroll.</p>
         </div>
 
         <div className="payroll-employees-header__actions">
+          <button
+            type="button"
+            onClick={() => setProcessingPayroll(true)}
+            disabled={!employerId || !data?.employees?.length}
+          >
+            Process payroll
+          </button>
           <button
             type="button"
             onClick={() => setCreating(true)}
