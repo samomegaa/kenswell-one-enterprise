@@ -173,7 +173,9 @@
     "enterprise:1.2:employee-repository": "node review/1.2/EMPLOYEES/verify-employee-repository.js",
     "enterprise:1.2:persistence": "node review/1.2/PERSISTENCE/verify-enterprise-persistence.js",
     "enterprise:1.2:employee-persistence": "node review/1.2/EMPLOYEES/verify-employee-persistence.js",
-    "enterprise:1.2:employee-api": "node review/1.2/EMPLOYEES/verify-employee-api.js"
+    "enterprise:1.2:employee-api": "node review/1.2/EMPLOYEES/verify-employee-api.js",
+    "enterprise:1.2:workspace-framework": "node review/1.2/WORKSPACE/verify-workspace-framework.js",
+    "enterprise:1.2:employee-workspace": "node review/1.2/WORKSPACE/verify-employee-workspace.js"
   },
   "engines": {
     "node": ">=20"
