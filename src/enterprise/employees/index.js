@@ -87,6 +87,8 @@ const persistenceErrors = require(
   './employee-persistence-errors'
 );
 
+const api = require('./api');
+
 module.exports = {
   createEmployee,
   createEmployeeIdentity,
@@ -109,4 +111,5 @@ module.exports = {
   ...version,
   ...repositoryErrors,
   ...persistenceErrors,
+  ...api,
 };
