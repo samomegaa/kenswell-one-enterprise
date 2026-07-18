@@ -22,4 +22,6 @@ module.exports = {
   ...require('./section-readiness'),
   ...require('./readiness-dashboard'),
   ...require('./create-canonical-workspace'),
+  provider: require('./provider'),
+  ...require('./provider'),
 };
