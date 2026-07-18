@@ -1,0 +1,165 @@
+.readiness-dashboard {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.readiness-dashboard__header {
+  display: grid;
+  gap: 1rem;
+}
+
+.readiness-dashboard__eyebrow {
+  margin: 0;
+  color: #667085;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.readiness-dashboard__header h2 {
+  margin: 0.25rem 0 0;
+}
+
+.readiness-summary {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.readiness-summary div {
+  border: 1px solid #d9dee7;
+  border-radius: 0.65rem;
+  padding: 0.7rem;
+}
+
+.readiness-summary dt {
+  color: #667085;
+  font-size: 0.8rem;
+}
+
+.readiness-summary dd {
+  margin: 0.2rem 0 0;
+  font-weight: 600;
+}
+
+.readiness-dashboard__cards {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.readiness-card {
+  border: 1px solid #d9dee7;
+  border-radius: 0.8rem;
+  background: #fff;
+  padding: 1rem;
+}
+
+.readiness-card header {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.readiness-card header span,
+.readiness-card header strong {
+  display: block;
+}
+
+.readiness-card dl {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.readiness-card dt {
+  color: #667085;
+  font-size: 0.8rem;
+}
+
+.readiness-card dd {
+  margin: 0.15rem 0 0;
+  font-weight: 700;
+}
+
+.readiness-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.readiness-progress__track {
+  flex: 1;
+  overflow: hidden;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: #e9edf3;
+}
+
+.readiness-progress__bar {
+  display: block;
+  height: 100%;
+  background: currentColor;
+}
+
+.readiness-dashboard__missing {
+  border: 1px solid #d9dee7;
+  border-radius: 0.8rem;
+  padding: 1rem;
+}
+
+.readiness-dashboard__missing header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.missing-field-list,
+.section-status-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.missing-field-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.missing-field-list li,
+.section-status-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 1px solid #d9dee7;
+  border-radius: 0.65rem;
+  padding: 0.75rem;
+  background: #fff;
+}
+
+.missing-field-list small,
+.section-status-item small {
+  display: block;
+  color: #667085;
+}
+
+.section-status-list {
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+.section-status-item {
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .readiness-summary,
+  .readiness-dashboard__cards,
+  .section-status-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -21,12 +21,13 @@ import {
   displayStatus,
 } from './employeeWorkspaceModel';
 
-import WorkspaceReadinessStrip
-  from './metadata/WorkspaceReadinessStrip';
-
 import {
   SectionRenderer,
 } from './rendering';
+
+import {
+  ReadinessDashboard,
+} from './readiness';
 
 export default function EnterpriseEmployeeWorkspace({
   employeeId,
@@ -127,8 +128,9 @@ export default function EnterpriseEmployeeWorkspace({
         />
       }
     >
-      <WorkspaceReadinessStrip
-        readiness={workspace.readiness}
+      <ReadinessDashboard
+        workspace={workspace}
+        onSelectSection={setActiveSection}
       />
 
       {section ? (
