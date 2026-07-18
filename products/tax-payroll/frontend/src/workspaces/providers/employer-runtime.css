@@ -1,0 +1,44 @@
+.employer-runtime-selector {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border-color, #d9dee7);
+  border-radius: 1rem;
+  background: var(--surface-color, #fff);
+}
+
+.employer-runtime-selector__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.employer-runtime-selector h2,
+.employer-runtime-selector p {
+  margin: 0;
+}
+
+.employer-runtime-selector label {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.employer-runtime-selector input,
+.employer-runtime-selector select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--border-color, #c9d0dc);
+  border-radius: 0.65rem;
+  background: #fff;
+  font: inherit;
+}
+
+.employer-runtime-selector .eyebrow {
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
