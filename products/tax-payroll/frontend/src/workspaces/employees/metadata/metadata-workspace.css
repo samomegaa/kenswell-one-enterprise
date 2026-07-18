@@ -1,0 +1,50 @@
+.enterprise-readiness-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.enterprise-readiness-card {
+  border: 1px solid #d9dee7;
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: #fff;
+}
+
+.enterprise-readiness-card span,
+.enterprise-readiness-card small {
+  display: block;
+}
+
+.enterprise-readiness-card strong {
+  display: block;
+  margin: 0.2rem 0;
+  font-size: 1.25rem;
+}
+
+.enterprise-section-summary dl {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.enterprise-section-summary dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.enterprise-section-summary dt {
+  font-weight: 600;
+}
+
+.enterprise-section-summary__notice {
+  margin-top: 1rem;
+  color: #5f6878;
+}
+
+@media (max-width: 720px) {
+  .enterprise-readiness-strip {
+    grid-template-columns: 1fr;
+  }
+}
