@@ -4,16 +4,15 @@ import {
   WorkspaceSection,
 } from '../../framework';
 
-import FieldRenderer from './FieldRenderer';
+import {
+  getPathValue,
+} from '../editing/workspaceDraftValues';
 
-function valueFor(employee, path) {
-  return String(path)
-    .split('.')
-    .reduce(
-      (value, key) => value?.[key],
-      employee
-    );
-}
+import {
+  isFieldVisible,
+} from '../visibility';
+
+import FieldRenderer from './FieldRenderer';
 
 export default function SectionRenderer({
   section,
@@ -22,30 +21,41 @@ export default function SectionRenderer({
   errors = {},
   onChange,
 }) {
+  const fields = (section.fields || []).filter(
+    (field) =>
+      isFieldVisible(field, employee)
+  );
+
   return (
     <WorkspaceSection
       title={section.title}
       description={section.description}
     >
       <div className="enterprise-field-grid">
-        {(section.fields || []).map((field) => (
+        {fields.map((field) => (
           <FieldRenderer
             key={field.id}
             field={field}
-            value={valueFor(
+            value={getPathValue(
               employee,
               field.providerBinding
             )}
             disabled={disabled}
             error={errors[field.id] || null}
-            onChange={onChange}
+            onChange={(nextField, value) =>
+              onChange?.(
+                nextField,
+                value,
+                section.id
+              )
+            }
           />
         ))}
       </div>
 
-      {section.fields?.length === 0 && (
+      {fields.length === 0 && (
         <p>
-          No fields are registered for this section.
+          No fields are visible for this section.
         </p>
       )}
     </WorkspaceSection>

@@ -38,6 +38,7 @@ export function adaptEmployeeWorkspace(payload) {
           status: state?.status || 'ready',
           score: state?.score ?? 100,
           missing: state?.missing || 0,
+          changed: false,
         });
       })
     ),

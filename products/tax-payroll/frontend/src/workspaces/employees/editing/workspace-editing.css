@@ -1,0 +1,41 @@
+.workspace-draft-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid #d9dee7;
+  border-radius: 0.75rem;
+  background: #fff;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.workspace-draft-bar strong,
+.workspace-draft-bar small {
+  display: block;
+}
+
+.workspace-draft-bar small {
+  margin-top: 0.2rem;
+  color: #667085;
+}
+
+.workspace-draft-bar__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.enterprise-field input:disabled,
+.enterprise-field select:disabled,
+.enterprise-field textarea:disabled {
+  background: #f7f8fa;
+  color: #667085;
+}
+
+@media (max-width: 720px) {
+  .workspace-draft-bar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

@@ -1,5 +1,6 @@
 import {
   useEffect,
+  useMemo,
   useState,
 } from 'react';
 
@@ -29,12 +30,20 @@ import {
   ReadinessDashboard,
 } from './readiness';
 
+import {
+  useWorkspaceDraft,
+  WorkspaceDraftBar,
+} from './editing';
+
 export default function EnterpriseEmployeeWorkspace({
   employeeId,
   onBack,
 }) {
   const [activeSection, setActiveSection] =
     useState(null);
+
+  const [editing, setEditing] =
+    useState(false);
 
   const {
     workspace,
@@ -43,6 +52,8 @@ export default function EnterpriseEmployeeWorkspace({
     error,
     reload,
   } = useEnterpriseEmployeeWorkspace(employeeId);
+
+  const draft = useWorkspaceDraft(employee);
 
   useEffect(() => {
     if (
@@ -56,6 +67,19 @@ export default function EnterpriseEmployeeWorkspace({
       );
     }
   }, [workspace, activeSection]);
+
+  const navigation = useMemo(
+    () =>
+      (workspace?.navigation || []).map(
+        (item) => ({
+          ...item,
+          changed: Boolean(
+            draft.changedSections[item.id]
+          ),
+        })
+      ),
+    [workspace, draft.changedSections]
+  );
 
   if (loading) return <WorkspaceSkeleton />;
 
@@ -82,6 +106,16 @@ export default function EnterpriseEmployeeWorkspace({
       (item) => item.id === activeSection
     ) ||
     workspace.visibleWorkspace.sections[0];
+
+  function prepareSave() {
+    const payload =
+      draft.buildPayload(employeeId);
+
+    console.info(
+      'Enterprise workspace save payload',
+      payload
+    );
+  }
 
   return (
     <WorkspaceLayout
@@ -121,13 +155,25 @@ export default function EnterpriseEmployeeWorkspace({
       }
       navigation={
         <WorkspaceNavigation
-          items={workspace.navigation}
+          items={navigation}
           activeId={section?.id}
           onSelect={setActiveSection}
           ariaLabel="Canonical payroll sections"
         />
       }
     >
+      <WorkspaceDraftBar
+        editing={editing}
+        dirty={draft.dirty}
+        changedCount={draft.changedCount}
+        onEdit={() => setEditing(true)}
+        onDiscard={() => {
+          draft.discard();
+          setEditing(false);
+        }}
+        onPrepareSave={prepareSave}
+      />
+
       <ReadinessDashboard
         workspace={workspace}
         onSelectSection={setActiveSection}
@@ -136,8 +182,9 @@ export default function EnterpriseEmployeeWorkspace({
       {section ? (
         <SectionRenderer
           section={section}
-          employee={employee}
-          disabled
+          employee={draft.values}
+          disabled={!editing}
+          onChange={draft.changeField}
         />
       ) : (
         <WorkspaceError

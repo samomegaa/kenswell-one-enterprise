@@ -6,3 +6,17 @@ export {
   cloneEmployee,
   editingTitle,
 } from './employeeEditingModel';
+
+// Version 1.2 RC1-E — Workspace draft editing
+export { default as useWorkspaceDraft }
+  from './useWorkspaceDraft';
+
+export { default as WorkspaceDraftBar }
+  from './WorkspaceDraftBar';
+
+export {
+  buildDraftPayload,
+  selectChangedCount,
+  selectDraftDirty,
+  selectSectionChanged,
+} from './workspaceDraftSelectors';
