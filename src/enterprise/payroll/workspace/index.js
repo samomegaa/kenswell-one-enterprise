@@ -10,5 +10,11 @@ module.exports = {
   ...require('./value-accessor'),
   ...require('./dynamic-field-renderer'),
   ...require('./default-control-renderers'),
+  ...require('./readiness-levels'),
+  ...require('./readiness-value'),
+  ...require('./readiness-result'),
+  ...require('./readiness-engine'),
+  ...require('./section-readiness'),
+  ...require('./readiness-dashboard'),
   ...require('./create-canonical-workspace'),
 };

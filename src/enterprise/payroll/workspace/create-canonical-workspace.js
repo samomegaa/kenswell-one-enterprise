@@ -20,6 +20,10 @@ const {
   registerDefaultControlRenderers,
 } = require('./default-control-renderers');
 
+const {
+  createPayrollReadinessEngine,
+} = require('./readiness-engine');
+
 function createCanonicalPayrollWorkspace({
   fields = DEFAULT_PAYROLL_FIELDS,
 } = {}) {
@@ -37,12 +41,20 @@ function createCanonicalPayrollWorkspace({
       createDynamicFieldRenderer()
     );
 
+  const schema =
+    fieldRegistry.createWorkspaceDefinition();
+
+  const readinessEngine =
+    createPayrollReadinessEngine({
+      fieldRegistry,
+    });
+
   return Object.freeze({
-    schema:
-      fieldRegistry.createWorkspaceDefinition(),
+    schema,
     workspaceRegistry,
     fieldRegistry,
     renderer,
+    readinessEngine,
   });
 }
 
