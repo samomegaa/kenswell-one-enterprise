@@ -14,6 +14,7 @@ import './workspaces/employees/metadata/metadata-workspace.css';
 import './workspaces/employees/rendering/field-renderer.css';
 import './workspaces/employees/readiness/readiness-dashboard.css';
 import './workspaces/employees/editing/workspace-editing.css';
+import './workspaces/employees/provider/provider-panel.css';
 import './workspaces/payroll/payroll-processing.css';
 
 const rootElement =

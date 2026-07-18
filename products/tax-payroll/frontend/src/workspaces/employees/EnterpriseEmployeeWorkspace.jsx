@@ -35,6 +35,10 @@ import {
   WorkspaceDraftBar,
 } from './editing';
 
+import {
+  ProviderPanel,
+} from './provider';
+
 export default function EnterpriseEmployeeWorkspace({
   employeeId,
   onBack,
@@ -108,12 +112,24 @@ export default function EnterpriseEmployeeWorkspace({
     workspace.visibleWorkspace.sections[0];
 
   function prepareSave() {
-    const payload =
-      draft.buildPayload(employeeId);
-
     console.info(
       'Enterprise workspace save payload',
-      payload
+      draft.buildPayload(employeeId)
+    );
+  }
+
+  function prepareSynchronisation() {
+    console.info(
+      'Provider synchronisation prepared',
+      {
+        employeeId,
+        provider:
+          workspace.providerPanel?.summary
+            ?.provider,
+        changes:
+          draft.buildPayload(employeeId)
+            .changes,
+      }
     );
   }
 
@@ -176,6 +192,16 @@ export default function EnterpriseEmployeeWorkspace({
 
       <ReadinessDashboard
         workspace={workspace}
+        onSelectSection={setActiveSection}
+      />
+
+      <ProviderPanel
+        panel={workspace.providerPanel}
+        contract={workspace.contract}
+        onRefresh={reload}
+        onPrepareSynchronisation={
+          prepareSynchronisation
+        }
         onSelectSection={setActiveSection}
       />
 

@@ -1,0 +1,140 @@
+.provider-panel {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d9dee7;
+  border-radius: 0.85rem;
+  background: #f8fafc;
+  padding: 1rem;
+}
+
+.provider-panel__header,
+.provider-summary-card header,
+.provider-conflict-list article header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.provider-panel__header p,
+.provider-summary-card p {
+  margin: 0;
+  color: #667085;
+}
+
+.provider-panel__header h2,
+.provider-summary-card h3 {
+  margin: 0.2rem 0 0;
+}
+
+.provider-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.provider-summary-card,
+.provider-panel__grid > section,
+.provider-panel > section:last-child {
+  border: 1px solid #d9dee7;
+  border-radius: 0.75rem;
+  background: #fff;
+  padding: 1rem;
+}
+
+.provider-summary-card dl,
+.provider-conflict-list dl {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.provider-summary-card dt,
+.provider-conflict-list dt {
+  color: #667085;
+  font-size: 0.8rem;
+}
+
+.provider-summary-card dd,
+.provider-conflict-list dd {
+  margin: 0.2rem 0 0;
+  font-weight: 600;
+}
+
+.provider-status-badge {
+  align-self: flex-start;
+  border-radius: 999px;
+  background: #eef2f6;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.provider-panel__grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.provider-diagnostics-list,
+.provider-history-timeline {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.provider-diagnostic,
+.provider-history-timeline li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid #eaecf0;
+  padding-bottom: 0.7rem;
+}
+
+.provider-diagnostic p,
+.provider-history-timeline p {
+  margin: 0.25rem 0;
+}
+
+.provider-history-timeline__marker {
+  flex: 0 0 auto;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-top: 0.35rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.provider-conflict-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.provider-conflict-list article {
+  border: 1px solid #eaecf0;
+  border-radius: 0.65rem;
+  padding: 0.8rem;
+}
+
+.provider-empty-state {
+  color: #667085;
+}
+
+@media (max-width: 860px) {
+  .provider-panel__header,
+  .provider-summary-card header,
+  .provider-panel__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .provider-summary-card dl,
+  .provider-conflict-list dl {
+    grid-template-columns: 1fr;
+  }
+}
