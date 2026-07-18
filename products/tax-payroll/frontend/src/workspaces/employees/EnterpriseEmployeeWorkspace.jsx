@@ -24,8 +24,9 @@ import {
 import WorkspaceReadinessStrip
   from './metadata/WorkspaceReadinessStrip';
 
-import WorkspaceSectionSummary
-  from './metadata/WorkspaceSectionSummary';
+import {
+  SectionRenderer,
+} from './rendering';
 
 export default function EnterpriseEmployeeWorkspace({
   employeeId,
@@ -107,7 +108,10 @@ export default function EnterpriseEmployeeWorkspace({
           ]}
           actions={
             onBack ? (
-              <button type="button" onClick={onBack}>
+              <button
+                type="button"
+                onClick={onBack}
+              >
                 Back to payroll
               </button>
             ) : null
@@ -128,8 +132,10 @@ export default function EnterpriseEmployeeWorkspace({
       />
 
       {section ? (
-        <WorkspaceSectionSummary
+        <SectionRenderer
           section={section}
+          employee={employee}
+          disabled
         />
       ) : (
         <WorkspaceError
