@@ -7,3 +7,10 @@ coverage/
 .env
 .env.*
 *.log
+.env.local
+
+# Local environment secrets
+.env
+.env.local
+.env.*.local
+review/1.2/RC1/GA/live-validation-report.json
