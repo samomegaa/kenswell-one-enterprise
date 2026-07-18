@@ -4,6 +4,10 @@ const {
   getValueAtPath,
 } = require('./value-accessor');
 
+const {
+  isFieldVisible,
+} = require('./field-visibility');
+
 class DynamicFieldRenderer {
   constructor() {
     this.controls = new Map();
@@ -46,6 +50,10 @@ class DynamicFieldRenderer {
       throw new TypeError('Field definition is required');
     }
 
+    if (!isFieldVisible(field, employee)) {
+      return null;
+    }
+
     const renderer = this.controls.get(field.control);
 
     if (!renderer) {
@@ -74,14 +82,16 @@ class DynamicFieldRenderer {
     context = {},
   } = {}) {
     return Object.freeze(
-      (section.fields || []).map((field) =>
-        this.renderField({
-          field,
-          employee,
-          onChange,
-          context,
-        })
-      )
+      (section.fields || [])
+        .map((field) =>
+          this.renderField({
+            field,
+            employee,
+            onChange,
+            context,
+          })
+        )
+        .filter(Boolean)
     );
   }
 }

@@ -5,6 +5,10 @@ const {
   SUPPORTED_FIELD_CONTROLS,
 } = require('./field-types');
 
+const {
+  normaliseVisibilityRules,
+} = require('./visibility-rule');
+
 function freezeArray(value = []) {
   return Object.freeze([...(value || [])]);
 }
@@ -55,7 +59,9 @@ function createFieldDefinition(input = {}) {
         Object.freeze({ ...option })
       )
     ),
-    visibleWhen: freezeArray(input.visibleWhen),
+    visibleWhen: normaliseVisibilityRules(
+      input.visibleWhen
+    ),
     readOnly: Boolean(input.readOnly),
     sensitive: Boolean(input.sensitive),
     metadata: Object.freeze({

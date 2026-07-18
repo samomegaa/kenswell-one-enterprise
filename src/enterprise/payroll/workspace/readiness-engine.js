@@ -16,6 +16,10 @@ const {
   getValueAtPath,
 } = require('./value-accessor');
 
+const {
+  isFieldVisible,
+} = require('./field-visibility');
+
 class PayrollReadinessEngine {
   constructor({ fieldRegistry } = {}) {
     if (!fieldRegistry) {
@@ -36,7 +40,9 @@ class PayrollReadinessEngine {
 
     const requiredFields =
       this.fieldRegistry.listFields().filter(
-        (field) => field.requiredFor.includes(level)
+        (field) =>
+          field.requiredFor.includes(level) &&
+          isFieldVisible(field, employee)
       );
 
     const missingFields = requiredFields

@@ -8,6 +8,10 @@ const {
   getValueAtPath,
 } = require('./value-accessor');
 
+const {
+  isFieldVisible,
+} = require('./field-visibility');
+
 function createSectionReadiness({
   schema,
   employee = {},
@@ -15,7 +19,9 @@ function createSectionReadiness({
   return Object.freeze(
     schema.sections.map((section) => {
       const readinessFields = section.fields.filter(
-        (field) => field.requiredFor.length > 0
+        (field) =>
+          field.requiredFor.length > 0 &&
+          isFieldVisible(field, employee)
       );
 
       const missingFields = readinessFields.filter(
