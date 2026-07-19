@@ -17,7 +17,7 @@ import {
 } from '../../services/provider-centre-api';
 
 import ProviderCard from './ProviderCard';
-import StaffologyProviderWorkspace from './StaffologyProviderWorkspace';
+import IntegratedStaffologyWorkspace from './IntegratedStaffologyWorkspace';
 
 const providerCopy = {
   staffology: {
@@ -80,7 +80,7 @@ export default function ProviderCentre({
 
   if (selectedProvider === 'staffology') {
   return (
-    <StaffologyProviderWorkspace
+    <IntegratedStaffologyWorkspace
       data={employers}
       status={employerStatus}
       error={error}

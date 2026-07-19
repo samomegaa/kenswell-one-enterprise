@@ -1,0 +1,83 @@
+.runtime-sidecar {
+  width: min(1352px, calc(100% - 2rem));
+  margin: 1.25rem auto 3rem;
+  padding: 1.25rem;
+  border: 1px solid #d8e0ec;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 14px 34px rgb(24 49 83 / 8%);
+}
+
+.runtime-sidecar__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.runtime-sidecar__header h2,
+.runtime-sidecar__header p {
+  margin-top: 0;
+}
+
+.runtime-sidecar__header .eyebrow {
+  margin-bottom: 0.3rem;
+  color: #52657d;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.runtime-sidecar__body {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.runtime-state-panel {
+  padding: 1rem;
+  border: 1px solid #d8e0ec;
+  border-radius: 0.85rem;
+  background: #f8fafc;
+}
+
+.runtime-state-panel[data-tone='error'] {
+  border-color: #c94b4b;
+  background: #fff7f7;
+}
+
+.runtime-sidecar__workspace {
+  padding: 1rem;
+  border: 1px solid #c8d4e5;
+  border-radius: 0.85rem;
+}
+
+.runtime-sidecar__workspace header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.runtime-sidecar__workspace h3,
+.runtime-sidecar__workspace p {
+  margin-top: 0;
+}
+
+.runtime-sidecar__workspace pre {
+  max-height: 30rem;
+  overflow: auto;
+  padding: 1rem;
+  border-radius: 0.65rem;
+  background: #101827;
+  color: #f8fafc;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 720px) {
+  .runtime-sidecar__header,
+  .runtime-sidecar__workspace header {
+    flex-direction: column;
+  }
+}
