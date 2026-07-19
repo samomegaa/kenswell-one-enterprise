@@ -21,8 +21,15 @@ import {
   adaptStaffologyBasicDetails,
 } from './adaptStaffologyBasicDetails';
 
+import {
+  adaptStaffologyEmployment,
+} from './adaptStaffologyEmployment';
+
 import StaffologyBasicDetailsPanel
   from './StaffologyBasicDetailsPanel';
+
+import StaffologyEmploymentPanel
+  from './StaffologyEmploymentPanel';
 
 import StaffologySectionPending
   from './StaffologySectionPending';
@@ -36,6 +43,13 @@ export default function StaffologyEmployeeWorkspace({
 
   const employee = useMemo(
     () => adaptStaffologyBasicDetails(
+      runtimeWorkspace
+    ),
+    [runtimeWorkspace]
+  );
+
+  const employment = useMemo(
+    () => adaptStaffologyEmployment(
       runtimeWorkspace
     ),
     [runtimeWorkspace]
@@ -56,18 +70,27 @@ export default function StaffologyEmployeeWorkspace({
       (tab) => tab.id === activeTab
     ) || STAFFOLOGY_EMPLOYEE_TABS[0];
 
-  const content =
-    activeTab === 'basic-details'
-      ? (
-        <StaffologyBasicDetailsPanel
-          employee={employee}
-        />
-      )
-      : (
-        <StaffologySectionPending
-          title={selectedTab.label}
-        />
-      );
+  let content;
+
+  if (activeTab === 'basic-details') {
+    content = (
+      <StaffologyBasicDetailsPanel
+        employee={employee}
+      />
+    );
+  } else if (activeTab === 'employment') {
+    content = (
+      <StaffologyEmploymentPanel
+        employment={employment}
+      />
+    );
+  } else {
+    content = (
+      <StaffologySectionPending
+        title={selectedTab.label}
+      />
+    );
+  }
 
   return (
     <WorkspaceLayout

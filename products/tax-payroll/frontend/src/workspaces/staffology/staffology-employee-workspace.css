@@ -63,3 +63,22 @@
     grid-column: span 1;
   }
 }
+
+.staffology-employment {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.staffology-employment-group {
+  border-bottom: 1px solid #dbe3ef;
+  padding-bottom: 1.5rem;
+}
+
+.staffology-employment-group:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.staffology-employment-group h3 {
+  margin: 0 0 1rem;
+}
