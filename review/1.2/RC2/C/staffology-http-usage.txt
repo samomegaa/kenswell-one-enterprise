@@ -1,0 +1,190 @@
+apps/api/src/config/environment.js:4:  'STAFFOLOGY_BASE_URL',
+apps/api/src/config/environment.js:55:      baseUrl: environment.STAFFOLOGY_BASE_URL,
+apps/api/src/composition/employer-runtime-composition.js:7:} = require('../../../../src/enterprise/employers');
+apps/api/src/composition/enterprise-api-composition.js:19:    '../../../../src/enterprise/employees/providers/' +
+apps/api/src/composition/enterprise-api-composition.js:37:    '../../../../src/enterprise/employees/workspace'
+apps/api/src/routes/employer-routes.js:61:    '/employers',
+apps/api/src/routes/employer-routes.js:76:    '/employers/:employerId',
+apps/api/src/routes/employer-routes.js:87:    '/employers/:employerId/employees',
+apps/api/src/routes/employer-routes.js:107:    '/employers/:employerId/employees/:employeeId',
+apps/api/src/routes/employer-routes.js:123:    '/employers/:employerId/employees/' +
+apps/api/src/routes/employee-routes.js:43:    '/employees/:employeeId',
+apps/api/src/routes/employee-routes.js:54:    '/employees/:employeeId/workspace',
+apps/api/src/routes/employee-routes.js:66:    '/employees',
+apps/api/src/routes/employee-routes.js:80:    '/employees',
+apps/api/src/routes/employee-routes.js:94:    '/employees/:employeeId',
+apps/api/src/services/employer-scoped-employee-service.js:44:      `/employers/${encodeURIComponent(
+apps/api/src/services/employer-scoped-employee-service.js:46:      )}/employees`
+apps/api/src/services/employer-scoped-employee-service.js:67:      `/employers/${encodeURIComponent(
+apps/api/src/services/employer-scoped-employee-service.js:69:      )}/employees/${encodeURIComponent(
+src/enterprise/employers/staffology-employer-directory.js:16:    const payload = await this.client.get('/employers');
+src/enterprise/employees/workspace/employee-workspace-routes.js:27:    '/employees/:employeeId/workspace',
+src/enterprise/employees/api/employee-routes.js:19:    '/employees',
+src/enterprise/employees/api/employee-routes.js:24:    '/employees',
+src/enterprise/employees/api/employee-routes.js:29:    '/employees/:employeeId',
+src/enterprise/employees/api/employee-routes.js:34:    '/employees/:employeeId',
+src/enterprise/employees/api/employee-routes.js:39:    '/employees/:employeeId',
+src/enterprise/employees/api/employee-routes.js:44:    '/clients/:clientId/employees',
+src/enterprise/employees/api/employee-routes.js:49:    '/employers/:employerId/employees',
+src/enterprise/employees/api/employee-routes.js:54:    '/providers/:provider/employees/' +
+src/enterprise/payroll/providers/staffology/staffology-provider.js:78:      await this.client.get('/employers');
+src/enterprise/payroll/providers/staffology/staffology-provider.js:98:        ? '/bureau/employers'
+src/enterprise/payroll/providers/staffology/staffology-provider.js:99:        : '/employers';
+src/enterprise/payroll/providers/staffology/staffology-provider.js:136:      `/employers/${employerRef}`
+src/enterprise/payroll/providers/staffology/staffology-provider.js:159:      '/employers',
+src/enterprise/payroll/providers/staffology/staffology-provider.js:235:        `/employers/${employerRef}`
+src/enterprise/payroll/providers/staffology/staffology-provider.js:254:      `/employers/${employerRef}` +
+src/enterprise/payroll/providers/staffology/staffology-provider.js:296:      `/employers/${employerRef}`
+src/enterprise/payroll/providers/staffology/staffology-provider.js:305:      `/employers/${employerRef}` +
+src/enterprise/payroll/providers/staffology/staffology-provider.js:342:      `/employers/${employerRef}/employees`
+src/enterprise/payroll/providers/staffology/staffology-provider.js:389:      `/employers/${employerRef}` +
+src/enterprise/payroll/providers/staffology/staffology-provider.js:390:      `/employees/${employeeRef}`
+src/enterprise/payroll/providers/staffology/staffology-provider.js:408:      `/employers/${employerRef}/employees`,
+src/enterprise/payroll/providers/staffology/staffology-provider.js:426:      `/employers/${employerRef}` +
+src/enterprise/payroll/providers/staffology/staffology-provider.js:427:      `/employees/${employeeRef}`;
+src/enterprise/payroll/providers/staffology/staffology-provider.js:462:      `/employers/${employerRef}`
+src/enterprise/payroll/providers/staffology/staffology-provider.js:473:      `/employers/${employerRef}` +
+src/enterprise/payroll/providers/staffology/staffology-provider.js:501:      `/employers/${employerRef}`
+src/enterprise/payroll/providers/staffology/staffology-provider.js:512:      `/employers/${employerRef}`
+src/enterprise/payroll/providers/staffology/staffology-provider.js:533:      `/employers/${employerRef}`,
+src/enterprise/payroll/providers/staffology/staffology-provider.js:572:        `/employers/${employerRef}` +
+src/enterprise/payroll/providers/staffology/staffology-provider.js:631:      `/employers/${employerRef}` +
+src/enterprise/payroll/providers/staffology/staffology-provider.js:739:        `/employers/${employerRef}` +
+src/enterprise/payroll/providers/staffology/staffology-client.js:8:    baseUrl = 'https://api.staffology.co.uk',
+src/enterprise/payroll/providers/staffology/staffology-client.js:49:  async request(method, path, body = undefined) {
+src/enterprise/payroll/providers/staffology/staffology-client.js:59:      const response = await this.fetch(url, {
+src/enterprise/payroll/providers/staffology/staffology-client.js:126:    return this.request('GET', path);
+src/enterprise/payroll/providers/staffology/staffology-client.js:130:    return this.request('POST', path, body);
+src/enterprise/payroll/providers/staffology/staffology-client.js:134:    return this.request('PUT', path, body);
+products/tax-payroll/src/product-proof/application/product-proof-service.js:9:} = require('../domain/employers/employer');
+products/tax-payroll/src/product-proof/application/enterprise-payroll-runtime.js:20:        process.env.STAFFOLOGY_BASE_URL ||
+products/tax-payroll/src/product-proof/application/enterprise-payroll-runtime.js:21:        'https://api.staffology.co.uk',
+products/tax-payroll/src/product-proof/api/server.js:192:      '/api/product-proof/employers'
+products/tax-payroll/src/product-proof/api/server.js:225:      /^\/api\/product-proof\/clients\/([^/]+)\/employees$/
+products/tax-payroll/src/product-proof/api/server.js:252:      /^\/api\/product-proof\/clients\/([^/]+)\/employees\/synchronise$/
+products/tax-payroll/src/product-proof/api/server.js:280:      'staffology/employers/link'
+products/tax-payroll/src/product-proof/api/server.js:295:      'staffology/employers'
+products/tax-payroll/src/product-proof/api/server.js.before-provider-route-fix:165:      '/api/product-proof/employers'
+products/tax-payroll/frontend/src/runtime/enterpriseRuntimeNavigation.js:2:const EMPLOYERS_PATH = '/providers/employers';
+products/tax-payroll/frontend/src/runtime/enterpriseRuntimeNavigation.js:15:  return `${employerPath(employerId)}/employees`;
+products/tax-payroll/frontend/src/main.jsx:9:import './workspaces/employees/employee-creation.css';
+products/tax-payroll/frontend/src/main.jsx:11:import './workspaces/employees/employee-editing.css';
+products/tax-payroll/frontend/src/main.jsx:12:import './workspaces/employees/employee-workspace-actions.css';
+products/tax-payroll/frontend/src/main.jsx:13:import './workspaces/employees/metadata/metadata-workspace.css';
+products/tax-payroll/frontend/src/main.jsx:14:import './workspaces/employees/rendering/field-renderer.css';
+products/tax-payroll/frontend/src/main.jsx:15:import './workspaces/employees/readiness/readiness-dashboard.css';
+products/tax-payroll/frontend/src/main.jsx:16:import './workspaces/employees/editing/workspace-editing.css';
+products/tax-payroll/frontend/src/main.jsx:17:import './workspaces/employees/provider/provider-panel.css';
+products/tax-payroll/frontend/src/main.jsx:20:import './workspaces/employees/employee-runtime.css';
+products/tax-payroll/frontend/src/main.jsx:23:import './workspaces/employees/runtime-employee-workspace.css';
+products/tax-payroll/frontend/src/workspaces/employees/employeeApi.js:4:async function request(path, options = {}) {
+products/tax-payroll/frontend/src/workspaces/employees/employeeApi.js:5:  const response = await fetch(
+products/tax-payroll/frontend/src/workspaces/employees/employeeApi.js:32:  return request(
+products/tax-payroll/frontend/src/workspaces/employees/employeeApi.js:33:    `/api/employees/${encodeURIComponent(employeeId)}`
+products/tax-payroll/frontend/src/workspaces/employees/employeeApi.js:38:  return request(
+products/tax-payroll/frontend/src/workspaces/employees/employeeApi.js:39:    `/api/employees/${encodeURIComponent(employeeId)}/workspace`
+products/tax-payroll/frontend/src/workspaces/employees/employeeApi.js:44:  return request('/api/employees', {
+products/tax-payroll/frontend/src/workspaces/employees/employeeApi.js:51:  return request(
+products/tax-payroll/frontend/src/workspaces/employees/employeeApi.js:52:    `/api/employees/${encodeURIComponent(employeeId)}`,
+products/tax-payroll/frontend/src/workspaces/payroll/processing/payrollProcessingApi.js:3:async function request(path, options = {}) {
+products/tax-payroll/frontend/src/workspaces/payroll/processing/payrollProcessingApi.js:4:  const response = await fetch(`${API_BASE}${path}`, {
+products/tax-payroll/frontend/src/workspaces/payroll/processing/payrollProcessingApi.js:28:  return request('/api/payroll-runs', {
+products/tax-payroll/frontend/src/workspaces/payroll/processing/payrollProcessingApi.js:35:  return request(`/api/payroll-runs/${encodeURIComponent(runId)}/validate`, {
+products/tax-payroll/frontend/src/workspaces/payroll/processing/payrollProcessingApi.js:41:  return request(`/api/payroll-runs/${encodeURIComponent(runId)}/preview`);
+products/tax-payroll/frontend/src/workspaces/payroll/processing/payrollProcessingApi.js:45:  return request(`/api/payroll-runs/${encodeURIComponent(runId)}/approve`, {
+products/tax-payroll/frontend/src/workspaces/payroll/processing/payrollProcessingApi.js:52:  return request(`/api/payroll-runs/${encodeURIComponent(runId)}/process`, {
+products/tax-payroll/frontend/src/workspaces/client/tabs/PayrollEmployeesPanel.jsx:11:} from '../../employees';
+products/tax-payroll/frontend/src/workspaces/providers/EnterpriseRuntimeSidecar.jsx:24:} from '../employees/EmployeeList';
+products/tax-payroll/frontend/src/workspaces/providers/EnterpriseRuntimeSidecar.jsx:28:} from '../employees/EmployeeRuntimeGuard';
+products/tax-payroll/frontend/src/workspaces/providers/EnterpriseRuntimeSidecar.jsx:32:} from '../employees/useEmployeeWorkspaceRuntime';
+products/tax-payroll/frontend/src/workspaces/providers/EnterpriseRuntimeSidecar.jsx:35:  '../employees/RuntimeEmployeeWorkspace'
+products/tax-payroll/frontend/src/workspaces/providers/EnterpriseRuntimeSidecar.jsx.before-rc2-a:24:} from '../employees/EmployeeList';
+products/tax-payroll/frontend/src/workspaces/providers/EnterpriseRuntimeSidecar.jsx.before-rc2-a:28:} from '../employees/EmployeeRuntimeGuard';
+products/tax-payroll/frontend/src/workspaces/providers/EnterpriseRuntimeSidecar.jsx.before-rc2-a:32:} from '../employees/useEmployeeWorkspaceRuntime';
+products/tax-payroll/frontend/src/workspaces/providers/EnterpriseRuntimeSidecar.jsx.before-rc2-a:35:  '../employees/RuntimeEmployeeWorkspace'
+products/tax-payroll/frontend/src/workspaces/providers/EnterpriseProviderCentre.jsx:18:  from '../employees/RuntimeEmployeeWorkspace';
+products/tax-payroll/frontend/src/workspaces/providers/EnterpriseProviderCentre.jsx:20:import { EmployeeList } from '../employees/EmployeeList';
+products/tax-payroll/frontend/src/workspaces/providers/EnterpriseProviderCentre.jsx:23:} from '../employees/EmployeeRuntimeGuard';
+products/tax-payroll/frontend/src/workspaces/providers/EnterpriseProviderCentre.jsx:26:} from '../employees/useEmployeeWorkspaceRuntime';
+products/tax-payroll/frontend/src/services/production-diagnostics-api.js:14:  const response = await fetch(
+products/tax-payroll/frontend/src/services/product-proof-api.js:4:async function request(path, options = {}) {
+products/tax-payroll/frontend/src/services/product-proof-api.js:5:  const response = await fetch(
+products/tax-payroll/frontend/src/services/product-proof-api.js:28:  return request(
+products/tax-payroll/frontend/src/services/product-proof-api.js:38:  return request(
+products/tax-payroll/frontend/src/services/product-proof-api.js:48:  return request(
+products/tax-payroll/frontend/src/services/product-proof-api.js:58:  return request(
+products/tax-payroll/frontend/src/services/enterprise-runtime-api.js:12:async function request(pathname, options = {}) {
+products/tax-payroll/frontend/src/services/enterprise-runtime-api.js:13:  const response = await fetch(
+products/tax-payroll/frontend/src/services/enterprise-runtime-api.js:44:  return request(`/api/employers${query}`);
+products/tax-payroll/frontend/src/services/enterprise-runtime-api.js:48:  return request(
+products/tax-payroll/frontend/src/services/enterprise-runtime-api.js:49:    `/api/employers/${encodeURIComponent(employerId)}`
+products/tax-payroll/frontend/src/services/enterprise-runtime-api.js:54:  return request(
+products/tax-payroll/frontend/src/services/enterprise-runtime-api.js:55:    `/api/employers/${encodeURIComponent(
+products/tax-payroll/frontend/src/services/enterprise-runtime-api.js:57:    )}/employees`
+products/tax-payroll/frontend/src/services/enterprise-runtime-api.js:65:  return request(
+products/tax-payroll/frontend/src/services/enterprise-runtime-api.js:66:    `/api/employers/${encodeURIComponent(
+products/tax-payroll/frontend/src/services/enterprise-runtime-api.js:68:    )}/employees/${encodeURIComponent(employeeId)}`
+products/tax-payroll/frontend/src/services/enterprise-runtime-api.js:76:  return request(
+products/tax-payroll/frontend/src/services/enterprise-runtime-api.js:77:    `/api/employers/${encodeURIComponent(
+products/tax-payroll/frontend/src/services/enterprise-runtime-api.js:79:    )}/employees/${encodeURIComponent(
+products/tax-payroll/frontend/src/services/provider-centre-api.js:3:async function request(path, options = {}) {
+products/tax-payroll/frontend/src/services/provider-centre-api.js:4:  const response = await fetch(`${API_BASE_URL}${path}`, {
+products/tax-payroll/frontend/src/services/provider-centre-api.js:23:  return request('/api/product-proof/providers');
+products/tax-payroll/frontend/src/services/provider-centre-api.js:27:  return request('/api/product-proof/providers/staffology/employers');
+products/tax-payroll/frontend/src/services/provider-centre-api.js:31:  return request('/api/product-proof/workspace')
+products/tax-payroll/frontend/src/services/provider-centre-api.js:36:  return request(
+products/tax-payroll/frontend/src/services/provider-centre-api.js:37:    '/api/product-proof/providers/staffology/employers/link',
+products/tax-payroll/frontend/src/services/client-employee-api.js:4:async function request(path, options = {}) {
+products/tax-payroll/frontend/src/services/client-employee-api.js:5:  const response = await fetch(
+products/tax-payroll/frontend/src/services/client-employee-api.js:29:  return request(
+products/tax-payroll/frontend/src/services/client-employee-api.js:30:    `/api/product-proof/clients/${clientId}/employees`
+products/tax-payroll/frontend/src/services/client-employee-api.js:35:  return request(
+products/tax-payroll/frontend/src/services/client-employee-api.js:36:    `/api/product-proof/clients/${clientId}/employees/synchronise`,
+products/tax-payroll/frontend/src/main.jsx.before-rc1-h4c:9:import './workspaces/employees/employee-creation.css';
+products/tax-payroll/frontend/src/main.jsx.before-rc1-h4c:11:import './workspaces/employees/employee-editing.css';
+products/tax-payroll/frontend/src/main.jsx.before-rc1-h4c:12:import './workspaces/employees/employee-workspace-actions.css';
+products/tax-payroll/frontend/src/main.jsx.before-rc1-h4c:13:import './workspaces/employees/metadata/metadata-workspace.css';
+products/tax-payroll/frontend/src/main.jsx.before-rc1-h4c:14:import './workspaces/employees/rendering/field-renderer.css';
+products/tax-payroll/frontend/src/main.jsx.before-rc1-h4c:15:import './workspaces/employees/readiness/readiness-dashboard.css';
+products/tax-payroll/frontend/src/main.jsx.before-rc1-h4c:16:import './workspaces/employees/editing/workspace-editing.css';
+products/tax-payroll/frontend/src/main.jsx.before-rc1-h4c:17:import './workspaces/employees/provider/provider-panel.css';
+products/tax-payroll/frontend/src/main.jsx.before-rc1-h4c:20:import './workspaces/employees/employee-runtime.css';
+products/tax-payroll/frontend/review/1.2/RC1/H4A/verify-employer-runtime-foundation.mjs:46:assert.match(apiSource, /\/api\/employers/);
+products/tax-payroll/frontend/review/1.2/RC1/H4A/verify-employer-runtime-foundation.mjs:47:assert.match(apiSource, /employees/);
+products/tax-payroll/frontend/review/1.2/RC1/H4B/APPLY-GUIDE.md:57:  products/tax-payroll/frontend/src/workspaces/employees/EmployeeRuntimeGuard.jsx \
+products/tax-payroll/frontend/review/1.2/RC1/H4B/APPLY-GUIDE.md:58:  products/tax-payroll/frontend/src/workspaces/employees/EmployeeList.jsx \
+products/tax-payroll/frontend/review/1.2/RC1/H4B/APPLY-GUIDE.md:59:  products/tax-payroll/frontend/src/workspaces/employees/EmployeeWorkspaceLauncher.jsx \
+products/tax-payroll/frontend/review/1.2/RC1/H4B/APPLY-GUIDE.md:60:  products/tax-payroll/frontend/src/workspaces/employees/useEmployeeWorkspaceRuntime.js \
+products/tax-payroll/frontend/review/1.2/RC1/H4B/APPLY-GUIDE.md:61:  products/tax-payroll/frontend/src/workspaces/employees/employee-runtime.css \
+products/tax-payroll/frontend/review/1.2/RC1/H4B/verify-employee-runtime-foundation.mjs:19:  'src/workspaces/employees/EmployeeRuntimeGuard.jsx',
+products/tax-payroll/frontend/review/1.2/RC1/H4B/verify-employee-runtime-foundation.mjs:20:  'src/workspaces/employees/EmployeeList.jsx',
+products/tax-payroll/frontend/review/1.2/RC1/H4B/verify-employee-runtime-foundation.mjs:21:  'src/workspaces/employees/EmployeeWorkspaceLauncher.jsx',
+products/tax-payroll/frontend/review/1.2/RC1/H4B/verify-employee-runtime-foundation.mjs:22:  'src/workspaces/employees/useEmployeeWorkspaceRuntime.js',
+products/tax-payroll/frontend/review/1.2/RC1/H4B/verify-employee-runtime-foundation.mjs:23:  'src/workspaces/employees/employee-runtime.css',
+products/tax-payroll/frontend/review/1.2/RC1/H4B/verify-employee-runtime-foundation.mjs:54:    'src/workspaces/employees\/' +
+products/tax-payroll/frontend/review/1.2/RC2/A/verify-enterprise-workspace-experience.mjs:14:  'src/workspaces/employees/runtimeEmployeeAdapter.js',
+products/tax-payroll/frontend/review/1.2/RC2/A/verify-enterprise-workspace-experience.mjs:15:  'src/workspaces/employees/RuntimeEmployeeWorkspace.jsx',
+products/tax-payroll/frontend/review/1.2/RC2/A/verify-enterprise-workspace-experience.mjs:16:  'src/workspaces/employees/runtime-employee-workspace.css',
+products/tax-payroll/frontend/review/1.2/RC2/A/verify-enterprise-workspace-experience.mjs:31:    'src/workspaces/employees/RuntimeEmployeeWorkspace.jsx'
+products/tax-payroll/frontend/review/1.2/RC2/A/APPLY-GUIDE.md:66:  products/tax-payroll/frontend/src/workspaces/employees/runtimeEmployeeAdapter.js \
+products/tax-payroll/frontend/review/1.2/RC2/A/APPLY-GUIDE.md:67:  products/tax-payroll/frontend/src/workspaces/employees/RuntimeEmployeeWorkspace.jsx \
+products/tax-payroll/frontend/review/1.2/RC2/A/APPLY-GUIDE.md:68:  products/tax-payroll/frontend/src/workspaces/employees/runtime-employee-workspace.css \
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-workspace.js:4:const required=['workspaces/framework/WorkspaceLayout.jsx','workspaces/framework/workspace.css','workspaces/employees/EmployeeWorkspace.jsx','workspaces/employees/EmployeePanels.jsx','workspaces/employees/employeeApi.js','workspaces/employees/useEmployeeWorkspace.js'];
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-workspace.js:6:const workspace=fs.readFileSync(path.join(root,'workspaces/employees/EmployeeWorkspace.jsx'),'utf8');
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-workspace.js:8:assert(fs.readFileSync(path.join(root,'workspaces/employees/employeeApi.js'),'utf8').includes('/api/employees/'));
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-creation-workspace.js:26:  'src/workspaces/employees/creation/EmployeeCreationWorkspace.jsx',
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-creation-workspace.js:27:  'src/workspaces/employees/creation/useEmployeeCreation.js',
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-creation-workspace.js:28:  'src/workspaces/employees/creation/employeeCreationModel.js',
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-creation-workspace.js:29:  'src/workspaces/employees/creation/employeeCreationValidation.js',
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-creation-workspace.js:30:  'src/workspaces/employees/creation/IdentityStep.jsx',
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-creation-workspace.js:31:  'src/workspaces/employees/creation/EmploymentStep.jsx',
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-creation-workspace.js:32:  'src/workspaces/employees/creation/PayrollStep.jsx',
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-creation-workspace.js:33:  'src/workspaces/employees/creation/TaxStep.jsx',
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-creation-workspace.js:34:  'src/workspaces/employees/creation/PensionStep.jsx',
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-creation-workspace.js:35:  'src/workspaces/employees/creation/ReviewStep.jsx',
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-creation-workspace.js:44:  source('src/workspaces/employees/employeeApi.js')
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-creation-workspace.js:45:    .includes("request('/api/employees'")
+products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-creation-workspace.js:56:  source('src/workspaces/employees/index.js')
+products/tax-payroll/frontend/tools/apply-rc1-h4c.py:8:    "import './workspaces/employees/employee-runtime.css';",
+products/tax-payroll/frontend/tools/apply-rc1-h4c-integration.py:50:        "import './workspaces/employees/"
+products/tax-payroll/frontend/tools/apply-rc2-a-workspace-experience.py:7:    "import './workspaces/employees/"

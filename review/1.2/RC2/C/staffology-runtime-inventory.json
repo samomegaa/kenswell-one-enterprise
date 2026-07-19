@@ -1,0 +1,1959 @@
+{
+  "generatedAt": "2026-07-19T20:52:19.491Z",
+  "files": [
+    {
+      "file": "apps/api/src/app.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./routes/employer-routes"
+      ]
+    },
+    {
+      "file": "apps/api/src/composition/employer-runtime-composition.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "../../../../src/enterprise/employers",
+        "../services/employer-scoped-employee-service",
+        "../services/employer-workspace-service"
+      ]
+    },
+    {
+      "file": "apps/api/src/composition/enterprise-api-composition.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./employer-runtime-composition",
+        "./staffology-runtime-client",
+        "../../../../src/enterprise/employees/providers/",
+        "staffology/staffology-employee-mapper",
+        "../../../../src/enterprise/employees/workspace",
+        "Employee workspace factory is unavailable"
+      ]
+    },
+    {
+      "file": "apps/api/src/composition/staffology-runtime-client.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "staffology/staffology-client",
+        "Staffology configuration is required"
+      ]
+    },
+    {
+      "file": "apps/api/src/config/environment.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "STAFFOLOGY_BASE_URL",
+        "STAFFOLOGY_API_USERNAME",
+        "STAFFOLOGY_API_KEY"
+      ]
+    },
+    {
+      "file": "apps/api/src/routes/employee-routes.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Employee service with get() is required",
+        "Employee workspace service with get() is required",
+        "/employees/:employeeId",
+        "/employees/:employeeId/workspace",
+        "/employees",
+        "Employee listing",
+        "Employee creation",
+        "Employee updating"
+      ]
+    },
+    {
+      "file": "apps/api/src/routes/employer-routes.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Employer discovery service is required",
+        "Employer-scoped employee service is required",
+        "Employer workspace service is required",
+        "/employers",
+        "/employers/:employerId",
+        "/employers/:employerId/employees",
+        "/employers/:employerId/employees/:employeeId",
+        "/employers/:employerId/employees/",
+        ":employeeId/workspace"
+      ]
+    },
+    {
+      "file": "apps/api/src/services/dynamic-provider-health-service.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Employer discovery service is required"
+      ]
+    },
+    {
+      "file": "apps/api/src/services/employer-scoped-employee-service.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "employees",
+        "Staffology client with get() is required",
+        "Employee identifier is required",
+        "Employer identifier is required"
+      ]
+    },
+    {
+      "file": "apps/api/src/services/employer-workspace-service.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Employer-scoped employee service is required",
+        "Workspace service factory is required"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/review/1.2/RC1/H4A/verify-employer-runtime-foundation.mjs",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "src/runtime/EmployerRuntimeContext.js",
+        "src/runtime/EmployerRuntimeProvider.jsx",
+        "src/runtime/employerRuntimeStorage.js",
+        "src/runtime/useEmployerRuntime.js",
+        "src/workspaces/providers/EmployerRuntimeGuard.jsx",
+        "src/workspaces/providers/EmployerSelector.jsx",
+        "src/workspaces/providers/employer-runtime.css",
+        "PASS  Employer runtime context",
+        "PASS  Employer selection persistence",
+        "PASS  Employer selector foundation",
+        "\\n✅ RC1-H4A Employer Runtime Foundation passed"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/review/1.2/RC1/H4B/verify-employee-runtime-foundation.mjs",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "src/runtime/EmployeeRuntimeContext.js",
+        "src/runtime/EmployeeRuntimeProvider.jsx",
+        "src/runtime/employeeRuntimeStorage.js",
+        "src/runtime/useEmployeeRuntime.js",
+        "src/workspaces/employees/EmployeeRuntimeGuard.jsx",
+        "src/workspaces/employees/EmployeeList.jsx",
+        "src/workspaces/employees/EmployeeWorkspaceLauncher.jsx",
+        "src/workspaces/employees/useEmployeeWorkspaceRuntime.js",
+        "src/workspaces/employees/employee-runtime.css",
+        "src/workspaces/employees\\/",
+        "useEmployeeWorkspaceRuntime.js",
+        "PASS  Employee runtime context",
+        "PASS  Employer-scoped employee discovery",
+        "PASS  Employee selection persistence",
+        "PASS  Workspace runtime launcher",
+        "\\n✅ RC1-H4B Employee Runtime Foundation passed"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/review/1.2/RC1/H4C/verify-enterprise-runtime-integration.mjs",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "src/workspaces/providers/EnterpriseProviderCentre.jsx",
+        "src/workspaces/providers/EnterpriseRuntimeWorkspace.jsx",
+        "src/workspaces/providers/RuntimeStatePanel.jsx",
+        "src/workspaces/providers/enterprise-runtime-integration.css",
+        "PASS  Employer-scoped navigation",
+        "PASS  Employee workspace flow"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/review/1.2/RC1/H4C/verify-provider-centre-integration.mjs",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "src/workspaces/providers/ProviderCentre.jsx",
+        "src/workspaces/providers/IntegratedStaffologyWorkspace.jsx",
+        "src/workspaces/providers/EnterpriseRuntimeSidecar.jsx",
+        "src/workspaces/providers/RuntimeStatePanel.jsx",
+        "src/workspaces/providers/provider-runtime-integration.css",
+        "PASS  Staffology workspace preserved",
+        "PASS  Dynamic employee workspace available"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/review/1.2/RC2/A/verify-enterprise-workspace-experience.mjs",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "src/workspaces/employees/runtimeEmployeeAdapter.js",
+        "src/workspaces/employees/RuntimeEmployeeWorkspace.jsx",
+        "src/workspaces/employees/runtime-employee-workspace.css",
+        "src/workspaces/providers/EnterpriseRuntimeSidecar.jsx",
+        "WorkspaceLayout",
+        "WorkspaceHeader",
+        "WorkspaceNavigation",
+        "WorkspaceTimeline",
+        "WorkspaceAudit",
+        "PASS  Runtime employee adapter",
+        "PASS  Rich workspace framework",
+        "PASS  Employee panels integrated",
+        "\\n✅ RC2-A Enterprise Workspace Experience passed"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-creation-workspace.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Enterprise Employee Creation Workspace",
+        "src/workspaces/employees/creation/EmployeeCreationWorkspace.jsx",
+        "src/workspaces/employees/creation/useEmployeeCreation.js",
+        "src/workspaces/employees/creation/employeeCreationModel.js",
+        "src/workspaces/employees/creation/employeeCreationValidation.js",
+        "src/workspaces/employees/creation/IdentityStep.jsx",
+        "src/workspaces/employees/creation/EmploymentStep.jsx",
+        "src/workspaces/employees/creation/PayrollStep.jsx",
+        "src/workspaces/employees/creation/TaxStep.jsx",
+        "src/workspaces/employees/creation/PensionStep.jsx",
+        "src/workspaces/employees/creation/ReviewStep.jsx",
+        "Employee API exposes create",
+        "src/workspaces/employees/employeeApi.js",
+        "/api/employees",
+        "Payroll workspace exposes creation",
+        "src/workspaces/client/tabs/PayrollEmployeesPanel.jsx",
+        "<EmployeeCreationWorkspace",
+        "Creation workspace exported",
+        "src/workspaces/employees/index.js",
+        "EmployeeCreationWorkspace",
+        "FAILED: ${failed.length} creation workspace check(s).",
+        "✅ Enterprise Employee Creation Workspace passed"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/review/1.2/WORKSPACE/verify-employee-workspace.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspaces/framework/WorkspaceLayout.jsx",
+        "workspaces/framework/workspace.css",
+        "workspaces/employees/EmployeeWorkspace.jsx",
+        "workspaces/employees/EmployeePanels.jsx",
+        "workspaces/employees/employeeApi.js",
+        "workspaces/employees/useEmployeeWorkspace.js",
+        "/api/employees/",
+        "Enterprise Employee Workspace",
+        "Employee API client: passed",
+        "✅ Enterprise Employee Workspace passed"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/App.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./workspaces/practice/PracticeDashboard",
+        "./workspaces/client/ClientWorkspace",
+        "./workspaces/providers/EnterpriseProviderCentre"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/App.product-proof.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./workspaces/clients/FirstClient.jsx"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/components/workspace/index.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./WorkspaceLayout",
+        "./WorkspaceHeader",
+        "./WorkspaceNavigation",
+        "./WorkspaceSection",
+        "./WorkspaceCard",
+        "./WorkspaceToolbar",
+        "./WorkspaceTimeline",
+        "./WorkspaceAudit",
+        "./WorkspaceSkeleton",
+        "./WorkspaceError"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/components/workspace/WorkspaceAudit.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-empty",
+        "workspace-audit",
+        "workspace-audit__entry",
+        "workspace-audit__meta"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/components/workspace/WorkspaceCard.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-card workspace-card--${tone}",
+        "workspace-card__heading",
+        "workspace-card__icon",
+        "workspace-card__value",
+        "workspace-card__helper"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/components/workspace/WorkspaceError.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Workspace unavailable",
+        "workspace-error"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/components/workspace/WorkspaceHeader.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-header",
+        "workspace-header__main",
+        "workspace-header__eyebrow",
+        "workspace-header__title-row",
+        "workspace-status",
+        "workspace-header__subtitle",
+        "workspace-header__metadata",
+        "workspace-header__actions"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/components/workspace/WorkspaceLayout.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-layout ${className}",
+        "workspace-layout__header",
+        "workspace-layout__toolbar",
+        "workspace-layout__navigation",
+        "workspace-layout__body",
+        "workspace-layout__content",
+        "workspace-layout__sidebar"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/components/workspace/WorkspaceNavigation.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Workspace sections",
+        "workspace-navigation",
+        "workspace-navigation__item is-active",
+        "workspace-navigation__item",
+        "workspace-navigation__badge"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/components/workspace/WorkspaceSection.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-section ${className}",
+        "workspace-section__header",
+        "workspace-section__actions",
+        "workspace-section__body"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/components/workspace/WorkspaceSkeleton.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-skeleton",
+        "Loading workspace",
+        "workspace-skeleton__header",
+        "workspace-skeleton__navigation",
+        "workspace-skeleton__grid",
+        "workspace-skeleton__content"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/components/workspace/WorkspaceTimeline.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-empty",
+        "workspace-timeline",
+        "workspace-timeline__item",
+        "workspace-timeline__marker"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/components/workspace/WorkspaceToolbar.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-toolbar",
+        "workspace-toolbar__primary",
+        "workspace-toolbar__secondary"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/features/practice-bootstrap/PracticeBootstrap.jsx",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "staffology"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/main.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./workspaces/framework/workspace.css",
+        "./workspaces/client/payroll-employees-navigation.css",
+        "./workspaces/employees/employee-creation.css",
+        "./workspaces/client/employee-creation-navigation.css",
+        "./workspaces/employees/employee-editing.css",
+        "./workspaces/employees/employee-workspace-actions.css",
+        "./workspaces/employees/metadata/metadata-workspace.css",
+        "./workspaces/employees/rendering/field-renderer.css",
+        "./workspaces/employees/readiness/readiness-dashboard.css",
+        "./workspaces/employees/editing/workspace-editing.css",
+        "./workspaces/employees/provider/provider-panel.css",
+        "./workspaces/payroll/payroll-processing.css",
+        "./workspaces/providers/employer-runtime.css",
+        "./workspaces/employees/employee-runtime.css",
+        "./workspaces/providers/enterprise-runtime-integration.css",
+        "./workspaces/providers/provider-runtime-integration.css",
+        "./workspaces/employees/runtime-employee-workspace.css"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/runtime/EmployeeRuntimeProvider.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./useEmployerRuntime",
+        "./EmployeeRuntimeContext",
+        "./employeeRuntimeStorage",
+        "Employee ${employeeId} is unavailable"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/runtime/employeeRuntimeStorage.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "kenswell.enterprise.selectedEmployeeId",
+        "${STORAGE_PREFIX}:${employerId}"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/runtime/EmployerRuntimeProvider.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployerRuntimeContext",
+        "./employerRuntimeStorage",
+        "Employer ${employerId} is unavailable"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/runtime/employerRuntimeStorage.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "kenswell.enterprise.selectedEmployerId"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/runtime/enterpriseRuntimeNavigation.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "/providers/employers",
+        "${EMPLOYERS_PATH}/${encode(employerId)}",
+        "${employerPath(employerId)}/employees",
+        "${employerEmployeesPath(employerId)}/",
+        "employers",
+        "employees",
+        "workspace"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/runtime/EnterpriseRuntimeProvider.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployerRuntimeProvider",
+        "./EmployeeRuntimeProvider"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/runtime/index.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployerRuntimeProvider",
+        "./EmployeeRuntimeProvider",
+        "./useEmployerRuntime",
+        "./useEmployeeRuntime"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/runtime/useEmployeeRuntime.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeRuntimeContext",
+        "useEmployeeRuntime must be used within",
+        "EmployeeRuntimeProvider"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/runtime/useEmployerRuntime.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployerRuntimeContext",
+        "useEmployerRuntime must be used within",
+        "EmployerRuntimeProvider"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/services/client-employee-api.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Employee request failed",
+        "/api/product-proof/clients/${clientId}/employees",
+        "/api/product-proof/clients/${clientId}/employees/synchronise"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/services/enterprise-runtime-api.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "/api/employers${query}",
+        "/api/employers/${encodeURIComponent(employerId)}"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/services/product-proof-api.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "/api/product-proof/workspace"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/services/provider-centre-api.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "/api/product-proof/providers/staffology/employers",
+        "/api/product-proof/workspace",
+        "/api/product-proof/providers/staffology/employers/link"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/client/ClientWorkspace.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./client-workspace.css",
+        "./payroll-employees.css",
+        "./payroll-employer-context.css",
+        "./tabs/PayrollEmployeesPanel",
+        "Link payroll employer",
+        "Synchronise employees",
+        "Review payroll employees",
+        "This workspace area is ready for the next release slice.",
+        "Client workspace",
+        "client-workspace",
+        "client-workspace-back",
+        "client-workspace-header",
+        "client-workspace-identity",
+        "client-workspace-avatar",
+        "client-workspace-meta",
+        "client-workspace-status client-workspace-status-active",
+        "client-workspace-next-action",
+        "client-workspace-tabs",
+        "client-workspace-tab active",
+        "client-workspace-tab",
+        "client-workspace-content"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/client/tabs/PayrollEmployeesPanel.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "../../../services/client-employee-api",
+        "../../employees",
+        "./PayrollEmployerContext",
+        "./PayrollEmployeeTable",
+        "${result.employeeCount} employee${suffix} synchronised",
+        "payroll-employees-panel",
+        "payroll-employees-header",
+        "payroll-employees-header__actions",
+        "Synchronise employees",
+        "payroll-employees-notice",
+        "payroll-employees-error",
+        "payroll-employees-state",
+        "payroll-employees-summary"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/client/tabs/PayrollEmployeeTable.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "payroll-employees-empty",
+        "payroll-employee-table",
+        "payroll-employee-row",
+        "payroll-employee-avatar",
+        "payroll-employee-name",
+        "payroll-employee-actions"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/client/tabs/PayrollEmployerContext.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "payroll-employer-context",
+        "payroll-employer-primary",
+        "payroll-employer-id-row"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/clients/FirstClient.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "client-workspace"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/creation/employeeCreationModel.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "New employee"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/creation/EmployeeCreationWorkspace.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./useEmployeeCreation",
+        "./employeeCreationModel",
+        "Enterprise employee management",
+        "Create employee",
+        "Create the canonical payroll employee record.",
+        "Employer",
+        "Employee creation steps",
+        "employee-creation-error",
+        "employee-creation-actions"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/creation/EmployeeField.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "employee-creation-field"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/creation/EmploymentStep.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeField",
+        "employee-creation-grid",
+        "employee-creation-checkbox"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/creation/IdentityStep.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeField",
+        "employee-creation-grid"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/creation/index.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeCreationWorkspace",
+        "./useEmployeeCreation",
+        "./employeeCreationModel"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/creation/PayrollStep.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeField",
+        "employee-creation-grid"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/creation/PensionStep.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeField",
+        "employee-creation-grid",
+        "Employee contribution %",
+        "pension.employeeContribution",
+        "Employer contribution %",
+        "pension.employerContribution"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/creation/ReviewStep.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employeeCreationModel",
+        "workspace-card-grid",
+        "Employee"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/creation/TaxStep.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeField",
+        "employee-creation-grid"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/creation/useEmployeeCreation.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "../employeeApi",
+        "./employeeCreationModel",
+        "./employeeCreationValidation"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/EditEmploymentPanel.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeEditField",
+        "employee-edit-grid"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/EditIdentityPanel.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeEditField",
+        "employee-edit-grid"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/EditPayrollPanel.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeEditField",
+        "employee-edit-grid"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/EditPensionPanel.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeEditField",
+        "employee-edit-grid",
+        "Employee contribution %",
+        "pension.employeeContribution",
+        "Employer contribution %",
+        "pension.employerContribution"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/EditTaxPanel.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeEditField",
+        "employee-edit-grid"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/EmployeeEditField.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "employee-edit-field"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/employeeEditingModel.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Activate employee",
+        "Rehire employee",
+        "Suspend employee",
+        "Employee"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/EmployeeEditingWorkspace.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeLifecyclePanel",
+        "./EmployeeEditReview",
+        "./useEmployeeEditing",
+        "./employeeEditingModel",
+        "Enterprise employee management",
+        "Update employee details and lifecycle state.",
+        "Employee ID",
+        "v${employee.version}",
+        "Employee editing sections",
+        "employee-edit-error",
+        "employee-edit-actions",
+        "Save employee"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/EmployeeEditReview.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employeeEditingModel",
+        "workspace-card-grid",
+        "Employee",
+        "v${employee.version}"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/EmployeeLifecyclePanel.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employeeEditingModel",
+        "employee-lifecycle",
+        "employee-lifecycle__summary",
+        "employee-lifecycle__actions"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/index.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeEditingWorkspace",
+        "./useEmployeeEditing",
+        "./employeeEditingModel",
+        "./useWorkspaceDraft",
+        "./WorkspaceDraftBar",
+        "./workspaceDraftSelectors"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/useEmployeeEditing.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "../employeeApi",
+        "./employeeEditingModel",
+        "./employeeEditingValidation"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/useWorkspaceDraft.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./workspaceDraftReducer",
+        "./workspaceDraftActions",
+        "./workspaceDraftSelectors"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/workspaceDraftActions.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-draft/reset",
+        "workspace-draft/change",
+        "workspace-draft/discard"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/WorkspaceDraftBar.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-draft-bar",
+        "Editing workspace",
+        "Workspace is read-only",
+        "workspace-draft-bar__actions"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/editing/workspaceDraftReducer.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./workspaceDraftActions",
+        "./workspaceDraftValues"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/employeeApi.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Employee request failed (${response.status})",
+        "/api/employees/${encodeURIComponent(employeeId)}",
+        "/api/employees/${encodeURIComponent(employeeId)}/workspace",
+        "/api/employees"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/EmployeeList.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Unnamed employee",
+        "employee-runtime-list",
+        "employee-runtime-list__header",
+        "employee-runtime-list__search",
+        "employee-runtime-list__table-wrap",
+        "employee-runtime-list__name",
+        "employee-status-badge"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/EmployeePanels.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employeeWorkspaceModel",
+        "Employee summary",
+        "workspace-card-grid",
+        "Employer",
+        "v${employee.version}",
+        "workspace-detail-grid",
+        "Employee contribution",
+        "Employer contribution",
+        "External employee ID",
+        "External employer ID"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/EmployeeWorkspace.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EnterpriseEmployeeWorkspace"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/employeeWorkspaceAdapter.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Enterprise employee workspace payload is invalid"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/EmployeeWorkspaceLauncher.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./useEmployeeWorkspaceRuntime",
+        "employee-workspace-launcher",
+        "Open workspace"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/employeeWorkspaceModel.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Employee"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/EnterpriseEmployeeWorkspace.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./useEnterpriseEmployeeWorkspace",
+        "./employeeWorkspaceModel",
+        "Enterprise workspace was not returned.",
+        "Enterprise workspace save payload",
+        "Canonical payroll workspace",
+        "No visible workspace section is available."
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/index.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeWorkspace",
+        "./useEmployeeWorkspace",
+        "./employeeWorkspaceModel"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/metadata/WorkspaceReadinessStrip.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Employee readiness"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/rendering/SectionRenderer.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "../editing/workspaceDraftValues"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/runtimeEmployeeAdapter.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "Staffology"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/RuntimeEmployeeWorkspace.jsx",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./EmployeePanels",
+        "./employeeWorkspaceModel",
+        "./runtimeEmployeeAdapter",
+        "Enterprise runtime workspace loaded",
+        "employee-created",
+        "Employee record created",
+        "runtime-v${employee.version}",
+        "Runtime employee projection",
+        "Enterprise payroll employee",
+        "Employer",
+        "Staffology",
+        "Enterprise employee sections"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/useEmployeeWorkspace.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employeeApi",
+        "Employee ID is required"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/useEmployeeWorkspaceRuntime.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Employer and employee selections are required"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/useEnterpriseEmployeeWorkspace.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employeeApi",
+        "./employeeWorkspaceAdapter",
+        "Employee ID is required"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/employees/visibility/visibilityEvaluator.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "../editing/workspaceDraftValues"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/framework/index.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./WorkspaceLayout",
+        "./WorkspaceHeader",
+        "./WorkspaceNavigation",
+        "./WorkspaceSection",
+        "./WorkspaceCard",
+        "./WorkspaceTimeline",
+        "./WorkspaceAudit",
+        "./WorkspaceSkeleton",
+        "./WorkspaceError"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/framework/WorkspaceAudit.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-empty",
+        "workspace-audit",
+        "workspace-audit__meta"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/framework/WorkspaceCard.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-card",
+        "workspace-card__label",
+        "workspace-card__value",
+        "workspace-card__helper"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/framework/WorkspaceError.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-error"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/framework/WorkspaceHeader.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-header",
+        "workspace-header__main",
+        "workspace-header__eyebrow",
+        "workspace-header__title-row",
+        "workspace-status",
+        "workspace-header__subtitle",
+        "workspace-header__metadata",
+        "workspace-header__actions"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/framework/WorkspaceLayout.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-layout ${className}",
+        "workspace-layout__header",
+        "workspace-layout__toolbar",
+        "workspace-layout__navigation",
+        "workspace-layout__body",
+        "workspace-layout__content",
+        "workspace-layout__sidebar"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/framework/WorkspaceNavigation.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Workspace sections",
+        "workspace-navigation",
+        "workspace-navigation__item is-active",
+        "workspace-navigation__item",
+        "workspace-navigation__badge"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/framework/WorkspaceSection.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-section",
+        "workspace-section__header",
+        "workspace-section__actions",
+        "workspace-section__body"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/framework/WorkspaceSkeleton.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-skeleton",
+        "Loading workspace",
+        "workspace-skeleton__header",
+        "workspace-skeleton__navigation",
+        "workspace-skeleton__content"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/framework/WorkspaceTimeline.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-empty",
+        "workspace-timeline",
+        "workspace-timeline__marker"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/payroll/processing/index.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./PayrollProcessingWorkspace"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/payroll/processing/PayrollApprovalStep.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-card-grid"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/payroll/processing/PayrollPreviewStep.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-card-grid"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/payroll/processing/payrollProcessingModel.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "employees",
+        "Employees"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/payroll/processing/payrollProcessingValidation.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Select at least one employee"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/payroll/processing/PayrollProcessingWorkspace.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployeeSelectionStep",
+        "Employer payroll run",
+        "Employer ID",
+        "Employees available"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/payroll/processing/usePayrollProcessing.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "employees"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/practice/PracticeDashboard.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "workspace-status workspace-status-${tone}",
+        "Employee setup required",
+        "The practice workspace could not be loaded.",
+        "workspace-state-card",
+        "workspace-loader",
+        "Practice workspace",
+        "Employees",
+        "Canonical Kenswell employees",
+        "workspace-empty-state"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/providers/employer-linking-state.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "Linked Staffology employer"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/providers/EmployerLinkDialog.jsx",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./employer-linking-state",
+        "employer-link-title"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/providers/EmployerList.jsx",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./LinkedEmployerBridge",
+        "provider-employer-list",
+        "provider-employer-row linked",
+        "provider-employer-row",
+        "provider-employer-mark",
+        "provider-employer-copy",
+        "provider-employer-year",
+        "provider-employer-action"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/providers/EmployerSelector.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "employer-runtime-selector",
+        "employer-runtime-selector__header"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/providers/EnterpriseProviderCentre.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployerSelector",
+        "./EmployerRuntimeGuard",
+        "../employees/RuntimeEmployeeWorkspace",
+        "../employees/EmployeeList",
+        "../employees/EmployeeRuntimeGuard",
+        "../employees/useEmployeeWorkspaceRuntime",
+        "Return to employers",
+        "Loading employers",
+        "Employer discovery failed",
+        "No employers discovered",
+        "No employers were returned.",
+        "Loading employees",
+        "Retrieving employees for ${selectedEmployer.name}.",
+        "Employee discovery failed",
+        "No employees found",
+        "${selectedEmployer.name} currently has no employees available.",
+        "Refresh employees",
+        "Select an employer",
+        "Choose an employer first.",
+        "Opening workspace",
+        "Loading the Enterprise workspace.",
+        "Workspace unavailable"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/providers/EnterpriseRuntimeSidecar.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./EmployerSelector",
+        "./EmployerRuntimeGuard",
+        "../employees/EmployeeList",
+        "../employees/EmployeeRuntimeGuard",
+        "../employees/useEmployeeWorkspaceRuntime",
+        "../employees/RuntimeEmployeeWorkspace",
+        "runtime-sidecar runtime-sidecar--workspace",
+        "Loading employers",
+        "Employer discovery failed",
+        "No employers discovered",
+        "No employers were returned.",
+        "Loading employees",
+        "Retrieving employees for",
+        "${selectedEmployer.name}.",
+        "Employee discovery failed",
+        "No employees found",
+        "${selectedEmployer.name} currently",
+        "has no employees available.",
+        "Refresh employees",
+        "Select an employer",
+        "Choose an employer first.",
+        "Opening workspace",
+        "Loading Enterprise workspace.",
+        "Workspace unavailable"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/providers/EnterpriseRuntimeWorkspace.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Employee workspace",
+        "enterprise-runtime-workspace",
+        "enterprise-runtime-workspace__header",
+        "Employer",
+        "enterprise-runtime-workspace__summary",
+        "enterprise-runtime-workspace__payload"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/providers/IntegratedStaffologyWorkspace.jsx",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./StaffologyProviderWorkspace"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/providers/LinkedEmployerBridge.jsx",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "../../services/client-employee-api",
+        "linked-employer-bridge"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/providers/ProviderCentre.jsx",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./provider-employers.css",
+        "./linked-employer-bridge.css",
+        "./IntegratedStaffologyWorkspace",
+        "Staffology",
+        "staffology"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/frontend/src/workspaces/providers/StaffologyProviderWorkspace.jsx",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./EmployerLinkDialog",
+        "./EmployerList",
+        ">Connected provider</p><h1>Staffology</h1><p>Open a linked client directly in its Payroll workspace.</p></div><div className=",
+        "><strong>Employer discovery failed</strong><span>{error}</span><button type=",
+        "provider-employer-panel"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/src/product-proof/api/server.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "../application/employee-sync-service",
+        "../application/provider-employer-link-service",
+        "../application/provider-employer-service",
+        "../application/practice-workspace-service",
+        "/api/product-proof/employers",
+        "/api/product-proof/workspace",
+        "staffology/employers/link",
+        "staffology/employers"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/src/product-proof/application/employee-sync-service.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "Unnamed employee",
+        "staffology",
+        "Client has no linked payroll employer",
+        "Staffology provider is unavailable",
+        "employee_${crypto.randomUUID()}"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/src/product-proof/application/enterprise-payroll-runtime.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "https://api.staffology.co.uk",
+        "staffology"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/src/product-proof/application/practice-workspace-service.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "complete_employer_setup",
+        "create_employee",
+        "Complete employer setup",
+        "Add first employee",
+        "Open payroll workspace"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/src/product-proof/application/product-proof-service.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "../domain/employers/employer",
+        "staffology",
+        "register_employer_with_provider"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/src/product-proof/application/provider-employer-link-service.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "Client and external employer are required",
+        "Client has no payroll employer record",
+        "Client is already linked to another Staffology employer",
+        "Staffology employer is already linked to another Kenswell client",
+        "staffology"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/src/product-proof/application/provider-employer-service.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "Unnamed employer",
+        "staffology",
+        "Staffology provider is unavailable"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/src/product-proof/application/provider-health-service.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "staffology"
+      ]
+    },
+    {
+      "file": "products/tax-payroll/src/product-proof/domain/employers/employer.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "employer_${crypto.randomUUID()}",
+        "employer name",
+        "staffology"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/api/employee-api-errors.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "employee_api_error",
+        "EmployeeApiError",
+        "employee_validation_error",
+        "EmployeeApiValidationError",
+        "Employee not found",
+        "employee_not_found",
+        "EmployeeApiNotFoundError",
+        "employee_conflict",
+        "EmployeeApiConflictError"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/api/employee-api-service.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "../employee",
+        "./employee-api-errors",
+        "Employee persistence service is required",
+        "Provider employee is already linked",
+        "Employee version mismatch"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/api/employee-api-validation.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee-api-errors",
+        "employerId",
+        "A positive employee version is required",
+        "At least one employee section is required"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/api/employee-controller.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee-api-validation",
+        "./employee-api-response"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/api/employee-routes.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "/employees",
+        "/employees/:employeeId",
+        "/clients/:clientId/employees",
+        "/employers/:employerId/employees",
+        "/providers/:provider/employees/",
+        ":externalEmployeeId"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/api/index.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee-api-service",
+        "./employee-controller",
+        "./employee-routes",
+        "./employee-api-validation",
+        "./employee-api-response",
+        "./employee-api-errors"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/contracts/index.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./payroll-employee-contract",
+        "./employee-readiness",
+        "./staffology-native-employee-contract"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/contracts/payroll-employee-contract.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "employeeType",
+        "employersNiNotPayable",
+        "secondedFromOverseasEmployer",
+        "employeeNi",
+        "employerNi",
+        "employerId",
+        "employeeId"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/contracts/staffology-native-employee-contract.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        ").update(JSON.stringify(normalise(rawEmployee))).digest("
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/employee-audit.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Employee audit requires employeeId and type"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/employee-errors.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "EmployeeDomainError",
+        "EmployeeValidationError"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/employee-identity.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee-errors",
+        "Employee display name is required"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/employee-persistence-adapter.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee-persistence-mapper",
+        "./employee-persistence-errors",
+        "Employee persistence adapter is required"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/employee-persistence-errors.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "EmployeePersistenceError",
+        "EmployeePersistenceMappingError",
+        "EmployeePersistenceConflictError",
+        "EmployeePersistenceVersionError",
+        "Employee persistence failed"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/employee-persistence-factory.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee-persistence-adapter",
+        "employees"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/employee-persistence-mapper.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee",
+        "./employee-record"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/employee-persistence-service.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee-version",
+        "Employee persistence is required",
+        "employee.created",
+        "employee.updated",
+        "employee.removed"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/employee-record.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee-persistence-errors",
+        "Employee record is incomplete"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/employee-repository-errors.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "EmployeeRepositoryError",
+        "Employee not found: ${employeeId}",
+        "EmployeeNotFoundError",
+        "EmployeeConflictError"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/employee-repository-service.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee",
+        "./employee-repository-errors",
+        "Provider employee is already linked"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/employee-repository.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee-repository-errors",
+        "Employee already exists"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/employee-version.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee-persistence-errors",
+        "Employee version mismatch"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/employee.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee-identity",
+        "Employee requires clientId and employerId",
+        "employee_${crypto.randomUUID()}"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/index.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee",
+        "./employee-identity",
+        "./employee-audit",
+        "./employee-repository",
+        "./employee-repository-service",
+        "./employee-persistence-adapter",
+        "./employee-persistence-service",
+        "./employee-persistence-factory",
+        "./employee-persistence-mapper",
+        "./employee-version",
+        "./employee-repository-errors",
+        "./employee-persistence-errors"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/providers/staffology/index.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./staffology-employee-mapper"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/providers/staffology/staffology-employee-mapper.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "staffology"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/workspace/employee-workspace-controller.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "../api/employee-api-response",
+        "Employee workspace service is required"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/workspace/employee-workspace-routes.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Employee workspace controller is required",
+        "/employees/:employeeId/workspace"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/workspace/employee-workspace-service.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "../../payroll/workspace",
+        "../../payroll/workspace/provider",
+        "staffology",
+        "Employee API service is required"
+      ]
+    },
+    {
+      "file": "src/enterprise/employees/workspace/index.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./employee-workspace-service",
+        "./employee-workspace-controller",
+        "./employee-workspace-routes"
+      ]
+    },
+    {
+      "file": "src/enterprise/employers/employer-discovery-service.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Employer directory is required"
+      ]
+    },
+    {
+      "file": "src/enterprise/employers/employer-normalizer.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "employerId",
+        "employerID",
+        "Staffology employer response has no identifier",
+        "employerName"
+      ]
+    },
+    {
+      "file": "src/enterprise/employers/index.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./employer-normalizer",
+        "./staffology-employer-directory",
+        "./employer-cache",
+        "./employer-discovery-service"
+      ]
+    },
+    {
+      "file": "src/enterprise/employers/staffology-employer-directory.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./employer-normalizer",
+        "employers",
+        "Staffology client with get() is required",
+        "/employers",
+        "Employer identifier is required",
+        "Employer ${employerId} was not found",
+        "EMPLOYER_NOT_FOUND"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/index.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./providers/staffology"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/payroll-capabilities.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "createEmployer",
+        "createEmployee"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/payroll-provider-manager.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "listEmployers",
+        "getEmployer",
+        "createEmployer",
+        "listEmployees",
+        "getEmployee",
+        "createEmployee"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/payroll-provider.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "listEmployers",
+        "getEmployer",
+        "createEmployer",
+        "listEmployees",
+        "getEmployee",
+        "createEmployee"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/payroll-types.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "employers",
+        "employees"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/providers/staffology/index.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./staffology-client",
+        "./staffology-provider",
+        "./staffology-mappers",
+        "./staffology-errors"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/providers/staffology/staffology-client.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./staffology-errors",
+        "https://api.staffology.co.uk",
+        "Staffology API key is required",
+        "Staffology request failed with status ${response.status}",
+        "Staffology request timed out",
+        "Staffology request failed"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/providers/staffology/staffology-errors.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "StaffologyConfigurationError",
+        "StaffologyApiError",
+        "StaffologySafetyError",
+        "StaffologyValidationError"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/providers/staffology/staffology-mappers.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "Unnamed employer",
+        "staffology",
+        "Unnamed employee"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/providers/staffology/staffology-provider.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./staffology-client",
+        "./staffology-mappers",
+        "./staffology-errors",
+        "staffology",
+        "Staffology Payroll",
+        "Staffology",
+        "/employers",
+        "/bureau/employers",
+        "Staffology employer reference is required",
+        "/employers/${employerRef}",
+        "Employer name is required",
+        "Staffology did not return an employer identifier",
+        "Staffology payroll tax year is required",
+        "/employers/${employerRef}/employees",
+        "Staffology employee reference is required",
+        "/employees/${employeeRef}",
+        "${employeeRef}:pay-options",
+        "payrun:${employerRef}:${taxYear}:",
+        "${type}:${employerRef}:${taxYear}:${docId}"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/validation/index.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./workspace-validation-service",
+        "./live-staffology-validation"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/validation/live-provider-validator.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "staffology"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/validation/live-staffology-validation.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./workspace-validation-service"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/validation/validation-checks.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "employee-retrieval",
+        "workspace-schema",
+        "visible-workspace"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/validation/workspace-validation-service.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Employee workspace service must expose get() or getWorkspace()"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/workspace/create-canonical-workspace.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./workspace-schema-registry"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/workspace/default-payroll-fields.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Provider employee ID"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/workspace/field-registry.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Workspace schema registry is required"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/workspace/index.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "./workspace-sections",
+        "./workspace-schema-registry",
+        "./workspace-visibility",
+        "./create-canonical-workspace"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/workspace/provider/provider-summary.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "staffology"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/workspace/readiness-dashboard.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Payroll workspace schema is required"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/workspace/workspace-schema-registry.js",
+      "mentionsStaffology": true,
+      "possibleContracts": [
+        "./workspace-sections",
+        "Workspace section must be an object",
+        "Workspace section id is required",
+        "canonical-payroll-employee",
+        "Canonical Payroll Workspace",
+        "staffology-native-employee"
+      ]
+    },
+    {
+      "file": "src/enterprise/payroll/workspace/workspace-visibility.js",
+      "mentionsStaffology": false,
+      "possibleContracts": [
+        "Payroll workspace schema is required"
+      ]
+    }
+  ]
+}

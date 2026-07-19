@@ -1,0 +1,436 @@
+{
+  "data": {
+    "contract": {
+      "fingerprint": "null",
+      "source": "str",
+      "version": "str"
+    },
+    "employee": {
+      "aeNotEnroledWarning": "boolean",
+      "autoEnrolment": {
+        "aeExclusionCode": "str",
+        "aePostponementLetterSent": "boolean",
+        "daysToDeferAssessment": "integer",
+        "deferByMonthsNotDays": "boolean",
+        "exempt": "boolean",
+        "lastAssessment": {
+          "action": {
+            "action": "str",
+            "actionCompleted": "boolean",
+            "actionCompletedMessage": "str",
+            "letterNotYetSent": "boolean",
+            "pensionSchemeId": "str",
+            "requiredLetter": "str",
+            "workerGroupId": "str"
+          },
+          "aeExclusionCode": "str",
+          "age": "integer",
+          "assessmentDate": "str",
+          "earningsInPeriod": "integer",
+          "id": "str",
+          "ordinal": "integer",
+          "payPeriod": "str",
+          "qualifyingEarningsInPeriod": "integer",
+          "reason": "str",
+          "status": "str",
+          "ukWorker": "str"
+        },
+        "state": "str",
+        "ukWorker": "str"
+      },
+      "bankDetails": {
+        "accountName": "str",
+        "accountNumber": "str",
+        "bankBranch": "str",
+        "bankName": "str",
+        "sortCode": "str"
+      },
+      "employmentDetails": {
+        "cisSubContractor": "boolean",
+        "directorshipDetails": {
+          "isDirector": "boolean",
+          "niAlternativeMethod": "boolean",
+          "startDate": "str"
+        },
+        "furloughCalculationBasis": "str",
+        "furloughCalculationBasisAmount": "integer",
+        "furloughHoursNormallyWorked": "integer",
+        "furloughHoursOnFurlough": "integer",
+        "includeSecondedInfoOnStarter": "boolean",
+        "isApprentice": "boolean",
+        "isWorkingInFreePort": "boolean",
+        "isWorkingInInvestmentZone": "boolean",
+        "onFurlough": "boolean",
+        "onHold": "boolean",
+        "partialFurlough": "boolean",
+        "payrollCode": "str",
+        "roles": {
+          "$count": 1,
+          "$item": {
+            "id": "str",
+            "metadata": {
+              "basis": "str",
+              "isPrimary": "bool",
+              "roleReference": "str",
+              "startDate": "str",
+              "type": "str"
+            },
+            "name": "str",
+            "url": "str"
+          },
+          "$type": "array"
+        },
+        "starterDetails": {
+          "pensionerPayroll": {
+            "amount": "integer",
+            "bereaved": "boolean",
+            "inReceiptOfPension": "boolean"
+          },
+          "startDate": "str",
+          "starterDeclaration": "str"
+        },
+        "workingPattern": "str"
+      },
+      "id": "str",
+      "leaveSettings": {
+        "accrueHoursPerDay": "integer",
+        "accruePaymentInLieuAllGrossPay": "boolean",
+        "accruePaymentInLieuPayAutomatically": "boolean",
+        "accruePaymentInLieuRate": "number",
+        "accrueSetAmount": "boolean",
+        "accruedHoursAdjustment": "integer",
+        "accruedHoursAmount": "integer",
+        "accruedHoursBalance": "integer",
+        "accruedHoursPaid": "integer",
+        "accruedPaymentAdjustment": "integer",
+        "accruedPaymentBalance": "integer",
+        "accruedPaymentLiability": "integer",
+        "accruedPaymentPaid": "integer",
+        "aggregatedServiceDate": "str",
+        "allowance": "integer",
+        "allowanceRemaining": "integer",
+        "allowanceResetDate": "str",
+        "allowanceUsed": "integer",
+        "allowanceUsedPreviousPeriod": "integer",
+        "averageDaysAdjustment": "integer",
+        "averageDaysAllowance": "integer",
+        "averageDaysTaken": "integer",
+        "enhancedDaysAdjustment": "integer",
+        "enhancedDaysAllowance": "integer",
+        "enhancedDaysTaken": "integer",
+        "holidayAccrualBasis": "str",
+        "holidayAccrualDefaultRateType": "str",
+        "holidayLeaveAccrualCustomRateType": "str",
+        "holidayType": "str",
+        "showAhpOnPayslip": "boolean",
+        "showAllowanceOnPayslip": "boolean",
+        "useAggregatedServiceDate": "boolean",
+        "useDefaultAccrueHoursPerDay": "boolean",
+        "useDefaultAccruePaymentInLieu": "boolean",
+        "useDefaultAccruePaymentInLieuAllGrossPay": "boolean",
+        "useDefaultAccruePaymentInLieuPayAutomatically": "boolean",
+        "useDefaultAccruePaymentInLieuRate": "boolean",
+        "useDefaultAllowance": "boolean",
+        "useDefaultAllowanceResetDate": "boolean",
+        "useDefaultHolidayAccrualBasis": "boolean",
+        "useDefaultHolidayAccrualDefaultRateType": "boolean",
+        "useDefaultHolidayType": "boolean",
+        "useDefaultMaximumAccruePeriod": "boolean"
+      },
+      "payOptions": {
+        "autoAdjustForLeave": "boolean",
+        "baseDailyRate": "number",
+        "baseHourlyRate": "number",
+        "basicPay": "integer",
+        "basis": "str",
+        "fpsFields": {
+          "excludeFromRtiSubmissions": "boolean",
+          "hoursNormallyWorked": "str",
+          "irregularPaymentPattern": "boolean",
+          "nonIndividual": "boolean",
+          "offPayrollWorker": "boolean"
+        },
+        "method": "str",
+        "nationalMinimumWage": "boolean",
+        "niTable": "str",
+        "ordinal": "integer",
+        "payAmount": "integer",
+        "payAmountMultiplier": "integer",
+        "period": "str",
+        "regularPayLines": {
+          "$count": 0,
+          "$item": null,
+          "$type": "array"
+        },
+        "tags": {
+          "$count": 0,
+          "$item": null,
+          "$type": "array"
+        },
+        "taxAndNi": {
+          "foreignTaxCredit": "boolean",
+          "niTable": "str",
+          "postgradLoan": "boolean",
+          "secondaryClass1NotPayable": "boolean",
+          "studentLoan": "str",
+          "taxCode": "str",
+          "week1Month1": "boolean"
+        },
+        "withholdTaxRefundIfPayIsZero": "boolean"
+      },
+      "personalDetails": {
+        "address": {
+          "country": "str",
+          "line1": "str",
+          "line2": "str",
+          "line3": "str",
+          "postCode": "str"
+        },
+        "dateOfBirth": "str",
+        "emailPayslip": "boolean",
+        "emailStatement": "boolean",
+        "firstName": "str",
+        "gender": "str",
+        "lastName": "str",
+        "maritalStatus": "str",
+        "niNumber": "str",
+        "pdfPasswordType": "str",
+        "statePensionAge": "integer"
+      },
+      "status": "str",
+      "tags": {
+        "$count": 0,
+        "$item": null,
+        "$type": "array"
+      }
+    },
+    "metadata": {
+      "generatedAt": "str",
+      "providerNeutralPresentation": "boolean"
+    },
+    "providerPanel": {
+      "conflicts": {
+        "$count": 0,
+        "$item": null,
+        "$type": "array"
+      },
+      "diagnostics": {
+        "apiVersion": "str",
+        "authentication": "str",
+        "connection": "str",
+        "lastError": "null",
+        "lastFailedSync": "null",
+        "lastSuccessfulSync": "null",
+        "latencyMs": "null",
+        "retryCount": "integer"
+      },
+      "history": {
+        "$count": 0,
+        "$item": null,
+        "$type": "array"
+      },
+      "summary": {
+        "contractFingerprint": "null",
+        "contractVersion": "str",
+        "employeeId": "str",
+        "employerId": "null",
+        "lastSynchronisedAt": "null",
+        "provider": "str",
+        "synchronisationState": "str"
+      }
+    },
+    "readiness": {
+      "levels": {
+        "creation": {
+          "completed": "integer",
+          "level": "str",
+          "missing": "integer",
+          "missingFields": {
+            "$count": 0,
+            "$item": null,
+            "$type": "array"
+          },
+          "required": "integer",
+          "score": "integer",
+          "status": "str",
+          "warnings": {
+            "$count": 0,
+            "$item": null,
+            "$type": "array"
+          }
+        },
+        "payroll": {
+          "completed": "integer",
+          "level": "str",
+          "missing": "integer",
+          "missingFields": {
+            "$count": 3,
+            "$item": {
+              "id": "str",
+              "label": "str",
+              "providerBinding": "str",
+              "sectionId": "str"
+            },
+            "$type": "array"
+          },
+          "required": "integer",
+          "score": "integer",
+          "status": "str",
+          "warnings": {
+            "$count": 0,
+            "$item": null,
+            "$type": "array"
+          }
+        },
+        "rti": {
+          "completed": "integer",
+          "level": "str",
+          "missing": "integer",
+          "missingFields": {
+            "$count": 2,
+            "$item": {
+              "id": "str",
+              "label": "str",
+              "providerBinding": "str",
+              "sectionId": "str"
+            },
+            "$type": "array"
+          },
+          "required": "integer",
+          "score": "integer",
+          "status": "str",
+          "warnings": {
+            "$count": 0,
+            "$item": null,
+            "$type": "array"
+          }
+        }
+      },
+      "sections": {
+        "$count": 12,
+        "$item": {
+          "completed": "integer",
+          "missing": "integer",
+          "missingFields": {
+            "$count": 0,
+            "$item": null,
+            "$type": "array"
+          },
+          "required": "integer",
+          "score": "integer",
+          "sectionId": "str",
+          "status": "str",
+          "title": "str"
+        },
+        "$type": "array"
+      },
+      "timeline": {
+        "calculatedAt": "str",
+        "contractFingerprint": "null",
+        "employeeVersion": "null",
+        "workspaceVersion": "str"
+      }
+    },
+    "visibleWorkspace": {
+      "fieldCount": "integer",
+      "id": "str",
+      "metadata": {
+        "providerNeutralPresentation": "boolean",
+        "sourceContract": "str"
+      },
+      "sections": {
+        "$count": 12,
+        "$item": {
+          "description": "str",
+          "fields": {
+            "$count": 6,
+            "$item": {
+              "control": "str",
+              "helpText": "str",
+              "id": "str",
+              "label": "str",
+              "metadata": "dict",
+              "options": "list",
+              "order": "int",
+              "placeholder": "NoneType",
+              "providerBinding": "str",
+              "readOnly": "bool",
+              "requiredFor": "list",
+              "sectionId": "str",
+              "sensitive": "bool",
+              "type": "str",
+              "validators": "list",
+              "visibleWhen": "list"
+            },
+            "$type": "array"
+          },
+          "icon": "str",
+          "id": "str",
+          "metadata": {},
+          "order": "integer",
+          "readiness": {
+            "$count": 3,
+            "$item": "str",
+            "$type": "array"
+          },
+          "title": "str",
+          "visibleWhen": "null"
+        },
+        "$type": "array"
+      },
+      "title": "str",
+      "version": "str"
+    },
+    "workspaceSchema": {
+      "fieldCount": "integer",
+      "id": "str",
+      "metadata": {
+        "providerNeutralPresentation": "boolean",
+        "sourceContract": "str"
+      },
+      "sections": {
+        "$count": 12,
+        "$item": {
+          "description": "str",
+          "fields": {
+            "$count": 6,
+            "$item": {
+              "control": "str",
+              "helpText": "str",
+              "id": "str",
+              "label": "str",
+              "metadata": "dict",
+              "options": "list",
+              "order": "int",
+              "placeholder": "NoneType",
+              "providerBinding": "str",
+              "readOnly": "bool",
+              "requiredFor": "list",
+              "sectionId": "str",
+              "sensitive": "bool",
+              "type": "str",
+              "validators": "list",
+              "visibleWhen": "list"
+            },
+            "$type": "array"
+          },
+          "icon": "str",
+          "id": "str",
+          "metadata": {},
+          "order": "integer",
+          "readiness": {
+            "$count": 3,
+            "$item": "str",
+            "$type": "array"
+          },
+          "title": "str",
+          "visibleWhen": "null"
+        },
+        "$type": "array"
+      },
+      "title": "str",
+      "version": "str"
+    }
+  },
+  "success": "boolean"
+}

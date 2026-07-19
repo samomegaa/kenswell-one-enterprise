@@ -1,0 +1,10 @@
+apps/api/src/composition/enterprise-api-composition.js:37:    '../../../../src/enterprise/employees/workspace'
+apps/api/src/routes/employer-routes.js:124:      ':employeeId/workspace',
+apps/api/src/routes/employee-routes.js:54:    '/employees/:employeeId/workspace',
+apps/api/src/services/employer-workspace-service.js:11:    const workspaceService = this.createWorkspaceService({ employeeService: scopedEmployeeService });
+apps/api/src/services/employer-workspace-service.js:12:    return workspaceService.get(employeeId);
+apps/api/src/composition/enterprise-api-composition.js:37:    '../../../../src/enterprise/employees/workspace'
+apps/api/src/routes/employer-routes.js:124:      ':employeeId/workspace',
+apps/api/src/routes/employee-routes.js:54:    '/employees/:employeeId/workspace',
+apps/api/src/services/employer-workspace-service.js:11:    const workspaceService = this.createWorkspaceService({ employeeService: scopedEmployeeService });
+apps/api/src/services/employer-workspace-service.js:12:    return workspaceService.get(employeeId);
