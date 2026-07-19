@@ -31,39 +31,9 @@ import {
   useEmployeeWorkspaceRuntime,
 } from '../employees/useEmployeeWorkspaceRuntime';
 
-function WorkspaceEvidence({
-  runtimeWorkspace,
-  onClose,
-}) {
-  return (
-    <section className="runtime-sidecar__workspace">
-      <header>
-        <div>
-          <p className="eyebrow">
-            Enterprise workspace
-          </p>
-          <h3>
-            {runtimeWorkspace.employee?.displayName ||
-              runtimeWorkspace.employee?.name ||
-              runtimeWorkspace.employee?.id}
-          </h3>
-        </div>
-
-        <button type="button" onClick={onClose}>
-          Close
-        </button>
-      </header>
-
-      <pre>
-        {JSON.stringify(
-          runtimeWorkspace.workspace,
-          null,
-          2
-        )}
-      </pre>
-    </section>
-  );
-}
+import RuntimeEmployeeWorkspace from (
+  '../employees/RuntimeEmployeeWorkspace'
+);
 
 export function EnterpriseRuntimeSidecar() {
   const {
@@ -84,6 +54,17 @@ export function EnterpriseRuntimeSidecar() {
   } = useEmployeeWorkspaceRuntime();
 
   const [expanded, setExpanded] = useState(false);
+
+  if (workspace) {
+    return (
+      <section className="runtime-sidecar runtime-sidecar--workspace">
+        <RuntimeEmployeeWorkspace
+          runtimeWorkspace={workspace}
+          onBack={clearWorkspace}
+        />
+      </section>
+    );
+  }
 
   return (
     <section className="runtime-sidecar">
@@ -135,11 +116,7 @@ export function EnterpriseRuntimeSidecar() {
               />
             }
           >
-            <EmployerSelector
-              onEmployerSelected={() => {
-                clearWorkspace();
-              }}
-            />
+            <EmployerSelector />
 
             {selectedEmployer && (
               <EmployeeRuntimeGuard
@@ -200,13 +177,6 @@ export function EnterpriseRuntimeSidecar() {
               title="Workspace unavailable"
               message={workspaceError.message}
               tone="error"
-            />
-          )}
-
-          {workspace && (
-            <WorkspaceEvidence
-              runtimeWorkspace={workspace}
-              onClose={clearWorkspace}
             />
           )}
         </div>

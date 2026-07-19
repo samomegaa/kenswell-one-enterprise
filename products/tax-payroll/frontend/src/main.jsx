@@ -20,6 +20,7 @@ import './workspaces/providers/employer-runtime.css';
 import './workspaces/employees/employee-runtime.css';
 import './workspaces/providers/enterprise-runtime-integration.css';
 import './workspaces/providers/provider-runtime-integration.css';
+import './workspaces/employees/runtime-employee-workspace.css';
 
 const rootElement =
   document.getElementById('root');

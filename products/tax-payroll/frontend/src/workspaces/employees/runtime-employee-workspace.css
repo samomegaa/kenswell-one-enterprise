@@ -1,0 +1,21 @@
+.runtime-sidecar--workspace {
+  padding: 0;
+  overflow: hidden;
+}
+
+.runtime-sidecar--workspace .workspace-layout {
+  min-height: auto;
+}
+
+.runtime-sidecar--workspace .workspace-header {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.runtime-sidecar--workspace .workspace-navigation {
+  position: static;
+}
+
+.runtime-sidecar--workspace
+.workspace-content {
+  min-height: 28rem;
+}
