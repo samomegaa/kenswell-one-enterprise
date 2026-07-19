@@ -1,0 +1,65 @@
+.staffology-basic-details {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.staffology-basic-details section {
+  border-bottom: 1px solid #dbe3ef;
+  padding-bottom: 1.5rem;
+}
+
+.staffology-basic-details section:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.staffology-basic-details h3 {
+  margin: 0 0 1rem;
+}
+
+.staffology-field-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns:
+    repeat(auto-fit, minmax(180px, 1fr));
+  margin: 0;
+}
+
+.staffology-field {
+  border-bottom: 1px solid #e4e9f1;
+  min-width: 0;
+  padding: 0.65rem 0;
+}
+
+.staffology-field--wide {
+  grid-column: span 2;
+}
+
+.staffology-field dt {
+  color: #5d6b82;
+  font-size: 0.8rem;
+  margin-bottom: 0.35rem;
+}
+
+.staffology-field dd {
+  font-weight: 600;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.staffology-section-pending {
+  background: #f6f8fc;
+  border: 1px dashed #b8c4d8;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
+.staffology-section-pending p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .staffology-field--wide {
+    grid-column: span 1;
+  }
+}

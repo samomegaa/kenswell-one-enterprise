@@ -14,8 +14,8 @@ import {
 import { EmployerSelector } from './EmployerSelector';
 import { EmployerRuntimeGuard } from './EmployerRuntimeGuard';
 import { RuntimeStatePanel } from './RuntimeStatePanel';
-import RuntimeEmployeeWorkspace
-  from '../employees/RuntimeEmployeeWorkspace';
+import StaffologyEmployeeWorkspace
+  from '../staffology/StaffologyEmployeeWorkspace';
 
 import { EmployeeList } from '../employees/EmployeeList';
 import {
@@ -139,7 +139,7 @@ export default function EnterpriseProviderCentre({
 
   if (route?.isWorkspace && workspace) {
     return (
-      <RuntimeEmployeeWorkspace
+      <StaffologyEmployeeWorkspace
         runtimeWorkspace={workspace}
         onBack={() => {
           clearWorkspace();
