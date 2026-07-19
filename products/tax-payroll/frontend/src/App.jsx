@@ -1,18 +1,87 @@
 import { useState } from 'react';
+
 import PracticeDashboard from './workspaces/practice/PracticeDashboard';
 import ClientWorkspace from './workspaces/client/ClientWorkspace';
-import ProviderCentre from './workspaces/providers/ProviderCentre';
+import EnterpriseProviderCentre from './workspaces/providers/EnterpriseProviderCentre';
 
-export default function App() {
-  const [view, setView] = useState('practice');
-  const [selectedClient, setSelectedClient] = useState(null);
-  const [clientInitialTab, setClientInitialTab] = useState('overview');
+import {
+  EnterpriseRuntimeProvider,
+  providerCentrePath,
+  useEnterpriseRuntimeNavigation,
+} from './runtime';
 
-  function openClient(client, initialTab = 'overview') {
-    setSelectedClient(client); setClientInitialTab(initialTab); setView('client');
+function EnterpriseApplication() {
+  const { route, navigate } =
+    useEnterpriseRuntimeNavigation();
+
+  const [view, setView] = useState(
+    route.view === 'providers'
+      ? 'providers'
+      : 'practice'
+  );
+
+  const [selectedClient, setSelectedClient] =
+    useState(null);
+
+  const [clientInitialTab, setClientInitialTab] =
+    useState('overview');
+
+  function openClient(
+    client,
+    initialTab = 'overview'
+  ) {
+    setSelectedClient(client);
+    setClientInitialTab(initialTab);
+    setView('client');
   }
 
-  if (view === 'providers') return <ProviderCentre onBack={() => setView('practice')} onOpenClientPayroll={(client) => openClient(client, 'payroll')} />;
-  if (view === 'client' && selectedClient) return <ClientWorkspace client={selectedClient} initialTab={clientInitialTab} onBack={() => { setSelectedClient(null); setView('practice'); }} />;
-  return <PracticeDashboard onOpenClient={(client) => openClient(client, 'overview')} onOpenProviders={() => setView('providers')} />;
+  function openProviders() {
+    setView('providers');
+    navigate(providerCentrePath());
+  }
+
+  function returnToPractice() {
+    setView('practice');
+    navigate('/');
+  }
+
+  if (view === 'providers') {
+    return (
+      <EnterpriseProviderCentre
+        route={route}
+        navigate={navigate}
+        onBack={returnToPractice}
+      />
+    );
+  }
+
+  if (view === 'client' && selectedClient) {
+    return (
+      <ClientWorkspace
+        client={selectedClient}
+        initialTab={clientInitialTab}
+        onBack={() => {
+          setSelectedClient(null);
+          setView('practice');
+        }}
+      />
+    );
+  }
+
+  return (
+  <EnterpriseProviderCentre
+    route={route}
+    navigate={navigate}
+    onBack={returnToPractice}
+  />
+);
+
+}
+
+export default function App() {
+  return (
+    <EnterpriseRuntimeProvider>
+      <EnterpriseApplication />
+    </EnterpriseRuntimeProvider>
+  );
 }
