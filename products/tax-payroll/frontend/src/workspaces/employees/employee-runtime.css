@@ -1,0 +1,79 @@
+.employee-runtime-list {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border-color, #d9dee7);
+  border-radius: 1rem;
+  background: var(--surface-color, #fff);
+}
+
+.employee-runtime-list__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.employee-runtime-list__header h2,
+.employee-runtime-list__header p {
+  margin: 0;
+}
+
+.employee-runtime-list__search {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.employee-runtime-list__search input {
+  min-height: 2.75rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--border-color, #c9d0dc);
+  border-radius: 0.65rem;
+  font: inherit;
+}
+
+.employee-runtime-list__table-wrap {
+  overflow-x: auto;
+}
+
+.employee-runtime-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employee-runtime-list th,
+.employee-runtime-list td {
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--border-color, #e3e7ee);
+  text-align: left;
+}
+
+.employee-runtime-list tr[data-selected] {
+  background: var(--selected-surface, #f3f6fb);
+}
+
+.employee-runtime-list__name {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.employee-status-badge {
+  display: inline-flex;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: var(--badge-surface, #eef2f7);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.employee-runtime-list .eyebrow {
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
