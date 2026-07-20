@@ -1,9 +1,17 @@
 import {
   asRecord,
   booleanLabel,
-  firstPath,
   firstValue,
 } from './staffologyValueResolver';
+
+import {
+  createContractIndex,
+  firstContractValue,
+} from './staffologyContractResolver';
+
+import {
+  STAFFOLOGY_EMPLOYMENT_FIELDS,
+} from './staffologyEmploymentFields';
 
 function employeeSource(runtimeWorkspace) {
   const workspace = asRecord(
@@ -19,14 +27,16 @@ function employeeSource(runtimeWorkspace) {
   );
 }
 
-function employmentSource(source) {
-  return asRecord(
-    firstValue(
-      source.employmentDetails,
-      source.employment,
-      source.jobDetails,
-      source
-    )
+function resolve(index, field) {
+  return firstContractValue(
+    index,
+    STAFFOLOGY_EMPLOYMENT_FIELDS[field]
+  );
+}
+
+function booleanValue(index, field) {
+  return booleanLabel(
+    resolve(index, field)
   );
 }
 
@@ -34,184 +44,98 @@ export function adaptStaffologyEmployment(
   runtimeWorkspace
 ) {
   const source = employeeSource(runtimeWorkspace);
-  const employment = employmentSource(source);
+  const listedEmployee = asRecord(
+    runtimeWorkspace?.employee
+  );
+
+  const index = createContractIndex(source);
 
   return Object.freeze({
     source,
 
     status: firstValue(
-      employment.status,
-      source.status,
-      source.state,
+      resolve(index, 'status'),
+      listedEmployee.status,
+      listedEmployee.state,
       'Current'
     ),
 
-    jobTitle: firstValue(
-      employment.jobTitle,
-      employment.role,
-      source.jobTitle
-    ),
+    jobTitle:
+      resolve(index, 'jobTitle'),
 
-    workplacePostcode: firstValue(
-      employment.workplacePostcode,
-      employment.workPlacePostcode,
-      source.workplacePostcode
-    ),
+    workplacePostcode:
+      resolve(index, 'workplacePostcode'),
 
-    startDate: firstValue(
-      employment.startDate,
-      firstPath(source, [
-        'starterDetails.startDate',
-        'startDate',
-      ])
-    ),
+    startDate:
+      resolve(index, 'startDate'),
 
-    continuousStartDate: firstValue(
-      employment.continuousStartDate,
-      employment.continuousEmploymentStartDate,
-      source.continuousStartDate
-    ),
+    continuousStartDate:
+      resolve(index, 'continuousStartDate'),
 
     payrollCode: firstValue(
-      employment.payrollCode,
-      source.payrollCode,
-      source.employeeCode,
-      source.code
+      resolve(index, 'payrollCode'),
+      listedEmployee.payrollCode,
+      listedEmployee.code
     ),
 
-    declaration: firstValue(
-      employment.declaration,
-      employment.starterDeclaration,
-      firstPath(source, [
-        'starterDetails.declaration',
-        'starterDetails.starterDeclaration',
-      ])
-    ),
+    declaration:
+      resolve(index, 'declaration'),
 
-    payrollIdChange: firstValue(
-      employment.payrollIdChange,
-      employment.changeOfPayrollId,
-      employment.payrollCodeChange
-    ),
+    payrollIdChange:
+      resolve(index, 'payrollIdChange'),
 
-    onHold: booleanLabel(
-      firstValue(
-        employment.onHold,
-        source.onHold,
-        false
-      )
-    ),
+    onHold:
+      booleanValue(index, 'onHold'),
 
-    isDirector: booleanLabel(
-      firstValue(
-        employment.isDirector,
-        employment.director,
-        source.isDirector,
-        false
-      )
-    ),
+    isDirector:
+      booleanValue(index, 'isDirector'),
 
-    directorshipStartDate: firstValue(
-      employment.directorshipStartDate,
-      employment.startOfDirectorship,
-      source.directorshipStartDate
-    ),
+    directorshipStartDate:
+      resolve(index, 'directorshipStartDate'),
 
-    directorshipEndDate: firstValue(
-      employment.directorshipEndDate,
-      employment.endOfDirectorship,
-      source.directorshipEndDate
-    ),
+    directorshipEndDate:
+      resolve(index, 'directorshipEndDate'),
 
-    alternativeNiMethod: booleanLabel(
-      firstValue(
-        employment.alternativeNiMethod,
-        employment.alternativeMethod,
-        employment.directorNiAlternativeMethod,
-        false
-      )
-    ),
+    alternativeNiMethod:
+      booleanValue(index, 'alternativeNiMethod'),
 
-    rightToWorkChecked: booleanLabel(
-      firstValue(
-        employment.rightToWorkChecked,
-        employment.rightToWorkHasBeenChecked,
-        false
-      )
-    ),
+    rightToWorkChecked:
+      booleanValue(index, 'rightToWorkChecked'),
 
-    worksInFreeport: booleanLabel(
-      firstValue(
-        employment.worksInFreeport,
-        employment.isFreeportEmployee,
-        false
-      )
-    ),
+    worksInFreeport:
+      booleanValue(index, 'worksInFreeport'),
 
-    worksInInvestmentZone: booleanLabel(
-      firstValue(
-        employment.worksInInvestmentZone,
-        employment.isInvestmentZoneEmployee,
-        false
-      )
-    ),
+    worksInInvestmentZone:
+      booleanValue(
+        index,
+        'worksInInvestmentZone'
+      ),
 
-    isVeteran: booleanLabel(
-      firstValue(
-        employment.isVeteran,
-        employment.veteran,
-        false
-      )
-    ),
+    isVeteran:
+      booleanValue(index, 'isVeteran'),
 
-    hasLeft: booleanLabel(
-      firstValue(
-        employment.hasLeft,
-        employment.employeeHasLeft,
-        source.hasLeft,
-        false
-      )
-    ),
+    hasLeft:
+      booleanValue(index, 'hasLeft'),
 
-    secondedFromOverseas: booleanLabel(
-      firstValue(
-        employment.secondedFromOverseas,
-        employment.secondedFromOverseasEmployer,
-        false
-      )
-    ),
+    secondedFromOverseas:
+      booleanValue(
+        index,
+        'secondedFromOverseas'
+      ),
 
-    receivesRegisteredPensionIncome: booleanLabel(
-      firstValue(
-        employment.receivesRegisteredPensionIncome,
-        employment.paidPensionOrRegisteredIncome,
-        false
-      )
-    ),
+    receivesRegisteredPensionIncome:
+      booleanValue(
+        index,
+        'receivesRegisteredPensionIncome'
+      ),
 
-    cisSubcontractor: booleanLabel(
-      firstValue(
-        employment.cisSubcontractor,
-        employment.isCisSubcontractor,
-        false
-      )
-    ),
+    cisSubcontractor:
+      booleanValue(index, 'cisSubcontractor'),
 
-    apprentice: booleanLabel(
-      firstValue(
-        employment.apprentice,
-        employment.isApprentice,
-        false
-      )
-    ),
+    apprentice:
+      booleanValue(index, 'apprentice'),
 
-    furlough: booleanLabel(
-      firstValue(
-        employment.furlough,
-        employment.isOnFurlough,
-        employment.onFurlough,
-        false
-      )
-    ),
+    furlough:
+      booleanValue(index, 'furlough'),
   });
 }
