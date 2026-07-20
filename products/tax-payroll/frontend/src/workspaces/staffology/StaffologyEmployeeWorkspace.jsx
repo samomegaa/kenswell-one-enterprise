@@ -31,6 +31,10 @@ import StaffologyBasicDetailsPanel
 import StaffologyEmploymentPanel
   from './StaffologyEmploymentPanel';
 
+import {
+  StaffologyPayOptionsWorkspace,
+} from './pay-options';
+
 import StaffologySectionPending
   from './StaffologySectionPending';
 
@@ -82,6 +86,12 @@ export default function StaffologyEmployeeWorkspace({
     content = (
       <StaffologyEmploymentPanel
         employment={employment}
+      />
+    );
+  } else if (activeTab === 'pay-options') {
+    content = (
+      <StaffologyPayOptionsWorkspace
+        runtimeWorkspace={runtimeWorkspace}
       />
     );
   } else {

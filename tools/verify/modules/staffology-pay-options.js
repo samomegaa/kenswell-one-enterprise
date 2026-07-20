@@ -1,12 +1,11 @@
 'use strict';
 
-const path = require('path');
-
 const {
-  assert,
+  includesAll,
 } = require('../shared/assertions');
 
 const {
+  readFile,
   requireFile,
 } = require('../shared/files');
 
@@ -15,38 +14,68 @@ const {
 } = require('../shared/result');
 
 module.exports = function verifyPayOptions(root) {
-  const base = 'review/1.2/RC2/E0/';
-
-  const contractPath = requireFile(
-    root,
-    base + 'contracts/regular-pay-contract.js'
-  );
-
-  const discoveryPath = requireFile(
-    root,
-    base + 'catalogue/regular-pay-discovery.json'
-  );
+  const reviewBase =
+    'review/1.2/RC2/E0/';
 
   requireFile(
     root,
-    base + 'catalogue/regular-pay-coverage.md'
+    reviewBase +
+      'catalogue/regular-pay-discovery.json'
   );
 
-  const contract = require(contractPath);
-  const discovery = require(discoveryPath);
+  const base =
+    'products/tax-payroll/frontend/src/' +
+    'workspaces/staffology/pay-options/';
 
-  assert.strictEqual(
-    contract.id,
-    'staffology.regular-pay'
+  const workspace = readFile(
+    root,
+    base + 'StaffologyPayOptionsWorkspace.jsx'
   );
 
-  assert.strictEqual(
-    discovery.fields.length,
-    Object.keys(contract.fields).length
+  const adapter = readFile(
+    root,
+    base + 'adaptStaffologyRegularPay.js'
+  );
+
+  const fields = readFile(
+    root,
+    base + 'regularPayFields.js'
+  );
+
+  includesAll(
+    workspace,
+    [
+      'PayOptionsNavigation',
+      'StaffologyRegularPayPanel',
+      'PayOptionReserved',
+    ],
+    'Pay Options workspace'
+  );
+
+  includesAll(
+    adapter,
+    [
+      'createContractIndex',
+      'firstContractValue',
+      'REGULAR_PAY_FIELDS',
+    ],
+    'Regular Pay adapter'
+  );
+
+  includesAll(
+    fields,
+    [
+      'annualSalary',
+      'regularPay',
+      'hourlyRate',
+      'workingPattern',
+      'payrollCode',
+    ],
+    'Regular Pay fields'
   );
 
   return pass(
     'Staffology Pay Options',
-    `${discovery.fields.length} Regular Pay fields catalogued`
+    'Regular Pay workspace connected'
   );
 };

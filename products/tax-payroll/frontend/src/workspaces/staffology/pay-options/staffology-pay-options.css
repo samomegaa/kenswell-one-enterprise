@@ -1,0 +1,32 @@
+.staffology-pay-options {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.pay-options-navigation {
+  border-bottom: 1px solid #dbe3ef;
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding-bottom: 0.65rem;
+}
+
+.pay-options-navigation__item {
+  background: transparent;
+  border: 0;
+  border-radius: 0.45rem;
+  color: #526078;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.65rem 0.85rem;
+  white-space: nowrap;
+}
+
+.pay-options-navigation__item:hover {
+  background: #f1f4f9;
+}
+
+.pay-options-navigation__item.is-active {
+  background: #e6edf8;
+  color: #174f90;
+}
