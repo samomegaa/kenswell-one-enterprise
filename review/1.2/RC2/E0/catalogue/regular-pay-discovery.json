@@ -1,0 +1,158 @@
+{
+  "contract": "staffology.regular-pay",
+  "generatedAt": "2026-07-20T17:39:56.385Z",
+  "fields": [
+    {
+      "field": "employmentType",
+      "aliases": [
+        "employmentType",
+        "employeeType",
+        "workerType"
+      ],
+      "status": "unresolved",
+      "matches": []
+    },
+    {
+      "field": "payBasis",
+      "aliases": [
+        "payBasis",
+        "basis",
+        "payType",
+        "salaryType"
+      ],
+      "status": "discovered",
+      "matches": [
+        {
+          "path": "data.employee.employmentDetails.roles.0.metadata.basis",
+          "type": "string"
+        },
+        {
+          "path": "data.employee.payOptions.basis",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "field": "payFrequency",
+      "aliases": [
+        "payFrequency",
+        "paymentFrequency",
+        "payPeriod",
+        "paySchedule"
+      ],
+      "status": "discovered",
+      "matches": [
+        {
+          "path": "data.employee.autoEnrolment.lastAssessment.payPeriod",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "field": "payrollCode",
+      "aliases": [
+        "payrollCode",
+        "employeeCode",
+        "code"
+      ],
+      "status": "discovered",
+      "matches": [
+        {
+          "path": "data.employee.employmentDetails.payrollCode",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "field": "annualSalary",
+      "aliases": [
+        "annualSalary",
+        "annualPay",
+        "yearlySalary"
+      ],
+      "status": "unresolved",
+      "matches": []
+    },
+    {
+      "field": "regularPay",
+      "aliases": [
+        "regularPay",
+        "periodPay",
+        "salary",
+        "basicPay",
+        "grossPay"
+      ],
+      "status": "discovered",
+      "matches": [
+        {
+          "path": "data.employee.payOptions.basicPay",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "field": "hourlyRate",
+      "aliases": [
+        "hourlyRate",
+        "ratePerHour"
+      ],
+      "status": "unresolved",
+      "matches": []
+    },
+    {
+      "field": "dailyRate",
+      "aliases": [
+        "dailyRate",
+        "ratePerDay"
+      ],
+      "status": "unresolved",
+      "matches": []
+    },
+    {
+      "field": "workingPattern",
+      "aliases": [
+        "workingPattern",
+        "workPattern",
+        "workingPatternName"
+      ],
+      "status": "discovered",
+      "matches": [
+        {
+          "path": "data.employee.employmentDetails.workingPattern",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "field": "normalHours",
+      "aliases": [
+        "normalHours",
+        "standardHours",
+        "hoursPerWeek",
+        "usualHours"
+      ],
+      "status": "unresolved",
+      "matches": []
+    },
+    {
+      "field": "normalDays",
+      "aliases": [
+        "normalDays",
+        "daysPerWeek",
+        "usualDays"
+      ],
+      "status": "unresolved",
+      "matches": []
+    },
+    {
+      "field": "payrollFrequency",
+      "aliases": [
+        "payrollFrequency",
+        "payRunFrequency",
+        "frequency"
+      ],
+      "status": "unresolved",
+      "matches": []
+    }
+  ]
+}

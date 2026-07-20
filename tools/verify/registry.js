@@ -8,12 +8,19 @@ const staffologyWorkspace = require(
   './modules/staffology-workspace'
 );
 
+const staffologyPayOptions = require(
+  './modules/staffology-pay-options'
+);
+
 const modules = Object.freeze({
   'staffology-catalogue':
     staffologyCatalogue,
 
   'staffology-workspace':
     staffologyWorkspace,
+
+  'staffology-pay-options':
+    staffologyPayOptions,
 });
 
 function resolveModules(names = []) {
