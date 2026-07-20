@@ -175,7 +175,10 @@
     "enterprise:1.2:employee-persistence": "node review/1.2/EMPLOYEES/verify-employee-persistence.js",
     "enterprise:1.2:employee-api": "node review/1.2/EMPLOYEES/verify-employee-api.js",
     "enterprise:1.2:workspace-framework": "node review/1.2/WORKSPACE/verify-workspace-framework.js",
-    "enterprise:1.2:employee-workspace": "node review/1.2/WORKSPACE/verify-employee-workspace.js"
+    "enterprise:1.2:employee-workspace": "node review/1.2/WORKSPACE/verify-employee-workspace.js",
+    "verify:staffology": "node tools/verify/run.js",
+    "verify:staffology:catalogue": "node tools/verify/run.js staffology-catalogue",
+    "verify:staffology:workspace": "node tools/verify/run.js staffology-workspace"
   },
   "engines": {
     "node": ">=20"
