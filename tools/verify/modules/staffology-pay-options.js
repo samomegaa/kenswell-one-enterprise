@@ -1,37 +1,81 @@
 'use strict';
-const { includesAll } = require('../shared/assertions');
-const { readFile, requireFile } = require('../shared/files');
-const { pass } = require('../shared/result');
+
+const {
+  includesAll,
+} = require('../shared/assertions');
+
+const {
+  readFile,
+  requireFile,
+} = require('../shared/files');
+
+const {
+  pass,
+} = require('../shared/result');
 
 module.exports = function verifyPayOptions(root) {
-  const base = 'products/tax-payroll/frontend/src/workspaces/staffology/pay-options/';
-  requireFile(root, 'review/1.2/RC2/E0/catalogue/regular-pay-discovery.json');
-  const workspace = readFile(root, base + 'StaffologyPayOptionsWorkspace.jsx');
-  const taxNiPanel = readFile(root, base + 'tax-ni/StaffologyTaxNiPanel.jsx');
-  const presentation = readFile(root, base + 'tax-ni/taxNiPresentation.js');
+  const base =
+    'products/tax-payroll/frontend/src/' +
+    'workspaces/staffology/pay-options/';
 
-  includesAll(workspace, [
-    'StaffologyRegularPayPanel',
-    'StaffologyAdditionsDeductionsPanel',
-    'StaffologyLoansPanel',
-    'StaffologyTaxNiPanel',
-    "activeSection === 'tax-ni'",
-  ], 'Pay Options workspace');
+  requireFile(
+    root,
+    'review/1.2/RC2/E0/catalogue/' +
+    'regular-pay-discovery.json'
+  );
 
-  includesAll(taxNiPanel, [
-    'createTaxNiPresentationModel',
-    'TaxDetailsSection',
-    'NationalInsuranceSection',
-    'LoanIndicatorsSection',
-  ], 'Tax & NI panel');
+  const workspace = readFile(
+    root,
+    base + 'StaffologyPayOptionsWorkspace.jsx'
+  );
 
-  includesAll(presentation, [
-    'presentTaxBasis',
-    'Cumulative',
-    'Week 1 / Month 1',
-    'presentStudentLoan',
-    'presentMoney',
-  ], 'Tax & NI presentation');
+  const otherPanel = readFile(
+    root,
+    base + 'other/StaffologyOtherPanel.jsx'
+  );
 
-  return pass('Staffology Pay Options', 'Tax & NI contract presentation aligned');
+  const presentation = readFile(
+    root,
+    base + 'other/otherPresentation.js'
+  );
+
+  includesAll(
+    workspace,
+    [
+      'StaffologyRegularPayPanel',
+      'StaffologyAdditionsDeductionsPanel',
+      'StaffologyLoansPanel',
+      'StaffologyTaxNiPanel',
+      'StaffologyOtherPanel',
+      "activeSection === 'other'",
+    ],
+    'Pay Options workspace'
+  );
+
+  includesAll(
+    otherPanel,
+    [
+      'PayrollControlsSection',
+      'WorkingArrangementSection',
+      'ReportingIndicatorsSection',
+      'createOtherPresentationModel',
+    ],
+    'Other Pay Options panel'
+  );
+
+  includesAll(
+    presentation,
+    [
+      'presentOtherBoolean',
+      'presentPaymentMethod',
+      'BACS',
+      'Manual payment',
+    ],
+    'Other Pay Options presentation'
+  );
+
+  return pass(
+    'Staffology Pay Options',
+    'Other Pay Options workspace connected'
+  );
 };

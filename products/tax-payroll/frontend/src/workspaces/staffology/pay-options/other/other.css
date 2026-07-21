@@ -1,0 +1,18 @@
+.other-pay-layout {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.other-pay-section {
+  border-bottom: 1px solid #dbe3ef;
+  padding-bottom: 1.5rem;
+}
+
+.other-pay-section:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.other-pay-section h3 {
+  margin: 0 0 1rem;
+}

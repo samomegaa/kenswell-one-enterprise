@@ -41,6 +41,13 @@ import {
 
 import './tax-ni/tax-ni.css';
 
+import {
+  StaffologyOtherPanel,
+  adaptStaffologyOther,
+} from './other';
+
+import './other/other.css';
+
 import './additions-deductions/additions-deductions.css';
 
 import './staffology-pay-options.css';
@@ -79,6 +86,13 @@ export default function StaffologyPayOptionsWorkspace({
     [runtimeWorkspace]
   );
 
+  const other = useMemo(
+    () => adaptStaffologyOther(
+      runtimeWorkspace
+    ),
+    [runtimeWorkspace]
+  );
+
   const selected =
     PAY_OPTION_SECTIONS.find(
       (section) => section.id === activeSection
@@ -106,6 +120,10 @@ export default function StaffologyPayOptionsWorkspace({
       ) : activeSection === 'tax-ni' ? (
         <StaffologyTaxNiPanel
           model={taxNi}
+        />
+      ) : activeSection === 'other' ? (
+        <StaffologyOtherPanel
+          model={other}
         />
       ) : (
         <PayOptionReserved
