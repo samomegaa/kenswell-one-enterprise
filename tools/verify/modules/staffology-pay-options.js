@@ -14,27 +14,14 @@ const {
 } = require('../shared/result');
 
 module.exports = function verifyPayOptions(root) {
-  const reviewBase =
-    'review/1.2/RC2/E0/';
-
-  requireFile(
-    root,
-    reviewBase +
-      'catalogue/regular-pay-discovery.json'
-  );
-
   const base =
     'products/tax-payroll/frontend/src/' +
     'workspaces/staffology/pay-options/';
 
-  const workspace = readFile(
+  requireFile(
     root,
-    base + 'StaffologyPayOptionsWorkspace.jsx'
-  );
-
-  const adapter = readFile(
-    root,
-    base + 'adaptStaffologyRegularPay.js'
+    'review/1.2/RC2/E0/catalogue/' +
+    'regular-pay-discovery.json'
   );
 
   const fields = readFile(
@@ -42,40 +29,55 @@ module.exports = function verifyPayOptions(root) {
     base + 'regularPayFields.js'
   );
 
-  includesAll(
-    workspace,
-    [
-      'PayOptionsNavigation',
-      'StaffologyRegularPayPanel',
-      'PayOptionReserved',
-    ],
-    'Pay Options workspace'
+  const adapter = readFile(
+    root,
+    base + 'adaptStaffologyRegularPay.js'
   );
 
-  includesAll(
-    adapter,
-    [
-      'createContractIndex',
-      'firstContractValue',
-      'REGULAR_PAY_FIELDS',
-    ],
-    'Regular Pay adapter'
+  const panel = readFile(
+    root,
+    base + 'StaffologyRegularPayPanel.jsx'
   );
 
   includesAll(
     fields,
     [
-      'annualSalary',
-      'regularPay',
-      'hourlyRate',
-      'workingPattern',
-      'payrollCode',
+      'REGULAR_PAY_SCHEDULE_FIELDS',
+      'REGULAR_PAY_AMOUNT_FIELDS',
+      'REGULAR_PAY_SETTINGS_FIELDS',
     ],
-    'Regular Pay fields'
+    'Regular Pay contract'
+  );
+
+  includesAll(
+    adapter,
+    [
+      'schedule',
+      'monthlyAmount',
+      'annualSalary',
+      'payCode',
+      'proRataAdjustments',
+      'baseHourlyRate',
+      'baseDailyRate',
+    ],
+    'Regular Pay adapter'
+  );
+
+  includesAll(
+    panel,
+    [
+      'Schedule',
+      'Basis',
+      'Monthly amount',
+      'Annual salary',
+      'Base hourly rate',
+      'Base daily rate',
+    ],
+    'Regular Pay panel'
   );
 
   return pass(
     'Staffology Pay Options',
-    'Regular Pay workspace connected'
+    'Regular Pay contract aligned'
   );
 };

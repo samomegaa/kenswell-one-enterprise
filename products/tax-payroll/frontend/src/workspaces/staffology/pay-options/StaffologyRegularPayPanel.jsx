@@ -9,8 +9,6 @@ import StaffologyField
 
 import {
   formatCurrency,
-  formatDays,
-  formatHours,
 } from './regularPayFormatters';
 
 export default function StaffologyRegularPayPanel({
@@ -20,71 +18,68 @@ export default function StaffologyRegularPayPanel({
     <WorkspaceSection
       title="Regular Pay"
       description={
-        'Read-only pay information supplied by Staffology.'
+        'Read-only regular pay information supplied by Staffology.'
       }
     >
-      <dl className="staffology-field-grid">
-        <StaffologyField
-          label="Employment type"
-          value={regularPay.employmentType}
-        />
-        <StaffologyField
-          label="Pay basis"
-          value={regularPay.payBasis}
-        />
-        <StaffologyField
-          label="Pay frequency"
-          value={regularPay.payFrequency}
-        />
-        <StaffologyField
-          label="Payroll frequency"
-          value={regularPay.payrollFrequency}
-        />
-        <StaffologyField
-          label="Annual salary"
-          value={formatCurrency(
-            regularPay.annualSalary
-          )}
-        />
-        <StaffologyField
-          label="Regular pay"
-          value={formatCurrency(
-            regularPay.regularPay
-          )}
-        />
-        <StaffologyField
-          label="Hourly rate"
-          value={formatCurrency(
-            regularPay.hourlyRate
-          )}
-        />
-        <StaffologyField
-          label="Daily rate"
-          value={formatCurrency(
-            regularPay.dailyRate
-          )}
-        />
-        <StaffologyField
-          label="Working pattern"
-          value={regularPay.workingPattern}
-        />
-        <StaffologyField
-          label="Normal hours"
-          value={formatHours(
-            regularPay.normalHours
-          )}
-        />
-        <StaffologyField
-          label="Normal days"
-          value={formatDays(
-            regularPay.normalDays
-          )}
-        />
-        <StaffologyField
-          label="Payroll code"
-          value={regularPay.payrollCode}
-        />
-      </dl>
+      <div className="regular-pay-layout">
+        <section>
+          <h3>Pay arrangement</h3>
+
+          <dl className="staffology-field-grid">
+            <StaffologyField
+              label="Schedule"
+              value={regularPay.schedule}
+            />
+            <StaffologyField
+              label="Basis"
+              value={regularPay.basis}
+            />
+            <StaffologyField
+              label="Working pattern"
+              value={regularPay.workingPattern}
+            />
+            <StaffologyField
+              label="Pay code"
+              value={regularPay.payCode}
+            />
+            <StaffologyField
+              label="Pro-rata adjustments"
+              value={regularPay.proRataAdjustments}
+            />
+          </dl>
+        </section>
+
+        <section>
+          <h3>Pay amounts and rates</h3>
+
+          <dl className="staffology-field-grid">
+            <StaffologyField
+              label="Monthly amount"
+              value={formatCurrency(
+                regularPay.monthlyAmount
+              )}
+            />
+            <StaffologyField
+              label="Annual salary"
+              value={formatCurrency(
+                regularPay.annualSalary
+              )}
+            />
+            <StaffologyField
+              label="Base hourly rate"
+              value={formatCurrency(
+                regularPay.baseHourlyRate
+              )}
+            />
+            <StaffologyField
+              label="Base daily rate"
+              value={formatCurrency(
+                regularPay.baseDailyRate
+              )}
+            />
+          </dl>
+        </section>
+      </div>
     </WorkspaceSection>
   );
 }

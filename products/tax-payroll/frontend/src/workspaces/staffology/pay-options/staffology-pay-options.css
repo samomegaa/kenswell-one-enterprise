@@ -30,3 +30,22 @@
   background: #e6edf8;
   color: #174f90;
 }
+
+.regular-pay-layout {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.regular-pay-layout section {
+  border-bottom: 1px solid #dbe3ef;
+  padding-bottom: 1.5rem;
+}
+
+.regular-pay-layout section:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.regular-pay-layout h3 {
+  margin: 0 0 1rem;
+}
