@@ -1,0 +1,5 @@
+.bank-account-state { background:#f6f8fc; border:1px dashed #b8c4d8; border-radius:.65rem; margin:0; padding:1rem; }
+.bank-account-list { display:grid; gap:1.5rem; }
+.bank-account-card { border-bottom:1px solid #dbe3ef; padding-bottom:1.5rem; }
+.bank-account-card:last-child { border-bottom:0; padding-bottom:0; }
+.bank-account-card h3 { margin:0 0 1rem; }

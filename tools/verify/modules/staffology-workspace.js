@@ -50,7 +50,7 @@ module.exports = function verifyStaffologyWorkspace(
     [
       'StaffologyBasicDetailsPanel',
       'StaffologyEmploymentPanel',
-      "activeTab === 'employment'",
+      'StaffologyEmploymentPanel',
     ],
     'Staffology employee workspace'
   );
