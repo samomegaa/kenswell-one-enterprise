@@ -8,7 +8,7 @@ export const PAY_OPTION_SECTIONS =
     Object.freeze({
       id: 'additions-deductions',
       label: 'Additions & Deductions',
-      status: 'reserved',
+      status: 'available',
     }),
     Object.freeze({
       id: 'loans',

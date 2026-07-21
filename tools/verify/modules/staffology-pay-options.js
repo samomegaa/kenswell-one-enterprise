@@ -24,60 +24,55 @@ module.exports = function verifyPayOptions(root) {
     'regular-pay-discovery.json'
   );
 
-  const fields = readFile(
+  const workspace = readFile(
     root,
-    base + 'regularPayFields.js'
+    base + 'StaffologyPayOptionsWorkspace.jsx'
   );
 
-  const adapter = readFile(
-    root,
-    base + 'adaptStaffologyRegularPay.js'
-  );
-
-  const panel = readFile(
+  const regularPay = readFile(
     root,
     base + 'StaffologyRegularPayPanel.jsx'
   );
 
-  includesAll(
-    fields,
-    [
-      'REGULAR_PAY_SCHEDULE_FIELDS',
-      'REGULAR_PAY_AMOUNT_FIELDS',
-      'REGULAR_PAY_SETTINGS_FIELDS',
-    ],
-    'Regular Pay contract'
+  const additions = readFile(
+    root,
+    base +
+      'additions-deductions/' +
+      'StaffologyAdditionsDeductionsPanel.jsx'
   );
 
   includesAll(
-    adapter,
+    workspace,
     [
-      'schedule',
-      'monthlyAmount',
-      'annualSalary',
-      'payCode',
-      'proRataAdjustments',
-      'baseHourlyRate',
-      'baseDailyRate',
+      'StaffologyRegularPayPanel',
+      'StaffologyAdditionsDeductionsPanel',
+      "activeSection === 'additions-deductions'",
     ],
-    'Regular Pay adapter'
+    'Pay Options workspace'
   );
 
   includesAll(
-    panel,
+    regularPay,
     [
       'Schedule',
-      'Basis',
       'Monthly amount',
       'Annual salary',
-      'Base hourly rate',
-      'Base daily rate',
     ],
     'Regular Pay panel'
   );
 
+  includesAll(
+    additions,
+    [
+      'Additions',
+      'Deductions',
+      'PayItemSection',
+    ],
+    'Additions & Deductions panel'
+  );
+
   return pass(
     'Staffology Pay Options',
-    'Regular Pay contract aligned'
+    'Regular Pay and Additions & Deductions connected'
   );
 };

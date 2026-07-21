@@ -22,6 +22,13 @@ import PayOptionReserved
 import StaffologyRegularPayPanel
   from './StaffologyRegularPayPanel';
 
+import {
+  StaffologyAdditionsDeductionsPanel,
+  adaptStaffologyAdditionsDeductions,
+} from './additions-deductions';
+
+import './additions-deductions/additions-deductions.css';
+
 import './staffology-pay-options.css';
 
 export default function StaffologyPayOptionsWorkspace({
@@ -32,6 +39,13 @@ export default function StaffologyPayOptionsWorkspace({
 
   const regularPay = useMemo(
     () => adaptStaffologyRegularPay(
+      runtimeWorkspace
+    ),
+    [runtimeWorkspace]
+  );
+
+  const additionsDeductions = useMemo(
+    () => adaptStaffologyAdditionsDeductions(
       runtimeWorkspace
     ),
     [runtimeWorkspace]
@@ -52,6 +66,10 @@ export default function StaffologyPayOptionsWorkspace({
       {activeSection === 'regular-pay' ? (
         <StaffologyRegularPayPanel
           regularPay={regularPay}
+        />
+      ) : activeSection === 'additions-deductions' ? (
+        <StaffologyAdditionsDeductionsPanel
+          model={additionsDeductions}
         />
       ) : (
         <PayOptionReserved
