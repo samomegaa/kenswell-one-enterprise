@@ -48,6 +48,13 @@ import {
 
 import './other/other.css';
 
+import {
+  StaffologyBenefitsPanel,
+  adaptStaffologyBenefits,
+} from './benefits';
+
+import './benefits/benefits.css';
+
 import './additions-deductions/additions-deductions.css';
 
 import './staffology-pay-options.css';
@@ -93,6 +100,13 @@ export default function StaffologyPayOptionsWorkspace({
     [runtimeWorkspace]
   );
 
+  const benefits = useMemo(
+    () => adaptStaffologyBenefits(
+      runtimeWorkspace
+    ),
+    [runtimeWorkspace]
+  );
+
   const selected =
     PAY_OPTION_SECTIONS.find(
       (section) => section.id === activeSection
@@ -124,6 +138,10 @@ export default function StaffologyPayOptionsWorkspace({
       ) : activeSection === 'other' ? (
         <StaffologyOtherPanel
           model={other}
+        />
+      ) : activeSection === 'benefits' ? (
+        <StaffologyBenefitsPanel
+          model={benefits}
         />
       ) : (
         <PayOptionReserved

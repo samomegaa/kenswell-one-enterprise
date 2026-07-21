@@ -29,14 +29,15 @@ module.exports = function verifyPayOptions(root) {
     base + 'StaffologyPayOptionsWorkspace.jsx'
   );
 
-  const otherPanel = readFile(
+  const benefitsPanel = readFile(
     root,
-    base + 'other/StaffologyOtherPanel.jsx'
+    base +
+      'benefits/StaffologyBenefitsPanel.jsx'
   );
 
   const presentation = readFile(
     root,
-    base + 'other/otherPresentation.js'
+    base + 'benefits/benefitPresentation.js'
   );
 
   includesAll(
@@ -47,35 +48,34 @@ module.exports = function verifyPayOptions(root) {
       'StaffologyLoansPanel',
       'StaffologyTaxNiPanel',
       'StaffologyOtherPanel',
-      "activeSection === 'other'",
+      'StaffologyBenefitsPanel',
+      "activeSection === 'benefits'",
     ],
     'Pay Options workspace'
   );
 
   includesAll(
-    otherPanel,
+    benefitsPanel,
     [
-      'PayrollControlsSection',
-      'WorkingArrangementSection',
-      'ReportingIndicatorsSection',
-      'createOtherPresentationModel',
+      'Benefits',
+      'BenefitSection',
+      'createBenefitPresentationModel',
     ],
-    'Other Pay Options panel'
+    'Benefits panel'
   );
 
   includesAll(
     presentation,
     [
-      'presentOtherBoolean',
-      'presentPaymentMethod',
-      'BACS',
-      'Manual payment',
+      'presentBenefitBoolean',
+      'presentBenefitMoney',
+      'displayBenefitValue',
     ],
-    'Other Pay Options presentation'
+    'Benefits presentation'
   );
 
   return pass(
     'Staffology Pay Options',
-    'Other Pay Options workspace connected'
+    'All Pay Options workspaces connected'
   );
 };
