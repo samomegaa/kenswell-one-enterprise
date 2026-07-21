@@ -13,12 +13,12 @@ export const PAY_OPTION_SECTIONS =
     Object.freeze({
       id: 'loans',
       label: 'Loans',
-      status: 'reserved',
+      status: 'available',
     }),
     Object.freeze({
       id: 'tax-ni',
       label: 'Tax & NI',
-      status: 'reserved',
+      status: 'available',
     }),
     Object.freeze({
       id: 'other',

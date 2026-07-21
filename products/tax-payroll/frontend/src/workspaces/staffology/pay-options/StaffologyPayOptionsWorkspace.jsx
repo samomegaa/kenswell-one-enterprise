@@ -27,6 +27,20 @@ import {
   adaptStaffologyAdditionsDeductions,
 } from './additions-deductions';
 
+import {
+  StaffologyLoansPanel,
+  adaptStaffologyLoans,
+} from './loans';
+
+import './loans/loans.css';
+
+import {
+  StaffologyTaxNiPanel,
+  adaptStaffologyTaxNi,
+} from './tax-ni';
+
+import './tax-ni/tax-ni.css';
+
 import './additions-deductions/additions-deductions.css';
 
 import './staffology-pay-options.css';
@@ -51,6 +65,20 @@ export default function StaffologyPayOptionsWorkspace({
     [runtimeWorkspace]
   );
 
+  const loans = useMemo(
+    () => adaptStaffologyLoans(
+      runtimeWorkspace
+    ),
+    [runtimeWorkspace]
+  );
+
+  const taxNi = useMemo(
+    () => adaptStaffologyTaxNi(
+      runtimeWorkspace
+    ),
+    [runtimeWorkspace]
+  );
+
   const selected =
     PAY_OPTION_SECTIONS.find(
       (section) => section.id === activeSection
@@ -70,6 +98,14 @@ export default function StaffologyPayOptionsWorkspace({
       ) : activeSection === 'additions-deductions' ? (
         <StaffologyAdditionsDeductionsPanel
           model={additionsDeductions}
+        />
+      ) : activeSection === 'loans' ? (
+        <StaffologyLoansPanel
+          model={loans}
+        />
+      ) : activeSection === 'tax-ni' ? (
+        <StaffologyTaxNiPanel
+          model={taxNi}
         />
       ) : (
         <PayOptionReserved

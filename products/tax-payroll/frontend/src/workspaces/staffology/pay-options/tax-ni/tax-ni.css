@@ -1,0 +1,4 @@
+.tax-ni-layout { display: grid; gap: 1.5rem; }
+.tax-ni-section { border-bottom: 1px solid #dbe3ef; padding-bottom: 1.5rem; }
+.tax-ni-section:last-child { border-bottom: 0; padding-bottom: 0; }
+.tax-ni-section h3 { margin: 0 0 1rem; }

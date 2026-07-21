@@ -1,0 +1,16 @@
+export const TAX_NI_FIELDS = Object.freeze({
+  taxCode: ['taxCode', 'currentTaxCode', 'payrollTaxCode'],
+  taxBasis: ['taxBasis', 'taxCodeBasis', 'week1Month1'],
+  taxRegime: ['taxRegime', 'taxRegion', 'regime'],
+  starterDeclaration: ['starterDeclaration', 'starterStatement', 'declaration'],
+  previousTaxablePay: ['previousTaxablePay', 'previousEmploymentPay'],
+  previousTaxPaid: ['previousTaxPaid', 'previousEmploymentTax'],
+  niCategory: ['niCategory', 'nationalInsuranceCategory', 'nicCategory'],
+  niNumber: ['niNumber', 'nationalInsuranceNumber', 'nino'],
+  director: ['director', 'isDirector', 'companyDirector'],
+  alternativeNiMethod: ['alternativeNiMethod', 'alternativeNICalculation'],
+  deferNationalInsurance: ['deferNationalInsurance', 'deferNI'],
+  studentLoan: ['studentLoan', 'hasStudentLoan'],
+  studentLoanPlan: ['studentLoanPlan', 'studentLoanPlanType', 'loanPlan'],
+  postgraduateLoan: ['postgraduateLoan', 'hasPostgraduateLoan', 'postGradLoan'],
+});
