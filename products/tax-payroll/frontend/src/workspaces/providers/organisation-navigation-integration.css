@@ -1,0 +1,53 @@
+.organisation-launch-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid #cbd8ea;
+  border-radius: 1rem;
+  background: #f7faff;
+}
+
+.organisation-launch-panel h2,
+.organisation-launch-panel p {
+  margin-top: 0;
+}
+
+.organisation-launch-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.organisation-launch-panel .eyebrow {
+  margin-bottom: 0.3rem;
+  color: #52657d;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.organisation-launch-panel button {
+  flex: 0 0 auto;
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border: 0;
+  border-radius: 0.7rem;
+  background: #173f7a;
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .organisation-launch-panel {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .organisation-launch-panel button {
+    width: 100%;
+  }
+}

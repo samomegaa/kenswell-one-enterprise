@@ -14,13 +14,20 @@ import {
 import { EmployerSelector } from './EmployerSelector';
 import { EmployerRuntimeGuard } from './EmployerRuntimeGuard';
 import { RuntimeStatePanel } from './RuntimeStatePanel';
+
 import StaffologyEmployeeWorkspace
   from '../staffology/StaffologyEmployeeWorkspace';
 
+import {
+  StaffologyOrganisationWorkspace,
+} from '../staffology/organisation';
+
 import { EmployeeList } from '../employees/EmployeeList';
+
 import {
   EmployeeRuntimeGuard,
 } from '../employees/EmployeeRuntimeGuard';
+
 import {
   useEmployeeWorkspaceRuntime,
 } from '../employees/useEmployeeWorkspaceRuntime';
@@ -52,6 +59,8 @@ export default function EnterpriseProviderCentre({
   } = useEmployeeWorkspaceRuntime();
 
   const [routeError, setRouteError] = useState(null);
+  const [organisationOpen, setOrganisationOpen] =
+    useState(false);
 
   useEffect(() => {
     if (!route?.employerId) return;
@@ -111,10 +120,12 @@ export default function EnterpriseProviderCentre({
 
   function handleEmployerSelected(employer) {
     clearWorkspace();
+    setOrganisationOpen(false);
     navigate(employerEmployeesPath(employer.id));
   }
 
   async function handleOpenWorkspace(employee) {
+    setOrganisationOpen(false);
     const loaded = await loadWorkspace(employee);
 
     navigate(
@@ -133,6 +144,15 @@ export default function EnterpriseProviderCentre({
         actionLabel="Return to employers"
         onAction={() => navigate(employersPath())}
         tone="error"
+      />
+    );
+  }
+
+  if (organisationOpen && selectedEmployer) {
+    return (
+      <StaffologyOrganisationWorkspace
+        employer={selectedEmployer}
+        onBack={() => setOrganisationOpen(false)}
       />
     );
   }
@@ -206,49 +226,69 @@ export default function EnterpriseProviderCentre({
         />
 
         {selectedEmployer && (
-          <EmployeeRuntimeGuard
-            loadingFallback={
-              <RuntimeStatePanel
-                title="Loading employees"
-                message={`Retrieving employees for ${selectedEmployer.name}.`}
+          <>
+            <section className="organisation-launch-panel">
+              <div>
+                <p className="eyebrow">Organisation</p>
+                <h2>{selectedEmployer.name}</h2>
+                <p>
+                  Review organisation identity,
+                  departments and cost centres.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setOrganisationOpen(true)}
+              >
+                Open organisation workspace
+              </button>
+            </section>
+
+            <EmployeeRuntimeGuard
+              loadingFallback={
+                <RuntimeStatePanel
+                  title="Loading employees"
+                  message={`Retrieving employees for ${selectedEmployer.name}.`}
+                />
+              }
+              errorFallback={(error) => (
+                <RuntimeStatePanel
+                  title="Employee discovery failed"
+                  message={error.message}
+                  actionLabel="Retry"
+                  onAction={refreshEmployees}
+                  tone="error"
+                />
+              )}
+              emptyFallback={
+                <RuntimeStatePanel
+                  title="No employees found"
+                  message={`${selectedEmployer.name} currently has no employees available.`}
+                  actionLabel="Refresh employees"
+                  onAction={refreshEmployees}
+                />
+              }
+              employerFallback={
+                <RuntimeStatePanel
+                  title="Select an employer"
+                  message="Choose an employer first."
+                />
+              }
+            >
+              <EmployeeList
+                onEmployeeSelected={(employee) => {
+                  selectEmployee(employee);
+                  navigate(
+                    employerEmployeesPath(
+                      selectedEmployer.id
+                    )
+                  );
+                }}
+                onOpenWorkspace={handleOpenWorkspace}
               />
-            }
-            errorFallback={(error) => (
-              <RuntimeStatePanel
-                title="Employee discovery failed"
-                message={error.message}
-                actionLabel="Retry"
-                onAction={refreshEmployees}
-                tone="error"
-              />
-            )}
-            emptyFallback={
-              <RuntimeStatePanel
-                title="No employees found"
-                message={`${selectedEmployer.name} currently has no employees available.`}
-                actionLabel="Refresh employees"
-                onAction={refreshEmployees}
-              />
-            }
-            employerFallback={
-              <RuntimeStatePanel
-                title="Select an employer"
-                message="Choose an employer first."
-              />
-            }
-          >
-            <EmployeeList
-              onEmployeeSelected={(employee) => {
-                selectEmployee(employee);
-                navigate(
-                  employerEmployeesPath(
-                    selectedEmployer.id
-                  )
-                );
-              }}
-              onOpenWorkspace={handleOpenWorkspace}
-            />
-          </EmployeeRuntimeGuard>
+            </EmployeeRuntimeGuard>
+          </>
         )}
       </EmployerRuntimeGuard>
 
