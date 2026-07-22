@@ -1,0 +1,2 @@
+.departments-workspace { display: grid; gap: 1rem; }
+.departments-workspace header h2, .departments-workspace header p { margin-top: 0; }

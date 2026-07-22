@@ -1,1 +1,21 @@
-.staffology-organisation-workspace{display:grid;gap:1.25rem;width:min(1180px,calc(100% - 2rem));margin:0 auto;padding:1.5rem 0 2.5rem}.organisation-toolbar{display:flex}.organisation-summary-card,.organisation-details-section{border:1px solid #d8e0ec;border-radius:1rem;background:#fff}.organisation-summary-card{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:1.5rem}.organisation-summary-card h1,.organisation-summary-card p{margin-top:0}.organisation-summary-card .eyebrow{margin-bottom:.35rem;color:#52657d;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.organisation-read-only-badge{border-radius:999px;background:#eef4ff;padding:.45rem .75rem;font-size:.8rem;font-weight:700}.organisation-details-section{padding:1.25rem}.organisation-details-section h2{margin-top:0}.organisation-field-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:0}.organisation-field{border-bottom:1px solid #e4e9f1;padding:.65rem 0}.organisation-field dt{color:#5d6b82;font-size:.8rem;margin-bottom:.35rem}.organisation-field dd{font-weight:600;margin:0;overflow-wrap:anywhere}@media(max-width:640px){.organisation-summary-card{flex-direction:column}}
+.staffology-organisation-workspace { display: grid; gap: 1.25rem; width: min(1180px, calc(100% - 2rem)); margin: 0 auto; padding: 1.5rem 0 2.5rem; }
+.organisation-toolbar { display: flex; justify-content: flex-start; }
+.organisation-back-button { min-height: 2.5rem; }
+.organisation-summary-card, .organisation-details-section, .organisation-collection-card { border: 1px solid #d8e0ec; border-radius: 1rem; background: #fff; }
+.organisation-summary-card { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1.5rem; }
+.organisation-summary-card h1, .organisation-summary-card p { margin-top: 0; }
+.organisation-summary-card .eyebrow { margin-bottom: .35rem; color: #52657d; font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.organisation-read-only-badge { border-radius: 999px; background: #eef4ff; padding: .45rem .75rem; font-size: .8rem; font-weight: 700; }
+.organisation-navigation { display: flex; flex-wrap: wrap; gap: .5rem; border-bottom: 1px solid #d8e0ec; padding-bottom: .75rem; }
+.organisation-navigation button { border: 1px solid #d8e0ec; border-radius: 999px; background: #fff; padding: .55rem .9rem; font: inherit; font-weight: 700; cursor: pointer; }
+.organisation-navigation button[aria-current='page'] { background: #173f7a; color: #fff; }
+.organisation-details-section, .organisation-collection-card { padding: 1.25rem; }
+.organisation-details-section h2, .organisation-collection-card h3 { margin-top: 0; }
+.organisation-field-grid, .organisation-collection-grid { display: grid; gap: 1rem; }
+.organisation-field-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 0; }
+.organisation-collection-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.organisation-field { border-bottom: 1px solid #e4e9f1; padding: .65rem 0; }
+.organisation-field dt { color: #5d6b82; font-size: .8rem; margin-bottom: .35rem; }
+.organisation-field dd { font-weight: 600; margin: 0; overflow-wrap: anywhere; }
+.organisation-sr-only { clip: rect(0 0 0 0); clip-path: inset(50%); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px; }
+@media (max-width: 640px) { .organisation-summary-card { flex-direction: column; } .organisation-navigation { display: grid; } .organisation-navigation button { width: 100%; } }
