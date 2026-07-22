@@ -81,3 +81,4 @@
     flex-direction: column;
   }
 }
+.runtime-sidecar__organisation-action{display:flex;justify-content:flex-end}.runtime-sidecar__organisation-action button{min-height:2.5rem}
