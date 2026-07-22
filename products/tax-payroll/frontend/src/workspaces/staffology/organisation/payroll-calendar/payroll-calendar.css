@@ -1,0 +1,13 @@
+.payroll-calendar-workspace {
+  display: grid;
+  gap: 1rem;
+}
+
+.payroll-calendar-workspace header h2,
+.payroll-calendar-workspace header p {
+  margin-top: 0;
+}
+
+.payroll-period-card {
+  min-width: 0;
+}
