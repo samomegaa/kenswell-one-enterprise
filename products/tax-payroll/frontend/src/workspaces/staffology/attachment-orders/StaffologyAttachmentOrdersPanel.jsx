@@ -7,48 +7,50 @@ import {
 import StaffologyWorkspaceState
   from '../StaffologyWorkspaceState';
 
-import LeaveTable from './LeaveTable';
+import AttachmentOrderTable
+  from './AttachmentOrderTable';
 
 import {
-  createLeavePresentationModel,
-} from './leavePresentationModel';
+  presentModel,
+} from './presentation';
 
-export default function StaffologyLeavePanel({
+export default function StaffologyAttachmentOrdersPanel({
   model,
 }) {
-  const presentation =
-    createLeavePresentationModel(model);
+  const presentation = presentModel(model);
 
   let content;
 
   if (!presentation.available) {
     content = (
       <StaffologyWorkspaceState
-        title="Leave unavailable"
+        title="Attachment orders unavailable"
         message={
-          'Leave information is not present in the current Staffology employee response.'
+          'Attachment order information is not present in the current Staffology employee response.'
         }
       />
     );
   } else if (!presentation.items.length) {
     content = (
       <StaffologyWorkspaceState
-        title="No leave records"
-        message="No leave records are recorded."
+        title="No attachment orders"
+        message="No attachment orders are recorded."
         tone="information"
       />
     );
   } else {
     content = (
-      <LeaveTable items={presentation.items} />
+      <AttachmentOrderTable
+        items={presentation.items}
+      />
     );
   }
 
   return (
     <WorkspaceSection
-      title="Leave"
+      title="Attachment Orders"
       description={
-        'Read-only employee leave information supplied by Staffology.'
+        'Read-only attachment order information supplied by Staffology.'
       }
     >
       {content}
@@ -56,7 +58,7 @@ export default function StaffologyLeavePanel({
   );
 }
 
-StaffologyLeavePanel.propTypes = {
+StaffologyAttachmentOrdersPanel.propTypes = {
   model: PropTypes.shape({
     available: PropTypes.bool.isRequired,
     items: PropTypes.array.isRequired,

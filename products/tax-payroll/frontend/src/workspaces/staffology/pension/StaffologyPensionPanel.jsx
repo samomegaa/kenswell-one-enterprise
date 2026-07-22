@@ -7,46 +7,45 @@ import {
 import StaffologyWorkspaceState
   from '../StaffologyWorkspaceState';
 
-import BankAccountCard
-  from './BankAccountCard';
+import PensionCard from './PensionCard';
 
 import {
-  createBankAccountPresentationModel,
-} from './bankAccountPresentationModel';
+  createPensionPresentationModel,
+} from './pensionPresentationModel';
 
-export default function StaffologyBankAccountPanel({
+export default function StaffologyPensionPanel({
   model,
 }) {
   const presentation =
-    createBankAccountPresentationModel(model);
+    createPensionPresentationModel(model);
 
   let content;
 
   if (!presentation.available) {
     content = (
       <StaffologyWorkspaceState
-        title="Bank account unavailable"
+        title="Pension unavailable"
         message={
-          'Bank account information is not present in the current Staffology employee response.'
+          'Pension information is not present in the current Staffology employee response.'
         }
       />
     );
   } else if (!presentation.items.length) {
     content = (
       <StaffologyWorkspaceState
-        title="No bank accounts"
-        message="No bank accounts are recorded."
+        title="No pension arrangements"
+        message="No pension arrangements are recorded."
         tone="information"
       />
     );
   } else {
     content = (
-      <div className="bank-account-list">
+      <div className="pension-list">
         {presentation.items.map(
-          (account, index) => (
-            <BankAccountCard
-              key={account.id || index}
-              account={account}
+          (pension, index) => (
+            <PensionCard
+              key={pension.id || index}
+              pension={pension}
               index={index}
             />
           )
@@ -57,9 +56,9 @@ export default function StaffologyBankAccountPanel({
 
   return (
     <WorkspaceSection
-      title="Bank Account"
+      title="Pension"
       description={
-        'Read-only employee payment account information supplied by Staffology.'
+        'Read-only employee pension information supplied by Staffology.'
       }
     >
       {content}
@@ -67,7 +66,7 @@ export default function StaffologyBankAccountPanel({
   );
 }
 
-StaffologyBankAccountPanel.propTypes = {
+StaffologyPensionPanel.propTypes = {
   model: PropTypes.shape({
     available: PropTypes.bool.isRequired,
     items: PropTypes.array.isRequired,

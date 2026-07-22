@@ -4,19 +4,26 @@ import {
   WorkspaceSection,
 } from '../framework';
 
+import StaffologyWorkspaceState
+  from './StaffologyWorkspaceState';
+
 export default function StaffologySectionPending({
   title,
 }) {
   return (
-    <WorkspaceSection title={title}>
-      <div className="staffology-section-pending">
-        <strong>{title}</strong>
-        <p>
-          This Staffology section is reserved and will be
-          connected to its API data in the corresponding
-          RC2-C sub-release.
-        </p>
-      </div>
+    <WorkspaceSection
+      title={title}
+      description={
+        'This employee workspace is reserved for a dedicated Staffology integration release.'
+      }
+    >
+      <StaffologyWorkspaceState
+        title={`${title} pending`}
+        message={
+          'Staffology data for this section has not yet been connected. Existing employee data is unchanged.'
+        }
+        tone="pending"
+      />
     </WorkspaceSection>
   );
 }

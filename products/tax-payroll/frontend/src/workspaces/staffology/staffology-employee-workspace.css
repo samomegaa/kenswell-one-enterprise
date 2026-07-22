@@ -3,17 +3,20 @@
   gap: 1.5rem;
 }
 
-.staffology-basic-details section {
+.staffology-basic-details section,
+.staffology-employment-group {
   border-bottom: 1px solid #dbe3ef;
   padding-bottom: 1.5rem;
 }
 
-.staffology-basic-details section:last-child {
+.staffology-basic-details section:last-child,
+.staffology-employment-group:last-child {
   border-bottom: 0;
   padding-bottom: 0;
 }
 
-.staffology-basic-details h3 {
+.staffology-basic-details h3,
+.staffology-employment-group h3 {
   margin: 0 0 1rem;
 }
 
@@ -47,6 +50,32 @@
   overflow-wrap: anywhere;
 }
 
+.staffology-workspace-state {
+  background: #f6f8fc;
+  border: 1px dashed #b8c4d8;
+  border-radius: 0.75rem;
+  padding: 1.1rem 1.25rem;
+}
+
+.staffology-workspace-state--pending {
+  background: #fffaf0;
+  border-color: #d9b96e;
+}
+
+.staffology-workspace-state--information {
+  background: #f4f8ff;
+  border-color: #9eb7df;
+}
+
+.staffology-workspace-state__title {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.staffology-workspace-state__message {
+  margin: 0;
+}
+
 .staffology-section-pending {
   background: #f6f8fc;
   border: 1px dashed #b8c4d8;
@@ -58,27 +87,13 @@
   margin-bottom: 0;
 }
 
-@media (max-width: 640px) {
-  .staffology-field--wide {
-    grid-column: span 1;
-  }
-}
-
 .staffology-employment {
   display: grid;
   gap: 1.5rem;
 }
 
-.staffology-employment-group {
-  border-bottom: 1px solid #dbe3ef;
-  padding-bottom: 1.5rem;
-}
-
-.staffology-employment-group:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-.staffology-employment-group h3 {
-  margin: 0 0 1rem;
+@media (max-width: 640px) {
+  .staffology-field--wide {
+    grid-column: span 1;
+  }
 }
