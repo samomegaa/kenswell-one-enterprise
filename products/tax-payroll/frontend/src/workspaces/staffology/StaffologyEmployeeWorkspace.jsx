@@ -1,33 +1,227 @@
-import { useMemo, useState } from 'react';
+import {
+  useMemo,
+  useState,
+} from 'react';
+
 import PropTypes from 'prop-types';
+
 import './staffology-employee-workspace.css';
-import { WorkspaceHeader, WorkspaceLayout, WorkspaceNavigation } from '../framework';
-import { STAFFOLOGY_EMPLOYEE_TABS } from './staffologyEmployeeWorkspaceContract';
-import { adaptStaffologyBasicDetails } from './adaptStaffologyBasicDetails';
-import { adaptStaffologyEmployment } from './adaptStaffologyEmployment';
-import StaffologyBasicDetailsPanel from './StaffologyBasicDetailsPanel';
-import StaffologyEmploymentPanel from './StaffologyEmploymentPanel';
-import { StaffologyPayOptionsWorkspace } from './pay-options';
-import { StaffologyAttachmentOrdersPanel, adaptStaffologyAttachmentOrders } from './attachment-orders';
+
+import {
+  WorkspaceHeader,
+  WorkspaceLayout,
+  WorkspaceNavigation,
+} from '../framework';
+
+import {
+  STAFFOLOGY_EMPLOYEE_TABS,
+} from './staffologyEmployeeWorkspaceContract';
+
+import {
+  adaptStaffologyBasicDetails,
+} from './adaptStaffologyBasicDetails';
+
+import {
+  adaptStaffologyEmployment,
+} from './adaptStaffologyEmployment';
+
+import StaffologyBasicDetailsPanel
+  from './StaffologyBasicDetailsPanel';
+
+import StaffologyEmploymentPanel
+  from './StaffologyEmploymentPanel';
+
+import {
+  StaffologyPayOptionsWorkspace,
+} from './pay-options';
+
+import {
+  StaffologyAttachmentOrdersPanel,
+  adaptStaffologyAttachmentOrders,
+} from './attachment-orders';
+
 import './attachment-orders/attachment-orders.css';
-import { StaffologyBankAccountPanel, adaptStaffologyBankAccounts } from './bank-account';
+
+import {
+  StaffologyBankAccountPanel,
+  adaptStaffologyBankAccounts,
+} from './bank-account';
+
 import './bank-account/bank-account.css';
-import StaffologySectionPending from './StaffologySectionPending';
-export default function StaffologyEmployeeWorkspace({runtimeWorkspace,onBack}) {
-  const [activeTab,setActiveTab]=useState('basic-details');
-  const employee=useMemo(()=>adaptStaffologyBasicDetails(runtimeWorkspace),[runtimeWorkspace]);
-  const employment=useMemo(()=>adaptStaffologyEmployment(runtimeWorkspace),[runtimeWorkspace]);
-  const attachmentOrders=useMemo(()=>adaptStaffologyAttachmentOrders(runtimeWorkspace),[runtimeWorkspace]);
-  const bankAccounts=useMemo(()=>adaptStaffologyBankAccounts(runtimeWorkspace),[runtimeWorkspace]);
-  const navigation=useMemo(()=>STAFFOLOGY_EMPLOYEE_TABS.map((tab)=>({id:tab.id,label:tab.label})),[]);
-  const selectedTab=STAFFOLOGY_EMPLOYEE_TABS.find((tab)=>tab.id===activeTab)||STAFFOLOGY_EMPLOYEE_TABS[0];
+
+import {
+  StaffologyLeavePanel,
+  adaptStaffologyLeave,
+} from './leave';
+
+import './leave/leave.css';
+
+import StaffologySectionPending
+  from './StaffologySectionPending';
+
+export default function StaffologyEmployeeWorkspace({
+  runtimeWorkspace,
+  onBack,
+}) {
+  const [activeTab, setActiveTab] =
+    useState('basic-details');
+
+  const employee = useMemo(
+    () => adaptStaffologyBasicDetails(
+      runtimeWorkspace
+    ),
+    [runtimeWorkspace]
+  );
+
+  const employment = useMemo(
+    () => adaptStaffologyEmployment(
+      runtimeWorkspace
+    ),
+    [runtimeWorkspace]
+  );
+
+  const attachmentOrders = useMemo(
+    () => adaptStaffologyAttachmentOrders(
+      runtimeWorkspace
+    ),
+    [runtimeWorkspace]
+  );
+
+  const bankAccounts = useMemo(
+    () => adaptStaffologyBankAccounts(
+      runtimeWorkspace
+    ),
+    [runtimeWorkspace]
+  );
+
+  const leave = useMemo(
+    () => adaptStaffologyLeave(
+      runtimeWorkspace
+    ),
+    [runtimeWorkspace]
+  );
+
+  const navigation = useMemo(
+    () => STAFFOLOGY_EMPLOYEE_TABS.map(
+      (tab) => ({
+        id: tab.id,
+        label: tab.label,
+      })
+    ),
+    []
+  );
+
+  const selectedTab =
+    STAFFOLOGY_EMPLOYEE_TABS.find(
+      (tab) => tab.id === activeTab
+    ) || STAFFOLOGY_EMPLOYEE_TABS[0];
+
   let content;
-  if (activeTab==='basic-details') content=<StaffologyBasicDetailsPanel employee={employee}/>;
-  else if (activeTab==='employment') content=<StaffologyEmploymentPanel employment={employment}/>;
-  else if (activeTab==='pay-options') content=<StaffologyPayOptionsWorkspace runtimeWorkspace={runtimeWorkspace}/>;
-  else if (activeTab==='attachment-orders') content=<StaffologyAttachmentOrdersPanel model={attachmentOrders}/>;
-  else if (activeTab==='bank-account') content=<StaffologyBankAccountPanel model={bankAccounts}/>;
-  else content=<StaffologySectionPending title={selectedTab.label}/>;
-  return <WorkspaceLayout className="staffology-employee-workspace" header={<WorkspaceHeader eyebrow="Staffology payroll employee" title={employee.displayName} status="Read only" subtitle={`Employee reference ${employee.id || '—'}`} metadata={[{label:'Employer',value:runtimeWorkspace.employer?.name || '—'},{label:'Provider',value:'Staffology'},{label:'Runtime',value:'Dynamic'}]} actions={<button type="button" onClick={onBack}>Back to employees</button>}/>} navigation={<WorkspaceNavigation items={navigation} activeId={activeTab} onSelect={setActiveTab} ariaLabel="Staffology employee sections"/>}>{content}</WorkspaceLayout>;
+
+  if (activeTab === 'basic-details') {
+    content = (
+      <StaffologyBasicDetailsPanel
+        employee={employee}
+      />
+    );
+  } else if (activeTab === 'employment') {
+    content = (
+      <StaffologyEmploymentPanel
+        employment={employment}
+      />
+    );
+  } else if (activeTab === 'pay-options') {
+    content = (
+      <StaffologyPayOptionsWorkspace
+        runtimeWorkspace={runtimeWorkspace}
+      />
+    );
+  } else if (
+    activeTab === 'attachment-orders'
+  ) {
+    content = (
+      <StaffologyAttachmentOrdersPanel
+        model={attachmentOrders}
+      />
+    );
+  } else if (
+    activeTab === 'bank-account'
+  ) {
+    content = (
+      <StaffologyBankAccountPanel
+        model={bankAccounts}
+      />
+    );
+  } else if (activeTab === 'leave') {
+    content = (
+      <StaffologyLeavePanel
+        model={leave}
+      />
+    );
+  } else {
+    content = (
+      <StaffologySectionPending
+        title={selectedTab.label}
+      />
+    );
+  }
+
+  return (
+    <WorkspaceLayout
+      className="staffology-employee-workspace"
+      header={
+        <WorkspaceHeader
+          eyebrow="Staffology payroll employee"
+          title={employee.displayName}
+          status="Read only"
+          subtitle={
+            `Employee reference ${employee.id || '—'}`
+          }
+          metadata={[
+            {
+              label: 'Employer',
+              value:
+                runtimeWorkspace.employer?.name ||
+                '—',
+            },
+            {
+              label: 'Provider',
+              value: 'Staffology',
+            },
+            {
+              label: 'Runtime',
+              value: 'Dynamic',
+            },
+          ]}
+          actions={
+            <button
+              type="button"
+              onClick={onBack}
+            >
+              Back to employees
+            </button>
+          }
+        />
+      }
+      navigation={
+        <WorkspaceNavigation
+          items={navigation}
+          activeId={activeTab}
+          onSelect={setActiveTab}
+          ariaLabel="Staffology employee sections"
+        />
+      }
+    >
+      {content}
+    </WorkspaceLayout>
+  );
 }
-StaffologyEmployeeWorkspace.propTypes={runtimeWorkspace:PropTypes.shape({employer:PropTypes.object,employee:PropTypes.object,workspace:PropTypes.object}).isRequired,onBack:PropTypes.func.isRequired};
+
+StaffologyEmployeeWorkspace.propTypes = {
+  runtimeWorkspace: PropTypes.shape({
+    employer: PropTypes.object,
+    employee: PropTypes.object,
+    workspace: PropTypes.object,
+  }).isRequired,
+  onBack: PropTypes.func.isRequired,
+};
