@@ -34,9 +34,14 @@ import {
   StaffologyPayElementsWorkspace,
 } from './pay-elements';
 
+import {
+  StaffologyOrganisationDashboard,
+} from './dashboard';
+
 import './organisation.css';
 
 const TABS = Object.freeze([
+  { id: 'dashboard', label: 'Dashboard' },
   { id: 'overview', label: 'Overview' },
   { id: 'departments', label: 'Departments' },
   { id: 'cost-centres', label: 'Cost Centres' },
@@ -55,7 +60,7 @@ export default function StaffologyOrganisationWorkspace({
   onBack,
 }) {
   const [activeTab, setActiveTab] =
-    useState('overview');
+    useState('dashboard');
 
   const model =
     createOrganisationPresentationModel(
@@ -85,7 +90,13 @@ export default function StaffologyOrganisationWorkspace({
 
   let content;
 
-  if (activeTab === 'departments') {
+  if (activeTab === 'dashboard') {
+    content = (
+      <StaffologyOrganisationDashboard
+        employer={employer}
+      />
+    );
+  } else if (activeTab === 'departments') {
     content = (
       <StaffologyDepartmentsWorkspace
         employer={employer}
@@ -116,12 +127,10 @@ export default function StaffologyOrganisationWorkspace({
           title="Organisation identity"
           fields={model.identity}
         />
-
         <OrganisationDetailsSection
           title="Payroll configuration"
           fields={model.payroll}
         />
-
         <OrganisationDetailsSection
           title="Administration"
           fields={model.administration}

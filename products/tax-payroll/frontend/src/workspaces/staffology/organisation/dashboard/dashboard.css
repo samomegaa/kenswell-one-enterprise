@@ -1,0 +1,86 @@
+.organisation-dashboard {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.organisation-dashboard__header,
+.dashboard-status-panel,
+.dashboard-contract-panel,
+.dashboard-metric-card {
+  border: 1px solid #d8e0ec;
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.organisation-dashboard__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.organisation-dashboard__header h2,
+.organisation-dashboard__header p {
+  margin-top: 0;
+}
+
+.organisation-dashboard__identity {
+  display: grid;
+  gap: 0.25rem;
+  text-align: right;
+}
+
+.organisation-dashboard__identity span {
+  color: #5d6b82;
+  font-size: 0.8rem;
+}
+
+.dashboard-metric-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns:
+    repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.dashboard-metric-card {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.15rem;
+}
+
+.dashboard-metric-card span {
+  color: #5d6b82;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.dashboard-metric-card strong {
+  font-size: 1.35rem;
+}
+
+.dashboard-status-panel,
+.dashboard-contract-panel {
+  padding: 1.25rem;
+}
+
+.dashboard-status-panel h2,
+.dashboard-contract-panel h2 {
+  margin-top: 0;
+}
+
+.dashboard-contract-panel ul {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .organisation-dashboard__header {
+    flex-direction: column;
+  }
+
+  .organisation-dashboard__identity {
+    text-align: left;
+  }
+}
