@@ -1,0 +1,130 @@
+.staffology-payroll-run-workspace {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.payroll-run-header,
+.payroll-run-panel,
+.payroll-run-metric-card {
+  border: 1px solid #d8dee8;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.payroll-run-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.payroll-run-header h1,
+.payroll-run-panel h2 {
+  margin: 0;
+}
+
+.payroll-run-eyebrow {
+  margin: 0 0 0.35rem;
+  color: #5d6678;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.payroll-run-provider,
+.payroll-run-read-only {
+  align-self: flex-start;
+  border-radius: 999px;
+  background: #eef2ff;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.payroll-run-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.payroll-run-metric-card,
+.payroll-run-panel {
+  padding: 1.1rem;
+}
+
+.payroll-run-metric-card span {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: #5d6678;
+  font-size: 0.82rem;
+}
+
+.payroll-run-metric-card strong {
+  font-size: 1.35rem;
+}
+
+.payroll-run-panel-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.payroll-run-status-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 0;
+}
+
+.payroll-run-status-grid div {
+  padding: 0.85rem;
+  border-radius: 12px;
+  background: #f7f9fc;
+}
+
+.payroll-run-status-grid dt {
+  color: #5d6678;
+  font-size: 0.8rem;
+}
+
+.payroll-run-status-grid dd {
+  margin: 0.35rem 0 0;
+  font-weight: 700;
+}
+
+.payroll-run-table-wrap {
+  overflow-x: auto;
+}
+
+.payroll-run-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.payroll-run-table th,
+.payroll-run-table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #e5e9f0;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .payroll-run-metrics,
+  .payroll-run-status-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .payroll-run-header,
+  .payroll-run-panel-heading {
+    flex-direction: column;
+  }
+
+  .payroll-run-metrics,
+  .payroll-run-status-grid {
+    grid-template-columns: 1fr;
+  }
+}

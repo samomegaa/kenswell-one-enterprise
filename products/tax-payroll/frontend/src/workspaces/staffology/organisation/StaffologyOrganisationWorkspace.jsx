@@ -38,11 +38,16 @@ import {
   StaffologyOrganisationDashboard,
 } from './dashboard';
 
+import {
+  StaffologyPayrollRunWorkspace,
+} from '../payroll-run';
+
 import './organisation.css';
 
 const TABS = Object.freeze([
   { id: 'dashboard', label: 'Dashboard' },
   { id: 'overview', label: 'Overview' },
+  { id: 'payroll-runs', label: 'Payroll Runs' },
   { id: 'departments', label: 'Departments' },
   { id: 'cost-centres', label: 'Cost Centres' },
   {
@@ -93,6 +98,12 @@ export default function StaffologyOrganisationWorkspace({
   if (activeTab === 'dashboard') {
     content = (
       <StaffologyOrganisationDashboard
+        employer={employer}
+      />
+    );
+  } else if (activeTab === 'payroll-runs') {
+    content = (
+      <StaffologyPayrollRunWorkspace
         employer={employer}
       />
     );

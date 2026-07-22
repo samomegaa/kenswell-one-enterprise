@@ -1,0 +1,10 @@
+const fs=require('fs'); const path=require('path'); const root=process.cwd();
+const base=path.join(root,'products/tax-payroll/frontend/src/workspaces/staffology/payroll-run');
+const files=['payrollRunContract.js','payrollRunResolver.js','adaptStaffologyPayrollRun.js','payrollRunPresentation.js','payrollRunPresentationModel.js','PayrollRunSummaryCard.jsx','PayrollRunStatusPanel.jsx','PayrollRunPeriodsTable.jsx','StaffologyPayrollRunWorkspace.jsx','payroll-run.css','index.js'];
+for (const file of files) if (!fs.existsSync(path.join(base,file))) throw new Error(`Missing payroll-run file: ${file}`);
+const index=fs.readFileSync(path.join(base,'index.js'),'utf8');
+for (const symbol of ['StaffologyPayrollRunWorkspace','adaptStaffologyPayrollRun','resolvePayrollRunCollection','createPayrollRunPresentationModel']) if (!index.includes(symbol)) throw new Error(`Missing export: ${symbol}`);
+const workspace=fs.readFileSync(path.join(root,'products/tax-payroll/frontend/src/workspaces/staffology/organisation/StaffologyOrganisationWorkspace.jsx'),'utf8');
+for (const marker of ["StaffologyPayrollRunWorkspace","id: 'payroll-runs'","activeTab === 'payroll-runs'"]) if (!workspace.includes(marker)) throw new Error(`Missing integration: ${marker}`);
+const model=fs.readFileSync(path.join(base,'payrollRunPresentationModel.js'),'utf8'); if (!model.includes("'Unavailable'")) throw new Error('Unavailable states missing');
+console.log('Staffology Payroll Run Workspace verification passed');
