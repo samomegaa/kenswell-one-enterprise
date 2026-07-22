@@ -30,24 +30,23 @@ import {
   StaffologyPayrollCalendarWorkspace,
 } from './payroll-calendar';
 
+import {
+  StaffologyPayElementsWorkspace,
+} from './pay-elements';
+
 import './organisation.css';
 
 const TABS = Object.freeze([
-  {
-    id: 'overview',
-    label: 'Overview',
-  },
-  {
-    id: 'departments',
-    label: 'Departments',
-  },
-  {
-    id: 'cost-centres',
-    label: 'Cost Centres',
-  },
+  { id: 'overview', label: 'Overview' },
+  { id: 'departments', label: 'Departments' },
+  { id: 'cost-centres', label: 'Cost Centres' },
   {
     id: 'payroll-calendar',
     label: 'Payroll Calendar',
+  },
+  {
+    id: 'pay-elements',
+    label: 'Pay Elements',
   },
 ]);
 
@@ -98,11 +97,15 @@ export default function StaffologyOrganisationWorkspace({
         employer={employer}
       />
     );
-  } else if (
-    activeTab === 'payroll-calendar'
-  ) {
+  } else if (activeTab === 'payroll-calendar') {
     content = (
       <StaffologyPayrollCalendarWorkspace
+        employer={employer}
+      />
+    );
+  } else if (activeTab === 'pay-elements') {
+    content = (
+      <StaffologyPayElementsWorkspace
         employer={employer}
       />
     );

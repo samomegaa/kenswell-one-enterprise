@@ -13,3 +13,4 @@ export {
 export * from './departments';
 export * from './cost-centres';
 export * from './payroll-calendar';
+export * from './pay-elements';

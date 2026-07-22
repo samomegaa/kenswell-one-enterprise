@@ -1,0 +1,31 @@
+.pay-elements-workspace,
+.pay-element-group {
+  display: grid;
+  gap: 1rem;
+}
+
+.pay-elements-workspace {
+  gap: 1.5rem;
+}
+
+.pay-elements-workspace__header h2,
+.pay-elements-workspace__header p,
+.pay-element-group header h2,
+.pay-element-group header p,
+.pay-element-group > h2 {
+  margin-top: 0;
+}
+
+.pay-element-group {
+  border-bottom: 1px solid #d8e0ec;
+  padding-bottom: 1.5rem;
+}
+
+.pay-element-group:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.pay-element-card {
+  min-width: 0;
+}
