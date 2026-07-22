@@ -178,7 +178,8 @@
     "enterprise:1.2:employee-workspace": "node review/1.2/WORKSPACE/verify-employee-workspace.js",
     "verify:staffology": "node tools/verify/run.js",
     "verify:staffology:catalogue": "node tools/verify/run.js staffology-catalogue",
-    "verify:staffology:workspace": "node tools/verify/run.js staffology-workspace"
+    "verify:staffology:workspace": "node tools/verify/run.js staffology-workspace",
+    "verify:staffology:organisation:1.3": "node review/1.3/GA/verify-version-1.3.js"
   },
   "engines": {
     "node": ">=20"
