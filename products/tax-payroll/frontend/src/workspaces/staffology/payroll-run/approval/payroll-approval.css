@@ -1,0 +1,76 @@
+.payroll-approval-panel {
+  padding: 1.25rem;
+  border: 1px solid #d8dee8;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.payroll-approval-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.payroll-approval-heading h2,
+.payroll-approval-list h3,
+.payroll-approval-timeline h3 { margin: 0; }
+
+.payroll-approval-read-only {
+  align-self: flex-start;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: #eef2ff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.payroll-approval-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.payroll-approval-summary article,
+.payroll-approval-metadata div {
+  padding: 1rem;
+  border-radius: 12px;
+  background: #f7f9fc;
+}
+
+.payroll-approval-summary span,
+.payroll-approval-metadata dt {
+  display: block;
+  color: #5d6678;
+  font-size: 0.8rem;
+}
+
+.payroll-approval-summary strong { font-size: 1.2rem; }
+
+.payroll-approval-metadata,
+.payroll-approval-readiness {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.payroll-approval-metadata { margin: 0; }
+.payroll-approval-readiness { margin: 1.25rem 0; }
+.payroll-approval-metadata dd { margin: 0.35rem 0 0; font-weight: 700; }
+
+.payroll-approval-list,
+.payroll-approval-timeline {
+  padding: 1rem;
+  border: 1px solid #e5e9f0;
+  border-radius: 12px;
+}
+
+.payroll-approval-list ul,
+.payroll-approval-timeline ol { margin: 0.8rem 0 0; padding-left: 1.25rem; }
+.payroll-approval-list li,
+.payroll-approval-timeline li { margin-bottom: 0.65rem; }
+.payroll-approval-timeline li { display: grid; gap: 0.2rem; }
+.payroll-approval-timeline span,
+.payroll-approval-timeline time { color: #5d6678; font-size: 0.82rem; }
+.payroll-approval-note { margin: 1rem 0 0; color: #5d6678; font-size: 0.82rem; }

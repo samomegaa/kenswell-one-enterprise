@@ -23,3 +23,10 @@ export {
   createPayrollValidationPresentationModel,
   resolvePayrollValidationCollection,
 } from './validation-exceptions';
+
+export {
+  StaffologyPayrollApprovalWorkspace,
+  adaptStaffologyPayrollApproval,
+  createPayrollApprovalPresentationModel,
+  resolvePayrollApproval,
+} from './approval';

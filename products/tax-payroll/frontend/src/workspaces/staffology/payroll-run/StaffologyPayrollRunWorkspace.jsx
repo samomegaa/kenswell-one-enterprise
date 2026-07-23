@@ -33,6 +33,10 @@ import {
   StaffologyPayrollValidationExceptions,
 } from './validation-exceptions';
 
+import {
+  StaffologyPayrollApprovalWorkspace,
+} from './approval';
+
 import './payroll-run.css';
 
 export default function StaffologyPayrollRunWorkspace({
@@ -97,6 +101,11 @@ export default function StaffologyPayrollRunWorkspace({
       />
 
       <StaffologyPayrollValidationExceptions
+        employer={employer}
+        payrollRun={model.current}
+      />
+
+      <StaffologyPayrollApprovalWorkspace
         employer={employer}
         payrollRun={model.current}
       />
