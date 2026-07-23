@@ -1,0 +1,72 @@
+{
+  "release": "2.0-R0",
+  "capturedAt": "2026-07-23T20:15:28.241Z",
+  "branch": "release/1.4-a5",
+  "commit": "a7fa6fc8fddfe667740135fabc33b52483dd2682",
+  "node": "v20.20.2",
+  "preExistingWorkingTreeEntries": 1504,
+  "capabilityCount": 12,
+  "capabilitiesPresent": 12,
+  "capabilities": [
+    {
+      "name": "Staffology client",
+      "path": "src/enterprise/payroll/providers/staffology/staffology-client.js",
+      "present": true
+    },
+    {
+      "name": "Staffology provider",
+      "path": "src/enterprise/payroll/providers/staffology/staffology-provider.js",
+      "present": true
+    },
+    {
+      "name": "Staffology mappers",
+      "path": "src/enterprise/payroll/providers/staffology/staffology-mappers.js",
+      "present": true
+    },
+    {
+      "name": "Employer directory",
+      "path": "src/enterprise/employers/staffology-employer-directory.js",
+      "present": true
+    },
+    {
+      "name": "Employee workspace",
+      "path": "products/tax-payroll/frontend/src/workspaces/staffology/StaffologyEmployeeWorkspace.jsx",
+      "present": true
+    },
+    {
+      "name": "Organisation workspace",
+      "path": "products/tax-payroll/frontend/src/workspaces/staffology/organisation/StaffologyOrganisationWorkspace.jsx",
+      "present": true
+    },
+    {
+      "name": "Payroll-run workspace",
+      "path": "products/tax-payroll/frontend/src/workspaces/staffology/payroll-run/StaffologyPayrollRunWorkspace.jsx",
+      "present": true
+    },
+    {
+      "name": "Employee selection",
+      "path": "products/tax-payroll/frontend/src/workspaces/staffology/payroll-run/employee-selection/index.js",
+      "present": true
+    },
+    {
+      "name": "Calculation summary",
+      "path": "products/tax-payroll/frontend/src/workspaces/staffology/payroll-run/calculation-summary/index.js",
+      "present": true
+    },
+    {
+      "name": "Validation workspace",
+      "path": "products/tax-payroll/frontend/src/workspaces/staffology/payroll-run/validation-exceptions/index.js",
+      "present": true
+    },
+    {
+      "name": "Approval workspace",
+      "path": "products/tax-payroll/frontend/src/workspaces/staffology/payroll-run/approval/index.js",
+      "present": true
+    },
+    {
+      "name": "Staffology catalogue",
+      "path": "review/1.2/RC2/D/contracts/staffology-api-catalogue.js",
+      "present": true
+    }
+  ]
+}
