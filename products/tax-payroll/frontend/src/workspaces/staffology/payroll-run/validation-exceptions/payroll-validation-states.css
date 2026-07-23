@@ -1,0 +1,28 @@
+.payroll-validation-severity {
+  display: inline-flex;
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  background: #eef1f5;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.severity-error {
+  background: #ffe9e6;
+}
+
+.severity-warning {
+  background: #fff4d6;
+}
+
+.severity-information {
+  background: #eaf2ff;
+}
+
+.payroll-validation-empty {
+  padding: 1.25rem;
+  border-radius: 12px;
+  background: #f7f9fc;
+  color: #5d6678;
+  text-align: center;
+}

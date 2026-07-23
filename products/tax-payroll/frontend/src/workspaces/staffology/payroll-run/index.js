@@ -16,3 +16,10 @@ export {
   createPayrollCalculationPresentationModel,
   resolvePayrollCalculation,
 } from './calculation-summary';
+
+export {
+  StaffologyPayrollValidationExceptions,
+  adaptStaffologyPayrollValidation,
+  createPayrollValidationPresentationModel,
+  resolvePayrollValidationCollection,
+} from './validation-exceptions';

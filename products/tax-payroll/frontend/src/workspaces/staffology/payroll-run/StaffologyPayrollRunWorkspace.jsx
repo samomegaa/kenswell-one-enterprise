@@ -29,6 +29,10 @@ import {
   StaffologyPayrollCalculationSummary,
 } from './calculation-summary';
 
+import {
+  StaffologyPayrollValidationExceptions,
+} from './validation-exceptions';
+
 import './payroll-run.css';
 
 export default function StaffologyPayrollRunWorkspace({
@@ -88,6 +92,11 @@ export default function StaffologyPayrollRunWorkspace({
       />
 
       <StaffologyPayrollCalculationSummary
+        employer={employer}
+        payrollRun={model.current}
+      />
+
+      <StaffologyPayrollValidationExceptions
         employer={employer}
         payrollRun={model.current}
       />

@@ -1,0 +1,102 @@
+.payroll-validation-panel {
+  padding: 1.25rem;
+  border: 1px solid #d8dee8;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.payroll-validation-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.payroll-validation-heading h2 {
+  margin: 0;
+}
+
+.payroll-validation-read-only {
+  align-self: flex-start;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: #eef2ff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.payroll-validation-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.payroll-validation-summary article {
+  padding: 1rem;
+  border-radius: 12px;
+  background: #f7f9fc;
+}
+
+.payroll-validation-summary span {
+  display: block;
+  color: #5d6678;
+  font-size: 0.8rem;
+}
+
+.payroll-validation-summary strong {
+  font-size: 1.3rem;
+}
+
+.payroll-validation-toolbar {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.payroll-validation-toolbar label {
+  display: grid;
+  gap: 0.4rem;
+  color: #5d6678;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.payroll-validation-toolbar input,
+.payroll-validation-toolbar select {
+  min-height: 42px;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #cfd6e2;
+  border-radius: 10px;
+  background: #fff;
+  color: inherit;
+}
+
+.payroll-validation-table-wrap {
+  overflow-x: auto;
+}
+
+.payroll-validation-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.payroll-validation-table th,
+.payroll-validation-table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #e5e9f0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.payroll-validation-table small {
+  display: block;
+  color: #5d6678;
+}
+
+.payroll-validation-note {
+  margin: 1rem 0 0;
+  color: #5d6678;
+  font-size: 0.82rem;
+}
