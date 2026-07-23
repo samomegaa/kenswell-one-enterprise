@@ -1,0 +1,120 @@
+.payroll-calculation-panel {
+  padding: 1.25rem;
+  border: 1px solid #d8dee8;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.payroll-calculation-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.payroll-calculation-heading h2,
+.payroll-calculation-section h3 {
+  margin: 0;
+}
+
+.payroll-calculation-count {
+  display: grid;
+  min-width: 95px;
+  place-items: center;
+  align-self: flex-start;
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: #eef2ff;
+}
+
+.payroll-calculation-count strong {
+  font-size: 1.4rem;
+}
+
+.payroll-calculation-count span {
+  color: #5d6678;
+  font-size: 0.78rem;
+}
+
+.payroll-calculation-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.payroll-calculation-metric {
+  padding: 1rem;
+  border-radius: 12px;
+  background: #f7f9fc;
+}
+
+.payroll-calculation-metric span {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #5d6678;
+  font-size: 0.8rem;
+}
+
+.payroll-calculation-metric strong {
+  font-size: 1.2rem;
+}
+
+.payroll-calculation-section {
+  padding-top: 1rem;
+  border-top: 1px solid #e5e9f0;
+}
+
+.payroll-calculation-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: 1rem 0 0;
+}
+
+.payroll-calculation-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem;
+  border-bottom: 1px solid #e5e9f0;
+}
+
+.payroll-calculation-list dt {
+  color: #5d6678;
+}
+
+.payroll-calculation-list dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.payroll-calculation-note {
+  margin: 1rem 0 0;
+  color: #5d6678;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 800px) {
+  .payroll-calculation-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .payroll-calculation-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .payroll-calculation-heading {
+    flex-direction: column;
+  }
+
+  .payroll-calculation-count {
+    align-self: stretch;
+  }
+
+  .payroll-calculation-metrics {
+    grid-template-columns: 1fr;
+  }
+}

@@ -25,6 +25,10 @@ import {
   StaffologyPayrollEmployeeSelection,
 } from './employee-selection';
 
+import {
+  StaffologyPayrollCalculationSummary,
+} from './calculation-summary';
+
 import './payroll-run.css';
 
 export default function StaffologyPayrollRunWorkspace({
@@ -79,6 +83,11 @@ export default function StaffologyPayrollRunWorkspace({
       <PayrollRunStatusPanel model={model} />
 
       <StaffologyPayrollEmployeeSelection
+        employer={employer}
+        payrollRun={model.current}
+      />
+
+      <StaffologyPayrollCalculationSummary
         employer={employer}
         payrollRun={model.current}
       />

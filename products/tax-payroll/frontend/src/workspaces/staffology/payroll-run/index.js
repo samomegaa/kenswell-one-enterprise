@@ -9,3 +9,10 @@ export {
   createEmployeeSelectionPresentationModel,
   resolvePayrollEmployeeCollection,
 } from './employee-selection';
+
+export {
+  StaffologyPayrollCalculationSummary,
+  adaptStaffologyPayrollCalculation,
+  createPayrollCalculationPresentationModel,
+  resolvePayrollCalculation,
+} from './calculation-summary';
