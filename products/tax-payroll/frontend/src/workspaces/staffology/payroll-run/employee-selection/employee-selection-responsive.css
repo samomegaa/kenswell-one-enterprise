@@ -1,0 +1,15 @@
+@media (max-width: 800px) {
+  .employee-selection-toolbar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .employee-selection-heading {
+    flex-direction: column;
+  }
+
+  .employee-selection-summary {
+    align-self: stretch;
+  }
+}

@@ -21,6 +21,10 @@ import PayrollRunStatusPanel
 import PayrollRunPeriodsTable
   from './PayrollRunPeriodsTable';
 
+import {
+  StaffologyPayrollEmployeeSelection,
+} from './employee-selection';
+
 import './payroll-run.css';
 
 export default function StaffologyPayrollRunWorkspace({
@@ -73,6 +77,11 @@ export default function StaffologyPayrollRunWorkspace({
       </div>
 
       <PayrollRunStatusPanel model={model} />
+
+      <StaffologyPayrollEmployeeSelection
+        employer={employer}
+        payrollRun={model.current}
+      />
 
       <PayrollRunPeriodsTable
         periods={model.periods}

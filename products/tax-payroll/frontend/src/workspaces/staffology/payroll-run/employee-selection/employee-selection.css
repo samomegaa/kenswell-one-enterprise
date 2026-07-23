@@ -1,0 +1,125 @@
+.employee-selection-panel {
+  padding: 1.25rem;
+  border: 1px solid #d8dee8;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.employee-selection-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.employee-selection-heading h2 {
+  margin: 0;
+}
+
+.employee-selection-summary {
+  display: grid;
+  min-width: 90px;
+  place-items: center;
+  align-self: flex-start;
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: #eef2ff;
+}
+
+.employee-selection-summary strong {
+  font-size: 1.4rem;
+}
+
+.employee-selection-summary span {
+  color: #5d6678;
+  font-size: 0.78rem;
+}
+
+.employee-selection-toolbar {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  gap: 1rem;
+  align-items: end;
+  margin: 1.25rem 0;
+}
+
+.employee-selection-toolbar label {
+  display: grid;
+  gap: 0.4rem;
+  color: #5d6678;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.employee-selection-toolbar input,
+.employee-selection-toolbar select {
+  min-height: 42px;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #cfd6e2;
+  border-radius: 10px;
+  background: #fff;
+  color: inherit;
+}
+
+.employee-selection-actions {
+  display: flex;
+  gap: 0.55rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.employee-selection-actions button {
+  min-height: 42px;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #cfd6e2;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.employee-selection-table-wrap {
+  overflow-x: auto;
+}
+
+.employee-selection-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employee-selection-table th,
+.employee-selection-table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #e5e9f0;
+  text-align: left;
+}
+
+.employee-status {
+  display: inline-flex;
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  background: #eef1f5;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.employee-status-active {
+  background: #e8f7ed;
+}
+
+.employee-status-inactive {
+  background: #fff0ec;
+}
+
+.employee-selection-empty {
+  padding: 1.25rem;
+  border-radius: 12px;
+  background: #f7f9fc;
+  color: #5d6678;
+  text-align: center;
+}
+
+.employee-selection-note {
+  margin: 1rem 0 0;
+  color: #5d6678;
+  font-size: 0.82rem;
+}
