@@ -11,3 +11,13 @@ export {
   createPayrollRuntimeWorkspace,
   usePayrollEmployerContext,
 } from './context';
+export {
+  PayrollSessionProvider,
+  usePayrollSession,
+  activatePayrollSession,
+  restorePayrollSession,
+} from './session';
+
+export {
+  default as ActivatedPayrollWorkspace,
+} from './ActivatedPayrollWorkspace';

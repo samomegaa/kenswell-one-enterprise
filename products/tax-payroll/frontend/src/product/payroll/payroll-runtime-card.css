@@ -1,0 +1,51 @@
+.payroll-runtime-card {
+  padding: 20px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(180px, 1fr) 2fr auto;
+  align-items: center;
+  border: 1px solid #bbf7d0;
+  border-radius: 16px;
+  background: #f0fdf4;
+}
+
+.payroll-runtime-card span {
+  color: #15803d;
+  font-size: .78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.payroll-runtime-card h2 {
+  margin: 6px 0 0;
+  color: #14532d;
+}
+
+.payroll-runtime-card dl {
+  margin: 0;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.payroll-runtime-card dt {
+  color: #64748b;
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+.payroll-runtime-card dd {
+  margin: 4px 0 0;
+  color: #166534;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .payroll-runtime-card {
+    grid-template-columns: 1fr;
+  }
+
+  .payroll-runtime-card dl {
+    grid-template-columns: 1fr;
+  }
+}

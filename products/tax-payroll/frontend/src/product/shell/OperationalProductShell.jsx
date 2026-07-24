@@ -4,7 +4,7 @@ import { createProductNavigation } from '../createProductNavigation.js';
 import ProductNavigation from './ProductNavigation';
 import ProductSectionState from './ProductSectionState';
 import OperationalDashboard from '../dashboard/OperationalDashboard';
-import PayrollOperationalWorkspace from '../payroll/PayrollOperationalWorkspace';
+import ActivatedPayrollWorkspace from '../payroll/ActivatedPayrollWorkspace';
 import './operational-product-shell.css';
 
 export default function OperationalProductShell({ children }) {
@@ -27,7 +27,7 @@ export default function OperationalProductShell({ children }) {
         )}
 
         {selected.id === 'payroll' && (
-          <PayrollOperationalWorkspace />
+          <ActivatedPayrollWorkspace />
         )}
 
         {!['dashboard', 'payroll'].includes(selected.id) && (
