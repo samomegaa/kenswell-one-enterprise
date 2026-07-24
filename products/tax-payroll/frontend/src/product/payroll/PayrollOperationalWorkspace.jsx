@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
-
 import StaffologyPayrollRunWorkspace from
   '../../workspaces/staffology/payroll-run/StaffologyPayrollRunWorkspace';
 
+import EmployerPayrollContext from './EmployerPayrollContext';
 import PayrollRuntimeRequired from './PayrollRuntimeRequired';
 import PayrollWorkflowRail from './PayrollWorkflowRail';
 import PayrollWorkspaceHeader from './PayrollWorkspaceHeader';
@@ -12,18 +11,23 @@ import {
   getPayrollWorkflowSummary,
 } from './payrollWorkflow';
 
+import {
+  usePayrollEmployerContext,
+} from './context';
+
 import './payroll-operational-workspace.css';
 import './payroll-operational-layout.css';
 import './payroll-operational-responsive.css';
 
-export default function PayrollOperationalWorkspace({
-  runtimeWorkspace,
-}) {
+export default function PayrollOperationalWorkspace() {
   const summary = getPayrollWorkflowSummary();
+  const context = usePayrollEmployerContext();
 
   return (
     <section className="payroll-operational-workspace">
       <PayrollWorkspaceHeader summary={summary} />
+
+      <EmployerPayrollContext context={context} />
 
       <PayrollWorkflowRail
         stages={PAYROLL_WORKFLOW_STAGES}
@@ -31,9 +35,9 @@ export default function PayrollOperationalWorkspace({
       />
 
       <div className="payroll-operational-workspace__content">
-        {runtimeWorkspace ? (
+        {context.runtimeWorkspace ? (
           <StaffologyPayrollRunWorkspace
-            runtimeWorkspace={runtimeWorkspace}
+            runtimeWorkspace={context.runtimeWorkspace}
           />
         ) : (
           <PayrollRuntimeRequired />
@@ -42,11 +46,3 @@ export default function PayrollOperationalWorkspace({
     </section>
   );
 }
-
-PayrollOperationalWorkspace.propTypes = {
-  runtimeWorkspace: PropTypes.object,
-};
-
-PayrollOperationalWorkspace.defaultProps = {
-  runtimeWorkspace: null,
-};

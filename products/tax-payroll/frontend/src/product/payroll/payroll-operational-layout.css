@@ -73,3 +73,43 @@
   color: #64748b;
   line-height: 1.65;
 }
+
+.payroll-employer-context {
+  padding: 20px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+  align-items: center;
+  border: 1px solid #c7d2fe;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.payroll-employer-context__identity span {
+  color: #4f46e5;
+  font-size: .78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.payroll-employer-context__identity h2 {
+  margin: 7px 0 4px;
+  color: #111827;
+}
+
+.payroll-employer-context__identity p {
+  margin: 0;
+  color: #64748b;
+}
+
+.payroll-employer-context__selector
+.employer-runtime-selector {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.payroll-employer-context__selector
+.employer-runtime-selector__header {
+  display: none;
+}
