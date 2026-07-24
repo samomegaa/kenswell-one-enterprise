@@ -64,3 +64,25 @@ export {
 } from './execution';
 
 export { default as PayrollPipelineCard } from './PayrollPipelineCard';
+export {
+  PayrollGovernanceProvider,
+  usePayrollGovernance,
+  createApprovalState,
+  decidePayrollApproval,
+} from './approval';
+
+export {
+  COMPLIANCE_STATUS,
+  evaluateCompliance,
+} from './compliance';
+
+export {
+  VALIDATION_SEVERITY,
+  createValidationFinding,
+  normaliseValidationResults,
+  getValidationSummary,
+} from './validation';
+
+export {
+  default as PayrollGovernanceCard,
+} from './PayrollGovernanceCard';

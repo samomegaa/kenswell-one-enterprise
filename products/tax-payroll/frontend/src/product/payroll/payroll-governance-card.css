@@ -1,0 +1,56 @@
+.payroll-governance-card {
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+  border: 1px solid #bbf7d0;
+  border-radius: 16px;
+  background: #f0fdf4;
+}
+
+.payroll-governance-card header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.payroll-governance-card span {
+  color: #15803d;
+  font-size: .78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.payroll-governance-card h2,
+.payroll-governance-card strong {
+  text-transform: capitalize;
+}
+
+.payroll-governance-card dl {
+  margin: 0;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.payroll-governance-card dt {
+  color: #64748b;
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+.payroll-governance-card dd {
+  margin: 4px 0 0;
+  font-weight: 700;
+}
+
+.payroll-governance-card__actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .payroll-governance-card dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
