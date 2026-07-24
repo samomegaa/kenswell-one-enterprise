@@ -4,6 +4,7 @@ import StaffologyPayrollRunWorkspace from
   '../../workspaces/staffology/payroll-run/StaffologyPayrollRunWorkspace';
 
 import EmployerPayrollContext from './EmployerPayrollContext';
+import PayrollExecutionCard from './PayrollExecutionCard';
 import PayrollPeriodCard from './PayrollPeriodCard';
 import PayrollRuntimeCard from './PayrollRuntimeCard';
 import PayrollRuntimeRequired from './PayrollRuntimeRequired';
@@ -15,6 +16,7 @@ import {
   getPayrollWorkflowSummary,
 } from './payrollWorkflow';
 
+import { usePayrollOrchestrator } from './orchestrator';
 import { usePayrollPeriod } from './period';
 import { usePayrollSession } from './session';
 
@@ -23,6 +25,7 @@ import './payroll-operational-layout.css';
 import './payroll-operational-responsive.css';
 import './payroll-runtime-card.css';
 import './payroll-period-card.css';
+import './payroll-execution-card.css';
 
 export default function PayrollOperationalWorkspace({
   context,
@@ -30,6 +33,7 @@ export default function PayrollOperationalWorkspace({
   const summary = getPayrollWorkflowSummary();
   const sessionState = usePayrollSession();
   const periodState = usePayrollPeriod();
+  const orchestrator = usePayrollOrchestrator();
 
   const operational =
     sessionState.active && periodState.active;
@@ -37,7 +41,6 @@ export default function PayrollOperationalWorkspace({
   return (
     <section className="payroll-operational-workspace">
       <PayrollWorkspaceHeader summary={summary} />
-
       <EmployerPayrollContext context={context} />
 
       <PayrollRuntimeCard
@@ -52,9 +55,21 @@ export default function PayrollOperationalWorkspace({
         onClose={periodState.close}
       />
 
+      <PayrollExecutionCard
+        execution={orchestrator.execution}
+        nextState={orchestrator.nextState}
+        onAdvance={orchestrator.advance}
+        onPause={orchestrator.pause}
+        onResume={orchestrator.resume}
+        onCancel={orchestrator.cancel}
+      />
+
       <PayrollWorkflowRail
         stages={PAYROLL_WORKFLOW_STAGES}
-        activeId={periodState.stage}
+        activeId={
+          orchestrator.execution?.state ||
+          periodState.stage
+        }
       />
 
       <div className="payroll-operational-workspace__content">

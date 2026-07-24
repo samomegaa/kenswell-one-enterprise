@@ -1,0 +1,53 @@
+.payroll-execution-card {
+  padding: 20px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(180px, 1fr) 2fr auto;
+  align-items: center;
+  border: 1px solid #ddd6fe;
+  border-radius: 16px;
+  background: #f5f3ff;
+}
+
+.payroll-execution-card span {
+  color: #6d28d9;
+  font-size: .78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.payroll-execution-card h2,
+.payroll-execution-card dd {
+  text-transform: capitalize;
+}
+
+.payroll-execution-card dl {
+  margin: 0;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.payroll-execution-card dt {
+  color: #64748b;
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+.payroll-execution-card dd {
+  margin: 4px 0 0;
+  font-weight: 700;
+}
+
+.payroll-execution-card__actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .payroll-execution-card,
+  .payroll-execution-card dl {
+    grid-template-columns: 1fr;
+  }
+}
