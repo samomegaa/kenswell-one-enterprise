@@ -116,3 +116,90 @@ export {
 export {
   default as PayrollSubmissionCard,
 } from './PayrollSubmissionCard';
+export {
+  PayrollCompletionProvider,
+  usePayrollCompletion,
+  createCompletionState,
+  getCompletionMetrics,
+} from './completion';
+
+export {
+  HMRC_RESPONSE_STATUS,
+  processHmrcResponse,
+  readHmrcResponse,
+  writeHmrcResponse,
+} from './response';
+
+export {
+  RECONCILIATION_STATUS,
+  reconcileSubmission,
+  readReconciliation,
+  writeReconciliation,
+} from './reconciliation';
+
+export {
+  evaluateArchiveEligibility,
+  archivePayroll,
+} from './archive';
+
+export {
+  COMPLETION_EVENTS,
+  publishPayrollNotification,
+} from './notifications';
+
+export {
+  default as PayrollCompletionCard,
+} from './PayrollCompletionCard';
+export {
+  PayrollOperationsProvider,
+  usePayrollOperations,
+  createOperationsSnapshot,
+  calculateOperationsMetrics,
+} from './operations';
+
+export {
+  resolvePayrollHealth,
+  resolveProviderHealth,
+  resolveQueueHealth,
+  buildMonitoringSummary,
+} from './monitoring';
+
+export {
+  EXCEPTION_SEVERITY,
+  buildExceptionRegistry,
+} from './exceptions';
+
+export {
+  PayrollOperationsDashboard,
+} from './dashboard';
+
+export {
+  default as PayrollOperationsCentre,
+} from './PayrollOperationsCentre';
+export {
+  ACTIVITY_TYPE,
+  createActivityEntry,
+  buildPayrollActivity,
+  readActivityHistory,
+  writeActivityHistory,
+} from './activity';
+
+export {
+  TIMELINE_FILTERS,
+  filterTimeline,
+  buildTimelineSummary,
+} from './timeline';
+
+export {
+  buildRuntimeDiagnostics,
+  traceCorrelation,
+} from './diagnostics';
+
+export {
+  PayrollActivityProvider,
+  usePayrollActivity,
+} from './activity-centre';
+
+export {
+  default as PayrollActivityCentre,
+} from './PayrollActivityCentre';

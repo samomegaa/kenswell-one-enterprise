@@ -1,0 +1,107 @@
+.payroll-activity-centre {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #ddd6fe;
+  border-radius: 18px;
+  background: #faf5ff;
+}
+
+.activity-centre-header,
+.activity-timeline-filters,
+.activity-timeline-item article header,
+.activity-timeline-item article footer,
+.diagnostics-summary-card header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.activity-centre-header span,
+.activity-timeline-item span,
+.diagnostics-summary-card span {
+  color: #6d28d9;
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.activity-centre-header h2,
+.activity-timeline-item h3 {
+  margin: 4px 0 0;
+}
+
+.activity-centre-header__status {
+  display: grid;
+  justify-items: end;
+}
+
+.activity-timeline-filters select,
+.activity-timeline-filters input {
+  padding: 10px 12px;
+  border: 1px solid #c4b5fd;
+  border-radius: 10px;
+  background: white;
+}
+
+.activity-timeline-filters input {
+  flex: 1;
+}
+
+.payroll-activity-centre__layout {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr);
+}
+
+.activity-timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.activity-timeline-item {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 12px 1fr;
+  margin-bottom: 12px;
+}
+
+.activity-timeline-item__marker {
+  width: 10px;
+  height: 10px;
+  margin-top: 20px;
+  border-radius: 50%;
+  background: #7c3aed;
+}
+
+.activity-timeline-item article,
+.diagnostics-summary-card,
+.activity-timeline-empty {
+  padding: 16px;
+  border: 1px solid #e9d5ff;
+  border-radius: 14px;
+  background: white;
+}
+
+.activity-timeline-item p {
+  margin: 12px 0;
+}
+
+.activity-timeline-item code {
+  overflow-wrap: anywhere;
+}
+
+.diagnostics-summary-card {
+  align-self: start;
+}
+
+@media (max-width: 900px) {
+  .payroll-activity-centre__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-timeline-filters {
+    flex-direction: column;
+  }
+}
