@@ -6,23 +6,8 @@ import {
 } from './context';
 
 import {
-  PayrollPeriodProvider,
-} from './period';
-
-import {
   PayrollSessionProvider,
-  usePayrollSession,
 } from './session';
-
-function PeriodActivatedWorkspace({ context }) {
-  const { session } = usePayrollSession();
-
-  return (
-    <PayrollPeriodProvider session={session}>
-      <PayrollOperationalWorkspace context={context} />
-    </PayrollPeriodProvider>
-  );
-}
 
 export default function ActivatedPayrollWorkspace() {
   const context = usePayrollEmployerContext();
@@ -31,7 +16,7 @@ export default function ActivatedPayrollWorkspace() {
     <PayrollSessionProvider
       runtimeWorkspace={context.runtimeWorkspace}
     >
-      <PeriodActivatedWorkspace context={context} />
+      <PayrollOperationalWorkspace context={context} />
     </PayrollSessionProvider>
   );
 }

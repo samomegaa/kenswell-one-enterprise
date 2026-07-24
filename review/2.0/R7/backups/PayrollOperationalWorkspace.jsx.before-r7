@@ -4,7 +4,6 @@ import StaffologyPayrollRunWorkspace from
   '../../workspaces/staffology/payroll-run/StaffologyPayrollRunWorkspace';
 
 import EmployerPayrollContext from './EmployerPayrollContext';
-import PayrollPeriodCard from './PayrollPeriodCard';
 import PayrollRuntimeCard from './PayrollRuntimeCard';
 import PayrollRuntimeRequired from './PayrollRuntimeRequired';
 import PayrollWorkflowRail from './PayrollWorkflowRail';
@@ -15,24 +14,22 @@ import {
   getPayrollWorkflowSummary,
 } from './payrollWorkflow';
 
-import { usePayrollPeriod } from './period';
 import { usePayrollSession } from './session';
 
 import './payroll-operational-workspace.css';
 import './payroll-operational-layout.css';
 import './payroll-operational-responsive.css';
 import './payroll-runtime-card.css';
-import './payroll-period-card.css';
 
 export default function PayrollOperationalWorkspace({
   context,
 }) {
   const summary = getPayrollWorkflowSummary();
-  const sessionState = usePayrollSession();
-  const periodState = usePayrollPeriod();
-
-  const operational =
-    sessionState.active && periodState.active;
+  const {
+    session,
+    active,
+    deactivate,
+  } = usePayrollSession();
 
   return (
     <section className="payroll-operational-workspace">
@@ -41,29 +38,20 @@ export default function PayrollOperationalWorkspace({
       <EmployerPayrollContext context={context} />
 
       <PayrollRuntimeCard
-        session={sessionState.session}
-        active={sessionState.active}
-        onDeactivate={sessionState.deactivate}
-      />
-
-      <PayrollPeriodCard
-        period={periodState.period}
-        active={periodState.active}
-        onClose={periodState.close}
+        session={session}
+        active={active}
+        onDeactivate={deactivate}
       />
 
       <PayrollWorkflowRail
         stages={PAYROLL_WORKFLOW_STAGES}
-        activeId={periodState.stage}
+        activeId="employee-selection"
       />
 
       <div className="payroll-operational-workspace__content">
-        {operational &&
-        sessionState.session?.runtimeWorkspace ? (
+        {active && session?.runtimeWorkspace ? (
           <StaffologyPayrollRunWorkspace
-            runtimeWorkspace={
-              sessionState.session.runtimeWorkspace
-            }
+            runtimeWorkspace={session.runtimeWorkspace}
           />
         ) : (
           <PayrollRuntimeRequired />
