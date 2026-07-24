@@ -1,0 +1,57 @@
+.payroll-operational-workspace {
+  padding: 32px;
+  display: grid;
+  gap: 24px;
+}
+
+.payroll-workspace-header {
+  padding: 28px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  border-radius: 18px;
+  color: #f8fafc;
+  background: linear-gradient(135deg, #172033, #263754);
+}
+
+.payroll-workspace-header p {
+  margin: 0 0 7px;
+  color: #a5b4fc;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.payroll-workspace-header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.payroll-workspace-header span {
+  color: #cbd5e1;
+}
+
+.payroll-workspace-header dl {
+  margin: 0;
+  display: flex;
+  gap: 12px;
+}
+
+.payroll-workspace-header dl div {
+  min-width: 82px;
+  padding: 12px;
+  border: 1px solid #50617e;
+  border-radius: 12px;
+}
+
+.payroll-workspace-header dt {
+  color: #cbd5e1;
+  font-size: .75rem;
+}
+
+.payroll-workspace-header dd {
+  margin: 4px 0 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}

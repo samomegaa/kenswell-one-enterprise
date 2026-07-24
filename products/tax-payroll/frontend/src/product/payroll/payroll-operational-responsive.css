@@ -1,0 +1,32 @@
+@media (max-width: 1050px) {
+  .payroll-workspace-header {
+    flex-direction: column;
+  }
+
+  .payroll-workflow-rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .payroll-operational-workspace {
+    padding: 20px;
+  }
+
+  .payroll-workspace-header dl {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .payroll-workspace-header dl div {
+    min-width: 0;
+  }
+
+  .payroll-workflow-rail {
+    grid-template-columns: 1fr;
+  }
+
+  .payroll-runtime-required {
+    padding: 28px 20px;
+  }
+}

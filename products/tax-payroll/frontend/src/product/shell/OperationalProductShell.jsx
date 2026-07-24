@@ -4,6 +4,7 @@ import { createProductNavigation } from '../createProductNavigation.js';
 import ProductNavigation from './ProductNavigation';
 import ProductSectionState from './ProductSectionState';
 import OperationalDashboard from '../dashboard/OperationalDashboard';
+import PayrollOperationalWorkspace from '../payroll/PayrollOperationalWorkspace';
 import './operational-product-shell.css';
 
 export default function OperationalProductShell({ children }) {
@@ -21,9 +22,17 @@ export default function OperationalProductShell({ children }) {
         onSelect={setActiveSection}
       />
       <main className="operational-product-shell__main">
-        {selected.id === 'dashboard'
-          ? <OperationalDashboard>{children}</OperationalDashboard>
-          : <ProductSectionState section={selected} />}
+        {selected.id === 'dashboard' && (
+          <OperationalDashboard>{children}</OperationalDashboard>
+        )}
+
+        {selected.id === 'payroll' && (
+          <PayrollOperationalWorkspace />
+        )}
+
+        {!['dashboard', 'payroll'].includes(selected.id) && (
+          <ProductSectionState section={selected} />
+        )}
       </main>
     </div>
   );
