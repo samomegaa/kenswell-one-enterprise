@@ -10,6 +10,7 @@ import PayrollPeriodCard from './PayrollPeriodCard';
 import PayrollPipelineCard from './PayrollPipelineCard';
 import PayrollRuntimeCard from './PayrollRuntimeCard';
 import PayrollRuntimeRequired from './PayrollRuntimeRequired';
+import PayrollSubmissionCard from './PayrollSubmissionCard';
 import PayrollWorkflowRail from './PayrollWorkflowRail';
 import PayrollWorkspaceHeader from './PayrollWorkspaceHeader';
 
@@ -23,6 +24,7 @@ import { usePayrollOrchestrator } from './orchestrator';
 import { usePayrollPeriod } from './period';
 import { usePayrollPipeline } from './pipeline';
 import { usePayrollSession } from './session';
+import { usePayrollSubmission } from './submission';
 
 import './payroll-operational-workspace.css';
 import './payroll-operational-layout.css';
@@ -32,6 +34,7 @@ import './payroll-period-card.css';
 import './payroll-execution-card.css';
 import './payroll-pipeline-card.css';
 import './payroll-governance-card.css';
+import './payroll-submission-card.css';
 
 export default function PayrollOperationalWorkspace({
   context,
@@ -42,6 +45,7 @@ export default function PayrollOperationalWorkspace({
   const orchestrator = usePayrollOrchestrator();
   const pipelineState = usePayrollPipeline();
   const governance = usePayrollGovernance();
+  const submission = usePayrollSubmission();
 
   const operational =
     sessionState.active && periodState.active;
@@ -87,6 +91,18 @@ export default function PayrollOperationalWorkspace({
         approval={governance.approval}
         onApprove={governance.approve}
         onReject={governance.reject}
+      />
+
+      <PayrollSubmissionCard
+        fpsRequest={submission.fpsRequest}
+        readiness={submission.readiness}
+        submission={submission.submission}
+        retryable={submission.retryable}
+        onPrepare={submission.prepare}
+        onQueue={submission.queue}
+        onDispatch={submission.dispatch}
+        onRetry={submission.retry}
+        onCancel={submission.cancel}
       />
 
       <PayrollWorkflowRail

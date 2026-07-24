@@ -9,6 +9,7 @@ import {
 
 import {
   PayrollGovernanceProvider,
+  usePayrollGovernance,
 } from './approval';
 
 import {
@@ -31,12 +32,34 @@ import {
   usePayrollSession,
 } from './session';
 
+import {
+  PayrollSubmissionProvider,
+} from './submission';
+
+function SubmissionWorkspace({ context }) {
+  const governance = usePayrollGovernance();
+  const { pipeline } = usePayrollPipeline();
+  const { period } = usePayrollPeriod();
+
+  return (
+    <PayrollSubmissionProvider
+      pipeline={pipeline}
+      approval={governance.approval}
+      compliance={governance.compliance}
+      employer={context.runtimeWorkspace}
+      period={period}
+    >
+      <PayrollOperationalWorkspace context={context} />
+    </PayrollSubmissionProvider>
+  );
+}
+
 function GovernanceWorkspace({ context }) {
   const { pipeline } = usePayrollPipeline();
 
   return (
     <PayrollGovernanceProvider pipeline={pipeline}>
-      <PayrollOperationalWorkspace context={context} />
+      <SubmissionWorkspace context={context} />
     </PayrollGovernanceProvider>
   );
 }
@@ -83,6 +106,7 @@ export default function ActivatedPayrollWorkspace() {
   );
 }
 
+SubmissionWorkspace.propTypes =
 GovernanceWorkspace.propTypes =
 PipelineWorkspace.propTypes =
 OrchestratedWorkspace.propTypes =
