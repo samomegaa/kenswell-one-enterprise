@@ -52,3 +52,15 @@ export {
 export {
   default as PayrollExecutionCard,
 } from './PayrollExecutionCard';
+export {
+  PayrollPipelineProvider, usePayrollPipeline, createPipeline,
+  restorePipeline, configurePipeline, advancePipeline,
+  getPipelineMetrics, PIPELINE_CHECKPOINTS, getNextCheckpoint,
+} from './pipeline';
+
+export {
+  EXECUTION_STATUS, EXECUTION_EVENTS, createExecutionQueue,
+  createExecutionResult, dispatchExecutionJob, executePayrollJob,
+} from './execution';
+
+export { default as PayrollPipelineCard } from './PayrollPipelineCard';

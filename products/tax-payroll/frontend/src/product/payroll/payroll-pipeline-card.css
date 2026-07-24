@@ -1,0 +1,12 @@
+.payroll-pipeline-card { padding:20px; display:grid; gap:16px; border:1px solid #bfdbfe; border-radius:16px; background:#eff6ff; }
+.payroll-pipeline-card header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.payroll-pipeline-card span { color:#1d4ed8; font-size:.78rem; font-weight:700; text-transform:uppercase; }
+.payroll-pipeline-card h2 { margin:5px 0 0; text-transform:capitalize; }
+.payroll-pipeline-card header strong { font-size:1.7rem; color:#1e3a8a; }
+.payroll-pipeline-card__bar { height:8px; overflow:hidden; border-radius:999px; background:#dbeafe; }
+.payroll-pipeline-card__bar i { display:block; height:100%; border-radius:inherit; background:currentColor; }
+.payroll-pipeline-card dl { margin:0; display:grid; gap:14px; grid-template-columns:repeat(4,minmax(0,1fr)); }
+.payroll-pipeline-card dt { color:#64748b; font-size:.75rem; text-transform:uppercase; }
+.payroll-pipeline-card dd { margin:4px 0 0; font-weight:700; text-transform:capitalize; }
+.payroll-pipeline-card__actions { display:flex; gap:8px; flex-wrap:wrap; }
+@media (max-width:900px) { .payroll-pipeline-card dl { grid-template-columns:repeat(2,minmax(0,1fr)); } }
