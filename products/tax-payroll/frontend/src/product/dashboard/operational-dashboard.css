@@ -1,0 +1,124 @@
+.operational-dashboard {
+  padding: 32px;
+  display: grid;
+  gap: 26px;
+}
+
+.operational-dashboard__header {
+  padding: 28px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  border-radius: 18px;
+  color: #f8fafc;
+  background: linear-gradient(135deg, #172033, #263754);
+}
+
+.operational-dashboard__header p,
+.operational-dashboard__actions header p,
+.operational-dashboard__provider header p {
+  margin: 0 0 7px;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.operational-dashboard__header p {
+  color: #a5b4fc;
+}
+
+.operational-dashboard__header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.operational-dashboard__header span {
+  color: #cbd5e1;
+}
+
+.operational-dashboard__header > strong {
+  padding: 8px 12px;
+  border: 1px solid #50617e;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.operational-dashboard__metrics {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dashboard-metric,
+.dashboard-action-card {
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.dashboard-metric span,
+.dashboard-action-card > span {
+  font-size: .78rem;
+  font-weight: 700;
+  color: #6366f1;
+  text-transform: uppercase;
+}
+
+.dashboard-metric strong {
+  margin-top: 10px;
+  display: block;
+  font-size: 1.55rem;
+  color: #111827;
+}
+
+.dashboard-metric p,
+.dashboard-action-card p {
+  margin: 6px 0 0;
+  color: #64748b;
+  line-height: 1.55;
+}
+
+.operational-dashboard__actions,
+.operational-dashboard__provider {
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.operational-dashboard__actions header h2,
+.operational-dashboard__provider header h2 {
+  margin: 0;
+  color: #111827;
+}
+
+.operational-dashboard__actions header p,
+.operational-dashboard__provider header p {
+  color: #6366f1;
+}
+
+.operational-dashboard__actions > div {
+  margin-top: 18px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dashboard-action-card h2 {
+  margin: 10px 0 0;
+  font-size: 1.05rem;
+  color: #111827;
+}
+
+.operational-dashboard__provider header span {
+  color: #64748b;
+}
+
+.operational-dashboard__provider-content {
+  margin-top: 20px;
+  overflow: hidden;
+  border-radius: 14px;
+}

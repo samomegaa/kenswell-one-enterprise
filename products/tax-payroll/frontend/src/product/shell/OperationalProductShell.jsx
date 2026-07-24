@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { createProductNavigation } from '../createProductNavigation.js';
 import ProductNavigation from './ProductNavigation';
 import ProductSectionState from './ProductSectionState';
+import OperationalDashboard from '../dashboard/OperationalDashboard';
 import './operational-product-shell.css';
 
 export default function OperationalProductShell({ children }) {
@@ -21,7 +22,7 @@ export default function OperationalProductShell({ children }) {
       />
       <main className="operational-product-shell__main">
         {selected.id === 'dashboard'
-          ? children
+          ? <OperationalDashboard>{children}</OperationalDashboard>
           : <ProductSectionState section={selected} />}
       </main>
     </div>

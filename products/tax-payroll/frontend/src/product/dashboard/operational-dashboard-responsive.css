@@ -1,0 +1,23 @@
+@media (max-width: 1050px) {
+  .operational-dashboard__metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .operational-dashboard__actions > div {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .operational-dashboard {
+    padding: 20px;
+  }
+
+  .operational-dashboard__header {
+    flex-direction: column;
+  }
+
+  .operational-dashboard__metrics {
+    grid-template-columns: 1fr;
+  }
+}
