@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import OperationalProductShell from './product/shell/OperationalProductShell';
+
 import PracticeDashboard from './workspaces/practice/PracticeDashboard';
 import ClientWorkspace from './workspaces/client/ClientWorkspace';
 import EnterpriseProviderCentre from './workspaces/providers/EnterpriseProviderCentre';
@@ -69,12 +71,14 @@ function EnterpriseApplication() {
   }
 
   return (
-  <EnterpriseProviderCentre
-    route={route}
-    navigate={navigate}
-    onBack={returnToPractice}
-  />
-);
+    <OperationalProductShell>
+      <EnterpriseProviderCentre
+        route={route}
+        navigate={navigate}
+        onBack={returnToPractice}
+      />
+    </OperationalProductShell>
+  );
 
 }
 

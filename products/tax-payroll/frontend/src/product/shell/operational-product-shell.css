@@ -1,0 +1,91 @@
+.operational-product-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 248px minmax(0, 1fr);
+  background: #f5f7fb;
+}
+.product-navigation {
+  min-height: 100vh;
+  padding: 24px 18px;
+  color: #f8fafc;
+  background: #111827;
+}
+.product-navigation__brand {
+  display: grid;
+  gap: 3px;
+  padding: 0 10px 24px;
+}
+.product-navigation__brand span,
+.product-navigation__brand small { color: #94a3b8; }
+.product-navigation__brand strong { font-size: 1.35rem; }
+.product-navigation nav { display: grid; gap: 6px; }
+.product-navigation__item {
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 12px;
+  display: flex;
+  justify-content: space-between;
+  color: #cbd5e1;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+.product-navigation__item:hover,
+.product-navigation__item.is-active {
+  color: #fff;
+  background: #253047;
+}
+.product-navigation__item small { color: #94a3b8; }
+.operational-product-shell__main { min-width: 0; }
+.product-section-state { padding: 42px; }
+.product-section-state header { max-width: 720px; }
+.product-section-state__eyebrow {
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: #4f46e5;
+}
+.product-section-state h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #111827;
+}
+.product-section-state header > p:last-child {
+  color: #64748b;
+  line-height: 1.7;
+}
+.product-section-state__grid {
+  margin-top: 28px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.product-section-state article {
+  padding: 22px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #fff;
+}
+.product-section-state article span {
+  font-size: .78rem;
+  font-weight: 700;
+  color: #4f46e5;
+  text-transform: uppercase;
+}
+.product-section-state article h2 {
+  margin: 10px 0 6px;
+  color: #111827;
+}
+.product-section-state article p {
+  margin: 0;
+  color: #64748b;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 820px) {
+  .operational-product-shell { grid-template-columns: 1fr; }
+  .product-navigation { min-height: auto; }
+  .product-navigation nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .product-section-state { padding: 24px; }
+}
