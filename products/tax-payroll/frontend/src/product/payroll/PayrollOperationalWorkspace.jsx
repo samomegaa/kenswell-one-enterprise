@@ -6,6 +6,8 @@ import StaffologyPayrollRunWorkspace from
 import EmployerPayrollContext from './EmployerPayrollContext';
 import PayrollActivityCentre from './PayrollActivityCentre';
 import PayrollAutomationCentre from './PayrollAutomationCentre';
+import PayrollAutomationSchedulingCentre from
+  './PayrollAutomationSchedulingCentre';
 import PayrollCommandCentre from './PayrollCommandCentre';
 import PayrollCompletionCard from './PayrollCompletionCard';
 import PayrollExecutionCard from './PayrollExecutionCard';
@@ -31,6 +33,9 @@ import { usePayrollGovernance } from './approval';
 import {
   PayrollAutomationProvider,
 } from './automation-centre';
+import {
+  PayrollAutomationSchedulingProvider,
+} from './automation-scheduling';
 import {
   PayrollCommandProvider,
   usePayrollCommand,
@@ -60,17 +65,34 @@ import './payroll-operations-centre.css';
 import './payroll-activity-centre.css';
 import './payroll-command-centre.css';
 import './payroll-automation-centre.css';
+import './payroll-automation-scheduling-centre.css';
+
+function SchedulingLayer() {
+  const commandApi = usePayrollCommand();
+
+  return (
+    <PayrollAutomationSchedulingProvider
+      commandApi={commandApi}
+    >
+      <PayrollAutomationSchedulingCentre />
+    </PayrollAutomationSchedulingProvider>
+  );
+}
 
 function AutomationLayer({ snapshot }) {
   const commandApi = usePayrollCommand();
 
   return (
-    <PayrollAutomationProvider
-      snapshot={snapshot}
-      commandApi={commandApi}
-    >
-      <PayrollAutomationCentre />
-    </PayrollAutomationProvider>
+    <>
+      <PayrollAutomationProvider
+        snapshot={snapshot}
+        commandApi={commandApi}
+      >
+        <PayrollAutomationCentre />
+      </PayrollAutomationProvider>
+
+      <SchedulingLayer />
+    </>
   );
 }
 
@@ -108,9 +130,7 @@ function OperationsLayer({ actionContext }) {
   );
 }
 
-export default function PayrollOperationalWorkspace({
-  context,
-}) {
+export default function PayrollOperationalWorkspace({ context }) {
   const summary = getPayrollWorkflowSummary();
   const sessionState = usePayrollSession();
   const periodState = usePayrollPeriod();
@@ -233,6 +253,8 @@ export default function PayrollOperationalWorkspace({
     </section>
   );
 }
+
+SchedulingLayer.propTypes = {};
 
 AutomationLayer.propTypes = {
   snapshot: PropTypes.object.isRequired,

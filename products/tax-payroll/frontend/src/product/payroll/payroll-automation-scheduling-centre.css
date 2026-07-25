@@ -1,0 +1,94 @@
+.payroll-automation-scheduling-centre {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #c4b5fd;
+  border-radius: 18px;
+  background: #f5f3ff;
+}
+
+.scheduling-centre-header,
+.schedule-grid article header,
+.event-workflow-card header,
+.runbook-library header,
+.execution-plan-history header,
+.event-workflow-card article,
+.execution-plan-history li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.scheduling-centre-header span,
+.schedule-grid span,
+.event-workflow-card span {
+  color: #6d28d9;
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.scheduling-centre-header h2 {
+  margin: 4px 0 0;
+}
+
+.schedule-grid,
+.runbook-library__grid,
+.payroll-automation-scheduling-centre__grid {
+  display: grid;
+  gap: 12px;
+}
+
+.schedule-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.runbook-library__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.payroll-automation-scheduling-centre__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.schedule-grid article,
+.event-workflow-card,
+.runbook-library,
+.execution-plan-history {
+  padding: 16px;
+  border: 1px solid #ddd6fe;
+  border-radius: 14px;
+  background: white;
+}
+
+.runbook-library__grid article {
+  padding: 14px;
+  border: 1px solid #ede9fe;
+  border-radius: 12px;
+}
+
+.event-workflow-card article,
+.execution-plan-history li {
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.event-workflow-card article > div {
+  display: grid;
+  gap: 4px;
+}
+
+.execution-plan-history ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 900px) {
+  .schedule-grid,
+  .runbook-library__grid,
+  .payroll-automation-scheduling-centre__grid {
+    grid-template-columns: 1fr;
+  }
+}
