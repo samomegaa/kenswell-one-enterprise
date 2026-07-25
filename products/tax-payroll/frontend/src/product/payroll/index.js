@@ -203,3 +203,34 @@ export {
 export {
   default as PayrollActivityCentre,
 } from './PayrollActivityCentre';
+export {
+  COMMAND_STATUS,
+  COMMAND_REGISTRY,
+  createCommand,
+  readCommandHistory,
+  writeCommandHistory,
+  evaluateCommandEligibility,
+} from './command';
+
+export {
+  executeOperationalAction,
+  retrySubmission,
+  restartPipeline,
+  rerunValidation,
+  refreshOperationalState,
+  archiveCompletedPayroll,
+} from './actions';
+
+export {
+  approveCommand,
+  rejectCommand,
+} from './command-approvals';
+
+export {
+  PayrollCommandProvider,
+  usePayrollCommand,
+} from './command-centre';
+
+export {
+  default as PayrollCommandCentre,
+} from './PayrollCommandCentre';

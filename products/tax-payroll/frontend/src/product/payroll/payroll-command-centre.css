@@ -1,0 +1,88 @@
+.payroll-command-centre {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #bfdbfe;
+  border-radius: 18px;
+  background: #eff6ff;
+}
+
+.command-centre-header,
+.pending-commands-card header,
+.command-history-card header,
+.pending-commands-card article,
+.command-history-card li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.command-centre-header span {
+  color: #1d4ed8;
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.command-centre-header h2 {
+  margin: 4px 0 0;
+}
+
+.safe-action-panel,
+.pending-commands-card,
+.command-history-card {
+  padding: 16px;
+  border: 1px solid #dbeafe;
+  border-radius: 14px;
+  background: white;
+}
+
+.safe-action-panel__grid,
+.payroll-command-centre__grid {
+  display: grid;
+  gap: 12px;
+}
+
+.safe-action-panel__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.payroll-command-centre__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.safe-action-panel article {
+  padding: 14px;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+}
+
+.pending-commands-card article,
+.command-history-card li {
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.pending-commands-card article > div:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.pending-commands-card__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.command-history-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 900px) {
+  .safe-action-panel__grid,
+  .payroll-command-centre__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -5,6 +5,7 @@ import StaffologyPayrollRunWorkspace from
 
 import EmployerPayrollContext from './EmployerPayrollContext';
 import PayrollActivityCentre from './PayrollActivityCentre';
+import PayrollCommandCentre from './PayrollCommandCentre';
 import PayrollCompletionCard from './PayrollCompletionCard';
 import PayrollExecutionCard from './PayrollExecutionCard';
 import PayrollGovernanceCard from './PayrollGovernanceCard';
@@ -26,6 +27,9 @@ import {
   PayrollActivityProvider,
 } from './activity-centre';
 import { usePayrollGovernance } from './approval';
+import {
+  PayrollCommandProvider,
+} from './command-centre';
 import { usePayrollCompletion } from './completion';
 import { usePayrollOrchestrator } from './orchestrator';
 import {
@@ -49,8 +53,9 @@ import './payroll-submission-card.css';
 import './payroll-completion-card.css';
 import './payroll-operations-centre.css';
 import './payroll-activity-centre.css';
+import './payroll-command-centre.css';
 
-function OperationsLayer() {
+function OperationsLayer({ actionContext }) {
   const operations = usePayrollOperations();
 
   return (
@@ -63,6 +68,13 @@ function OperationsLayer() {
       >
         <PayrollActivityCentre />
       </PayrollActivityProvider>
+
+      <PayrollCommandProvider
+        snapshot={operations.snapshot}
+        actionContext={actionContext}
+      >
+        <PayrollCommandCentre />
+      </PayrollCommandProvider>
     </>
   );
 }
@@ -82,6 +94,15 @@ export default function PayrollOperationalWorkspace({
   const operational =
     sessionState.active && periodState.active;
 
+  const actionContext = {
+    pipeline: pipelineState,
+    submission,
+    completion,
+    refresh: () => window.dispatchEvent(
+      new CustomEvent('kenswell:payroll-refresh')
+    ),
+  };
+
   return (
     <section className="payroll-operational-workspace">
       <PayrollWorkspaceHeader summary={summary} />
@@ -95,7 +116,7 @@ export default function PayrollOperationalWorkspace({
         submission={submission.submission}
         completion={completion}
       >
-        <OperationsLayer />
+        <OperationsLayer actionContext={actionContext} />
       </PayrollOperationsProvider>
 
       <PayrollRuntimeCard
@@ -183,6 +204,10 @@ export default function PayrollOperationalWorkspace({
     </section>
   );
 }
+
+OperationsLayer.propTypes = {
+  actionContext: PropTypes.object.isRequired,
+};
 
 PayrollOperationalWorkspace.propTypes = {
   context: PropTypes.object.isRequired,
