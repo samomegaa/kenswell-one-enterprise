@@ -12,6 +12,8 @@ import PayrollAutomationOrchestratorCentre from
   './PayrollAutomationOrchestratorCentre';
 import PayrollCommandCentre from './PayrollCommandCentre';
 import PayrollCompletionCard from './PayrollCompletionCard';
+import PayrollDecisionIntelligenceCentre from
+  './PayrollDecisionIntelligenceCentre';
 import PayrollExecutionCard from './PayrollExecutionCard';
 import PayrollGovernanceCard from './PayrollGovernanceCard';
 import PayrollOperationsCentre from './PayrollOperationsCentre';
@@ -33,6 +35,7 @@ import { usePayrollGovernance } from './approval';
 import { PayrollAutomationProvider } from './automation-centre';
 import {
   PayrollAutomationOrchestratorProvider,
+  usePayrollAutomationOrchestrator,
 } from './automation-orchestrator';
 import {
   PayrollAutomationSchedulingProvider,
@@ -43,6 +46,9 @@ import {
   usePayrollCommand,
 } from './command-centre';
 import { usePayrollCompletion } from './completion';
+import {
+  PayrollDecisionIntelligenceProvider,
+} from './decision-intelligence';
 import { usePayrollOrchestrator } from './orchestrator';
 import {
   PayrollOperationsProvider,
@@ -69,8 +75,27 @@ import './payroll-command-centre.css';
 import './payroll-automation-centre.css';
 import './payroll-automation-scheduling-centre.css';
 import './payroll-automation-orchestrator-centre.css';
+import './payroll-decision-intelligence-centre.css';
 
-function OrchestratorLayer() {
+function DecisionLayer({ operations }) {
+  const orchestration = usePayrollAutomationOrchestrator();
+  const commandApi = usePayrollCommand();
+
+  return (
+    <PayrollDecisionIntelligenceProvider
+      operations={operations}
+      orchestration={{
+        failed: orchestration.metrics.failed,
+        retryCount: 0,
+      }}
+      commandApi={commandApi}
+    >
+      <PayrollDecisionIntelligenceCentre />
+    </PayrollDecisionIntelligenceProvider>
+  );
+}
+
+function OrchestratorLayer({ operations }) {
   const schedulingApi = usePayrollAutomationScheduling();
   const commandApi = usePayrollCommand();
 
@@ -80,39 +105,49 @@ function OrchestratorLayer() {
       commandApi={commandApi}
     >
       <PayrollAutomationOrchestratorCentre />
+      <DecisionLayer operations={operations} />
     </PayrollAutomationOrchestratorProvider>
   );
 }
 
-function SchedulingLayer() {
+function SchedulingLayer({ operations }) {
   const commandApi = usePayrollCommand();
 
   return (
     <PayrollAutomationSchedulingProvider commandApi={commandApi}>
       <PayrollAutomationSchedulingCentre />
-      <OrchestratorLayer />
+      <OrchestratorLayer operations={operations} />
     </PayrollAutomationSchedulingProvider>
   );
 }
 
-function AutomationLayer({ snapshot }) {
+function AutomationLayer({ snapshot, operations }) {
   const commandApi = usePayrollCommand();
 
   return (
     <>
-      <PayrollAutomationProvider snapshot={snapshot} commandApi={commandApi}>
+      <PayrollAutomationProvider
+        snapshot={snapshot}
+        commandApi={commandApi}
+      >
         <PayrollAutomationCentre />
       </PayrollAutomationProvider>
-      <SchedulingLayer />
+      <SchedulingLayer operations={operations} />
     </>
   );
 }
 
-function CommandLayer({ snapshot, actionContext }) {
+function CommandLayer({ snapshot, actionContext, operations }) {
   return (
-    <PayrollCommandProvider snapshot={snapshot} actionContext={actionContext}>
+    <PayrollCommandProvider
+      snapshot={snapshot}
+      actionContext={actionContext}
+    >
       <PayrollCommandCentre />
-      <AutomationLayer snapshot={snapshot} />
+      <AutomationLayer
+        snapshot={snapshot}
+        operations={operations}
+      />
     </PayrollCommandProvider>
   );
 }
@@ -120,18 +155,32 @@ function CommandLayer({ snapshot, actionContext }) {
 function OperationsLayer({ actionContext }) {
   const operations = usePayrollOperations();
 
+  const decisionOperations = {
+    submissionRejected:
+      operations.snapshot?.submission?.status === 'rejected',
+    slaBreached:
+      operations.exceptions?.some(
+        (item) => item.type === 'sla-breach'
+      ) || false,
+    completionReady:
+      operations.snapshot?.completion?.status === 'completed',
+  };
+
   return (
     <>
       <PayrollOperationsCentre />
+
       <PayrollActivityProvider
         snapshot={operations.snapshot}
         exceptions={operations.exceptions}
       >
         <PayrollActivityCentre />
       </PayrollActivityProvider>
+
       <CommandLayer
         snapshot={operations.snapshot}
         actionContext={actionContext}
+        operations={decisionOperations}
       />
     </>
   );
@@ -147,7 +196,9 @@ export default function PayrollOperationalWorkspace({ context }) {
   const submission = usePayrollSubmission();
   const completion = usePayrollCompletion();
 
-  const operational = sessionState.active && periodState.active;
+  const operational =
+    sessionState.active && periodState.active;
+
   const actionContext = {
     pipeline: pipelineState,
     submission,
@@ -178,11 +229,13 @@ export default function PayrollOperationalWorkspace({ context }) {
         active={sessionState.active}
         onDeactivate={sessionState.deactivate}
       />
+
       <PayrollPeriodCard
         period={periodState.period}
         active={periodState.active}
         onClose={periodState.close}
       />
+
       <PayrollExecutionCard
         execution={orchestrator.execution}
         nextState={orchestrator.nextState}
@@ -191,6 +244,7 @@ export default function PayrollOperationalWorkspace({ context }) {
         onResume={orchestrator.resume}
         onCancel={orchestrator.cancel}
       />
+
       <PayrollPipelineCard
         pipeline={pipelineState.pipeline}
         metrics={pipelineState.metrics}
@@ -199,6 +253,7 @@ export default function PayrollOperationalWorkspace({ context }) {
         onResume={pipelineState.resume}
         onCancel={pipelineState.cancel}
       />
+
       <PayrollGovernanceCard
         summary={governance.summary}
         compliance={governance.compliance}
@@ -206,6 +261,7 @@ export default function PayrollOperationalWorkspace({ context }) {
         onApprove={governance.approve}
         onReject={governance.reject}
       />
+
       <PayrollSubmissionCard
         fpsRequest={submission.fpsRequest}
         readiness={submission.readiness}
@@ -217,6 +273,7 @@ export default function PayrollOperationalWorkspace({ context }) {
         onRetry={submission.retry}
         onCancel={submission.cancel}
       />
+
       <PayrollCompletionCard
         response={completion.response}
         reconciliation={completion.reconciliation}
@@ -228,15 +285,22 @@ export default function PayrollOperationalWorkspace({ context }) {
         onComplete={completion.complete}
         onArchive={completion.archive}
       />
+
       <PayrollWorkflowRail
         stages={PAYROLL_WORKFLOW_STAGES}
-        activeId={orchestrator.execution?.state || periodState.stage}
+        activeId={
+          orchestrator.execution?.state ||
+          periodState.stage
+        }
       />
 
       <div className="payroll-operational-workspace__content">
-        {operational && sessionState.session?.runtimeWorkspace ? (
+        {operational &&
+        sessionState.session?.runtimeWorkspace ? (
           <StaffologyPayrollRunWorkspace
-            runtimeWorkspace={sessionState.session.runtimeWorkspace}
+            runtimeWorkspace={
+              sessionState.session.runtimeWorkspace
+            }
           />
         ) : (
           <PayrollRuntimeRequired />
@@ -246,14 +310,33 @@ export default function PayrollOperationalWorkspace({ context }) {
   );
 }
 
-AutomationLayer.propTypes = { snapshot: PropTypes.object.isRequired };
+DecisionLayer.propTypes = {
+  operations: PropTypes.object.isRequired,
+};
+
+OrchestratorLayer.propTypes = {
+  operations: PropTypes.object.isRequired,
+};
+
+SchedulingLayer.propTypes = {
+  operations: PropTypes.object.isRequired,
+};
+
+AutomationLayer.propTypes = {
+  snapshot: PropTypes.object.isRequired,
+  operations: PropTypes.object.isRequired,
+};
+
 CommandLayer.propTypes = {
   snapshot: PropTypes.object.isRequired,
   actionContext: PropTypes.object.isRequired,
+  operations: PropTypes.object.isRequired,
 };
+
 OperationsLayer.propTypes = {
   actionContext: PropTypes.object.isRequired,
 };
+
 PayrollOperationalWorkspace.propTypes = {
   context: PropTypes.object.isRequired,
 };

@@ -1,0 +1,84 @@
+.payroll-decision-intelligence-centre {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #86efac;
+  border-radius: 18px;
+  background: #f0fdf4;
+}
+
+.decision-centre-header,
+.decision-evidence-panel header,
+.policy-evaluation-panel header,
+.decision-history-panel header,
+.policy-evaluation-panel article,
+.decision-history-panel li,
+.decision-action-panel {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.decision-centre-header span,
+.policy-evaluation-panel span {
+  color: #15803d;
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.decision-centre-header h2 {
+  margin: 4px 0 0;
+}
+
+.decision-metrics,
+.payroll-decision-intelligence-centre__grid {
+  display: grid;
+  gap: 12px;
+}
+
+.decision-metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.payroll-decision-intelligence-centre__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.decision-metrics article,
+.decision-evidence-panel,
+.policy-evaluation-panel,
+.decision-history-panel {
+  padding: 16px;
+  border: 1px solid #bbf7d0;
+  border-radius: 14px;
+  background: white;
+}
+
+.decision-metrics article {
+  display: grid;
+  gap: 8px;
+}
+
+.policy-evaluation-panel article,
+.decision-history-panel li {
+  padding: 10px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.decision-history-panel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.decision-action-panel {
+  justify-content: flex-start;
+}
+
+@media (max-width: 900px) {
+  .decision-metrics,
+  .payroll-decision-intelligence-centre__grid {
+    grid-template-columns: 1fr;
+  }
+}

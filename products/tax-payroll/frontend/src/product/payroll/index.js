@@ -318,3 +318,28 @@ export {
 export {
   default as PayrollAutomationOrchestratorCentre,
 } from './PayrollAutomationOrchestratorCentre';
+export {
+  POLICY_OUTCOME,
+  POLICY_SEVERITY,
+  ADAPTIVE_POLICIES,
+  resolvePolicies,
+  evaluatePolicies,
+  runAdaptivePolicyRuntime,
+} from './adaptive-policy';
+
+export {
+  DECISION_STRATEGY,
+  DECISION_STATUS,
+  calculateRisk,
+  calculateConfidence,
+  assessDecisionReadiness,
+  selectStrategy,
+  buildDecisionEvidence,
+  createEnterpriseDecision,
+  PayrollDecisionIntelligenceProvider,
+  usePayrollDecisionIntelligence,
+} from './decision-intelligence';
+
+export {
+  default as PayrollDecisionIntelligenceCentre,
+} from './PayrollDecisionIntelligenceCentre';
