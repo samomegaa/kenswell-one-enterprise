@@ -343,3 +343,57 @@ export {
 export {
   default as PayrollDecisionIntelligenceCentre,
 } from './PayrollDecisionIntelligenceCentre';
+export {
+  forecastWorkload,
+  forecastSla,
+  forecastCapacity,
+  forecastPayrollTimeline,
+  forecastOperationalRisk,
+  calculateForecastConfidence,
+  createForecastRecommendations,
+  createPredictiveForecast,
+  PayrollPredictiveIntelligenceProvider,
+  usePayrollPredictiveIntelligence,
+} from './predictive-intelligence';
+
+export {
+  default as PayrollPredictiveIntelligenceCentre,
+} from './PayrollPredictiveIntelligenceCentre';
+export {
+  OPTIMISATION_STATUS,
+  OPTIMISATION_ACTION,
+  calculateEfficiencyScore,
+  balanceWorkload,
+  optimiseQueueOrder,
+  buildOptimisationRecommendations,
+  createOptimisationAssessment,
+  OperationalOptimisationProvider,
+  useOperationalOptimisation,
+} from './operational-optimisation';
+
+export {
+  RECOVERY_STATUS,
+  RECOVERY_STRATEGY,
+  RECOVERY_PLAYBOOKS,
+  orderDependencyRecovery,
+  createRollbackPlan,
+  createRecoveryPlan,
+  evaluateSelfHealing,
+  SelfHealingProvider,
+  useSelfHealing,
+} from './self-healing';
+
+export {
+  normaliseHealthMetric,
+  createHealthMetrics,
+  calculateEnterpriseHealth,
+  presentEnterpriseHealth,
+} from './enterprise-health';
+
+export {
+  default as EnterpriseIntelligenceWorkspace,
+} from './EnterpriseIntelligenceWorkspace';
+
+export {
+  default as PayrollOperationalOptimisationCentre,
+} from './PayrollOperationalOptimisationCentre';

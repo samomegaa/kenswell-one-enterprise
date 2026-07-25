@@ -12,8 +12,10 @@ import PayrollAutomationOrchestratorCentre from
   './PayrollAutomationOrchestratorCentre';
 import PayrollCommandCentre from './PayrollCommandCentre';
 import PayrollCompletionCard from './PayrollCompletionCard';
-import PayrollDecisionIntelligenceCentre from
-  './PayrollDecisionIntelligenceCentre';
+import EnterpriseIntelligenceWorkspace from
+  './EnterpriseIntelligenceWorkspace';
+import PayrollPredictiveIntelligenceCentre from
+  './PayrollPredictiveIntelligenceCentre';
 import PayrollExecutionCard from './PayrollExecutionCard';
 import PayrollGovernanceCard from './PayrollGovernanceCard';
 import PayrollOperationsCentre from './PayrollOperationsCentre';
@@ -49,6 +51,9 @@ import { usePayrollCompletion } from './completion';
 import {
   PayrollDecisionIntelligenceProvider,
 } from './decision-intelligence';
+import {
+  PayrollPredictiveIntelligenceProvider,
+} from './predictive-intelligence';
 import { usePayrollOrchestrator } from './orchestrator';
 import {
   PayrollOperationsProvider,
@@ -76,6 +81,9 @@ import './payroll-automation-centre.css';
 import './payroll-automation-scheduling-centre.css';
 import './payroll-automation-orchestrator-centre.css';
 import './payroll-decision-intelligence-centre.css';
+import './payroll-predictive-intelligence-centre.css';
+import './enterprise-intelligence-workspace.css';
+import './payroll-operational-optimisation-centre.css';
 
 function DecisionLayer({ operations }) {
   const orchestration = usePayrollAutomationOrchestrator();
@@ -90,7 +98,39 @@ function DecisionLayer({ operations }) {
       }}
       commandApi={commandApi}
     >
-      <PayrollDecisionIntelligenceCentre />
+      <PayrollPredictiveIntelligenceProvider
+        operations={operations}
+        orchestration={orchestration}
+      >
+        <EnterpriseIntelligenceWorkspace
+          optimisationSnapshot={{
+            throughput: operations.metrics?.throughput || 10,
+            queueDepth: operations.snapshot?.queueDepth || 0,
+            retryCount: orchestration.metrics?.retries || 0,
+            approvalLatency:
+              operations.snapshot?.approvalLatency || 0,
+            queues: operations.snapshot?.queues || [],
+          }}
+          selfHealingSnapshot={{
+            stalled: Boolean(operations.snapshot?.stalled),
+            retryCount: orchestration.metrics?.retries || 0,
+            dependencyFailure: Boolean(
+              operations.snapshot?.dependencyFailure
+            ),
+            queueStarved: Boolean(
+              operations.snapshot?.queueStarved
+            ),
+            dependencies:
+              operations.snapshot?.dependencies || [],
+            checkpoint:
+              operations.snapshot?.checkpoint || null,
+            affectedResources:
+              operations.snapshot?.affectedResources || [],
+          }}
+          forecast={predictive.latest}
+          commandApi={commandApi}
+        />
+      </PayrollPredictiveIntelligenceProvider>
     </PayrollDecisionIntelligenceProvider>
   );
 }

@@ -1,0 +1,73 @@
+.payroll-operational-optimisation-centre {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #c4b5fd;
+  border-radius: 18px;
+  background: #f5f3ff;
+}
+
+.payroll-operational-optimisation-centre > header,
+.optimisation-panel header,
+.self-healing-panel header,
+.self-healing-panel div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.payroll-operational-optimisation-centre > header span,
+.enterprise-health-card > span {
+  color: #6d28d9;
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.payroll-operational-optimisation-centre h2 {
+  margin: 4px 0 0;
+}
+
+.enterprise-health-card,
+.optimisation-panel,
+.self-healing-panel,
+.optimisation-metrics article {
+  padding: 16px;
+  border: 1px solid #ddd6fe;
+  border-radius: 14px;
+  background: white;
+}
+
+.enterprise-health-card > strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 2rem;
+}
+
+.optimisation-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.optimisation-metrics article {
+  display: grid;
+  gap: 8px;
+}
+
+.optimisation-panel article {
+  display: grid;
+  gap: 4px;
+  padding: 10px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.self-healing-panel div {
+  justify-content: flex-start;
+}
+
+@media (max-width: 900px) {
+  .optimisation-metrics {
+    grid-template-columns: 1fr;
+  }
+}
