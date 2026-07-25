@@ -1,0 +1,77 @@
+.payroll-automation-orchestrator-centre {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #93c5fd;
+  border-radius: 18px;
+  background: #eff6ff;
+}
+
+.orchestrator-header,
+.orchestrator-runbooks header,
+.execution-queue-panel header,
+.execution-queue-panel article {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.orchestrator-header span,
+.orchestrator-runbooks span,
+.execution-queue-panel span {
+  color: #1d4ed8;
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.orchestrator-header h2 {
+  margin: 4px 0 0;
+}
+
+.orchestrator-metrics,
+.orchestrator-runbooks > div {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.orchestrator-metrics article,
+.orchestrator-runbooks,
+.execution-queue-panel {
+  padding: 16px;
+  border: 1px solid #bfdbfe;
+  border-radius: 14px;
+  background: white;
+}
+
+.orchestrator-metrics article {
+  display: grid;
+  gap: 8px;
+}
+
+.orchestrator-runbooks article {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+}
+
+.execution-queue-panel article {
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.execution-queue-panel article > div {
+  display: grid;
+  gap: 4px;
+}
+
+@media (max-width: 900px) {
+  .orchestrator-metrics,
+  .orchestrator-runbooks > div {
+    grid-template-columns: 1fr;
+  }
+}

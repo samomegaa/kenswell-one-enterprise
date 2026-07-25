@@ -295,3 +295,26 @@ export {
 export {
   default as PayrollAutomationSchedulingCentre,
 } from './PayrollAutomationSchedulingCentre';
+export {
+  ORCHESTRATION_STATUS,
+  ORCHESTRATION_PRIORITY,
+  createOrchestrationGraph,
+  resolveReadyNodes,
+  createExecutionQueue,
+  createCheckpoint,
+  evaluateWaitState,
+  createRecoveryPlan,
+  createRetryPlan,
+  PayrollAutomationOrchestratorProvider,
+  usePayrollAutomationOrchestrator,
+} from './automation-orchestrator';
+
+export {
+  createExecutionPlanFromRunbook,
+  decideNextAction,
+  calculateExecutionMetrics,
+} from './intelligent-execution';
+
+export {
+  default as PayrollAutomationOrchestratorCentre,
+} from './PayrollAutomationOrchestratorCentre';
