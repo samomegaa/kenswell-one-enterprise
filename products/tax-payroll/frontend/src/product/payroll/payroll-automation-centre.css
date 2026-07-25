@@ -1,0 +1,100 @@
+.payroll-automation-centre {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #fde68a;
+  border-radius: 18px;
+  background: #fffbeb;
+}
+
+.automation-centre-header,
+.automation-rule-card header,
+.automation-history-card header,
+.sla-health-card header,
+.automation-history-card li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.automation-centre-header span,
+.automation-rule-card span,
+.automation-metric-grid span {
+  color: #b45309;
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.automation-centre-header h2,
+.automation-rule-card h3 {
+  margin: 4px 0 0;
+}
+
+.automation-metric-grid,
+.automation-rule-grid,
+.payroll-automation-centre__footer {
+  display: grid;
+  gap: 12px;
+}
+
+.automation-metric-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.automation-rule-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.payroll-automation-centre__footer {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.automation-metric-grid article,
+.automation-rule-card,
+.automation-history-card,
+.sla-health-card {
+  padding: 16px;
+  border: 1px solid #fde68a;
+  border-radius: 14px;
+  background: white;
+}
+
+.automation-metric-grid strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.5rem;
+}
+
+.automation-rule-card ol {
+  padding-left: 20px;
+}
+
+.automation-history-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.automation-history-card li {
+  padding: 10px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.sla-health-card dl {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.sla-health-card dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .automation-metric-grid,
+  .automation-rule-grid,
+  .payroll-automation-centre__footer {
+    grid-template-columns: 1fr;
+  }
+}

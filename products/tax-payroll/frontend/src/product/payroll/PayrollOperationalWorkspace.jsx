@@ -5,6 +5,7 @@ import StaffologyPayrollRunWorkspace from
 
 import EmployerPayrollContext from './EmployerPayrollContext';
 import PayrollActivityCentre from './PayrollActivityCentre';
+import PayrollAutomationCentre from './PayrollAutomationCentre';
 import PayrollCommandCentre from './PayrollCommandCentre';
 import PayrollCompletionCard from './PayrollCompletionCard';
 import PayrollExecutionCard from './PayrollExecutionCard';
@@ -28,7 +29,11 @@ import {
 } from './activity-centre';
 import { usePayrollGovernance } from './approval';
 import {
+  PayrollAutomationProvider,
+} from './automation-centre';
+import {
   PayrollCommandProvider,
+  usePayrollCommand,
 } from './command-centre';
 import { usePayrollCompletion } from './completion';
 import { usePayrollOrchestrator } from './orchestrator';
@@ -54,6 +59,32 @@ import './payroll-completion-card.css';
 import './payroll-operations-centre.css';
 import './payroll-activity-centre.css';
 import './payroll-command-centre.css';
+import './payroll-automation-centre.css';
+
+function AutomationLayer({ snapshot }) {
+  const commandApi = usePayrollCommand();
+
+  return (
+    <PayrollAutomationProvider
+      snapshot={snapshot}
+      commandApi={commandApi}
+    >
+      <PayrollAutomationCentre />
+    </PayrollAutomationProvider>
+  );
+}
+
+function CommandLayer({ snapshot, actionContext }) {
+  return (
+    <PayrollCommandProvider
+      snapshot={snapshot}
+      actionContext={actionContext}
+    >
+      <PayrollCommandCentre />
+      <AutomationLayer snapshot={snapshot} />
+    </PayrollCommandProvider>
+  );
+}
 
 function OperationsLayer({ actionContext }) {
   const operations = usePayrollOperations();
@@ -69,12 +100,10 @@ function OperationsLayer({ actionContext }) {
         <PayrollActivityCentre />
       </PayrollActivityProvider>
 
-      <PayrollCommandProvider
+      <CommandLayer
         snapshot={operations.snapshot}
         actionContext={actionContext}
-      >
-        <PayrollCommandCentre />
-      </PayrollCommandProvider>
+      />
     </>
   );
 }
@@ -204,6 +233,15 @@ export default function PayrollOperationalWorkspace({
     </section>
   );
 }
+
+AutomationLayer.propTypes = {
+  snapshot: PropTypes.object.isRequired,
+};
+
+CommandLayer.propTypes = {
+  snapshot: PropTypes.object.isRequired,
+  actionContext: PropTypes.object.isRequired,
+};
 
 OperationsLayer.propTypes = {
   actionContext: PropTypes.object.isRequired,

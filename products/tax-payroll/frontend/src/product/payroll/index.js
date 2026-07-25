@@ -234,3 +234,36 @@ export {
 export {
   default as PayrollCommandCentre,
 } from './PayrollCommandCentre';
+export {
+  AUTOMATION_STATUS,
+  createAutomationRun,
+  readAutomationHistory,
+  writeAutomationHistory,
+  calculateAutomationMetrics,
+} from './automation';
+
+export {
+  AUTOMATION_RULE_STATUS,
+  AUTOMATION_TRIGGER,
+  AUTOMATION_RULES,
+  evaluateAutomationRules,
+} from './rules';
+
+export {
+  RECOVERY_PLAYBOOKS,
+  resolvePlaybook,
+} from './playbooks';
+
+export {
+  DEFAULT_SLA_POLICY,
+  evaluateSla,
+} from './sla';
+
+export {
+  PayrollAutomationProvider,
+  usePayrollAutomation,
+} from './automation-centre';
+
+export {
+  default as PayrollAutomationCentre,
+} from './PayrollAutomationCentre';
