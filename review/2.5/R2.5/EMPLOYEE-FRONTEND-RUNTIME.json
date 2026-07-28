@@ -1,0 +1,65 @@
+{
+  "status": "EMPLOYEE_FRONTEND_RUNTIME_CONTRACT_CERTIFIED",
+  "transport": "mocked_browser_fetch",
+  "operations": {
+    "listEmployees": {
+      "status": "success",
+      "count": 0,
+      "empty": true,
+      "employees": []
+    },
+    "queryEmployees": {
+      "count": 0,
+      "empty": true,
+      "employees": [],
+      "pagination": {
+        "page": 1,
+        "pageSize": 25,
+        "totalPages": 0
+      }
+    },
+    "getEmployeeContext": {
+      "availability": "unavailable",
+      "reason": "empty_employee_collection"
+    },
+    "getEmployee": {
+      "status": "not_found",
+      "employeeRef": "employee/001",
+      "found": false,
+      "employee": null
+    }
+  },
+  "requests": [
+    {
+      "key": "/api/enterprise/employees",
+      "method": "GET",
+      "accept": "application/json"
+    },
+    {
+      "key": "/api/enterprise/employees/query?page=1&pageSize=25",
+      "method": "GET",
+      "accept": "application/json"
+    },
+    {
+      "key": "/api/enterprise/employees/context",
+      "method": "GET",
+      "accept": "application/json"
+    },
+    {
+      "key": "/api/enterprise/employees/employee%2F001",
+      "method": "GET",
+      "accept": "application/json"
+    }
+  ],
+  "invariants": {
+    "r2_4EnvelopeConsumed": true,
+    "emptyStatePreserved": true,
+    "unavailableContextPreserved": true,
+    "employeeReferenceEncoded": true,
+    "requestValidation": true,
+    "getOnlyTransport": true,
+    "browserDirectStaffologyAccess": false,
+    "liveProviderCallsPerformed": 0,
+    "providerWritesPerformed": 0
+  }
+}
