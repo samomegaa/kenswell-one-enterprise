@@ -1,0 +1,30 @@
+{
+  "status": "EMPLOYEE_EDITING_COMMAND_PIPELINE_FOUNDATION_CERTIFIED",
+  "commandTypes": [
+    "UpdateIdentity",
+    "UpdateEmployment",
+    "UpdatePayroll",
+    "UpdateTax",
+    "UpdatePension",
+    "UpdateLeave"
+  ],
+  "validation": {
+    "validCommandAccepted": true,
+    "immutableIdentifierRejected": true
+  },
+  "pipeline": {
+    "commandBusComposed": true,
+    "applicationBoundaryReached": true,
+    "persistenceExecution": false,
+    "providerExecution": false
+  },
+  "frontend": {
+    "immutableOriginalSnapshot": true,
+    "draftState": true,
+    "dirtyFieldTracking": true,
+    "pendingCommands": true,
+    "browserWriteTransport": false
+  },
+  "providerCallsPerformed": 0,
+  "providerWritesPerformed": 0
+}
